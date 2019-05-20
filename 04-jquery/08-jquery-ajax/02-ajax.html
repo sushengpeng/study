@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <form id="form" >
+            <input type="text" name="uname" value="zs">
+            <input type="text" name="pwd" value="123456">
+            <input type="text"  value="basketball">
+            <input type="file"  id="file" name="file" />
+            <input type="button" id="btn">
+        </form>
+        <script src="js/jquery.js"></script>
+        <script>
+            //ajax上传文件
+            $("#btn").click(function(){
+                var fm = new FormData($("#form")[0]);
+                // console.log(fm)
+                $.ajax({
+                    url:"1.php",
+                    type:"POST",
+                    // data:{uname:"zs",pwd:"123456"},
+                    // data:$("#form").serialize(),
+                    data:fm,
+                    contentType:false,    //(默认: "application/x-www-form-urlencoded") 发送信息至服务器时内容编码类型。默认值适合大多数情况,如果要上传文件，必须设置为false
+                    processData:false,    //是否对传递的数据进行application/x-www-form-urlencoded编码，如果上传文件，必须设置成false
+                    success:function(data){
+                        console.log(data)
+                    }
+                })
+            })
+            //同源策略   相同的协议，相同的域名，相同的端口
+            // ajax函数 跨域
+            // function fn(data){
+            //     console.log(data);
+            // }
+            // $("#btn").click(function(){
+            //     //跨域只能用get请求，不能用post请求
+            //     $.ajax({
+            //         url:"http://www.b.com/data.php",
+            //         dataType:"jsonp",
+            //         jsonp:"callback1",     //http://www.b.com/data.php?callback=?  jsonp配置callback部分
+            //         // jsonpCallback:"fn",     //http://www.b.com/data.php?callback=?   jsonpCallback配置?部分
+            //         success:function(data){     //在jsonp中相当于得到数据后执行的函数
+            //             console.log(data)
+            //         }
+            //     })
+            // })
+        </script>
+</body>
+</html>

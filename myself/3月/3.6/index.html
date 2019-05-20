@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="ew">扫描登录</p>
+    <img src="download.png" alt="">
+    <script src="public.js"></script>
+    <script>
+        window.onload = function () {
+            setInterval(function () {
+                ajax({
+                    url: "check.php",
+                    param: "id=" + 1,
+                    success: function (data) {
+                        if (data == "登录成功") {
+                            setTimeout(function () {
+                                alert("三秒后跳转到主页面")
+                                location.href ="http://flygg123.gz01.bdysite.com/index.html";
+                                return false;
+                            }, 3000);
+                        }
+                    }
+                })
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>box</div>
+    <div id="box"><p>这是段落</p></div>
+    <script>
+        // document.write("<span>sss</span>");
+
+        //绝对不要在页面加载完毕后使用document.write(),会覆盖之前的元素
+
+        // window.onload = function(){
+        //     document.write("<span>sss</span>");
+        // }
+
+        //获取元素的内容
+        var box = document.getElementById("box");
+        console.log(box.innerHTML);   //常用的方式
+
+        console.log(box.innerText);
+
+        //设置
+        // box.innerHTML = "新的内容";
+        box.innerText="新的内容";
+
+        box.innerHTML="<span>新的内容</span>";
+        // box.innerText="<span>新的内容</span>"
+
+
+        
+    </script>
+</body>
+</html>

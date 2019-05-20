@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    在控制台改变app中data的值
+    app.data属性名 = 新的值
+
+    v-show可以将元素在css级别上隐藏
+
+    只要show后面跟着的值是true 她就是显示效果
+    false就是隐藏效果
+
+   -->
+  <div id="app">
+    <button>点击</button>
+    <div v-show="show">
+      内容
+    </div>
+
+    <div v-show="'0'">2</div>
+    <div v-show="0">2</div>
+
+    
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        show: true
+      }
+    })
+    
+  </script>
+</body>
+</html>

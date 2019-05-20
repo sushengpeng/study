@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+    </ul>
+    <button>点击</button>
+    <script>
+        var list=document.getElementsByTagName("ul")[0]
+        var lis = document.getElementsByTagName("li")[0];
+        var cloneli = lis.cloneNode(true);
+        var btn = document.getElementsByTagName("button")[0];
+        btn.onclick = function () {
+            for (var i = 0; i < 7; i++) {
+                var li="li"+i;
+                li=document.createElement("li");
+                li=cloneli;
+                list.appendChild(cloneli);
+            }
+        }
+    </script>
+</body>
+
+</html>

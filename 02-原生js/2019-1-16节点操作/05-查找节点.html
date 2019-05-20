@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">
+        文本1
+    </div>
+
+    <div class="box2">
+        文本2
+    </div>
+    <div class="outer">
+        <div class="box box1">
+            <ul id="list">
+                <!-- 这里是列表 -->
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        //firstChild   lastChild  获取的是第一个和最后一个节点
+        var list = document.getElementById("list");
+        console.log(list.firstChild);    //空白字符组成的文本节点
+
+        console.log(list.lastChild);     //空白字符组成的文本节点
+
+
+        //在父元素中查找第一个子元素
+        function getFirstElement(parent){
+            //在parent中查找节点，直到找到元素节点为止
+            var children = parent.childNodes;
+            for(var i=0;i<children.length;i++){
+                if(children[i].nodeType=="1"){
+                    return children[i];
+                }
+            }
+            return null;
+        }
+
+        console.log(getFirstElement(list))
+
+        //在父元素中查找最后一个子元素
+        function getLastElement(parent){
+            //在parent中查找节点，直到找到元素节点为止
+            var children = parent.childNodes;
+            for(var i=children.length-1;i>=0;i--){
+                if(children[i].nodeType=="1"){
+                    return children[i];
+                }
+            }
+            return null;
+        }
+        console.log(getLastElement(list))
+
+
+        //childNodes  获取的是子节点的集合
+        console.log(list.childNodes);
+        // var box2 = document.getElementsByClassName("box2")[0];
+        // console.log(box2.childNodes);
+
+        // 常用的属性
+        //children  获取元素的集合
+        //有兼容，在ie7,8下会把注释节点计算进去
+        var result = list.children;
+        console.log(result)
+        console.log(list.children.length)
+
+        console.log(list.children[0])
+        console.log(list.children[list.children.length-1])
+
+        //兼容ie7,8
+        function getChildElements(par){
+            var collection = par.children,temp = [];
+            for(var i=0,len = collection.length;i<len;i++){
+                if(collection[i].nodeType == 1){
+                    temp.push(collection[i])
+                }
+            }
+            return temp;      
+        }
+
+
+        // hasChildNodes()   返回值true  false
+        var box1 = document.getElementsByClassName("box1")[0];
+        console.log(box1.hasChildNodes())    //true
+        console.log(box1.childNodes[0].hasChildNodes());   //false
+
+
+        //nextSibling previousSibling
+        var li1 = list.children[0];
+        var li2 = list.children[1];
+        var li3 = list.children[2];
+        var li4 = list.children[3];
+        console.log(li2);
+
+        console.log(li2.previousSibling);
+        console.log(li2.nextSibling);
+
+        function getPreviousElement(sibling){
+
+            // sibling.previousSibling     判读是不是元素节点   true  return  false  继续找
+            // sibling.previousSibling.previousSibling     判读是不是元素节点   true  return  false  继续找
+
+            while(sibling.previousSibling){
+                if(sibling.previousSibling.nodeType == 1){
+                    return sibling.previousSibling;
+                }
+                sibling = sibling.previousSibling;
+            }
+            return null;
+        }
+        console.log(getPreviousElement(li2));
+        console.log(getPreviousElement(li1));
+
+        function getNextElement(sibling){
+            while(sibling.nextSibling){
+                if(sibling.nextSibling.nodeType == 1){
+                    return sibling.nextSibling;
+                }
+                sibling = sibling.nextSibling;
+            }
+            return null;
+        }
+        console.log(getNextElement(li3))
+        console.log(getNextElement(li4))
+
+        //parentNode  找父节点
+        console.log(li1.parentNode)
+
+
+        //通过ele找祖先，直到找到类名为cName的元素为止
+        function getClosestParent(ele,cName){
+            // ele.parentNode   .className.indexOf(cName)>-1   return       ==-1    继续找
+            while(ele.parentNode){
+                if(ele.parentNode.className.indexOf(cName)>-1){
+                    return ele.parentNode;
+                }
+                ele = ele.parentNode;
+            }
+            return null;
+        }
+
+        console.log(getClosestParent(li3,"box"));
+    </script>
+</body>
+
+</html>

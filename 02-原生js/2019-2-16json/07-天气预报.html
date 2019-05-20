@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .ul1 {
+            line-height: 50px;
+            font-size: 18px;
+            width: 800px;
+            background-color:#6ccde3;
+            height: 50px;
+        }
+
+        .ul1 li {
+            float: left;
+            
+            margin-left: 200px;
+        }
+        
+        .box{
+            width: 800px;
+            margin: 0 auto;
+            height: 300px;
+        }
+        .weather{
+            background-color: #2facc5;
+            width:800px;
+            height: 250px;
+            display: none;
+        }
+        .active{
+            color: red;
+        }
+        .active1{
+            display: block;
+        }
+        
+        .p1,.p2,.img1{
+            margin: 0 150px
+        }
+        .ul2{
+            height: 250px;
+        }
+        .ul2 .lis1{
+            float: left;
+            border: 1px solid gray;
+            width: 14.02%;
+            height: 248px;
+            text-align: center;
+        }
+        .ul2 .lis1 p{
+            margin-top: 10px;
+        }
+        .img2{
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+            <ul class="ul1">
+                <li class="active linav">今天天气</li>
+                <li class="linav">未来一周天气</li>
+            </ul>
+            <div class="weather active1">
+                <img src="" class="img1">
+                <p class="p1"></p>
+                <p class="p2">温度：25      风向：  东南风</p>
+            </div>
+            <div class="weather">
+                <ul class="ul2">
+                    
+                </ul>
+            </div>
+            
+        </div>
+    <script>
+        var weatherData=JSON.parse('{"f6":{"day_weather":"晴","night_weather":"晴","night_weather_code":"00","air_press":"1018 hPa","jiangshui":"0%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"00","sun_begin_end":"05:59|18:16","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/00.png","weekday":3,"night_air_temperature":"16","day_air_temperature":"28","day_wind_direction":"西北风","day":"20170920","night_weather_pic":"http://app1.showapi.com/weather/icon/night/00.png","night_wind_direction":"西南风"},"f7":{"day_weather":"多云","night_weather":"多云","night_weather_code":"01","air_press":"1018 hPa","jiangshui":"9%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"01","sun_begin_end":"06:00|18:14","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/01.png","weekday":4,"night_air_temperature":"17","day_air_temperature":"29","day_wind_direction":"南风","day":"20170921","night_weather_pic":"http://app1.showapi.com/weather/icon/night/01.png","night_wind_direction":"西北风"},"time":"20170915073000","ret_code":0,"now":{"aqiDetail":{"co":"1.067","num":"341","so2":"2","area":"北京","o3":"10","no2":"76","quality":"良好","aqi":"97","pm10":"124","pm2_5":"72","o3_8h":"18","primary_pollutant":"颗粒物(PM2.5)"},"weather_code":"02","temperature_time":"11:30","wind_direction":"东南风","wind_power":"1级","sd":"55%","aqi":"97","weather":"阴","weather_pic":"http://app1.showapi.com/weather/icon/day/02.png","temperature":"25"},"cityInfo":{"c6":"beijing","c5":"北京","c4":"beijing","c3":"北京","c9":"中国","c8":"china","c7":"北京","c17":"+8","c16":"AZ9010","c1":"101010100","c2":"beijing","longitude":116.391,"c11":"010","c10":"1","latitude":39.904,"c12":"100000","c15":"33"},"f1":{"day_weather":"阴","night_weather":"阴","night_weather_code":"02","air_press":"1018 hPa","jiangshui":"13%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"02","sun_begin_end":"05:55|18:24","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/02.png","weekday":5,"night_air_temperature":"18","day_air_temperature":"28","day_wind_direction":"南风","day":"20170915","night_weather_pic":"http://app1.showapi.com/weather/icon/night/02.png","night_wind_direction":"东南风"},"f3":{"day_weather":"晴","night_weather":"晴","night_weather_code":"00","air_press":"1018 hPa","jiangshui":"0%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"00","sun_begin_end":"05:57|18:21","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/00.png","weekday":7,"night_air_temperature":"16","day_air_temperature":"29","day_wind_direction":"西北风","day":"20170917","night_weather_pic":"http://app1.showapi.com/weather/icon/night/00.png","night_wind_direction":"西风"},"f2":{"day_weather":"阴","night_weather":"阴","night_weather_code":"02","air_press":"1018 hPa","jiangshui":"11%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"02","sun_begin_end":"05:56|18:23","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/02.png","weekday":6,"night_air_temperature":"18","day_air_temperature":"27","day_wind_direction":"西南风","day":"20170916","night_weather_pic":"http://app1.showapi.com/weather/icon/night/02.png","night_wind_direction":"北风"},"f5":{"day_weather":"晴","night_weather":"晴","night_weather_code":"00","air_press":"1018 hPa","jiangshui":"0%","night_wind_power":"微风 <5.4m/s","day_wind_power":"3-4级 5.5~7.9m/s","day_weather_code":"00","sun_begin_end":"05:58|18:18","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/00.png","weekday":2,"night_air_temperature":"17","day_air_temperature":"29","day_wind_direction":"西北风","day":"20170919","night_weather_pic":"http://app1.showapi.com/weather/icon/night/00.png","night_wind_direction":"西北风"},"showapi_treemap":true,"f4":{"day_weather":"晴","night_weather":"晴","night_weather_code":"00","air_press":"1018 hPa","jiangshui":"0%","night_wind_power":"微风 <5.4m/s","day_wind_power":"微风 <5.4m/s","day_weather_code":"00","sun_begin_end":"05:57|18:19","ziwaixian":"中等","day_weather_pic":"http://app1.showapi.com/weather/icon/day/00.png","weekday":1,"night_air_temperature":"19","day_air_temperature":"30","day_wind_direction":"西南风","day":"20170918","night_weather_pic":"http://app1.showapi.com/weather/icon/night/00.png","night_wind_direction":"北风"}}');
+        var ul1 = document.querySelector(".ul1");
+        var tabs = document.querySelectorAll(".ul1 li");
+        for(var i=0;i<tabs.length;i++){
+            tabs[i].index=i;
+        }
+        var contents = document.querySelectorAll(".weather");
+        ul1.onclick = function(eve){
+            eve = eve || window.event;
+            var target = eve.target || eve.srcElement;
+            if(target.tagName=="LI"){
+                for(var i=0;i<tabs.length;i++){
+                    tabs[i].className="linav";
+                    contents[i].className="weather";
+                }
+                target.className="linav active";
+                console.log(target.index);
+                contents[target.index].className="weather active1";
+            }
+        }
+        //渲染当天天气
+        var nowImg = document.querySelector(".weather .img1");
+        nowImg.src = weatherData.now.weather_pic;
+        var p1 = document.querySelector(".weather .p1");
+        p1.innerHTML = weatherData.cityInfo.c5+"     时间："+weatherData.now.temperature_time+"     "+weatherData.now.weather;
+        //渲染7天天气
+        var arr=["f1","f2","f3","f4","f5","f6","f7"];
+        var weekday = ["星期一","星期二","星期三","星期四","星期五","星期六","星期天"];
+        var ul2= document.querySelector(".ul2");
+        for(var i=0;i<arr.length;i++){
+            //weatherData[arr[i]]
+        
+            var str = '<li class="lis1">'
+                        +'<p>'+weekday[weatherData[arr[i]].weekday-1]+'</p>'
+                        +'<p>'+weatherData[arr[i]].day+'</p>'
+                        +'<img src="'+weatherData[arr[i]].day_weather_pic+'" class="img2">'
+                        +'<p>'+weatherData[arr[i]].day_air_temperature+'</p>'
+                        +'<p>'+weatherData[arr[i]].day_weather+'</p>'
+                        +'<p>'+weatherData[arr[i]].day_wind_direction+'</p>'
+                    +'</li>';
+            ul2.innerHTML+=str;
+        }
+    </script>
+</body>
+</html>

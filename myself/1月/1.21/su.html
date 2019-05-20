@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 200px;
+
+            background-color: yellow;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .hidden {
+            height: 0px;
+            /* height: 200px; */
+            display: block;
+        }
+
+        ul li {
+            width: 200px;
+            list-style: none;
+            background-color: aqua;
+            margin-top: 10px;
+        }
+
+        .main {
+            width: 250px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+    <script>
+        var uls = document.getElementsByTagName("ul")[0];
+        var lis = document.getElementsByTagName("li");
+        var divs = document.getElementsByClassName("content");
+        var timeId;
+        var arr = new Array();
+        var h = 200;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+        }
+        uls.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            divs[target.index].className += " hidden";
+            // console.log(target)
+            arr.push(target);
+            // console.log(arr);
+            // console.log(arr[0].index)
+            timeId = setInterval(function () {
+                if (arr.length > 1) {
+                    if (parseInt(arr[arr.length - 1].style.height) > 0) {
+                        arr[arr.length - 1].style.height = parseInt(arr[arr.length - 1].style.height) + 1;
+                    } else {
+                        clearInterval(timeId);
+                    }
+                    if (parseInt(arr[arr.length - 2].style.height) < 200) {
+                        arr[arr.length - 2].style.height = parseInt(arr[arr.length - 2].style.height) - 1;
+                    } else {
+                        clearInterval(timeId);
+                    }
+                } else {
+                    clearInterval(timeId);
+                }
+            }, 500)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //================================Boolean(value)  把value转成制定的bool类型的值
+        // js中的6中假值
+        console.log(Boolean(null));         //false
+        console.log(Boolean(undefined));     //false
+
+        console.log(Boolean(NaN));          //false
+        console.log(Boolean(0));            //false
+
+        console.log(Boolean(""));           //false
+        console.log(Boolean(" "));           //true
+
+        console.log(Boolean(false));         //false
+
+        
+
+
+        //================================Number(value)  把value转成制定的Number类型的值
+        // Number() 函数的强制类型转换与 parseInt() 和 parseFloat() 方法的处理方式相似，只是它转换的是整个值，而不是部分值。
+        var str = "1.2.3";
+        console.log(parseInt(str));     //1
+        console.log(parseFloat(str));   //1.2
+        console.log(Number(str));       //NaN
+
+        // 转换规则：
+        // 1.boolean转number
+        console.log(Number(true))      //1
+        console.log(Number(false))      //0
+
+        // 2.如果是数字值，只是简单的传入和返回
+        console.log(Number(0x10));     //16
+        console.log(Number(010));     //8
+
+
+        //3.undefined转number
+        console.log(Number(undefined));   //NaN
+
+        //4.null=>number
+        console.log(Number(null));     //0
+
+        //5.string=>number
+        // 数字字符串转换成对应的数字返回
+        // 空字符串转数字是0
+        console.log(Number(""))    //0
+        // 其他字符串都返回NaN
+
+
+        //================================String(value)  把value转成制定的bool类型的值
+        console.log(String(undefined))   //undefined
+        console.log(String(null))        //null
+
+        console.log(String(18));    //"18"
+
+    </script>
+</body>
+</html>

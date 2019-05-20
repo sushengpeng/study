@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+    <title>第99天：CSS3中透视perspective - 半指温柔乐 - 博客园</title>
+<meta property="og:description" content="CSS3中透视perspective 透视原理： 近大远小 。 浏览器透视：把近大远小的所有图像，透视在屏幕上。 理解浏览器的坐标系：浏览器平面为 Z=0的平面，坐标原点默认为图片的中心，可以通过更改" />
+    <link type="text/css" rel="stylesheet" href="/bundles/blog-common.css?v=svlZeZMvc3He7PqOD4T7SOuQn0_kIfLBYiy3idqd35Y1"/>
+<link id="MainCss" type="text/css" rel="stylesheet" href="/skins/CodingLife/bundle-CodingLife.css?v=g4Oce5UBaUn_FUwadcT09ICEg5NkULQGtUpNhTtrI8U1"/>
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="/skins/CodingLife/bundle-CodingLife-mobile.css?v=nSeK_P8BAqpQ4UDLpcwd6yl-jVYCXnR833BwkQ30uqQ1"/>
+    <link title="RSS" type="application/rss+xml" rel="alternate" href="https://www.cnblogs.com/le220/rss"/>
+    <link title="RSD" type="application/rsd+xml" rel="EditURI" href="https://www.cnblogs.com/le220/rsd.xml"/>
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="https://www.cnblogs.com/le220/wlwmanifest.xml"/>
+    <script src="//common.cnblogs.com/scripts/jquery-2.2.0.min.js"></script>
+    <script>var currentBlogId=373143;var currentBlogApp='le220',cb_enable_mathjax=true;var isLogined=false;</script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], processClass: 'math', processEscapes: true },
+        TeX: { 
+            equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, 
+            extensions: ['extpfeil.js'],
+            Macros: {bm: "\\boldsymbol"}
+        },
+        'HTML-CSS': { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+        });
+    </script><script src="//mathjax.cnblogs.com/2_7_2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="/bundles/blog-common.js?v=OFBZTzkHKauV7mtIFLF9jlqrX-sesK9-mY9KjurLrq01" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="https://www.cnblogs.com/le220/"><img id="blogLogo" src="/Skins/custom/images/logo.gif" alt="返回主页" /></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="https://www.cnblogs.com/le220/">半指温柔乐</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/le220/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E5%8D%8A%E6%8C%87%E6%B8%A9%E6%9F%94%E4%B9%90">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="https://www.cnblogs.com/le220/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="https://www.cnblogs.com/le220/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 253&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 21</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+        <div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class = "post">
+		<h1 class = "postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="https://www.cnblogs.com/le220/p/7923210.html">第99天：CSS3中透视perspective</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><div>
+<h3>CSS3中透视perspective</h3>
+<ul>
+<li>透视原理： <strong>近大远小</strong> 。</li>
+<li>浏览器透视：把近大远小的所有图像，透视在屏幕上。</li>
+<li>理解浏览器的坐标系：浏览器平面为<strong> Z=0</strong>的平面，坐标原点默认为图片的中心，可以通过更改透视原点进行更改。</li>
+<li><strong>perspective</strong>：视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置。</li>
+<li><strong>perspectiveOrigin</strong>: 个人理解为视点的<strong>xy坐标</strong>，<strong>perspective</strong>则是<strong>z坐标</strong>，三者可以再三维中确定 视点的唯一位置。<a href="https://link.jianshu.com?t=https://developer.mozilla.org/zh-CN/docs/Web/CSS/perspective-origin" rel="nofollow" target="_blank"><br /></a></li>
+</ul>
+<h3>浏览器透视原理图</h3>
+</div>
+<p><img src="https://images2017.cnblogs.com/blog/1217233/201711/1217233-20171129224349792-1654491216.png" alt="" /></p>
+<p>&nbsp;</p>
+<pre><br /><br /><span style="font-size: 14px;">当元素向后移动的时候，透视点与元素所处位置的连线和屏幕的焦点，就是元素在屏幕上的投影。与原来的头像大小相比变小了。</span></pre>
+<p><img src="https://images2017.cnblogs.com/blog/1217233/201711/1217233-20171129224414761-1162925505.png" alt="" /></p>
+<p>与之前的过程相同，视点与移动后的元素的连线与屏幕的焦点就是在屏幕上的呈现的元素的大小，与元素相比较变大了。</p>
+<p><img src="https://images2017.cnblogs.com/blog/1217233/201711/1217233-20171129224438151-699185312.png" alt="" /></p>
+<div>
+<p>上图截取的是<strong>X=0</strong>平面，可以从图中看到视点对图像高度投影的影响，由于视点原点的变化导致视点和最高点最低点的角度发上变化，在屏幕上的投影出现了偏移，对于宽度的影响是相同的，图像的轮廓也就从一定程度上表现了图像每一个像素的变化。</p>
+<h3>通过原理图理解规律</h3>
+<blockquote>
+<p>当元素沿着Z轴向前移动的时候，与视点的距离越小，视点和元素的最高点和最低点所称角度最大，放大倍数越大。总结：<strong>视距越小放大效果越明显</strong>，<strong>translateZ越大放大效果越明显</strong>。</p>
+</blockquote>
+<blockquote>
+<p>当元素沿着Z轴移动的距离大于视距后。元素移动到视点后方，固无法投影在屏幕上，所以屏幕上没有呈现。<strong>translateZ&gt;perspective</strong> 屏幕上无法呈现图像。</p>
+</blockquote>
+<h3>perspective 使用方法</h3>
+<p>perspective 的使用有多种情景，大家可以了解过后按需选择自己所需要。</p>
+<h5><span style="font-size: 14px;">使用在父元素还是子元素</span></h5>
+<blockquote>
+<p>其中使用 不同元素作为视角对象的过程,就是把perspective属性加在不同的元素上。</p>
+</blockquote>
+<p>仔细观看以舞台作为视角对象时，子元素不仅呈现图像不同，而且还会消失。原因如下图截取Y=0平面 ，及浏览器的俯视图，视点在浏览器前方，元素现在在Z=0平面上，集成现在浏览器上，视点和元素不同部位的连线，就是我们的视线，当元素中子元素的旋转角度与该视线重合，由于其没有宽度 我们就看不见这个子元素了。</p>
+</div>
+<p><img src="https://images2017.cnblogs.com/blog/1217233/201711/1217233-20171129224512979-594922874.png" alt="" /></p>
+<div>
+<h4>书写方式不同的定义</h4>
+<p>perspective有两种定义方式，如下</p>
+<pre class="hljs undefined"><span style="font-family: 'Microsoft YaHei';"><strong><code>.class{
+  perspective: 800px;
+}
+.class{
+  transform: prespective(800px)
+}
+</code></strong></span></pre>
+<p>个人关于两种书写方式的不同的理解是，单独定义的perspective只在初次渲染时，投影在屏幕上。 写在transform中的perspective会根据transform动画的变化来进行重新的渲染。所以当使用js或Css3进行动画时，尽量选择后一种定义方式。</p>
+<h4>使用的注意事项</h4>
+<ul>
+<li>
+<p>perspective的定义要在其他3d变幻之前，否则无效 如translateZ等，这个也很好理解，要首先确定眼睛所在的位置，在屏幕上的成像才会有此计算。</p>
+</li>
+<li>
+<p>呈现3d效果的父元素要添加transform-style：preserver-3d属性。该属性定义该元素的子元素按照3d效果来呈现。</p>
+</li>
+<li>
+<p>backface-visibility 用来定义元素不是正面朝向视点时的可视情况 。</p>
+</li>
+</ul>
+</div>
+<pre><br /><br /></pre>
+<pre><br /><br /><br /></pre>
+<pre></pre></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info">
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"></div>
+</div>
+
+
+		</div>
+		<div class = "postDesc">posted @ <span id="post-date">2017-11-29 22:55</span> <a href='https://www.cnblogs.com/le220/'>半指温柔乐</a> 阅读(<span id="post_view_count">...</span>) 评论(<span id="post_comment_count">...</span>)  <a href ="https://i.cnblogs.com/EditPosts.aspx?postid=7923210" rel="nofollow">编辑</a> <a href="#" onclick="AddToWz(7923210);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=373143,cb_entryId=7923210,cb_blogApp=currentBlogApp,cb_blogUserGuid='6adb8ea9-9139-4b8d-6b87-08d49c352df3',cb_entryCreatedDate='2017/11/29 22:55:00';loadViewCount(cb_entryId);var cb_postType=1;var isMarkdown=false;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id='comment_form' class='commentform'>
+<a name='commentform'></a>
+<div id='divCommentShow'></div>
+<div id='comment_nav'><span id='span_refresh_tips'></span><a href='javascript:void(0);' onclick='return RefreshCommentList();' id='lnk_RefreshComments' runat='server' clientidmode='Static'>刷新评论</a><a href='#' onclick='return RefreshPage();'>刷新页面</a><a href='#top'>返回顶部</a></div>
+<div id='comment_form_container'></div>
+<div class='ad_text_commentbox' id='ad_text_under_commentbox'></div>
+<div id='ad_t2'></div>
+<div id='opt_under_post'></div>
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+  googletag.cmd.push(function() {
+        googletag.defineSlot('/1090369/C1', [300, 250], 'div-gpt-ad-1546353474406-0').addService(googletag.pubads());
+        googletag.defineSlot('/1090369/C2', [468, 60], 'div-gpt-ad-1539008685004-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+  });
+</script>
+<div id='cnblogs_c1' class='c_ad_block'>
+    <div id='div-gpt-ad-1546353474406-0' style='height:250px; width:300px;'></div>
+</div>
+<div id='under_post_news'></div>
+<div id='cnblogs_c2' class='c_ad_block'>
+    <div id='div-gpt-ad-1539008685004-0' style='height:60px; width:468px;'></div>
+</div>
+<div id='under_post_kb'></div>
+<div id='HistoryToday' class='c_ad_block'></div>
+<script type='text/javascript'>
+ if(enablePostBottom()) {
+    codeHighlight();
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverT2();
+    deliverC1();
+    deliverC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);  
+}
+</script>
+</div>
+
+    
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright &copy;2019 半指温柔乐
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+</body>
+</html>

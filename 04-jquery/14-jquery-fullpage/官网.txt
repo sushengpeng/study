@@ -1,0 +1,17 @@
+
+jquery fullpage API
+http://www.jq22.com/jquery-info1124
+
+jquery fullpage 演示案例
+http://www.dowebok.com/demo/2014/77/
+
+
+用fullPage.js制作百度百科史记2013效果的步骤
+http://www.dowebok.com/78.html
+
+
+
+fullpage插件中的注意事项：
+
+2.section选择器中不能设置固定的宽高如：.section{width:1920px;height:1080px} 因为有可能出现白边
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .img {
+            width: 520px;
+            height: 220px;
+            margin: 0 auto;
+            position: relative;
+            margin-top: 200px;
+        }
+
+        .img .mask {
+            /* 520*220 */
+            width: 156px;
+            height: 66px;
+            position: absolute;
+            background-image: url("2.png");
+            display: none;
+            margin-top: -33px;
+            margin-left: -78px;
+        }
+
+        .img1 {
+            position: absolute;
+            width: 520px;
+            height: 220px;
+            background-color: aqua;
+            left: 0px;
+            top: 230px;
+            display: none;
+            overflow: hidden;
+        }
+
+        .img1 img {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="img">
+        <img src="./download.jpg" alt="">
+        <div class="mask"></div>
+        <div class="img1">
+            <img src="" alt="">
+        </div>
+    </div>
+    <script>
+        var img = document.getElementsByClassName("img")[0];
+        var img1 = document.getElementsByClassName("img1")[0];
+        var mask = document.getElementsByClassName("mask")[0];
+        img.onmouseenter = function () {
+            img1.style.display = "block";
+            mask.style.display = "block";
+        }
+        img.onmousemove = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            var left = e.clientX - img.getBoundingClientRect().left;
+            var top1 = e.clientY - img.getBoundingClientRect().top;
+            console.log(left, top1)
+            if(left<78){
+                left=78;
+            }
+            if(left>442){
+                left=442;
+            }
+            if(top1<33){
+                top1=33;
+            }
+            if(top1>187){
+                top1=187;
+            }
+            mask.style.left = left + "px";
+            mask.style.top = top1 + "px";
+            var imgsrc = target.parentNode.children[0].getAttribute("src");
+            img1.children[0].setAttribute("src", imgsrc);
+            img1.children[0].style.width = img.clientWidth/mask.clientWidth*img.clientWidth+"px";
+            img1.children[0].style.height = img.clientHeight/mask.clientHeight*img.clientHeight+"px";
+            img1.children[0].style.top = -(top1- 33) * 10 / 3 + "px";
+            img1.children[0].style.left = -(left - 78) * 10 / 3 + "px";
+        }
+        img.onmouseleave = function () {
+            mask.style.display = "none";
+            img1.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <head>
+        <style>
+        .time { font-size: 12pt; line-height: 14pt; color:red;}
+        </style>
+        
+        
+</head>
+<body bgcolor="#fef4d9" onload="init()">
+    <DIV class='time' id='tim1' 
+    style="HEIGHT: 20px; LEFT: 50px; POSITION: absolute; TOP: 10px; WIDTH: 10px"></DIV>
+    <DIV class='time' id='tim2' 
+    style="FILTER: flipv() alpha(opacity=20); FONT-STYLE: italic; POSITION: absolute"></DIV>
+    <script>
+         var ctimer;
+         function init(){
+        if (document.all){
+        tim2.style.left=tim1.style.posLeft;
+        tim2.style.top=tim1.style.posTop+tim1.offsetHeight-6;
+        settimes();
+        }
+        }
+            function settimes(){
+        var time= new Date();
+        hours= time.getHours();
+        mins= time.getMinutes();
+        secs= time.getSeconds();
+        if (hours<10)
+        hours="0"+hours;
+        if(mins<10)
+        mins="0"+mins;
+        if (secs<10)
+        secs="0"+secs;
+        tim1.innerHTML=hours+":"+mins+":"+secs
+        tim2.innerHTML=hours+":"+mins+":"+secs
+        ctimer=setTimeout('settimes()',960);
+        }
+    </script>
+</body>
+</html>

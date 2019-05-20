@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //cookie必须在服务器环境下使用
+
+        // 在当前域名下创建cookie（会话cookie）
+        // document.cookie="name=zs";
+        // document.cookie="pwd=123"; 
+        // document.cookie="age=18";
+        // document.cookie="name=zs;pw=1234";   //cookie只能一次写一个
+        // document.cookie="name="+escape("张三");
+        // cookie的值有特殊字符（: = ; 中文） escape 编码
+
+        // 查cookie
+        console.log(document.cookie);   //pwd=123; name=zs
+        function getCookie(cookiename){
+            var cookiestr = document.cookie;
+            var arr = cookiestr.split(/\s*;\s*/);
+            console.log(arr)
+            for(var i=0;i<arr.length;i++){
+                var a = arr[i].split("=");
+                if(a[0]==cookiename){
+                    return a[1];
+                }
+            }
+            return "";
+        }
+        console.log(getCookie("pwd"));
+
+        //cookie 分为会话cookie和持久cookie
+        // 会话cookie一般存在内存中，当关闭浏览器（只关闭当前页签是不行的）的时候会自动消失
+        // 持久cookie
+        var d = new Date();
+        var day = 30;
+        console.log(d.getTime())
+        d.setTime(d.getTime()+day*24*3600*1000);
+        // console.log(d.toGMTString());
+        // console.log(d.toString());
+        document.cookie="cj=888;expires="+d.toGMTString();
+
+        //cookie一到过期事件会被浏览器自动删除
+        //删除cookie
+        // 只用把cookie的过期时间设置为过去的某个时间
+        // var d = new Date();
+        // var day = -1;
+        // console.log(d.getTime())
+        // d.setTime(d.getTime()+day*24*3600*1000);
+        // document.cookie="cj=;expires="+d.toGMTString;
+
+        //修改持久cookie
+        document.cookie="cj=999;expires="+d.toGMTString();
+
+
+        //cookie 的访问范围是有path规定
+        // cookie在哪个文件夹下创建，cookie的path就是哪个文件路径
+        // 比如：在根目录下创建的cookie，默认path是/   ;
+        // 在product目录下创建的cookie,Path是/product  ;
+        // 可访问范围是根目录不能访问product下的cookie，但是product下的cookie可以访问根目录下的cookie
+
+            
+    </script>
+</body>
+</html>

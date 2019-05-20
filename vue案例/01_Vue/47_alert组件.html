@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+<body>
+  <!-- 
+    传递type属性可以更改样式
+    传递dismiss属性可以添加删除按钮
+   -->
+  <div id="app">
+    <div class="alert alert-danger">内容
+      <button type="button" class="close" ><span
+          >&times;</span></button>
+    </div>
+    <div class="alert alert-info">内容</div>
+    <div class="alert alert-success">内容</div>
+    <div class="alert alert-warning">内容</div>
+
+    <c-alert type="danger" dismiss>
+      <template slot="strong">强调信息</template>
+      警告
+    </c-alert>
+
+    <c-alert type="success">
+      <template slot="strong">强调信息</template>
+      警告
+    </c-alert>
+
+    <c-alert type="info">
+      <template slot="strong">强调信息</template>
+      警告
+    </c-alert>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const cAlert = {
+      template: `
+        <div 
+          v-if="show"
+          :class="[
+            'alert',
+            type ? 'alert-' + type : ''
+          ]"
+        >
+          <button 
+            @click="close" 
+            v-if="dismiss" 
+            type="button" 
+            class="close" 
+          ><span>&times;</span></button>
+          <strong><slot name="strong"></slot></strong>
+          <slot></slot>
+        </div>
+      `,
+      data () {
+        return {
+          show: true
+        }
+      },
+      methods: {
+        close () {
+          this.show = false
+        }
+      },
+      props: {
+        type: {
+          type: String,
+          validator (value) {
+            return ['danger', 'info', 'success', 'warning'].indexOf(value) !== -1
+          }
+        },
+        dismiss: Boolean
+      }
+    }
+
+    Vue.component('cAlert', cAlert)
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {}
+    })
+  
+  </script>
+</body>
+</html>

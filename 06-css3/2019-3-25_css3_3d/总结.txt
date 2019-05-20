@@ -1,0 +1,11 @@
+写3d动画的步骤
+<div class="stage">   //perspective:1000px; 视距   perspective-origin:x  y;  视角，从哪个角度去看动画
+	<div class="scene">  //transform-style:preserve-3d; 加在父元素上，当父元素发生3d变换的时候，子元素怎样呈现在3d空间  transform属性是让整个所有的子元素发生变换
+		<div class="ele">
+		舞台中的每个元素怎么发生变换，通常用到的属性是translate3d  rotate3d scale3d
+		</div> 
+					
+	</div>
+</div>
+
+backface-vasibility:visible|hidden;  //元素背面朝上的时候是否可见

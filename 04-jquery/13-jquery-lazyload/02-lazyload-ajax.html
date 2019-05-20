@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .lazy{
+                width:160px;
+                height: 150px;
+                display: block;
+            }
+        </style>
+</head>
+<body>
+        <!-- 首屏 -->
+        <img src="images/2018-12-25_小米_06.png" width="100%" height="1000" />
+        <!-- 滚动到位置才去加载 -->
+        <img src="images/loading.gif"  class="lazy" width="160" height="150" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <img src="images/loading.gif"  class="lazy" />
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.lazyload.js"></script>
+        <script>
+            $(function(){
+                // 页面加载完毕后，将页面图片所需的数据全部拿到
+                $.ajax({
+                    url:"imglist.json",
+                    success:function(data){
+                        console.log(data);
+                        // $(".lazy").data("original",)
+                        $.each(data.booklist,function(index,value){
+                            // $(".lazy").eq(index).data("original",value.bookImg);     //错误写法
+                            $(".lazy").eq(index).attr("data-original",value.bookImg);   //必须标签上有data-original
+                        })
+                        $(".lazy").lazyload();
+                    }
+                })
+            })
+        </script>
+</body>
+</html>

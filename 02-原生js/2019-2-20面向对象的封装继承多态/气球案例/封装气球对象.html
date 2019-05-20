@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html,body{
+                width:100%;
+                height: 100%;
+                overflow: hidden;
+            }
+            div {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background: black;
+            }
+        </style>
+    </head>
+    <body>
+        
+    	<script>
+    		function Balls(num){
+                this.num = num;
+            }
+            Balls.prototype = {
+                init:function(){
+                    var body = document.body;
+                    var colors = ['red','orange','yellow','green','blue','purple'],
+                    directs = ["left","right","top","bottom"],
+                    color,
+                    size,
+                    left,
+                    top ,
+                    direct,
+                    speed,
+                    ele;
+                    for(var i=0;i<this.num;i++){
+                        color=colors[this.rnd(0,colors.length-1)];
+                        size=this.rnd(20,100);
+                        left=this.rnd(500,800);
+                        top = this.rnd(300,500);
+                        direct=directs[this.rnd(0,3)];
+                        speed=this.rnd(5,50);
+                        ele = document.createElement("div");
+                        console.log(direct);
+                        this.addStyle(ele,{
+                            backgroundColor:color,
+                            width: size + 'px',
+                            height: size + 'px',
+                            left: left + 'px',
+                            top: top + 'px',
+                            // opacity: .5
+                        });
+                        body.appendChild(ele);
+                        this.move(ele,direct,speed);
+                    }
+                },
+                move : function(obj,direct,speed){
+                    var oppo = -1;
+                    switch (direct){
+                        case "left":
+                            direct = "left";
+                            break;
+                        case "right":
+                            direct = "left";
+                            oppo = 1;
+                            break;
+                        case "top":
+                            direct = "top";
+                            break;
+                        default:
+                            direct = "top";
+                            oppo = 1;
+                    }
+                    var offsetDirect = "offset" + direct.charAt(0).toUpperCase() + direct.substr(1);
+
+                    setInterval(function(){
+                        obj.style[direct] = obj[offsetDirect] + oppo + 'px';
+                    },speed);
+                },
+                addStyle: function(obj,options){
+                    for(var attr in options ){
+                        obj.style[attr] = options[attr];
+                    }
+                },
+                rnd: function(start,end){
+                    return  Math.floor(Math.random()*(end - start + 1)) + start;  
+                }
+            }
+            Balls.prototype.constructor=Balls;
+            
+
+            var balls = new Balls(100);
+            balls.init();
+            
+    	</script>
+    </body>
+</html>

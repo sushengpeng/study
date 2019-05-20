@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    解构赋值就是将前面的结构和后面的结构相对应，那么后面的值就会赋值到前面去
+    // 数组解构
+    const [a, b, c] = [1, 2, 3]
+
+    // 对象解构
+    不存在顺序
+    const {name, age} = {name: '张三', age: 18}
+    对象结构中如果对应的属性名已经被其他变量占用，需要使用别名
+    const {name: 别名1, age: 别名1} = {name: '张三', age: 18}
+    别名就是真正变量名
+
+    函数中结构参数
+
+   -->
+  <script>
+    /* const a = 1
+    const b = 2
+    const c = 3 */
+    // const a = 1
+    // const [c, b, , d] = [1, 2, 3]
+
+
+    // 对象也可以进行结构赋值
+    /* const age = 20
+    const obj = {
+      name: '张三',
+      age: 18
+    }
+    const {name, age: a} = obj */
+  
+
+
+    // 结构函数中的参数
+    // $.ajax({
+    //   url: '',
+    //   success (data) {
+    //     // 假设data是 一个对象 {code: 200, msg: '请求成功', res: []}
+    //     /* let code = data.code
+    //     let msg = data.msg
+    //     let res = data.res */
+    //     if (data.code === 200) {
+    //       // 对data.res进行处理
+    //     }
+
+    //     let {code, msg, res} = data
+    //   },
+    //   success ({code: c, msg: m, res: r}) {
+    //     if (c === 200) {
+    //       // 对r进行操作
+    //     }
+    //   }
+    // })
+
+
+  </script>
+  <script src="../axios.js"></script>
+  <script>
+    /* $.get('https://cnodejs.org/api/v1/topics', {limit: 10}, function ({data}) {
+    }) */
+
+    /* $.ajax({
+      url: 'https://cnodejs.org/api/v1/topics',
+      data: {
+        limit: 10
+      },
+      success ({data}) {
+        console.log(data)
+      }
+    }) */
+
+
+    // url 请求方式 参数（可选）
+    axios.get('https://cnodejs.org/api/v1/topics', {
+      params: {
+        limit: 10
+      }
+    }).then((res) => {
+      // const {data: res} = data
+      // console.log(res)
+      return res.data
+    }).then(res => {
+      console.log(res)
+    })
+  
+  </script>
+</body>
+</html>

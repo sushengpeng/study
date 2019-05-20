@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="show"></div>
+        <div id="box" class="box">
+            <ul>
+                <li id="list1">list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+                <li class="list">list 4</li>
+                <li>list 5</li>
+                <li>list 6</li>
+                <li>list 7</li>
+                <li>list 8</li>
+                <li id="list9">list 9</li>
+                <li>list 10</li>
+            </ul>
+        </div>
+        <div  >
+                <ul>
+                    <li>list 1</li>
+                    <li>list 2</li>
+                    <li>list 3</li>
+                    <li class="list">list 4</li>
+                    <li>list 5</li>
+                    <li>list 6</li>
+                    <li>list 7</li>
+                    <li>list 8</li>
+                    <li >list 9</li>
+                    <li>list 10</li>
+                </ul>
+            </div>
+        <ul>
+            <li>list item 1</li>
+            <li>list item 2
+                <ul>
+                <li>list item 2-a</li>
+                <li>list item 2-b</li>
+                </ul>
+            </li>
+            <li>list item 3</li>
+            <li>list item 4</li>
+            </ul>
+    <script src="../jquery.js"></script>
+    <script>
+        //父子关系
+        //子代
+        // console.log($("#box").children("dl"));
+        // //后代
+        // console.log($("#box").find("li"));
+
+        //子父关系
+
+        // console.log($(".list").parent());     //父亲
+        // console.log($(".list").closest(".list"));     //从自身开始查找距离最近的满足条件的元素 
+               
+        // console.log($(".list").parents(".box"))     //祖先  从父亲开始查找满足条件的祖先
+        
+        // console.log($(".list").parentsUntil("body"));
+
+        // console.log($(".list").offsetParent())  //具有定位属性的祖先元素
+
+        // //兄弟关系
+        // console.log($("#box .list").prev())
+        // console.log($("#box .list").prevAll())
+        // console.log($("#box .list").prevUntil("#list1"))
+
+        // console.log($("#box .list").next())
+        // console.log($("#box .list").nextAll())
+        // console.log($("#box .list").nextUntil("#list9"))
+
+        console.log($("#box .list").siblings())
+
+        //串联
+        console.log( $("#box .list").add("#list9").css("border","solid 1px red"))
+        // console.log( $("#box .list").nextAll("#list9"))
+        console.log( $("#box .list").nextAll("#list9").addBack())
+    </script>
+</body>
+</html>

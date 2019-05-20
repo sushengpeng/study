@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .topic {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      margin: 0;
+    }
+
+    .label {
+      margin: 0 10px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- 
+        精华 good
+        分享 share
+        问答 ask
+        招聘 job
+
+       -->
+      <li class="topic" v-for="topic in topics">
+        <img width="48" :src="topic.author.avatar_url" alt="">
+        <label class="label" for="">{{topic.tab === 'good' ? '精华' : topic.tab === 'share' ? '分享' : topic.tab === 'ask' ? '问答' : '招聘'}}</label>
+        <div>
+          <h4 class="title">{{topic.title}}</h4>
+          <div>
+            <span>{{topic.reply_count}}</span>/<span>{{topic.visit_count}}</span>
+          </div>
+        </div>
+      </li>
+      
+    </ul>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./axios.js"></script>
+  <script>
+    //  axios.get('https://cnodejs.org/api/v1/topics').then(res => {
+    //   // console.log(res.data)
+    //   app.topics = res.data
+    // }) 
+
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        topics: [],
+        demo: '字符串'
+      },
+
+      created () {
+        // console.log("创建完成,自动执行")
+        // console.log(this.demo) 
+        axios.get('https://cnodejs.org/api/v1/topics').then(res => {
+          // 将this.topics设置为res.data
+          this.topics = res.data.data
+          console.log(this)
+        })
+      }
+    })
+    
+  </script>
+</body>
+</html>

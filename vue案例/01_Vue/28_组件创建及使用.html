@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    组件名不要和已有标签名相同
+
+    我们可以把new Vue当成一个组件,挂载点就是他的template
+
+    子组件标签放在了其父组件的组件模板中
+    house组件的标签<house></house> 放在了父组件new Vue的组件模板 #app中
+   -->
+  <div id="app">
+    <house></house>
+    
+
+    <!-- <bedRoom></bedRoom> -->
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    /* 
+      一个房子
+        卧室
+          床
+            狗
+          狗
+        卫生间
+    */
+
+    /* 
+      const 组件对象 = {
+        template: ``
+      }
+      Vue.component('组件名', 组件对象)
+    */
+    const House = {
+      template: `
+        <div>
+          <h1>房子</h1>
+          <bed-room></bed-room>
+          <bathRoom></bathRoom>
+          <bath-room></bath-room>
+        </div>
+      `
+    }
+
+    Vue.component('House', House)
+
+    const bedRoom = {
+      template: `
+        <div>
+          <h2>卧室</h2>
+          <bed></bed>
+          <dog></dog>
+        </div>
+      `
+    }
+
+    Vue.component('bedRoom', bedRoom)
+
+    const bathRoom = {
+      template: `
+        <div>
+          <h2>卫生间</h2>
+        </div>
+      `
+    }
+
+    Vue.component('bathRoom', bathRoom)
+
+    const Bed = {
+      template: `
+        <div>
+          <h3>床</h3>
+          <dog></dog>
+        </div>
+      `
+    }
+
+    Vue.component('Bed', Bed)
+
+    const Dog = {
+      template: `
+        <div>
+          小狗
+        </div>
+      `
+    }
+
+    Vue.component('Dog', Dog)
+
+  
+
+    const app = new Vue({
+      el: '#app',
+    })
+  
+  
+  </script>
+</body>
+</html>

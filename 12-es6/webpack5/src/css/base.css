@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+p {
+  background: url('../img/1.jpg')
+}
+div {
+  background: url(../img/img.png)
+}

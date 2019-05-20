@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- jsonp可以跨域的原理是script标签可以跨域 -->
+    <!-- <script>
+        //clsj这个函数必须写在调用（请求data.php接口）之前，并且必须是全局作用域
+        function clsj(data){
+            console.log(data);
+        }
+    </script>
+    <script src="http://www.b.com/data.php"></script> -->
+    <!-- <script src=""></script> -->
+    
+    <!-- 改进： -->
+    <!-- <script>
+        function callback(data){
+            console.log(data);
+        }
+    </script>
+    <script src="http://www.b.com/data.php?callback=callback"></script> -->
+
+    <!-- jsonp的封装 -->
+    <script>
+        function jsonp(option){
+            var script = document.createElement("script");
+            script.src=option.url+"?"+option.data;
+
+            //变量的提升，将callback属性作为全局变量，指向了jsonpcallback
+            window["callback"] = option.jsonpcallback;
+            document.body.appendChild(script);
+
+            
+            script.parentNode.removeChild(script);
+        }
+        // var callback = option.jsonpcallback;
+        var option = {
+            url:"http://www.b.com/data.php",
+            data:"callback=callback",        //
+            jsonpcallback:function(data){    //回调函数
+                console.log(data)
+            }
+        }
+        jsonp(option);
+        jsonp(option);
+        jsonp(option);
+    </script>
+</body>
+</html>

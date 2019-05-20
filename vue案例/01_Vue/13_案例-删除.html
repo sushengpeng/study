@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- v-model -->
+    <input type="text"><button>添加</button>
+    <ul v-if="todos.length">
+      <li v-for="(todo, index) in todos" @click="todoThing(index)">{{todo.name}} <span v-show="todo.done" @click.stop="del(index)">完成</span></li>
+    </ul>
+
+    <div v-else>暂无记事</div>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        // todos: ["打卡", '备课', '吃饭', '休息']
+        todos: [
+          {
+            name: '打卡',
+            done: false
+          }, {
+            name: '备课',
+            done: false
+          }, {
+            name: '吃饭',
+            done: false
+          }, {
+            name: '休息',
+            done: false
+          }
+        ]
+      },
+      methods: {
+        todoThing (index) {
+          // 获取到todos   this.todos
+          console.log(this.todos[index])
+          
+          this.todos[index].done = !this.todos[index].done
+        },
+        del (index) {
+          console.log(index)
+          // 想删谁 就写谁的下标,删1个即可
+          this.todos.splice(index, 1)
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

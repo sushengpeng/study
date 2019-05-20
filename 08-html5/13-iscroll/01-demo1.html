@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iScroll初始化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 500px;
+            background: #aaa;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        #wrapper li {
+            height: 50px;
+            margin: 5px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+            <li>商品列表5</li>
+            <li>商品列表6</li>
+            <li>商品列表7</li>
+            <li>商品列表8</li>
+            <li>商品列表9</li>
+            <li>商品列表10</li>
+            <li>商品列表11</li>
+            <li>商品列表12</li>
+            <li>商品列表13</li>
+            <li>商品列表14</li>
+            <li>商品列表15</li>
+            <li>商品列表16</li>
+        </ul>
+    </div>
+    <script src="js/iscroll.js"></script>
+    <script>
+        // 注意：  容器元素(wrapper)一定要定高，且溢出隐藏
+        //         子元素一定要高于容器,并且直接子元素只能有一个
+                
+        // 初始化后，即可实现上拉下拉的回弹效果
+        var myScroll = new IScroll('#wrapper');
+        console.log(myScroll);
+    </script>
+</body>
+</html>

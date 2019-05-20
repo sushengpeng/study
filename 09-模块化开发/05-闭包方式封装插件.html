@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>jquery tab选项卡插件</title>
+
+<style type="text/css">
+
+	*{margin:0;padding:0;list-style-type:none;}
+
+	a,img{border:0;}
+
+	body{background:#e3e3e3;height:100%;font:normal normal 12px/24px "Microsoft yahei", Arial;padding-bottom:30px;}
+
+	a{color:#333;text-decoration:none;}
+
+	a:hover{color:#093;text-decoration:none;}
+
+	#title{width:300px;margin:3% auto 0;}
+
+	#title h2{font-size:18px;}
+
+	#wrapper{width:980px;margin:0 auto;background:#f8f8f8;border:1px solid #a3a3a3;padding:20px 20px 50px;border-radius:5px;-moz-border-radius:5px;}
+
+	h3{color:#333;font-size:14px;text-align:center;margin:20px 0;}
+
+	/* box */
+
+	.box{width:400px;margin:10px auto 0;background:#fff;border:1px solid #d3d3d3;}
+
+	.tab_menu{overflow:hidden;}
+
+	.tab_menu li{width:100px;float:left;height:30px;line-height:30px;color:#fff;background:#093;text-align:center;cursor:pointer;}
+
+	.tab_menu li.current{color:#333;background:#fff;}
+
+	.tab_menu li a{color:#fff;text-decoration:none;}
+
+	.tab_menu li.current a{color:#333;}
+
+	.tab_box{padding:20px;}
+
+	.tab_box li{height:24px;line-height:24px;overflow:hidden;}
+
+	.tab_box li span{margin:0 5px 0 0;font-family:"宋体";font-size:12px;font-weight:400;color:#ddd;}
+
+	.tab_box .hide{display:none;}
+
+</style>
+
+</head>
+
+<body>
+	<h3>鼠标移入tab切换</h3>
+
+	<div class="box demo1">
+
+		<ul class="tab_menu">
+			<li class="current"><a href="http://www.jq22.com/">jquery特效</a></li>
+			<li><a href="http://www.jq22.com/">javascript 特效</a></li>
+			<li><a href="http://www.jq22.com/">div+css 教程</a></li>
+			<li><a href="http://www.jq22.com/">html5 教程</a></li>
+		</ul>
+
+		<div class="tab_box">
+			<div>
+				<ul>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery smartFloat插件制作仿产品列表页默认排序搜索框">jquery smartFloat插件制作仿产品列表页默认排序搜索框</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery 万能float浮动层插件 制作QQ MSN 旺旺在线客服功能">jquery 万能float浮动层插件 制作QQ MSN 旺旺在线客服功能</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery 图片延迟加载插件制作tab选项卡图片异步加载">jquery 图片延迟加载插件制作tab选项卡图片异步加载</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery tab选项卡 ajax选项卡 静态选项卡 鼠标点击选项卡 鼠标滑过选项卡">jquery tab选项卡 ajax选项卡 静态选项卡 鼠标点击选项卡 鼠标滑过选项卡</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery 输入框提示特效、机票预定智能输入提示、火车预定智能输入提示">jquery 输入框提示特效、机票预定智能输入提示、火车预定智能输入提示</a></li>
+				</ul>
+			</div>
+
+			<div class="hide">
+				<ul>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="javascript jscolor colorpicker js颜色选择器插件10多种调用颜色方法与取值">javascript jscolor colorpicker js颜色选择器插件10多种调用颜色方法与取值</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="javascript图片特效 网站banner制作焦点图片切换带按钮和固定图标控制图片左右滚动">javascript图片特效 网站banner制作焦点图片切换带按钮和固定图标控制图片左右滚动</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="javascript滚动图片插件支持单排图片上下滚动、图片无缝滚动">javascript滚动图片插件支持单排图片上下滚动、图片无缝滚动</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="js多功能选项卡插件 选项卡自动切换内容图片延迟加载">js多功能选项卡插件 选项卡自动切换内容图片延迟加载</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title=" javascript滚动图片按钮控制图片左右自动滚动"> javascript滚动图片按钮控制图片左右自动滚动</a></li>
+				</ul>
+			</div>
+
+			<div class="hide">
+				<ul>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="div+css制作非常实用的24款分页页码css代码">div+css制作非常实用的24款分页页码css代码</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="用div+css3美化制作动画导航特效鼠标滑过动画显示">用div+css3美化制作动画导航特效鼠标滑过动画显示</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="用div+css制作纯CSS下拉菜单，兼容IE6 IE7 IE8及以上 Firefox">用div+css制作纯CSS下拉菜单，兼容IE6 IE7 IE8及以上 Firefox</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="CSS如何定位工程">CSS如何定位工程</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="用div+css制作一个CSS3的简约图标导航菜单">用div+css制作一个CSS3的简约图标导航菜单</a></li>
+				</ul>
+			</div>
+
+			<div class="hide">
+				<ul>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery HTML5 幻灯片插件 用 Canvas 制作类似百叶窗拍摄快门摄影拍摄效果">jquery HTML5 幻灯片插件 用 Canvas 制作类似百叶窗拍摄快门摄影拍摄效果</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="制作CSS3和HTML5的一个单页网站模板">制作CSS3和HTML5的一个单页网站模板</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery 幻灯片切换应用一个HTML5的幻灯片">jquery 幻灯片切换应用一个HTML5的幻灯片</a></li>
+					<li><span>▪</span><a href="http://www.jq22.com/" title="jquery 图片滚动特效应用旋转幻灯片使用jQuery和CSS3">jquery 图片滚动特效应用旋转幻灯片使用jQuery和CSS3</a></li>
+				</ul>
+			</div>
+		</div>
+	</div><!--demo1 end-->
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/tabs-closure.js"></script>
+<script type="text/javascript">
+var tabs = createTabsManager({
+	tabSelector: '.demo1'
+});
+
+console.log(tabs.getTime());
+
+// tabs.setTime(1000);
+// console.log(tabs.getTime());
+
+console.log(tabs.getEvent());
+</script>
+
+
+</body>
+
+</html>
+

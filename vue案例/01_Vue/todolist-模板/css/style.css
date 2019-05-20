@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+input:focus{
+    outline: none;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+em, strong {
+    font-style: normal;
+}
+
+ul, ol, li {
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+img{
+    display: block;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff; opacity:1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;opacity:1;
+}
+
+input:-ms-input-placeholder{
+    color: #fff;opacity:1;
+}
+
+input::-webkit-input-placeholder{
+    color: #fff;opacity:1;
+}
+
+
+#box{
+    max-width: 10rem;
+    height: 100vh;
+    background: -webkit-linear-gradient(#63cea4, #5fabba); /* Safari 5.1 - 6.0 */
+    overflow: hidden;
+    font-size: .28rem;
+    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    padding-bottom: .9rem;
+}
+#box li{
+    margin: .2rem;
+    background: #fff;
+    padding: .2rem;
+    border-radius: .05rem;
+    margin-bottom: .2rem;
+    box-shadow:0 0 5px 1px #eee;
+    display: flex;
+    justify-content: space-between;
+}
+.option .iconfont{
+    
+    font-size: .4rem;
+    color: #5fabba
+}
+
+.option{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content{
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: none;
+    width: 100%;
+    height: 0.88rem;
+    font-size: .28rem;
+    padding: 0 .2rem;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .32rem;
+    /*font-weight: bold;*/
+    height: .88rem;
+    color: #fff;
+    background: rgba(0,0,0,0.2)
+}
+.msg{
+    display: block;
+    text-align: center;
+    font-size: .28rem;
+    color: rgba(0,0,0,0.2);
+    padding: .3rem;
+}
+#box li.active{
+    background: rgba(255,255,255,0.2);
+    box-shadow: none;
+}
+
+#box li.active .option{
+    width: 1.2rem;
+}
+#box li.active .option i:nth-child(1){
+    color: rgba(255,255,255,0.2);
+}

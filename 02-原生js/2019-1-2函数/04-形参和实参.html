@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //形参个数大于实参,多余的形参中存的值是undefined
+        function funName(param1,param2){
+            return param1+param2;   //1+undefined
+        }
+
+        // console.log(funName(1));    //NaN
+
+        //当形参个数小于实参，多余的实参自动忽略
+        console.log(funName(1,2,3));
+    </script>
+</body>
+</html>

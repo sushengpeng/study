@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1">这是第一个原始段落</p>
+        <p id="p2">这是第二个原始段落</p>
+    </div>
+
+    <script>
+// DOM节点信息包括
+        // 1、节点类型（nodeType）
+        // 2、节点名称（nodeName）
+        // 3、节点值（nodeValue）
+
+        //获取节点类型的语法：  
+        // document.getElementById(“id”).nodeType //该属性返回以数字表示的节点类型
+
+        // 节点类型	说明                                                 	值
+        // 元素节点	每一个HTML标签都是一个元素节点，如 < div > 、 <p>、<ul>等	1
+        // 属性节点	元素节点（HTML标签）的属性，如 id 、class 、name 等。	    2
+        // 文本节点	元素节点或属性节点中的文本内容。	                        3
+        // 注释节点	表示文档注释，形式为<!-- comment text -->。                8
+        // 文档节点	表示整个文档（DOM 树的根节点，即 document ）	            9
+
+        // console.log(div1.nodeType);   //1
+        // console.log(div1.nodeName);   //DIV
+        // console.log(div1.nodeValue);  //null
+
+        // console.log(div1.attributes[0].nodeName);  //id
+        // console.log(div1.attributes[0].nodeValue)  //div1
+
+// 添加节点 关键字：appendChild
+        //如需向 HTML DOM 添加新元素，您必须首先创建该元素（元素节点），然后向一个已存在的元素追加该元素。
+        //父元素.appendChild(子元素)  追加的位置是在父元素的最后
+
+        // 方法一：
+        // var para =document.createElement("p");
+        // var text = document.createTextNode("这是新的段落");
+        // para.appendChild(text);
+
+        // var div1=document.getElementById("div1")
+        // div1.appendChild(para);
+
+        // 方法二：
+        // para = document.createElement("p");//create创建  Element元素
+        // para.innerHTML = "又是一个新段落";
+        // para.className = "active";    //添加类名
+        // para.style.backgroundColor="pink"; //添加背景颜色
+        // para.title="段落";  //添加title
+        // div1.appendChild(para);
+
+        // 在任何位置添加元素
+        // insertBefore():新增子节点，将其插入指定子节点之前。
+        // parent.insertBefore(new,old);
+
+        // para = document.createElement("span");
+        // para.innerHTML = "span";
+        // var p2 = document.getElementById("p2");
+        // div1.insertBefore(para, p2);
+
+// 替换节点 语法：parent.replaceChild(new,old)
+        // var para = document.createElement("p");
+        // para.innerHTML = "这是替换后的段落";
+
+        // var div1 = document.getElementById("div1");
+        // var p1 = document.getElementById("p1");
+        // div1.replaceChild(para, p1);
+
+// 删除节点 语法：parent.removeChild(child)
+        var div1=document.getElementById("div1");
+        var p1=document.getElementById("p1");
+        div1.removeChild(p1);
+ 
+        // 常用的方式 语法：
+        var p1=document.getElementById("p1");
+        p1.parentNode.removeChild(p1);
+
+    </script>
+</body>
+
+</html>

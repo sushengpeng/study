@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log(location.search);   //?id=0&spm=sadfe.edfdf&nid=s5562112&name=%E7%BB%BF%E8%89%B2
+
+        // var str=location.search;
+        // str = str.substring(1);
+        // console.log(str) ;  //id=0&spm=sadfe.edfdf&nid=s5562112&name=%E7%BB%BF%E8%89%B2
+
+        // var arr = str.split("&");
+        // console.log(arr);    //["id=0", "spm=sadfe.edfdf", "nid=s5562112", "name=%E7%BB%BF%E8%89%B2"]
+        // var result;
+        // for(var i=0;i<arr.length;i++){
+        //     var paras = arr[i].split("=");
+        //     if(paras[0]=="name"){
+        //         result = paras[1];
+        //     }
+        // }
+
+        // console.log(result)
+
+        function getSearch(param){
+            var str = location.search;
+            str = str.substring(1);
+            var arr = str.split("&");
+            for(var i=0;i<arr.length;i++){
+                var paras = arr[i].split("=");
+                if(paras[0]==param){
+                    return paras[1];
+                }
+            }
+        }
+
+        console.log(getSearch("spm")) ;
+    </script>
+</body>
+</html>

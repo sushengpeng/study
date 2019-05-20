@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 优化选择器
+        //     选择器优化不像以前那么重要，因为越来越多的浏览器实现document.querySelectorAll()并且选择的负担从jQuery转移到浏览器。但是，当选择器性能成为瓶颈时，仍然需要记住一些提示
+        // 如果可能，请避免使用包含jQuery扩展的选择器
+        // Slower (the zero-based :even selector is a jQuery extension)
+            $("#my-table tr:even");
+
+            // Better, though not exactly equivalent
+            $("#my-table tr:nth-child(odd)");
+
+        // 避免过度的特异性
+        $(".data table.attendees td.gonzalez");
+
+            // Better: Drop the middle if possible.
+            $(".data td.gonzalez");
+        // 基于ID的选择器
+        //     使用ID开始您的选择器是一个安全的赌注。
+        // Fast:
+            $("#container div.robotarm");
+
+            // Super-fast:
+            $("#container").find("div.robotarm");
+        // 使用第一种方法，jQuery使用查询DOM document.querySelectorAll() 。对于第二个，jQuery使用document.getElementById() ，这更快，虽然后续调用可以减少速度提升.find() 。
+    
+    
+        // 如果需要支持旧版浏览器（如Internet Explorer 8及更低版本），请考虑以下提示
+        // 特异性
+        // 未优化的:
+            $("div.data .gonzalez");
+
+            // 最优化的:
+            $(".data td.gonzalez");   // 如果可能使用tag.class的话，最好放在最右边
+
+
+        // 避免使用通用选择器 
+        // 指定或暗示可以在任何地方找到匹配的选择可能非常慢。 
+
+        // $(".buttons > *"); // Extremely expensive.
+        //     $(".buttons").children(); // Much better.
+
+        //     $(":radio"); // Implied universal selection.
+        //     $("*:radio"); // Same thing, explicit now.
+        //     $("input:radio"); // Much better.
+    </script>
+</body>
+</html>

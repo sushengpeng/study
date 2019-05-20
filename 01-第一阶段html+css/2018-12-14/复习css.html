@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 
+            1.引入方式
+                行内样式：在开始标签写一个属性style
+                内部样式：在head中写一个style标签
+                外部样式：新建一个css文件，在head中用link引入进来
+            2.选择器 
+                标签选择器 p{}
+                类选择器 .word{...}
+                ID选择器 #word{...}
+                通配选择器 *{...}
+                子代选择器 ul > li {}
+                后代选择器 ul li{}
+                群组选择器 ul,li{...}
+                属性选择器 []
+         */
+         /* input[type="text"]{
+             width: 500px;
+             height: 200px;
+         } */
+         [title="title"]{
+             color: red
+         }
+    </style>
+    <!-- <style>
+        p{
+            color: green
+        }
+    </style> -->
+</head>
+<body>
+    <!-- <p style="color: red">123</p> -->
+    <p class="word" id="word">123</p>
+    <input type="text">
+    <input type="password">
+    <p>123</p>
+    <p title="title">456</p>
+</body>
+</html>

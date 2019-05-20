@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .main {
+            margin: 0 auto;
+            width: 700px;
+        }
+
+        #box1 {
+            width: 600px;
+            height: 100px;
+            font-size: 40px;
+            line-height: 100px;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 200px;
+            background-color: yellowgreen;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 50px;
+            font-size: 22px;
+            text-align: center;
+            line-height: 50px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        #begin{
+            width: 100px;
+            height: 50px;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div id="box1">
+        </div>
+        <div class="box2">
+            <input type="button" id="begin" value="开始" onclick="begin()">
+        </div>
+    </div>
+    </div>
+    <script>
+        var arr = ["何家喜", "刘孟印", "于红友", "李涛", "李岩", "黄嫚嫚", "邹蒙蒙", "王浩", "赵苗苗", "王爽爽", "鲁纪元", "孙洋", "张飞跃", "武东辉", "苏盛鹏",
+            "宋豪", "和振亮", "张有亮", "刘阳阳"];
+        var box = document.getElementById("box1");
+        var begin=document.getElementById("begin");
+        var timeId;
+        function begin() {
+            if(begin1.value=="开始"){
+                timeId=setInterval(function(){
+                    var num = Math.floor(Math.random() * 19);
+                    box.innerHTML=arr[num];
+                    console.log(begin1.value);
+                },100);
+                begin1.value="结束";
+            }else{
+                begin1.value="开始";
+                clearInterval(timeId);
+                console.log(begin1.value);
+            }
+        }
+    </script>
+</body>
+
+</html>

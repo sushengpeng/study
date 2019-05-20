@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+        <brother></brother>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    const bus = new Vue()
+    const child = {
+        template:`
+        <div class='child'>
+            {{message}}
+            <button @click='change'>按钮</button>
+        </div>
+        `,
+        props:['message'],
+        methods:{
+            change(){
+                bus.$emit('setMsg','这是子组件中传入的值')
+            }
+        }
+    }
+    const parent = {
+        template:`
+        <div >
+            {{msg}}
+        </div>
+        `,
+        data(){
+            return {
+                msg:'这是父组件中的数据'
+            }
+        },
+        created(){
+            bus.$on('send:msg',(msg)=>{
+                console.log(1)
+                this.msg=msg
+            })
+        }
+    }
+    const brother={
+        template:`
+        <div class='brother'>
+            <button @click='brother'>按钮</button>
+        </div>
+        `,
+        methods:{
+            brother(){
+                bus.$emit('send:msg','这是兄弟中传来的值')
+            }
+        }
+    }
+    Vue.component('child',child)
+    Vue.component('brother',brother)
+    Vue.component('parent',parent)
+    const app = new Vue({
+        el:'#app',
+        
+    })
+    </script>
+</body>
+</html>

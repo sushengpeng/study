@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="toggle">toggle</button>
+    <div></div>
+    
+    <script src="../jquery.js"></script>
+
+    <script>
+        $("#toggle").hover(function(){
+            // $("div").slideToggle();
+            
+            $("div").animate({
+                width:"toggle"
+            })
+        })
+    </script>
+</body>
+
+</html>

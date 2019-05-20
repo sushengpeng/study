@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{demoComputed}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{randomNum}}
+    <br>
+    {{msg.split('').reverse().join('')}}
+    <br>
+    {{reversedMsg}}
+  </div>
+  <script src="./vue.js"></script>
+  <!-- 
+    computed 
+      1 当语句过于复杂时,可以使用computed 去代替该语句, 方便代码的阅读
+      2 可以动态生成一些值
+        如:
+          data中有一个数组,数组中包含了4名学生的相关信息 两男 两女
+
+
+   -->
+  <script>
+    // 在Vue中除了data可以直接在模板中写 {{数据名}} 外 computed也可以
+    const app = new Vue({
+      el: '#app', 
+      data: {
+        msg: 'Hello Vue',
+        // randomNum: '0.8595279170724655'
+      },
+      computed: {
+        // 这个里面都是函数, 自动调用并得到返回值, 在使用时和data使用方法一致 {{computed函数}}
+        // computed会缓存第一次得到的结果,之后再去使用同一个computed都会是第一次得到的值
+        demoComputed () {
+          return 1
+        },
+        randomNum () {
+          return Math.random()
+        },
+        reversedMsg () {
+          return this.msg.split('').reverse().join('')
+        }
+      }
+    })  
+  
+  
+  </script>
+</body>
+</html>

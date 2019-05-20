@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //截取从0到倒数第一位的子字符串
+        var str = "sfsdlfjsdljfoweuiojs";
+        console.log(str.slice(0,-1));
+        console.log(str.slice(0,str.length-1));
+        console.log(str.substring(0,str.length-1))
+        console.log(str.substr(0,str.length-1));
+
+        console.log(str.slice(1));
+        console.log(str.substring(1))
+        console.log(str.substr(1))
+
+
+        // split
+        console.log(str.split("s"))
+        console.log(str.split("s").length-1)
+
+        console.log(str.replace("s","S"))
+
+        //leftTrim()
+        str = "   sdfsdf sdfsd        ";
+        function leftTrim(str){
+            while(str.indexOf(" ")==0){
+                str=str.replace(" ","")
+            }
+            return str;
+        }
+        // console.log(leftTrim(str));   //"sdfsdf sdfsd  "
+        //rightTrim()
+
+        // console.log(str.length);  //23
+        // str.lastIndexOf(" ")==22   
+        // "   sdfsdf sdfsd       "   //22
+        // str.lastIndexOf(" ")==21  
+        // "   sdfsdf sdfsd      "  
+        function rightTrim(str){
+            while(str.lastIndexOf(" ")==str.length-1){
+                str=str.slice(0,-1);
+            }
+            return str;
+        }  
+        // console.log(rightTrim(str))    //"   sdfsdf sdfsd"   
+
+        function trim(str){
+            str = leftTrim(str)
+            str = rightTrim(str);
+            return str;
+        }
+        // console.log(trim(str))   // "sdfsdf sdfsd"
+
+
+        // 验证邮箱有效性
+        // eg:email@126.com
+        // 1.最短8位，最长20位
+        // 2.字符串中必须有@，并且@不能是第一位
+        // 3.必须有点.,必须在@后边，并且不能是最后一位
+        // var emailStr = prompt("请输入邮箱");
+        // if(
+        //     emailStr.length>=8 && emailStr.length<=20
+        //     && emailStr.indexOf("@")>0
+        //     && emailStr.indexOf(".")>emailStr.indexOf("@") && emailStr.indexOf(".")!=emailStr.length-1
+        // ){
+        //     alert("是一个合法的邮箱")
+        // }else{
+        //     alert("不是一个合法的邮箱")
+        // }
+
+
+        // 使用两种方式得到下列字符串中a出现的次数
+        //  var str = "jlkasdfljksdljkaflsjkdafljksdaflkjlssddsdsfsssssasdfsdafsadfwerwerwrwesfasfdalllsdfljksdfljkdlsdfljsdafjklsdfjlkjskldfsdaljkfasduioowerpwm;lvxcz.mxcvopuiwerlasddp[fpweripiower;sdf;ksdfkl;sdaf;sd;fm/xcvlksdaf;klsdafk;lsdafa;sdkl"; 
+
+        //  console.log(str.split("a").length-1);    //18
+        
+
+        // str.indexOf("a")>-1
+        // str.replace("a","")            i++
+        // str.replace("a","")            i++   
+        //========================================================
+        // var i=0;
+        // while(str.indexOf("a")>-1){
+        //     // console.log(str);
+        //     str = str.replace("a","");
+        //     i++;
+        // }
+        // console.log(i);
+
+        //===========================================================
+
+
+        // str.indexOf("a")>-1
+        // i++  
+        // str = str.slice(str.indexOf("a")+1)
+        
+        // var i=0;
+        // while(str.indexOf("a")>-1){
+        //     i++;
+        //     str = str.slice(str.indexOf("a")+1)
+        // }
+        // console.log(i)
+
+
+        // 得到下列字符串中sd出现的次数
+        var str = "jlkasdfljksdljkaflsjkdafljksdaflkjlssddsdsfsssssasdfsdafsadfwerwerwrwesfasfdalllsdfljksdfljkdlsdfljsdafjklsdfjlkjskldfsdaljkfasduioowerpwm;lvxcz.mxcvopuiwerlasddp[fpweripiower;sdf;ksdfkl;sdaf;sd;fm/xcvlksdaf;klsdafk;lsdafa;sdkl"; 
+
+        // console.log(str.split("sd").length-1);   //23
+
+        //====================================================
+        // var i =0;
+        // while(str.indexOf("sd")>-1){
+        //     str = str.replace("sd","SD");
+        //     i++;
+        // }
+        // console.log(i);
+
+        //=====================================================
+        var i=0;
+        while(str.indexOf("sd")>-1){
+            i++;
+            str = str.slice(str.indexOf("sd")+"sd".length)
+        }
+        console.log(i);
+    </script>
+</body>
+</html>

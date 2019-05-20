@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .view {
+            position: relative;
+            width: 500px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+
+        #video {
+            position: relative;
+        }
+
+        .control {
+            position: absolute;
+            width: 100%;
+            height: 40px;
+            left: 0;
+            bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+
+        }
+
+        .control div {
+            float: left;
+            margin-top: 10px;
+            padding: 0 10px 0;
+            cursor: pointer;
+        }
+
+        .back {
+            width: 20px;
+            height: 20px;
+            margin-left: 150px;
+        }
+
+        .voice {
+            margin-left: 12px;
+            position: relative;
+        }
+
+        .control .progressbar {
+            width: 100%;
+            margin-top: 5px;
+            position: absolute;
+            top: -10px;
+            padding: 5px 0 5px 0;
+            margin-left: 15px;
+        }
+
+        .progressbar .line {
+            width: 90%;
+            height: 5px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .progressbar .line .blank {
+            height: 5px;
+            background-color: rgb(245, 120, 120);
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: -10px;
+            border-radius: 2px;
+        }
+
+        .progressbar .dot {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            padding: 0;
+            background-color: orange;
+            position: absolute;
+            top: -7px;
+            left: 0px;
+        }
+
+        .voice .vertical {
+            position: absolute;
+            left: 40px;
+            top: 8px;
+            padding: 0;
+            margin-top: 0;
+            width: 65px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        .voice .vertical span {
+            display: block;
+            width: 5px;
+            height: 4px;
+            background-color: rgb(245, 120, 120);
+            border-radius: 2px;
+        }
+
+        .voice .block {
+            position: absolute;
+            left: 45px;
+            top: 5px;
+            padding: 0;
+            margin-top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        .control .all{
+            padding: 0;
+            position: absolute;
+            right:4px;
+            top:0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="view">
+        <video preload="auto" id="video" width="500" height="300">
+            <source src="media/1.mp4" type="video/mp4">
+        </video>
+        <div class="control">
+            <div class="back">
+                <img src="icon/kuaitui.png">
+            </div>
+            <div class="pre">
+                <img src="icon/pre.png">
+            </div>
+            <div class="play">
+                <img src="icon/bofang.png">
+            </div>
+            <div class="next">
+                <img src="icon/next.png">
+            </div>
+            <div class="fast">
+                <img src="icon/1-copy.png">
+            </div>
+            <div class="progressbar">
+                <div class="line">
+                    <div class="blank"></div>
+                </div>
+                <div class="dot"></div>
+            </div>
+            <div class="voice">
+                <img src="icon/shengyin.png">
+                <div class="vertical">
+                    <span></span>
+                </div>
+                <div class="block"></div>
+            </div>
+            <div class="all">
+                <img src="icon/all.png">
+            </div>
+        </div>
+    </div>
+    <script>
+        var play = document.getElementsByClassName("play")[0];
+        var pause = play.getElementsByTagName("img")[0];
+        var pre = document.getElementsByClassName("pre")[0];
+        var next = document.getElementsByClassName("next")[0];
+        var fast = document.getElementsByClassName("fast")[0];
+        var voice = document.getElementsByClassName("voice")[0];
+        var control = document.getElementsByClassName("control")[0];
+        var back = document.getElementsByClassName("back")[0];
+        var all = document.getElementsByClassName("all")[0];
+        var dot = document.getElementsByClassName("dot")[0];
+        var blank = document.getElementsByClassName("blank")[0];
+        var line = document.getElementsByClassName("line")[0];
+        var video = document.getElementById("video");
+        var videosrc = video.getElementsByTagName("source")[0];
+        var vertical = document.getElementsByClassName("vertical")[0];
+        var v_span = vertical.getElementsByTagName("span")[0];
+        var block = document.getElementsByClassName("block")[0];
+        var total; //视频的总时长
+        var distance; //距离
+        var timerId;
+        var arr = ["media/1.mp4", "media/2.mp4","https://vodkgeyttp8.vod.126.net/cloudmusic/YWQgMCMiMDEgMCIgMTUwJA==/mv/5306173/c93d3f1af73e472506d8aed690c13f09.mp4?wsSecret=6071f78defd2a054b6a8c2d1bb375ede&wsTime=1554723399","https://vodkgeyttp8.vod.126.net/cloudmusic/ODVgYCExZCQgMTAhJDI2Mw==/mv/499091/b1ad5c827bdb000a4e353e7d0e2607a2.mp4?wsSecret=cda7ea259754e3709d9ca4da352c83fd&wsTime=1554723596","https://vodkgeyttp8.vod.126.net/cloudmusic/JTAgMTAwNWEiIDIhIyEhMA==/mv/421072/de2d643c478cf8cfecdcb7c721fc49c7.mp4?wsSecret=d31bff8602bec97406399f2f59424509&wsTime=1554723764"];
+        var index = 0; //存放视频地址的index
+        var flag = false;
+        var opt = 1; //透明度
+        var v_flag = false;
+        var c_flag = true; //当鼠标进入显示
+        video.volume=0.1
+        play.onclick = function () {
+            if (pause.getAttribute("src") == "icon/bofang.png") {
+                pause.setAttribute("src", "icon/zanting.png");
+                video.play();
+                total = video.duration;
+                distance = 470 / total / 10;
+                animate();
+            } else {
+                pause.setAttribute("src", "icon/bofang.png");
+                video.pause();
+                clearInterval(timerId);
+            }
+        }
+        line.onmousedown = function (e) {
+            flag = true;
+            var x = e.clientX - line.getBoundingClientRect().left;
+            // console.log(x);
+            video.currentTime = x * total / 470;
+        }
+        // line.onmousemove = function (e) {
+        //     if (flag) {
+        //         var y = e.clientX;
+        //         var x = e.clientX - line.getBoundingClientRect().left;
+        //         // console.log(y);
+        //         video.currentTime = x * total / 470;
+        //     }
+        // }
+        line.onmouseup = function (e) {
+            flag = false;
+        }
+        next.onclick = function () {
+            index++;
+            video.src = arr[index];
+            video.play();
+            animate();
+        }
+        pre.onclick = function () {
+            index--;
+            video.src = arr[index];
+            video.play();
+            animate();
+        }
+
+        function animate() {
+            clearInterval(timerId);
+            timerId = setInterval(function () {
+                var con = video.currentTime;
+                total = video.duration;
+                distance = con / total * 470;
+                if (distance >= 470) {
+                    // distance = 0;
+                    // clearInterval(timerId);
+                    // video.initialTime;
+                    // pause.setAttribute("src", "icon/bofang.png");
+                    index++;
+                    index >= arr.length ? index = 0 : index;
+                    video.src = arr[index];
+                    video.play();
+                    animate();
+                }
+                dot.style.left = distance + "px";
+                blank.style.width = distance + "px";
+                if(c_flag){
+                    control.style.opacity <= 0 ? control.style.opacity = 0 : control.style.opacity -= 0.02;
+                }
+            }, 100)
+        }
+        fast.onclick = function () {
+            video.currentTime += 1;
+        }
+        back.onclick = function () {
+            video.currentTime -= 1;
+        }
+        control.onmouseenter = function () {
+            c_flag=false;
+            control.style.opacity = 1;
+        }
+        control.onmouseleave = function () {
+            c_flag=true;
+            control.style.opacity = 1;
+        }
+        vertical.onmousedown = function (e) {
+            v_flag = true;
+            var x = e.clientX - vertical.getBoundingClientRect().left;
+            // console.log(x * 10 / 650);
+            block.style.left = x * 10 / 650 *65+35 + "px";
+            v_span.style.width = x * 10 / 650 *65+ "px";
+            video.volume = x * 10 / 650;
+        }
+        all.onclick=function(){
+            video.webkitRequestFullScreen();
+        }
+    </script>
+</body>
+
+</html>

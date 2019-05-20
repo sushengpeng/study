@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width:200px;
+            height: 50px;
+            border:solid 1px blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="box" >
+    <script>
+        var box = document.getElementById("box");
+        box.onmouseover = function(){
+        //    var ws = parseInt(window.getComputedStyle(box,null).width);
+        //    var we = 300;
+        //     //    400ms
+        //     // 400ms 之内 width 200 300   每隔1000/60=16.67
+        //     // 400指的是动画运行时间，总时长
+        //     var n =  400/1000*60 ;//次数
+        //     var step = (we-ws)/n;   //步长
+
+        //     var timmerId = setInterval(function(){
+        //         ws += step;
+        //         box.style.width = ws +"px";
+        //         if(ws>=we){
+        //             box.style.width = we+"px";
+        //             clearInterval(timmerId);
+        //         }
+        //     },1000/60)
+            animate(box,"opacity",0,200);
+        }
+
+        box.onmouseout = function(){
+            // var ws = parseInt(window.getComputedStyle(box,null).width);  //300
+            // var we = 200;
+
+            // var n = 400/1000*60;   //次数
+            // var step = (we-ws)/n;   //步长
+
+            // var timmerId  = setInterval(function(){
+            //     ws = ws+step;
+            //     box.style.width = ws+"px";
+            //     if(ws<=we){
+            //         box.style.width = we+"px";
+            //         clearInterval(timmerId);
+            //     }
+            // },1000/60)
+            animate(box,"opacity",1,200);
+        }
+
+        // 总结：
+        // 0.动画作用的元素
+        // 1.动画的总时长  控制动画速度
+        // 2.动画改变的属性值
+        // 3.动画改变的属性的目标值
+        
+        function animate(dom,attr,end,time){
+            var attrValue = window.getComputedStyle(dom,null)[attr];    //200px
+            var start = parseFloat(attrValue);    //200
+            var dw = attrValue.replace(start,"");
+            var n = time/1000*60;   //次数
+            var step = (end-start)/n;   //步长
+            // console.log(dw);
+            var timmerId = setInterval(function(){
+                start = start + step;
+                dom.style[attr]=start+dw;
+                
+                // start>=end    start<=end
+                // step>0?start>=end:start<=end
+                if(step>0?start>=end:start<=end){
+                    dom.style[attr]=end+dw;
+                    clearInterval(timmerId);
+                }
+            },1000/60)
+        }
+
+        
+        // animate(box,"opacity",0.5,400);
+    </script>
+</body>
+</html>

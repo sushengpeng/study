@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+
+  <!-- 
+    /setting/base
+    /setting/avatar/
+    /setting/password
+   -->
+  <script>
+    const base = {
+      template: `
+        <div>设置基本信息</div>
+      `
+    }
+    
+    const avatar = {
+      template: `
+        <div>设置图片</div>
+      `
+    }
+
+    const password = {
+      template: `
+        <div>设置密码</div>
+      `
+    }
+
+    const setting = {
+      template: `
+        <div>
+          <h3>设置</h3>
+          <nav>
+            <router-link to="/setting/base">基本信息</router-link>
+            <router-link to="/setting/avatar">设置头像/头图</router-link>
+            <router-link to="/setting/password">修改密码</router-link>
+          </nav>
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    const channel = {
+      template: `
+        <div>
+          列表{{$route.params.id}}
+          <ul>
+            <router-link to="/article/1" tag="li">文章1</router-link>
+            <router-link to="/article/2" tag="li">文章2</router-link>
+            <router-link to="/article/3" tag="li">文章3</router-link>
+          </ul>
+        </div>
+      `
+    }
+
+    const article = {
+      template: `
+        <div>文章详情{{$route.params.id}}</div>
+      `
+    }
+
+    const about = {
+      template: `
+        <div>关于我们</div>
+      `
+    }
+
+    const join = {
+      template: `
+        <div>加入我们</div>
+      `
+    }
+
+    const index = {
+      template: `
+        <div>
+          <nav>
+            <router-link to="/channel/1">悦读</router-link>
+            <router-link to="/channel/2">情感</router-link>
+            <router-link to="/channel/3">连播</router-link>
+            <router-link to="/channel/4">校园</router-link>
+            <router-link to="/channel/5">音乐</router-link>
+            <router-link to="/channel/6">Labs</router-link>
+            <router-link to="/user/1">张三</router-link>
+            <router-link to="/setting">设置</router-link>
+          </nav>
+          <router-view></router-view>
+
+          <router-link to="/about">关于我们</router-link>
+          <router-link to="/join">加入我们</router-link>
+
+        </div>
+      `
+    }
+
+    const user = {
+      template: `
+        <div>
+          用户的个人中心{{$route.params.id}}
+          <router-link to="/setting">设置</router-link>
+
+        </div>
+      `
+    }
+
+    const routes = [
+      {
+        path: '/',
+        component: index,
+        children: [
+          {
+            path: 'channel/:id',
+            component: channel
+          },{
+            path: 'article/1',
+            component: article,
+            alias: '/'
+          }, {
+            path: 'article/:id',
+            component: article
+          }, {
+            path: 'setting',
+            component: setting,
+            redirect: '/setting/base',
+            children: [
+              {
+                path: 'base',
+                component: base
+              }, {
+                path: 'avatar',
+                component: avatar
+              }, {
+                path: 'password',
+                component: password
+              }
+            ]
+          }, {
+            path: 'about',
+            component: about
+          }, {
+            path: 'join',
+            component: join
+          }
+        ]
+      }, {
+        path: '/user/:id',
+        component: user
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+
+    const app = new Vue({
+      el: '#app',
+      router
+    })
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 1200px;
+            margin: 0 auto;
+            border: 1px solid tomato;
+            position: relative;
+            padding-top: 10px;
+        }
+
+        /* .content div {
+            position: absolute;
+            width: 220px;
+            box-sizing: border-box;
+            background-color: paleturquoise;
+            border: 1px solid black;
+            margin-left: 10px;
+        } */
+        .content .item {
+            position: relative;
+            float: left;
+            margin-left: 10px;
+            /* height: 1000px; */
+            background-color: tan;
+        }
+
+        .content .item div {
+            width: 220px;
+            box-sizing: border-box;
+            background-color: paleturquoise;
+            border: 1px solid black;
+            margin-top:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+
+    </div>
+    <script>
+        var arr = [{
+                src: 'htttps://www.baidu.com',
+                height: 200,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 300,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 400,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 250,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 200,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 300,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 400,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 250,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 200,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 300,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 400,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 150,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 200,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 300,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 400,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 250,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 200,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 300,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 400,
+                width: 220
+            },
+            {
+                src: 'htttps://www.baidu.com',
+                height: 150,
+                width: 220
+            },
+        ]
+        var cont = document.querySelector(".content");
+        var contwidth = cont.clientWidth; //获取浏览器内部的宽度
+        var pic_width = 240; //每个div的宽度 包括margin
+        var colum = parseInt(contwidth / pic_width); //一行能放多少个div
+        var list = []; //存放每一列高度的最小值
+        var str = "";
+        //遍历第一行，将数据放入
+        // for (var i = 0; i < colum; i++) {
+        //     list.push(arr[i].height);
+        //     str += "<div style='left:" + i * pic_width + "px;height:" + arr[i].height + "px'></div>";
+        //     cont.innerHTML = str;
+        // }
+        // // console.log(list)
+        // for (var i = colum, len = arr.length; i < len; i++) {
+        //     var min = Math.min.apply(null, list);
+        //     var index = list.indexOf(min);
+        //     str = "<div style='left:" + index * pic_width + "px;top:" + (min + 20) + "px;height:" + arr[i].height +
+        //         "px'></div>";
+        //     list[index] += 20 + arr[i].height;
+
+        //     cont.innerHTML += str;
+        // }
+        // cont.style.height = Math.max.apply(null, list) + 20 + "px";
+        //float实现瀑布流的思路是
+        // 列数计算好后，让每列的div都float，用一个数组维护每列中的最小高度，每次添加元素的时候添加到最小的高度里
+        var item_height = [0, 0, 0, 0, 0];
+        for (var i = 0; i < colum; i++) {
+            str += "<div class='item'></div>";
+            cont.innerHTML = str;
+        }
+        var items = document.getElementsByClassName("item");
+        for (var i = 0; i < arr.length; i++) {
+            var min = Math.min.apply(null, item_height);
+            // console.log(min)
+            var index = item_height.indexOf(min);
+            console.log(index)
+            str = "<div style='height:" + arr[i].height + "px;top:" + (min + 20) + "px'></div>";
+            items[index].innerHTML += str;
+            item_height[index] += arr[i].height;
+        }
+        cont.style.height = Math.max.apply(null, item_height) + 20 + "px";
+        //从数据库中得到src图片地址，怎样获取图片的高度；
+        // 1.从数据库中获取了图片的src为
+        // var src = "https://s10.mogucdn.com/mlcdn/c45406/190102_088f4i166l4gkl08k297h5kk8690i_260x200.png";
+        // // 2.创建dom
+        // var img = document.createElement("img");
+        // img.src = src;
+        // img.width = 100; //设置图片宽高
+        // img.height = 100;
+        // document.body.appendChild(img);
+        // console.log(img.width)
+        // console.log(img.height);
+        // //图片加载完毕
+        // img.onload = function () {
+        //     console.log(this.width, this.naturalWidth); //this.naturalWidth 为h5中获取图片实际宽高的属性
+        //     console.log(this.height, this.naturalHeight); //this.naturalWidth 为h5中获取图片实际宽高的属性
+        // }
+    </script>
+</body>
+
+</html>

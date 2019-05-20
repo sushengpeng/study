@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="###" onclick="alert(1)" id="btn">click me</a>
+    <script>
+        var btn = document.getElementById("btn");
+
+        btn.addEventListener("click",function(){
+            alert(3)
+        },false);
+
+        //第二种方式覆盖第一种
+        btn.onclick = function(){
+            alert(2);
+        }
+
+
+        //事件的执行顺序是：
+        // 属性注册方式先执行，
+        // 添加事件监听方式后执行
+        // 使用addEventListener()注册的处理程序按照它们的注册顺序调用。
+
+    </script>
+</body>
+</html>

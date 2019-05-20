@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Foo(y){ 
+            // this={};
+
+            this.y = y ; 
+
+            // this.__proto__ = Foo.prototype
+        } 
+
+        Foo.prototype.x = 10; 
+
+        Foo.prototype.calculate = function(z){ 
+            return this.x+this.y+z; 
+        } 
+
+        var b = new Foo(20);
+
+        console.log(b);
+        // new
+        //1.创建一个空对象{},this指向这个空对象{}
+        //2.让this的__proto__指向Foo.prototype
+        //3.执行构造函数，让this拥有属性或方法
+        //4.return this
+
+  
+        console.log(b.y);   //20
+        console.log(b.x)    //10
+        console.log(b.calculate(10));    //40
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+    }
+    .main{
+        width: 400px;
+        height: 400px;
+        background-color: tomato;
+        margin:0 auto;
+        border-radius: 50%;
+        margin-top:200px;
+        position: relative;
+    }
+    #div1{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        margin-top:-50px;
+        margin-left: -50px; 
+        border-radius: 50%;
+        background-color: green;
+    }
+    #div2{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* background-color: black; */
+        position: relative;
+    }
+    #div3{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        margin-top:-25px;
+        margin-left: -25px;
+        background-color:wheat;
+    }
+    #begin{
+        width: 100px;
+        height: 50px;
+        font-size: 25px;
+        position: absolute;
+        margin-top:600px;
+        margin-left:160px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 太阳 -->
+    <div class="main">
+        <!-- 地球月球 -->
+        <div id="div1">
+            <!-- 月球 -->
+            <div id="div2">
+                <div id="div3"></div>
+            </div>
+        </div>
+        <input type="button" onclick="begin()" id="begin" value="开始">
+    </div>
+    <script>
+        var earth = document.getElementById("div1");
+        var moon= document.getElementById("div3");
+        var start=document.getElementById("begin");
+        var earthAngle= -90;
+        var moonAngle= -90;
+        var timeId1,timeId2;
+        earth.style.top = 200 + Math.sin(earthAngle * (Math.PI / 180)) * 300 + "px";
+        earth.style.left = 200 + Math.cos(earthAngle * (Math.PI / 180)) * 300 + "px";
+        moon.style.top = 50 + Math.sin(moonAngle * (Math.PI / 180)) * 75 + "px";
+        moon.style.left = 50 + Math.cos(moonAngle * (Math.PI / 180)) * 75 + "px";
+        function handler1() {
+            earth.style.top = 200 + Math.sin(earthAngle * (Math.PI / 180)) * 300 + "px";
+            earth.style.left = 200 + Math.cos(earthAngle * (Math.PI / 180)) * 300 + "px";            
+            earthAngle+= 2;
+        }
+        function handler2(){
+            moon.style.top = 50 + Math.sin(moonAngle * (Math.PI / 180)) * 75 + "px";
+            moon.style.left = 50 + Math.cos(moonAngle * (Math.PI / 180)) * 75 + "px";
+            moonAngle+= 3;
+        }
+        function begin(){
+            if(start.value=="开始"){
+            timeId1 = setInterval(handler1,30);
+            timeId2 = setInterval(handler2,40);
+                start.value="结束";
+                console.log(start.value);
+            }else{
+                clearInterval(timeId1);
+                clearInterval(timeId2);
+                start.value="开始";
+                console.log(start.value);
+            }  
+        }
+    //     function start1(){
+    //     if(t.value=="开始抽奖"){
+    //         timer = setInterval(function(){
+    //             var ran2=Math.floor(Math.random()*10);
+    //             p.innerHTML=arr1[ran2];
+    //         },60);
+    //         t.value="停止"
+    //         console.log(t.value);
+    //     }else{
+    //         t.value="开始抽奖";
+    //         clearInterval(timer);
+    //     }
+    // }
+    </script>
+</body>
+
+</html>

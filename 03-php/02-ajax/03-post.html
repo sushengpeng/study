@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <input type="text" id="uname"><input type="button" id="send" value="发送">
+    <script>
+        // var send = document.getElementById("send");
+        // send.onclick = function(){
+        //     var xhr= new XMLHttpRequest();
+
+        //     xhr.open("POST","data.php");
+        //     //POST请求一般用于向服务器发送数据，发送的数据在send参数里，如果想要被服务器接受，必须设置请求头，就是下面这行代码
+        //     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        //     var uname = document.getElementById("uname");
+        //     xhr.send("name="+uname.value);
+
+        //     xhr.onreadystatechange = function(){
+        //         if(xhr.status==200 && xhr.readyState==4){
+        //         var data = xhr.responseText;
+        //         console.log(data);
+        //         //    var jsonobj = JSON.parse(data);
+        //         //    console.log(jsonobj.name);
+        //         }
+        //     }
+        // }
+        
+        function ajax(option){
+            var xhr = new XMLHttpRequest();
+
+            //
+            if(option.type=="GET"){
+                xhr.open("GET",option.url+"?"+option.param);
+                xhr.send();
+            }else{
+                
+            }
+
+            xhr.onreadystatechange = function(){
+                if(xhr.status==200 && xhr.readyState==4){
+                    var data = xhr.responseText;
+                    option.success(data);
+                }
+            }
+            
+        }
+
+        var option = {
+            type:"GET",
+            url:"data.php",
+            param:"name=zs",
+            success:function(data){
+                console.log(data);
+                box.innerHTML=data
+            }
+        }
+        ajax(option);
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a>这是a</a>
+    </div>
+    <span id="span1">span1</span>
+    <span id="span2">span2</span>
+    <script src="../jquery.js" ></script>
+    <script>
+        //父.append(子)
+        // $("div").append("span")
+        // $("div").append($("span"));   //追加现有元素
+        // $("div").append($("<img />",{src:"http://weere.com"}));  //追加新的内容
+
+        // $("div").prepend($("<p />",{css:{border:"solid 1px red",width:"200px"}}));
+
+        //子.appendTo(父)  父(可以是选择器)
+        // $("span").appendTo($("div"))
+
+        // $("span").prependTo($("div"))
+
+
+        //兄弟（可以追加新元素，也可以在现有元素上移动位置）
+        // $("a").after($("span"))
+        // $("a").before($("span"))
+
+        // $("span").insertBefore($("a"))
+        // $("span").insertAfter($("a"))
+
+
+        //clone()
+        // $("div").click(function(){
+        //     alert(1)
+        // })
+        // $("div").clone().appendTo("body");   //没有克隆事件
+        // $("div").clone(true).appendTo("body");  //可以克隆事件
+
+        //外部包裹
+        // $("span").wrap($("<p class='aaa' />"))
+
+        // $("span").wrap($("<div />"))
+        // $("span").wrap(function(){
+        //     return "<div class='"+this.innerHTML+"' />"
+        // })
+
+        // $("span").wrapAll("<div />")
+
+        $("span").wrapInner("<i class='iconfont' />");    //
+
+
+        //删除
+
+         //remove()    删除事件
+        // $("span").remove();
+        // $("span").empty();
+
+        // detach() 删除  ，不删除事件
+        $("#span1").click(function(){
+            alert(1)
+        })
+        //console.log(  $("span").remove("#span1").css("border","solid 1px red").eq(0).appendTo("body"))
+        // console.log($("span").detach("#span1").css("border","solid 1px red").eq(0).appendTo("body"))
+    </script>
+</body>
+</html>

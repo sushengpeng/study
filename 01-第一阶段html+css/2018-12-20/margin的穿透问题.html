@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*margin 穿透问题 必须是块元素 父子关系*/
+        /*
+            1.给父元素一个边框
+            2.可以给父元素一个overflow：hidden;
+        */
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        ul{
+            list-style: none;
+            background-color: #ccc;
+            /* border: 1px solid red; */
+            /* overflow: hidden; */
+            border: 1px solid transparent;
+        }
+        li{
+            width: 300px;
+            height: 50px;
+            line-height: 50px;
+            background-color: red;
+            margin-top:20px 
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

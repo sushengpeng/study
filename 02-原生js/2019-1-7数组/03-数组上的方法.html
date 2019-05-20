@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //========================length属性
+
+
+        var myCars=["Saab","Volvo","BMW"];
+        //concat()
+        //参数：1个或多个数组
+        //返回值：拼接后的数组
+        //是否改变原来的数组：否
+        // var myCars2 = ["BYD"];
+        // var myCars3= ["BC"];
+
+        // var result = myCars.concat(myCars2,myCars3);
+        // console.log(result);    // ["Saab", "Volvo", "BMW", "BYD", "BC"]
+        // console.log(myCars);
+
+
+        //indexOf()
+        //参数 ： 数组中的元素
+        // 返回值： 所在的位置
+        //是否改变原来的数组:否
+
+        // var result = myCars.indexOf("BMW");
+        // console.log(result);
+        // console.log(myCars);
+
+
+        // myCars=["Saab","Volvo","BMW","sddfdd","BMW"];
+        //lastIndexOf()
+        //参数 ： 数组中的元素(从后往前找)
+        // 返回值： 所在的位置
+        //是否改变原来的数组:否
+        // console.log(myCars.lastIndexOf("BMW"));
+
+        //join()
+        //参数：拼接符号
+        //返回值：拼接后的字符串
+        //是否改变原来的数组:否
+        //将数组元素放入字符串中
+        //默认的拼接符号是逗号
+        // console.log(myCars.join());
+        // console.log(myCars.join(""));
+        // console.log(myCars.join("|"));
+        // console.log(myCars)
+
+        // 跟string.split() 是反向的操作
+
+        //pop()   
+        //删除数组中的最后一个元素，并返还删除的元素
+        //参数：无
+        //返回值： 删除的最后一个元素
+        //是否改变原来的数组:是
+        // console.log(myCars.pop());
+        // console.log(myCars)
+
+        //push()
+        //向数组的结尾添加一个或多个元素，并返回新的数组的长度
+        //参数：要添加的元素
+        //返回值：长度
+        //是否改变原来的数组:是
+        // console.log(myCars.push("byd","bc"));
+        // // console.log(myCars.push(["byc","bc"]))
+        // console.log(myCars)
+
+
+        //shift()
+        //删除并返回数组中的第一个元素
+        //参数：无
+        //返回值：删除的第一个元素
+        //是否改变原来的数组:是
+
+        // console.log(myCars.shift())
+        // console.log(myCars);
+
+        //unshift()
+        //向数组的开头添加一个或多个元素，并返回新的数组的长度
+        //参数：要添加到开头的元素
+        //返回值：长度
+        //是否改变原来的数组:是
+        // console.log(myCars.unshift("byd","bc"));
+        // console.log(myCars);
+
+        //splice()
+        //向数组中添加或删除元素
+        //参数：(开始的索引位置，删除的元素个数，添加的一个或多个元素)
+        //返回值：删除元素组成的数组
+        //是否改变原来的数组:是
+
+        //在数组的任意位置添加数组元素
+        // console.log(myCars.splice(2,0,"BYD","BC"));   //["Saab", "Volvo", "BYD", "BC", "BMW"]
+        // console.log(myCars);
+        // //在数组的任意位置删除数组元素
+        // console.log(myCars.splice(2,2));
+        // console.log(myCars);    //["Saab", "Volvo", "BMW"]
+        // //修改任意位置处的数组元素
+        // console.log(myCars.splice(0,1,"BYD"))
+        // console.log(myCars)
+
+        //reverse()  
+        //反转数组的顺序
+        //返回值： 反转后的数组
+        //是否改变原来的数组:是
+        // console.log(myCars.reverse())
+        // console.log(myCars)
+
+        //sort()
+        //对数组元素进行排序(按照第一个字符的ascii排序)
+        //参数：无 || function
+        // 返回值： 排序后的数组
+        // 是否改变原来的数组:是
+
+        // myCars=["9","10","11"];
+        // myCars=["1byd","2bm","bc"];
+        myCars=[9,11,10,2,34,1];
+        // console.log(myCars.sort());
+        // console.log(myCars)
+
+        var result = myCars.sort(function(a,b){
+            return a-b;
+        })
+        console.log(result);
+        console.log(myCars)
+        // result = myCars.sort(function(a,b){
+        //     return b-a;
+        // });
+        // console.log(result);
+
+        // 冒泡排序算法
+        // 从小到大
+        // for(var i=0;i<myCars.length-1;i++){
+        //     console.log(myCars[i]);
+        //     for(var j=i+1;j<myCars.length;j++){
+        //         console.log(myCars[j],"inner");
+        //         if(myCars[i]>myCars[j]){
+        //             var temp = myCars[i];
+        //             myCars[i] = myCars[j];
+        //             myCars[j] = temp;
+        //         }
+        //     }
+        //     // break;
+        // }
+        // console.log(myCars)
+
+        // 从大到小排序
+        // for(var i=0;i<myCars.length-1;i++){
+        //     console.log(myCars[i]);
+        //     for(var j=i+1;j<myCars.length;j++){
+        //         console.log(myCars[j],"inner");
+        //         if(myCars[i]<myCars[j]){
+        //             var temp = myCars[i];
+        //             myCars[i] = myCars[j];
+        //             myCars[j] = temp;
+        //         }
+        //     }
+        //     // break;
+        // }
+        // console.log(myCars)
+
+        //sort()
+        // function sort(arr,fun){
+        //     // fun=function(a,b){
+        //             // a=arr[i],b=arr[j];
+        //     //         return a-b;
+        //     //     }
+        //     for(var i=0;i<arr.length-1;i++){
+        //         // console.log(arr[i]);
+        //         for(var j=i+1;j<arr.length;j++){
+        //             if(fun(arr[i],arr[j])>0){     //arr[i]-arr[j]>0      myCars[i]>myCars[j]
+        //                 var temp = arr[i];
+        //                 arr[i] = arr[j];
+        //                 arr[j] = temp;
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // // console.log(sort(myCars,function(a,b){
+        // //     return a-b;
+        // // }))
+
+        // console.log(sort(myCars,function(a,b){
+        //     return b-a;
+        // }))
+
+
+        //slice()
+        //参数：startIndex，endIndex,索引可以为负值
+        //返回值： 截取的子数组
+        //不会改变原来的数组
+        //获取子数组
+        myCars=["1byd","2bm","bc"];
+        console.log(myCars.slice(1,2));
+        console.log(myCars)
+        console.log(myCars.slice(1))
+        console.log(myCars.slice(1,3))
+        console.log(myCars.slice(-1))
+
+
+        //toString
+        console.log(myCars.toString())   //1byd,2bm,bc
+
+
+        //valueOf
+        console.log(myCars.valueOf());  ["1byd", "2bm", "bc"]
+
+
+        // 作业：
+        // 数组去重
+        arr = [1,23,234,1,23,5,22,45,1];
+        // 使用不同的方式来实现数组去重
+    </script>
+</body>
+</html>

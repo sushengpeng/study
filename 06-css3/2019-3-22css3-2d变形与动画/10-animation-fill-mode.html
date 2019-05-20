@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outer {
+            margin: 100px auto;
+            width: 500px;
+            height: 500px;
+            border: solid 1px red;
+        }
+
+        #outer #inner {
+            width: 20px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transform-origin: 10px 10px;
+            /* animation: move 1s ease-in-out infinite alternate;
+            animation-play-state: paused; */
+        }
+
+        @keyframes move {
+            0% {
+                transform: rotate(45deg)
+            }
+
+            100% {
+                transform: rotate(-45deg)
+            }
+        }
+
+        #outer:hover #inner{
+            
+            animation: move 1s ease-in-out  alternate;
+            animation-delay: 1s;
+            /* animation-fill-mode: backwards;  有animation-delay的话才能看出来效果*/
+             /* animation-fill-mode:forwards;   到达目标值之后定在目标位置 */
+             animation-fill-mode:both;   /* 相对于backwards 和 forwards结合 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <form id="form" >
+            <label>用户名：<input type="text" name="uname" id="uname" /><span></span></label><br />
+            <label>密码：<input type="text" name="pwd" id="pwd" /></label><br />
+            <label>确认密码：<input type="text"  id="cpwd" /></label><br />
+            <input type="submit" />
+        </form>
+        <script src="js/public.js"></script>
+        <script>
+            //1.验证数据的有效性
+            var flaguname = false;
+            var flagpwd = true;
+            var flagcpwd = true;
+            // 2. 验证用户名是否重名
+            var uname= document.getElementById("uname");
+            uname.onchange = function(){
+                //验证数据的有效性
+
+
+                ajax({
+                    url:"06-checkuser.php",
+                    param:"uname="+uname.value,
+                    success:function(data){
+                        console.log(data);
+                        if(data=="重名"){
+                            //错误信息提示用户名重名了
+
+                        }else{
+                            flaguname = true;
+                        }
+                    }
+                })
+            }
+            var pwd = document.getElementById("pwd");
+            var form = document.getElementById("form");
+            form.onsubmit = function(){
+                if(flaguname &&flagpwd &&flagcpwd){
+                    ajax({
+                        url:"07-registe.php",
+                        param:"uname="+uname.value+"&pwd="+pwd.value,
+                        success:function(data){
+                            console.log(data);
+                            alert(data+"3s后自动跳转到登陆页面");
+                            setTimeout(function(){
+                                location.href="login.html";
+
+                            },3000);
+                        }
+                    })
+                    return false;
+                }else{
+                    return false;
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- autoplay 在chrome下想要自动播放，必须添加muted属性 -->
+    <video width="320" height="240"  autoplay="autoplay" controls="controls" muted loop>
+        <source src="media/2.mp4" type="video/mp4" >
+        <!-- <source src="media/movie.ogg" type="video/ogg" > -->
+        你的浏览器不支持video标签，请升级浏览器
+    </video>
+
+    <!-- preload 如果有autoplay属性，则忽略preload属性 -->
+    <!-- 有三个值：none|meta|auto -->
+    <!-- preload="none" 表示页面打开后不会加载视频，只有等用户点击播放按钮才去请求加载视频 -->
+    <!-- preload="meta" 页面打开后先加载元数据（时长，第一个画面等数据），等到点击播放时才去请求资源 -->
+    <!-- preload="auto" 页面打开后自动加载所有的资源 -->
+    <video preload="auto" controls="controls" poster="media/timg.jpg"    >
+        <source src="media/2.mp4" type="video/mp4" >
+        <source src="media/movie.ogg"  type="video/ogg" >
+         你的浏览器不支持video标签，请升级浏览器
+    </video>
+
+    <!-- video标签上的属性：
+        width height
+        src
+        controls
+        autoplay muted
+        loop
+        preload
+        poster
+    -->
+</body>
+</html>

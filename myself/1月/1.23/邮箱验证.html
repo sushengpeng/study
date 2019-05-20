@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        label{
+            display: block;
+            width: 270px;
+            margin: 0 auto;
+            margin-top:10px;
+        }
+        #submit{
+            display: block;
+            width: 36px;
+            margin: 0 auto;
+        }
+        div{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-color: black;
+            position: relative;
+            top:6px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="email">邮箱：<input type="text" id="email">
+            <div></div>
+        </label>
+        <label for="password">密码：<input type="text" id="password">
+            <label for="submit"><input type="submit" value="提交" id="submit"></label>
+    </form>
+    <script>
+        var email = document.getElementById("email");
+        var pop = document.getElementsByTagName("div")[0];
+        email.onblur = function () {
+            var emailValue = email.value;
+            varify(emailValue);
+        }
+
+        function varify() {
+            var a = email.indexOf("@");
+            var b = email.indexOf(".");
+            if (email.length >= 8 && email.length <= 20) {
+                if (a != -1 && b != -1) {
+                    if (a < b) {
+                        for (var i = 0; i <= a; i++) {
+                            if (email.charCodeAt(i) >= 48 && email.charCodeAt(i) <= 122) {
+                                if (b > email.length - 2) {
+                                    alert("输入的邮箱无效");
+                                    break;
+                                } else {
+                                    alert("输入的邮箱有效");
+                                    break;
+                                }
+                            } else {
+                                alert("输入的邮箱无效");
+                            }
+                        }
+                    }
+                } else {
+                    alert("输入的邮箱无效");
+                }
+            } else {
+                alert("输入的邮箱无效");
+            }
+        }
+    </script>
+</body>
+
+</html>

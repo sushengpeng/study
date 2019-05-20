@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <child1></child1>
+    <hr>
+    <child2></child2>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const bus = new Vue()
+    /* 
+      bus
+      EventHub
+    
+     */
+
+    const child1 = {
+      template: `
+        <div>子组件1<button @click="send">按钮</button></div>
+      `,
+      methods: {
+        send () {
+          // 这个this是child1
+          bus.$emit('send:msg', 'child1中传递过去的数据')
+        }
+      }
+    }
+
+    const child2 = {
+      template: `
+        <div>子组件2 - {{msg}}</div>
+      `,
+      data () {
+        return {
+          msg: ''
+        }
+      },
+      created () {
+        // 这个this是child2
+        bus.$on('send:msg', (msg) => {
+          this.msg = msg
+        })
+      }
+    } 
+
+    Vue.component('Child1', child1)
+    Vue.component('Child2', child2)
+
+
+    const app = new Vue({
+      el: '#app'
+    })  
+  
+  </script>
+</body>
+</html>

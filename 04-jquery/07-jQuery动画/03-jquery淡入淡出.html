@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button id="toggle">toggle</button>
+    <script src="../jquery.js"></script>
+    <script>
+        $("#toggle").click(function(){
+            // $("div").fadeIn();
+            // $("div").fadeOut();
+            $("div").fadeTo("slow",0.5);     //fadeTo(第一个参数必须是时间，第二个参数必须是到达的透明度)
+            // $("div").fadeToggle()
+        })
+    </script>
+</body>
+
+</html>

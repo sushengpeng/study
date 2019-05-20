@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery.js"></script>
+    <script>
+
+        //$.extend(合并到的那个对象上，被合并的对象1-n)  用来合并对象
+        // var obja = {name:"zs",age:18,sex:"nan"}
+        // var objb = {name:"ls",age:20,hobby:"football"};
+        // var objd = {parent:"parent"};
+        // // var objc = $.extend(obja,objb,objd);    //对象b合并到a上，并返回了a
+        // // console.log(obja,objb,objc)
+
+
+        // // 如果想要不影响obja,那么就需要合并到一个空对象
+        // var obj=$.extend({},obja,objb,objd);
+        // console.log(obj,obja,objb,objd);
+
+        // 对象的递归合并
+        var obja = {name:"zs",age:18,hobby:{hobby1:"basketball",hobby2:"swming"}}
+        var objb = {name:"ls",age:20,hobby:{hobby1:"football",hobby3:"cheet"}};
+        // var obj = $.extend({},obja,objb)
+        // console.log(obj,obja,objb)
+
+        var obj = $.extend(true,{},obja,objb);    //深层递归合并
+        console.log(obj,obja,objb)
+    </script>
+</body>
+</html>

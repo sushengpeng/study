@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box3{
+            width:300px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box3"></div>
+    <button class="start">开始</button>
+    <button class="stop">停止</button>
+       
+    <script src="../jquery.js"></script>
+    <script>
+        $(".start").click(function(){
+            
+                $(".box3").animate({width: 1000},5000)
+                .delay(1000)
+                .animate({height: 800},5000)
+                .animate({width: 100},5000)
+                .animate({height: 100},5000)
+                .slideUp(10000)
+            });
+
+            $(".stop").click(function(){
+                //stop(clearQueue|是否清楚动画队列,jumpToEnd|是否跳到当前动画的目标值);   
+                // $(".box3").stop();     //停止当前正在运行的动画，但是不清空动画队列，下个动画依然执行 
+                // $(".box3").stop(false,false);     //false false 是stop的默认值
+                // $(".box3").stop(true,false);
+                // $(".box3").stop(false,true);
+                // $(".box3").stop(true,true);    //清空动画队列，让当前动画跳到终止位置
+
+                $(".box3").finish();    //清空动画队列，并且跳转到最后一个动画的最终值
+            });
+
+    </script>
+</body>
+</html>

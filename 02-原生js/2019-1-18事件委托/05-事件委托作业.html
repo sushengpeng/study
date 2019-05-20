@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .con ul li{
+            float: left;
+            width: 50px;
+            height: 30px;
+            border: 1px solid red;
+            text-align: center;
+            line-height: 30px;
+        }
+        .con ul li.active{
+            background-color: pink;
+            border: 1px solid pink;
+        }
+        .con .clearfix{
+            clear: both;
+        }
+        .con .clearfix div{
+            width: 208px;
+            height: 50px;
+            background-color: aquamarine;
+            display: none;
+            text-align: center;
+            line-height: 50px;
+        }
+        .con .clearfix div.active{
+            display: block;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="con">
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div class="clearfix">
+            <div class="cons active">1</div>
+            <div class="cons">2</div>
+            <div  class="cons">3</div>
+            <div  class="cons">4</div>
+        </div>
+        
+        <ul>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+        <div class="clearfix">
+            <div  class="cons">5</div>
+            <div class="cons">6</div>
+            <div class="cons">7</div>
+            <div class="cons">8</div>
+        </div>
+        <ul>
+            <li>9</li>
+            <li>10</li>
+            <li>11</li>
+            <li>12</li>
+        </ul>
+        <div class="clearfix">
+            <div class="cons">9</div>
+            <div class="cons">10</div>
+            <div class="cons">11</div>
+            <div class="cons">12</div>
+        </div>
+        <ul>
+            <li>13</li>
+            <li>14</li>
+            <li>15</li>
+            <li>16</li>
+        </ul>
+        <div class="clearfix">
+            <div class="cons">13</div>
+            <div class="cons">14</div>
+            <div class="cons">15</div>
+            <div class="cons">16</div>
+        </div>
+    </div>
+    <a href="###" id="add">add</a>
+    <!-- <script src="../public.js" ></script> -->
+    <script>
+        // 事件委托
+        var con = document.querySelector(".con");
+        console.log(con);
+        //找到所有的li，给所有的li上添加索引，这样才能够知道点击的时候点击的是第几个li
+        var lis = document.getElementsByTagName("li");
+        for(var i=0;i<lis.length;i++){
+            lis[i].index = i;
+        }
+        //lis 对应的div
+        var divs = document.getElementsByClassName("cons");
+        
+        console.log(divs);
+        // //由于点击li的时候想要显示相应的div，使用事件委托，是委托为所有li都有的div，而不是ul
+        // con.onclick = function(e){
+        //     console.log(divs);
+        //     //筛选li，因为con内部有很多子元素，点击任何一个子元素，都会冒泡到con上
+        //     // 那就是找目标元素（事件源）
+        //     e = e || window.event;
+        //     var target = e.target || e.srcElement;
+        //     console.log(target)
+        //     if(target.tagName == "LI"){
+        //         //让所有的li，div都恢复原样
+                
+        //         for(var j=0;j<lis.length;j++){
+        //             lis[j].className="";
+        //             divs[j].className="cons";
+        //         }
+        //         // 点击对应的li标签，添加active，对应div显示
+        //         target.className="active";
+        //         console.log(target.index)
+        //         divs[target.index].className="cons active";
+        //     }
+        // }
+        //普通方式
+        for(var j=0;j<lis.length;j++){
+            lis[j].onclick = function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].className="";
+                    divs[j].className="cons";
+                }
+                // 点击对应的li标签，添加active，对应div显示
+                this.className="active";
+                divs[this.index].className="cons active";
+            }
+        }
+
+        //动态增加元素
+        var add = document.getElementById("add");
+        add.onclick = function(){
+            var li17 = document.createElement("li");
+            li17.innerHTML = "17";
+            li17.index=16;
+            var lastul = document.querySelectorAll(".con ul")[3];
+            lastul.appendChild(li17);
+
+            var div17 = document.createElement("div");
+            div17.innerHTML = "div17";
+            div17.className="cons";
+            var lastdiv = document.querySelectorAll(".con>div")[3];
+            lastdiv.appendChild(div17);
+        }
+
+
+    //    注意：
+    // getElementById ByClassName ByTagName ByName   得到的dom元素是动态的，当动态添加dom元素的时候，得到的结果会发生变化
+    // 而querySelector querySelectorAll 当动态添加dom元素的时候，得到的dom对象不会随着添加的个数增加而增加
+
+    // this 指的是谁绑定事件，this指向谁
+    // target  事件源   触发的元素
+    </script>
+</body>
+</html>

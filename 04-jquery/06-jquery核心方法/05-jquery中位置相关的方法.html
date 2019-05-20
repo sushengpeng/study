@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div style="position: relative">\
+        <div style="height:1000px"></div>
+        <p style="padding:200px 300px;position: absolute;left:50px;top:50px;border:solid 1px red;">p</p>
+    </div>
+    <button id="toTop">返回顶部</button>
+    <script src="../jquery.1.11.3.min.js"></script>
+    <script>
+        console.log($("p").offset());      //返回元素相对于文档的偏移量
+
+        // 获取相对于浏览器窗口的偏移量用
+        console.log($('p')[0].getBoundingClientRect());
+
+
+        //获取相对于定位属性的祖先元素的偏移量
+        // console.log($("p").position())
+
+        $(window).on("scroll",function(){
+            // console.log("scroll")
+            console.log($(this).scrollTop())   //获取
+        })
+
+        $("#toTop").on("click",function(){
+            $(window).scrollTop(0)      //设置
+        })
+    </script>
+</body>
+</html>

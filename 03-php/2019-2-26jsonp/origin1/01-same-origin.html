@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(option){
+            var xhr = new XMLHttpRequest();
+            if(option.type=="GET"){
+                xhr.open("GET",option.url+"?"+option.param);
+                xhr.send();
+            }else{
+                xhr.open("POST",option.url);
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhr.send(option.param);
+            }
+            xhr.onreadystatechange = function(){
+                if(xhr.status==200 && xhr.readyState==4){
+                    var data = xhr.responseText;
+                    option.success(data);
+                }
+            }
+            
+        }
+
+        ajax({
+            type:"GET",
+            url:"http://www.b.com/data.php",
+            success:function(data){
+                console.log(data)
+            }
+        })
+    </script>
+</body>
+</html>

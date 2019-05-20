@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用iscroll的scroll事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            background: #aaa;
+            overflow:hidden;
+        }
+        #wrapper ul {
+            width:1500px;
+            height: 200px; 
+        }
+        #wrapper li {
+            float: left;
+            height: 100px;
+            background: #fff;
+            width: 375px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+        </ul>
+    </div>
+    <script src="js/iscroll-probe.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            scrollX: true,
+            scrollY: false,
+            snap: "li",
+            // 需要使用iscroll-probe.js才能生效
+            // probeType属性：表明此插件，可以监听scroll事件
+            // probeType：1 滚动不繁忙的时候触发
+            // probeType：2 滚动时每隔一定时间触发
+            // probeType：3 每滚动一像素触发一次
+            probeType: 3
+        });
+
+        myScroll.on("scroll",function(){
+            // 注意： 在松开鼠标时，pageX已经变为最终要切换的页，而因为还有缓动，所有this.x的值还在变化
+            // console.log(this);
+            //得到当前页的相关信息  currentPage    pageX | pageY  | x | y
+            //水平切换时，pageX: 当前页索引
+            // console.log(this.currentPage.pageX);
+            // 当前页的位置：比如：-375
+            // console.log(this.currentPage.x);
+
+            //水平滚动的偏移
+            console.log(this.x);
+        });
+       
+        
+    </script>
+</body>
+</html>

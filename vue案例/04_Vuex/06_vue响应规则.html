@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="value in obj">{{value}}</li>
+    </ul>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script>
+    /* 
+      对象内部属性修改是无法被检测到的
+
+      直接用一个新的对象替换旧对象
+      this.obj = {...this.obj, 新的属性名: 新的属性值}
+
+      或者使用Vue.set this.$set
+
+      Vue.set(对象名, '属性名', '属性值')
+      this.$set(对象名, '属性名', '属性值')
+
+      删除数据想要响应式
+      Vue.delete(对象名, '属性名')
+      this.$delete(对象名, '属性名')
+
+    */
+    const app = new Vue({
+      el: '#app',
+      data: {
+        obj: {
+          name: 'zs',
+          age: 18,
+          sex: '男'
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

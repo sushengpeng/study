@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="./1.jpg" onclick="showPic(1);return false">1</a></li>
+        <li><a href="./2.jpg" onclick="showPic(2);return false">2</a></li>
+        <li><a href="./3.jpg" onclick="showPic(3);return false">3</a></li>
+        <li><a href="./4.jpg" onclick="showPic(4);return false">4</a></li>
+        <li><a href="./5.jpg" onclick="showPic(5);return false">5</a></li>
+        <li><a href="./6.jpg" onclick="showPic(6);return false">6</a></li>
+    </ul>
+    <img src="" alt="" width="200px" style="opacity:0">
+    <script>
+        var a = document.getElementsByTagName("a");
+        var img = document.getElementsByTagName("img")[0];
+
+        function showPic(num) {
+            var thisHref = a[num - 1].getAttribute("href");
+            var timeId1, timeId2;
+            timeId2 = setInterval(disappear, 16.67);
+                function disappear() {
+                    if (img.style.opacity == 0) {
+                        clearInterval(timeId2);
+                    } else {
+                        img.style.opacity = parseFloat(img.style.opacity) - 0.02;
+                    }
+                    console.log(img.style.opacity);
+                }
+                var t = setTimeout(appearTime, 1683.67);
+                function appearTime() {
+                    img.setAttribute("src", thisHref);
+                    img.setAttribute("opacity", 0);
+                    timeId1 = setInterval(appear, 16.67);
+                }
+                function appear() {
+                    if (img.style.opacity == 1) {
+                        clearInterval(timeId1);
+                    } else {
+                        img.style.opacity = parseFloat(img.style.opacity) + 0.02;
+                    }
+                    console.log(img.style.opacity);
+                }
+            // function disappear() {
+            //     if (img.style.opacity!= 0) {
+            //         img.style.opacity-= 0.1;
+            //     } else {
+            //         clearInterval(timeId1);
+            //         // img.setAttribute("src", thisHref);
+            //     if (img.style.opacity!= 1) {
+            //         img.style.opacity += 0.1;
+            //     } else {
+            //         clearInterval(timeId1);
+            //     }
+            //     }
+            //     console.log(img.style.opacity);
+            // }
+        }
+    </script>
+</body>
+
+</html>

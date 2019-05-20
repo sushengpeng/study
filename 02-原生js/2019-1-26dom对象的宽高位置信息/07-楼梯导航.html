@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            color: #fff;
+
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .top {
+            margin: 0 auto;
+            width: 700px;
+            height: 80px;
+            border: 3px solid royalblue;
+            border-radius: 50px;
+        }
+
+        .nav {
+            position: absolute;
+            top: 400px;
+            right: 150px;
+            width: 100px;
+            height: 515px;
+            border: 3px solid royalblue;
+            border-bottom: none;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .nav.fixed{
+            position: fixed;
+            top:0;
+        }
+        .nav li {
+            height: 100px;
+            border-bottom: 3px solid royalblue;
+            text-align: center;
+            font-size: 34px;
+            line-height: 50px;
+
+        }
+
+        .nav li.active {
+            background-color: royalblue;
+        }
+
+        .center {
+            height: 1000px;
+        }
+
+        .content li {
+            height: 800px;
+            border: 1px solid #fff;
+            font-size: 50px;
+            margin-top: 88px;
+            
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -350px;
+            height: 80px;
+            width: 700px;
+            border: 3px solid royalblue;
+            border-radius: 50px;
+            display: none;
+        }
+
+        .foot {
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="center"></div>
+    <div class="wrap">
+        <ul class="nav">
+            <li>第一板块</li>
+            <li>第二板块</li>
+            <li>第三板块</li>
+            <li>第四板块</li>
+            <li>第五板块</li>
+        </ul>
+        <div class="search"></div>
+        <ul class="content">
+            <li>第一板块</li>
+            <li>第二板块</li>
+            <li>第三板块</li>
+            <li>第四板块</li>
+            <li>第五板块</li>
+        </ul>
+    </div>
+    <div class="foot"></div>
+    <script src="../public.js"></script>
+    <script>
+        //找右侧菜单相对于文档顶部的偏移量
+        var nav = document.getElementsByClassName("nav")[0];
+        var obj = getOffsetPosition(nav);
+        // console.log(obj.top)
+        // console.log(document.documentElement.scrollTop)
+        var cons = document.querySelectorAll(".content li");
+        var lis = document.querySelectorAll(".nav li");
+        for(var i=0;i<lis.length;i++){
+            lis[i].index = i;
+        }
+        window.onscroll = function(){
+
+            // 当ul上没有fixed类名，并且窗口的卷进去的滚动高度scrollTop>ul的相对于文档顶部的偏移量的时候，才添加fixed
+            if(document.documentElement.scrollTop>=obj.top && nav.className.indexOf("fixed")==-1){
+                // nav.style.position = "fixed";
+                // nav.style.top=0;
+                nav.className ="nav fixed";
+                console.log(2)
+            }
+            if(document.documentElement.scrollTop<obj.top && nav.className.indexOf("fixed")>-1){
+                // nav.style.position = "absolute";
+                // nav.style.top="400px";
+                nav.className="nav";
+                console.log(1)
+            }
+
+            for(var i=0;i<cons.length;i++){
+                //如果对应板块的偏移量<=0的时候，让对应的板块是激活状态
+                if(cons[i].getBoundingClientRect().top<=0){
+                    for(var j=0;j<lis.length;j++){
+                        lis[j].className = "";
+                    }
+
+                    lis[i].className = "active";
+
+                }
+            }
+        }
+
+        nav.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if(target.tagName=="LI"){
+                var index = target.index;
+                //得到对应的板块相对于文档顶部的偏移量
+                var t = getOffsetPosition(cons[index]).top;
+                // document.documentElement.scrollTop = t;
+                // animate(document.documentElement,scrollTop,t,400)
+                // t指的是目标值，document.documentElement.scrollTop当前的滚动高度
+                // 目标 t  40   s  10
+                // 目标 t  10   s  40
+                var diff = t-document.documentElement.scrollTop;
+                var timmer = setInterval(function(){
+                    document.documentElement.scrollTop+= diff/20;
+                    if(diff>=0?document.documentElement.scrollTop>=t:document.documentElement.scrollTop<t){
+                        document.documentElement.scrollTop=t;
+                        clearInterval(timmer);
+                    }
+                },16.67)
+            }
+        }
+    </script>
+</body>
+</html>

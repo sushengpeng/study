@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stage{
+            margin: 100px auto;
+            width:100px;
+            height: 40px;
+            perspective: 1000px;
+            border:solid 1px red;
+        }
+        .scene{
+            transform-style: preserve-3d;       /* 想要有立体的3d效果，必须有这个属性 */
+            transition: all 1s;
+            transform-origin: 50% 20px -20px;   /* 3d变换的中心点*/
+        }
+        .front{
+            width:100px;
+            height: 40px;
+            background-color: orange;
+            text-align: center;
+            line-height: 40px;
+        }
+        .bottom{
+            width:100px;
+            height: 40px;
+            background-color: green;
+            text-align: center;
+            line-height: 40px;
+            transform-origin: 0 0;
+            transform: rotateX(-90deg)
+        }
+        .scene:hover{
+            transform: rotateX(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="scene">
+            <div class="front">正面</div>
+            <div class="bottom">侧面</div>
+        </div>
+    </div>
+</body>
+</html>

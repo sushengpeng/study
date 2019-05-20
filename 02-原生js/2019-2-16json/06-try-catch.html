@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // demo1:
+        // try{
+        //     // 这是有可能会出现错误的代码块
+        //     // eval('alert(ok)');
+        //     var str = "{name:'zs'}";
+        //     JSON.parse(str);
+        // }catch(err){
+        //     console.log(err);
+        // }finally{
+        //     console.log("OK");
+        // }
+        
+
+
+        // console.log("abc");
+
+        //demo2:
+        //抛出自定义错误
+        try{
+            var x = document.getElementById("demo");
+            if(x==null) throw "demo为空"
+        }catch(err){
+            console.log(err)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding:0;
+}
+/* .blank{
+    margin:0 auto;
+    background-color: white;
+} */
+.top{
+  margin:0 auto;
+  width: 52%;
+  height:40px;
+}
+dl{
+    font-size:0;
+    font-family: "楷书";
+}
+
+dd{
+    display: inline-block; 
+    height: 40px;
+    width:100%;
+    margin: 0 auto;
+}
+.dd1{
+    text-align: center;
+    font-size:20px;
+    line-height: 40px;
+    width: 60px;
+    color:white;
+    background-color:#2A7BBD;
+    /* border-right-color:wheat;
+    border-right-style: solid;
+    border-right-width: 1px; */
+}
+/* .dd2{
+    background-color:#2A7BBD;
+    width:15px;
+    color: whitesmoke;
+    line-height: 40px;
+    background-color:black;
+ }  */
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+}
+dd:hover{
+    background-color: red;
+}
+dd:hover span{
+    display:none;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 方式一：直接写在页面中 -->
+    <!-- <style>
+        @media (max-width:480px){
+            body{
+                background-color: pink;
+            }
+        }
+        @media (max-width:1024px) and (min-width:480px){
+            body{
+                background-color: orange;
+            }
+        }
+        @media (min-width:1024px) {
+            body{
+                background-color: blue;
+            }
+        }
+    </style> -->
+    <!-- 方式二 -->
+    <!-- <link rel="stylesheet" media="(max-width:480px)" href="mobile.css"> -->
+
+    <style>
+        /* 设备方向 */
+        /* @media(orientation:portrait){
+            body{
+                background-color: red;
+            }
+        }
+        @media (orientation:landscape){
+            body{
+                background-color: blue;
+            }
+        } */
+        /* 设备宽度 */
+        /* @media (max-device-width:480px){
+            body{
+                background-color: red;
+            }
+        } */
+
+        /* 栅格系统 */
+        /* 条件写全，位置可变 */
+        /* @media (max-width:1200px) and (min-width:992px){
+            body{
+                background-color: blue;
+            }
+        }
+        @media (max-width:768px){
+            body{
+                background-color: red;
+            }
+        }
+        @media (max-width:992px) and (min-width:768px){
+            body{
+                background-color: green;
+            }
+        }
+        
+        @media (min-width:1200px){
+            body{
+                background-color: blueviolet;
+            }
+        } */
+
+        /* 以下写法必须按照顺序写 */
+        @media (min-width:1200px){
+            body{
+                background-color: blueviolet;
+            }
+        }
+        
+        @media (max-width:1200px){
+            body{
+                background-color: red;
+            }
+        }
+        @media (max-width:992px) {
+            body{
+                background-color: green;
+            }
+        }
+        @media (max-width:768px) {
+            body{
+                background-color: blue;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

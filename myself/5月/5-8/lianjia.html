@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .list {
+            width: 400px;
+            display: flex;
+            padding: 20px 30px;
+            justify-content: space-between;
+        }
+
+        .list li {
+            width: 80px;
+            float: left;
+        }
+        .content{
+            padding: 20px 30px;
+        }
+        .content li{
+            color: #394043;
+            line-height: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <mainlist :items='lists' @setnum='setnumber'></mainlist>
+        <cont @getdata='setdata' :number='num'></cont>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script>
+
+        const mainlist = {
+            template: `
+            <div>
+                <ul class='list'>
+                    <li 
+                    v-for='(list,index) in items' 
+                    :key='index'
+                    @click='getnum(index)'
+                    >{{list}}</li>
+                </ul>     
+            </div>
+            `,
+            props: ['items'],
+            methods:{
+                getnum(index){
+                    this.$emit('setnum',index)
+                    // console.log(index)
+                }
+            }
+        }
+        const cont = {
+            template: `
+            <div>
+                <div class='content' 
+                v-for='(item,index) in contents' 
+                :key='index'
+                v-show='number==index'
+                >
+                    <ul>
+                        <li v-for='(content,ind) in item' :key='ind'>
+                            <p @click='set(index,content)'>
+                                {{content}}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            `,
+            props:['number'],
+            data() {
+                return {
+                    contents: [
+                        ['金水', '惠济', '二七', '中原', '管城回城区', '郑东新区', '经开区'],
+                        ['不限','40万以下','40-60万','60-80万','80-100万','100-150万','150-200万'],
+                        ['不限','一室','二室','三室','四室','五室','五室以上'],
+                        ['住宅','别墅','商业','写字楼','底商']
+                    ]
+                }
+            },
+            methods: {
+                set(index, content) {
+                    this.$emit('getdata', index, content)
+                    // console.log(index,content)
+                }
+            }
+        }
+        Vue.component('cont', cont)
+        Vue.component('mainlist', mainlist)
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                num:-1,
+                lists: ['区域', '价格', '房型', '更多'],
+            },
+            methods: {
+                setdata(index, content) {
+                    // console.log(1)
+                    this.lists.splice(index, 1, content)
+                    this.num=-1
+                },
+                setnumber(index){
+                    this.num=index
+                    // console.log(index)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

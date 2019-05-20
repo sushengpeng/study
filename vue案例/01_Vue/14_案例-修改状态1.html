@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* span {
+      display: none;
+    }
+    .active {
+      display: inline;
+    } */
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <!-- <li v-on:click="change">{{msg}} <span v-show="done">完成</span></li> -->
+      <li @click="change(index)" v-for="(todo, index) in todos">{{todo.name}} <span v-show="todo.done">完成</span></li>
+    </ul>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    // 只要是一个会改变的值,那么一定需要放在data中
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '案例',
+        done: false,
+        title:'张三的事件',
+        todos: [
+          {
+            name: '事件1',
+            done: false,
+          }, 
+          {
+            name: '事件2',
+            done: false,
+          },
+          {
+            name: '事件3',
+            done: false,
+          },
+          {
+            name: '事件4',
+            done: false,
+          }
+        ]
+      },
+      methods: {
+        change (index) {
+          // 在函数中获取到data中的数据的方式 this.data属性名
+          // this.done = !this.done
+          console.log(index)
+          this.todos[index].done = !this.todos[index].done
+        }
+      }
+    })
+
+
+    /* const li = document.querySelector('li')
+    const span = document.querySelector('span')
+
+    let flag = true
+
+    // 给li绑定事件
+    li.onclick = function () {
+      span.className = flag ? "active" : ''
+      flag = !flag
+    } */
+
+  </script>
+</body>
+</html>

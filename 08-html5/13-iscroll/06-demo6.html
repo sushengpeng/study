@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内容高度发生改变，要调用myScroll.refresh()</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 500px;
+            background: #aaa;
+            border: 1px solid #000;
+            overflow:hidden;
+        }
+        #wrapper li {
+            height: 50px;
+            margin: 5px;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+            <li>商品列表5</li>
+            <li>商品列表6</li>
+            <li>商品列表7</li>
+            <li>商品列表8</li>
+            <li>商品列表9</li>
+            <li>商品列表10</li>
+            <li>商品列表11</li>
+            <li>商品列表12</li>
+            <li>商品列表13</li>
+            <li>商品列表14</li>
+            <li>商品列表15</li>
+            <li>商品列表16</li>
+        </ul>
+    </div>
+    <button>add</button>
+    <script src="js/iscroll.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            mouseWheel: true,
+            // scrollbars: false
+        });
+
+         //添加新商品
+            var ul = document.querySelector("ul");
+            var btn = document.querySelector("button");
+            btn.onclick = function () {
+                ul.innerHTML += "<li>新的商品列表</li>";
+                // 更新dom元素，就会造成父元素高度的改变，必须调用refresh()方法，才能得到正确的高度，从而得到正确的回弹效果，可以进入方法内部看下
+                myScroll.refresh();
+            }
+    </script>
+</body>
+</html>

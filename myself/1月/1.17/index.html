@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .main {
+            width: 100%;
+            height: 990px;
+        }
+
+        .left {
+            float: left;
+            width: 10%;
+            height: 990px;
+            background-color: black;
+        }
+        .right{
+            float: left;
+            width: 90%;
+            height: 990px;
+            overflow: hidden;
+            /* background-color: black; */
+        }
+        .rightMatter {
+            width: 100%;
+            /* height: 990px; */
+            padding: 278px 0px;
+            background-color: rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top:0;
+            left:0;
+            display: none;
+        }
+
+        .new {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            letter-spacing: 10px;
+            margin-top: 425px;
+        }
+        .new:nth-child(2){
+            margin-top: 0px;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            background-color: white;
+            margin: 0 auto;
+            /* margin-top: 245px; */
+        }
+
+        .block {
+            width: 100%;
+            height: 30px;
+            /* background-color: white; */
+            border-bottom: 1px solid black;
+        }
+        .close {
+            float: right;
+            font-size: 25px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+        label{
+            float:left;
+            width: 100%;
+            margin-top: 20px;
+            margin-left:15px;
+        }
+        .headline,.content,.writer{
+            font-size: 15px;
+            width: 300px;  
+            margin-left:15px;
+            border: 1px solid rgba(67, 67, 246, 0.7);       
+        }
+        .headline{
+            height: 50px;
+        }
+        .content{
+            /* padding-top: -140px; */
+            /* line-height: 0px; */
+            /* height: 150px; */
+        }
+        .writer{
+            height: 50px;
+        }
+        #submit{
+            width:50px;
+            height: 30px;
+            /* margin-top:10px; */
+            margin-left:190px;
+        }
+        .textbox{
+            float:left;
+            width: 400px;
+            height: 400px;
+            margin-left:23px;
+            margin-top:10px;
+            background-color: tomato;  
+        }
+        h1{
+            text-align: center;
+        }
+        .textwriter{
+            font-size: 12px;
+            text-align: right;
+            margin-right:130px;
+        }
+        .textcontent{
+            text-indent: 2em;
+            font-size: 15px;
+        }
+        .num{
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: white;
+            font-size: 18px;
+            margin:0 auto;
+            margin-top:230px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <button class="new">新建</button>
+            <!-- <button class="new"></button> -->
+        </div>
+        <div class="right">
+            <div class="rightMatter">
+                <div class="box">
+                    <div class="block">
+                        <button class="tab">切换</button>
+                        <button class="close">×</button>
+                    </div>
+                    <label for="headline">标题: <input type="text" class="headline" id="headline" required value="H5"></label>
+                    <label for="writer">作者: <input type="text" class="writer" id="writer" required value="su"></label>
+                    <label for="content">内容:
+                        <textarea class="content" cols="25" rows="10">这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍</textarea>
+                    </label>
+
+                    <button id="submit">提交</button>
+                </div>
+                <div class="box">
+                    <div class="block">
+                        <button class="tab">切换</button>
+                        <button class="close">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var newtext = document.getElementsByClassName("new")[0];
+            var rightMatter = document.getElementsByClassName("rightMatter")[0];
+            var main = document.getElementsByClassName("main")[0];
+            var close = document.getElementsByClassName("close")[0];
+            var newtext = document.getElementsByClassName("new")[0];
+            var headline = document.getElementsByClassName("headline")[0];
+            var writer = document.getElementsByClassName("writer")[0];
+            var content = document.getElementsByClassName("content")[0];
+            var submit = document.getElementById("submit");
+            var right = document.getElementsByClassName("right")[0];
+            var i = 1;
+            var box = document.getElementsByClassName("box");
+            var tabs = document.getElementsByClassName("tab");
+            newtext.onclick = function () {
+                rightMatter.style.display = "block";
+                box[1].style.display = "none";
+            }
+            close.onclick = function () {
+                rightMatter.style.display = "none";
+                headline.value = "H5";
+                writer.value = "su";
+                content.value =
+                    "这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍这是一个介绍";
+            }
+            submit.onclick = function () {
+                var textbox = document.createElement("div");
+                textbox.className = "textbox";
+                if (headline.value && writer.value && content.innerHTML) {
+                    rightMatter.style.display = "none";
+                    var headh1 = document.createElement("h1");
+                    var textwriter = document.createElement("p");
+                    var textcontent = document.createElement("p");
+                    var num = document.createElement("p");
+                    headh1.innerHTML = headline.value;
+                    textbox.appendChild(headh1);
+                    textwriter.innerHTML = writer.value;
+                    textwriter.className = "textwriter";
+                    textbox.appendChild(textwriter);
+                    textcontent.innerHTML = content.value;
+                    textcontent.className = "textcontent";
+                    textbox.appendChild(textcontent);
+                    num.innerHTML = "第" + i + "篇";
+                    num.className = "num";
+                    textbox.appendChild(num);
+                    right.appendChild(textbox);
+                    i++;
+                    console.log(i);
+                } else {
+                    console.log(headline.value);
+                }
+            }
+
+            function stopBubble(e) {
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                } else {
+                    e.cancelBubble = true;
+                }
+            }
+            box[0].onclick = function (e) {
+                e = e || window.event;
+                stopBubble(e);
+            }
+            right.onclick = function () {
+                rightMatter.style.display = "none";
+            }
+            tabs[0].onclick = function (e) {
+                e = e || window.event;
+                stopBubble(e);
+                box[0].style.display = "none";
+                box[1].style.display = "block";
+            }
+            tabs[1].onclick = function (e) {
+                e = e || window.event;
+                stopBubble(e);
+                box[1].style.display = "none";
+                box[0].style.display = "block";
+            }
+        </script>
+    </div>
+</body>
+
+</html>

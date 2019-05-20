@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="public.js"></script>
+    <script>
+        //同步的ajax
+        ajax({
+            url:"08-checkuser&pwd.php",
+            async:false,
+            success:function(data){
+                if(data=="验证通过"){
+                    location.href="manage.html";
+                }
+            }
+        })
+    </script>
+</head>
+<body>
+    <form id="form" action="manage.html">
+        <label>用户名：<input type="text" name="uname" id="uname" autocomplete="off" /></label><br />
+        <label>密码：<input type="text" name="pwd" id="pwd" /></label><br />
+        <label><input type="checkbox" id="cb"/>7天内自动登陆</label>
+        <input type="submit" />
+    </form>
+    <script src="public.js"></script>
+    <script>
+        // 1.验证用户名和密码的有效性，onchange onblur
+        var flaguname = true;
+        var flagpwd = true;
+
+        var form = document.getElementById("form");
+        var cb = document.getElementById("cb");
+        var uname = document.getElementById("uname");
+        var pwd = document.getElementById("pwd");
+        form.onsubmit = function(){
+            if(flaguname && flagpwd){
+                //验证数据的正确性
+                var result;
+                ajax({
+                    url:"08-checkuser&pwd.php",
+                    param:"uname="+uname.value+"&pwd="+pwd.value,
+                    async:false,
+                    success:function(data){
+                        console.log(data);
+                        result = data;
+                    }
+                });
+                
+                //当7天自动登陆，创建持久cookie
+                if(result=="验证通过"){
+                    if(cb.checked){
+                        //密码要md5 加密
+                        var expire= new Date();
+                        expire.setDate(expire.getDate()+7);
+
+                        document.cookie = "uname="+uname.value+";expires="+expire.toGMTString();
+                        document.cookie = "pwd="+pwd.value+";expires="+expire.toGMTString();
+                    }else{
+                        document.cookie = "uname="+uname.value;
+                        document.cookie = "pwd="+pwd.value;
+                    }
+                }else{
+                    alert("用户名或密码错误！");
+                    return false;
+                }
+            }else{
+                //阻止浏览器的默认行为提交
+                return false;
+            }
+            
+        }
+    </script>
+</body>
+</html>

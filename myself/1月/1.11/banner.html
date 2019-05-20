@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>banner图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .main {
+            width: 1200px;
+            height: 500px;
+            background-color: orangered;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1200px;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+        .banner1 {
+            width: 1200px;
+        }
+
+        .banner2 {
+            width: 1200px;
+        }
+
+        .banner3 {
+            width: 1200px;
+        }
+    </style>
+</head>
+
+<body onload="load()">
+    <div class="main">
+        <div class="banner">
+            <ul>
+                <!-- <li class="banner4"><img src="./图层3.jpg" alt="" width="1200px" height="500px"></li> -->
+                <li class="banner1"><img src="./图层1.jpg" alt="" width="1200px" height="500px" id="img1"></li>
+                <li class="banner2"><img src="./图层2.jpg" alt="" width="1200px" height="500px" id="img2"></li>
+                <li class="banner3"><img src="./图层3.jpg" alt="" width="1200px" height="500px" id="img3"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var timeId; //计时器
+        var d=4; //移动距离
+        // var bannerFour = document.getElementsByClassName("banner")[0];
+        var bannerOne = document.getElementsByClassName("banner1")[0]; //获取图1的标签名
+        var bannerTwo = document.getElementsByClassName("banner2")[0]; //获取图2的标签名
+        var bannerThree = document.getElementsByClassName("banner3")[0]; //获取图3的标签名
+        var imgOne = document.getElementById("img1");
+        var imgTwo = document.getElementById("img2");
+        var imgThree = document.getElementById("img3");
+        //获取元素样式
+        // function getStyle(obj, attr) {
+        //     if (window.getComputedStyle) {
+        //         return window.getComputedStyle(obj, null)[attr]
+        //     } else {
+        //         return obj.currentStyle[attr];
+        //     }
+        // }
+        // var mainWid = getStyle(mainWidth, "width");//获取main页面的宽度
+        var bannerOneWid = 1200;
+        var bannerTwoWid = 0;
+        var bannerThreeWid = 0;
+
+        function load() {
+            timeId = setInterval(change, 10);
+        }
+        var imgOneSrc = imgOne.getAttribute("src");
+        var imgTwoSrc = imgTwo.getAttribute("src");
+        var imgThreeSrc = imgThree.getAttribute("src");
+
+        function change() {
+            if (bannerOneWid != 0) {
+                bannerOneWid -= d;
+                bannerTwoWid += d;
+                bannerOne.style.width = bannerOneWid + "px";
+                bannerTwo.style.width = bannerTwoWid + "px";
+            } else {
+                bannerTwoWid -= d;
+                bannerThreeWid += d;
+                bannerTwo.style.width = bannerTwoWid + "px";
+                bannerThree.style.width = bannerThreeWid + "px";
+            }
+            if (bannerThreeWid == 1200) {
+                imgOne.setAttribute("src", imgThreeSrc);
+                imgTwo.setAttribute("src", imgOneSrc);
+                imgThree.setAttribute("src", imgTwoSrc);
+                imgOneSrc = imgOne.getAttribute("src");
+                imgTwoSrc = imgTwo.getAttribute("src");
+                imgThreeSrc = imgThree.getAttribute("src");
+                // console.log(imgOne);
+                // console.log(imgTwo);
+                // console.log(imgThree);
+                clearInterval(timeId);
+                bannerOneWid = 1200;
+                bannerTwoWid = 0;
+                bannerThreeWid = 0;
+                bannerOne.style.width = bannerOneWid + "px";
+                bannerTwo.style.width = bannerTwoWid + "px";
+                bannerThree.style.width = bannerThreeWid + "px";
+                timeId = setInterval(change, 10);
+            }
+        }
+    </script>
+</body>
+
+</html>

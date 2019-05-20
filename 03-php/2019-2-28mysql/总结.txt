@@ -1,0 +1,30 @@
+1.insert into tablename[(column1,column2....)]  values (val1,val2...)[,(val1,val2...)]
+
+2.delete from tablename where condition
+
+3.update tablename set column1=newVal,column2 = newVal where condition
+
+4.select * || (column1,column2...) from tablename 
+	where condition
+	group by column
+	having condition
+	order by column asc||desc
+	limit startIndex,length
+
+
+sum()  count()  max() min() avg()
+
+
+多表查询
+
+select a.column1,b.column2 from table1 a,table2 b where a.colum=b.colum	
+
+select a.colunm1,b.colunm2 from table1 a left join table2 b on a.colum=b.colum
+
+select a.colunm1,b.colunm2 from table1 a right join table2 b on a.colum=b.colum	
+
+子查询
+单行子查询
+select * from tablename where id=(select column from tablename where condition)	
+多行子查询
+select * from tablename where id in (select column from tablename where condition)

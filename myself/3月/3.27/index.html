@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .container img {
+            /* width: 100%; */
+            width: 46.875rem;
+        }
+    </style>
+    <script>
+        function resize() {
+            var html = document.documentElement;
+            var w = html.getBoundingClientRect().width;
+            w = w > 750 ? 750 : w;
+            // console.log(w)
+            var fontsize = w / (750/16);
+            // console.log(fontsize)
+            html.style.fontSize = fontsize + "px";
+        }
+        resize();
+        window.onresize = function () {
+            resize();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./images/首页_spec_01.png" alt="">
+        <img src="./images/首页_spec_02.jpg" alt="">
+
+        <img src="./images/首页_spec_03.png" alt="">
+    </div>
+</body>
+
+</html>

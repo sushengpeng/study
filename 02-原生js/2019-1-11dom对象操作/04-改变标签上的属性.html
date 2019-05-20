@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a title="旧的title" i="0">这是链接</a>
+    <script>
+        var a = document.getElementsByTagName("a")[0];
+
+
+        //i是自定义属性，title是自带的属性
+        // dom.属性名的方式 只能得到自带的属性，不能得到自定义属性
+
+
+
+        //第一种方式
+        //操作任何对象的通用方式
+        // 只能设置或修改自带的属性
+        //获取  obj.属性名
+        console.log(a.title)
+        //修改  obj.属性名=“new value"
+        a.title="新的title"
+        //添加属性
+        a.href="http://www.baidu.com"
+
+        console.log(a.i);       //undefined
+
+
+        
+
+        //第二种方式
+        // dom对象上特有的操作属性的方式
+        // 可以修改自带的属性或自定义属性
+        //设置属性   setAttribute("属性名","属性值")
+        a.setAttribute("index","1");    //设置自定义属性
+        a.setAttribute("title","title");
+
+        //获取属性   getAttribute("属性名","属性值")
+
+        console.log(a.getAttribute("i"));      
+        console.log(a.getAttribute("title"))
+    </script>
+</body>
+</html>

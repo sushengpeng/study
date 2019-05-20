@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iscroll的方法</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            background: #aaa;
+            overflow:hidden;
+        }
+        #wrapper ul {
+            width:1500px;
+            height: 200px; 
+        }
+        #wrapper li {
+            float: left;
+            height: 100px;
+            background: #fff;
+            width: 375px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+        </ul>
+    </div>
+    <button>控制</button>
+    <script src="js/iscroll-probe.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            scrollX: true,
+            scrollY: false,
+            probeType: 3
+        });
+
+        var btn = document.querySelector("button");
+            btn.onclick = function(){
+                // 可以滚动到具体的位置，比如回到顶部的时候让其滚动到0的位置
+                // quadratic | circular | back | bounce | elastic
+                // myScroll.scrollTo(-375,0,2000, IScroll.utils.ease.bounce);
+                myScroll.scrollBy(-375,0,2000, IScroll.utils.ease.bounce);
+            }
+
+    </script>
+</body>
+</html>

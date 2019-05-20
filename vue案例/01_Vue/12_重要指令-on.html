@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    <标签 v-on:事件类型="methods函数"></标签>
+
+    <button v-on:click=""></button>
+
+    v-on可以使用@
+    <标签 @click="函数"></标签>
+
+   -->
+  <div id="app">
+    <button v-on:click="toggle">点击</button>
+    <div v-show="show">{{msg}}</div>
+
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '数据',
+        show: true
+      },
+      methods: {
+        // 这次存储的是页面中所有的函数
+        // toggle: function () {}
+        toggle () {
+          // 在函数中我们可以获取到对应的data中的数据 this.属性名
+          // this指的就是vue实例 app
+        
+          this.show = !this.show
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

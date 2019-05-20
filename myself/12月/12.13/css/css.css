@@ -1,0 +1,39 @@
+.div1{
+float: left;
+width: 70%;
+height:100px;
+background: yellow;
+font-size:20px;
+text-align: center;
+}
+.div2{
+float:left;
+width: 35%;
+height:100px;
+background: yellowgreen;
+font-size:20px;
+text-align: center;
+}
+.div3{
+position: relative;
+float: left;
+width: 35%;
+height:100px;
+background: gray;
+font-size:20px;
+text-align: center;
+}
+.div4{
+margin-top: 40px;
+background: beige;
+}
+.div5{
+float: left;
+width: 70%;
+height:100px; 
+background:aqua;   
+}
+*{
+    border-width: 1px;
+    border-style: dotted; 
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    url
+      path: '/demo/:id'
+
+      http://xxx.com/#/demo/1
+
+      想要获取到1
+      $route.params.id
+
+    url
+      path: '/demo'
+
+      http://xxx.com/#/demo?id=1
+
+      想要获取到1
+      $route.query.id
+
+      动态路由在设置路由时需要设置好key
+      value是直接添加在url里的
+
+      query是在设置什么仅设置路由，在url中添加key value 
+
+      动态路由
+        {
+          path: '/路由/:key'
+        }
+
+        /路由/value
+
+        key=value
+
+        $route.params.key
+
+      query
+        {
+          path: '/路由'
+        }
+
+        /路由?key=value
+
+        $route.query.key
+
+
+
+   -->
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="vue-router.js"></script>
+  <script>
+    const com = {
+      template: `
+        <div>1{{$route.params.id}} {{$route.query.id}}</div>
+      `
+    }
+
+    const routes = [
+      {
+        path: '/demo/:id',
+        component: com
+      }, {
+        path: '/demo2',
+        component: com
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+  
+    const app = new Vue({
+      el: '#app',
+      router
+    })
+  
+  </script>
+
+</body>
+</html>

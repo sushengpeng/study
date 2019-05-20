@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:500px;
+            height: 500px;
+            background-color: rgba(255,0,0,.3);
+            /*border:solid 140px red;    必须写在上面*/
+
+            /* border-image: url(bg1.png) 140;  复合属性 */
+            border-image-source:url(bg1.png);   /*边框背景图片地址*/
+            border-image-slice:140;     /*切多宽的图片的边来填充元素的边框，不能加单位，否则没有效果， */
+            border-image-width: 140px;   /* 图片填充边框的宽度*/
+            border-image-outset: 0px;   /* 图片超出边框的像素*/
+            border-image-repeat:round;   /* 边框部分的图片如何平铺 */
+            border-style:solid ;
+            border-width:140px;
+        }
+    </style>
+</head>
+<body>
+    <div>content</div>
+</body>
+</html>

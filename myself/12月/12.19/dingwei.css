@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding:0;
+}
+dd{
+    width:600px;
+    height:50px;
+    line-height: 50px;
+    padding-left:10px;
+    background-color: bisque;
+    border-bottom:1px solid #ccc;
+}
+dd div{
+    float: left;
+    height:50px;
+    width:45px;
+    background-image: url(./sprites.png);
+    background-repeat: no-repeat;
+    background-position: -33px 10px;
+    /* background-color: black; */
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: palegreen;
+            margin: 0 auto;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        span {
+            width: 300px;
+            height: 300px;
+            background-color: peru;
+            list-style: none;
+            position: absolute;
+            top: -100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <script>
+    var divs=document.getElementsByTagName("div");
+    var spans=document.getElementsByTagName("span");
+    for(var i=0;i<divs.length;i++){
+        spans[i].style.top="-100%";
+        action(i);
+    }
+    function action(n){
+        var timerId;
+        var num=100;
+        divs[i].onmouseenter = function () {   
+            clearInterval(timerId);      
+            timerId = setInterval(function () {
+                if (num >= 0) {
+                    spans[n].style.top = "-" + num + "%";
+                    num-=5;
+                } else {
+                    clearInterval(timerId);
+                }
+            }, 50)
+        }
+        divs[n].onmouseleave = function () {
+            clearInterval(timerId);
+            timerId = setInterval(function () {
+                if (num <= 100) {
+                    spans[n].style.top = "-" + num + "%";
+                    num+=5;
+                } else {
+                    clearInterval(timerId);
+                }
+            }, 50)
+        }
+    }
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            border:solid 1px red;
+            
+            /* background-image: url(bg-top.png),url(bg2.png);
+            background-repeat: no-repeat,no-repeat;
+            background-position:right top ,center center;*/
+            background: url(bg-top.png) no-repeat right top ,url(bg2.png) no-repeat center ;  /*按照从上到下的顺序写图片 */
+            background-size:10%,contain; /* background-size:不能加在复合属性background中，需要单独写出来*/
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

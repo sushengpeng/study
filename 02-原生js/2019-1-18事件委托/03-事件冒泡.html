@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul{
+            background-color: pink;
+        }
+        li{
+            width:100px;height: 100px;
+            margin: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+        <li>list 5</li>
+        <li>list 6</li>
+        <li>list 7</li>
+        <li>list 8</li>
+    </ul>
+
+    <script>
+        var lis = document.getElementsByTagName("li");
+        // for(var i=0;i<lis.length;i++){
+        //     lis[i].onclick = function(){
+        //         for(var j=0;j<lis.length;j++){
+        //             lis[j].style.backgroundColor="red";
+        //         }
+        //         this.style.backgroundColor="yellow";
+        //     }
+        // }
+
+        var ul = document.getElementsByTagName("ul")[0];
+        ul.onclick = function(e){
+            // console.log(this);
+            e = e || window.event;
+            // console.log(e);
+
+            //找到目标元素
+            var target = e.target || e.srcElement;
+            console.log(target);
+            //nodeName是节点对象上的属性  tagName 是元素对象上的属性
+            if(target.tagName == "LI"){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].style.backgroundColor="red";
+                }
+                target.style.backgroundColor="yellow";
+            }
+            
+        }
+    </script>
+</body>
+</html>

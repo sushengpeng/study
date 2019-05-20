@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*用css的hack的方法的时候，通用的属性，从高版本到低版本*/
+        *{
+            margin: 0;
+            padding: 0
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            background-color:pink\0; 
+            +background-color: yellow;
+            _background-color: blue;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box"></div>
+
+</body>
+</html>

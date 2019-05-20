@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            height: 30px;
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./图层1.jpg" alt="" width=500px style="opacity:0">
+    <button>显示</button>
+    <script>
+        var img = document.getElementsByTagName("img")[0];
+        var button1 = document.getElementsByTagName("button")[0];
+        var timerId;
+        button1.onclick = function () {
+            if (button1.innerText == "显示") {
+                clearInterval(timerId);
+                timerId = setInterval(function () {
+                    if (parseFloat(img.style.opacity) != 1) {
+                        img.style.opacity = parseFloat(img.style.opacity) + 0.01;
+
+                    } else {
+                        clearInterval(timerId);
+                        button1.innerText = "隐藏";
+                    }
+                }, 16.67);
+            } else {
+                clearInterval(timerId);
+                timerId = setInterval(function () {
+                    if (parseFloat(img.style.opacity) != 0) {
+                        img.style.opacity = parseFloat(img.style.opacity) - 0.01;
+                    } else {
+                        clearInterval(timerId);
+                        button1.innerText = "显示";
+                    }
+                }, 16.67);
+            }
+        }
+    </script>
+</body>
+
+</html>

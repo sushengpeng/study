@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原始五种类型
+        //===========================================Undefined
+        // 值只有一个是undefined
+        // 声明但是未赋值的变量中存的默认值就是undefined
+        // var box;
+        // // box="";
+        // // console.log(box == undefined);
+        // console.log(typeof box);      //undefined
+        // console.log(typeof undefined);    //undefined
+
+        // 注意：
+        // 1.声明为赋值的变量经过typeof 运算返回的结果是undefind
+        // var box1;
+        // console.log(typeof box1);    //undefined
+        // console.log(typeof box2);   //undefined 未声明直接使用的变量除了 使用typeof 以为的运算符都会报错
+
+        // alert(box1);
+        // alert(box2);    //报错的
+
+        // var oTemp;
+        // alert(oTemp2 == undefined);    // oTemp2 is not defined
+
+        // 当函数无明确返回值时，返回的也是值 "undefined"
+        // function fun1(){}
+        // alert(fun1()==undefined)
+
+
+        //===========================================Null
+        // 值只有一个是null
+        // null和undefined值相同，但是类型不同
+        // alert(null==undefined);    //true
+        // alert(null === undefined);   //false
+        // 期望得到一个对象，但是没有得到，返回结果就是null
+        // console.log(document.getElementById("box"));
+
+
+        //============================================Boolean
+        // Boolean 中的值有true 和 false ，严格区分大小写
+
+
+        //=========================================== Number
+        // ============整型
+        //存放的都是数字，默认是十进制
+        // var num1 = 56;
+        // console.log(num1);
+        // var num2 = 070;
+        // console.log(num2);
+        // var num3 = 0x38;
+        // console.log(num3);
+        // var num4 = 0XAf;
+        // var num4 = 0xaf;
+        // console.log(num4)
+
+        //=================浮点型
+        // var fnum1=1.1;
+        // var fnum2 = 0.1;
+        // var fnum3= .1;   //可以但不推荐使用
+
+        // ======================科学计数法
+        // var num = 5.618e7;
+        // console.log(num);
+        // num = 5.618E7;
+        // console.log(num);
+        // num = 5.618e-6;
+        // console.log(num);
+
+        //======================特殊的值  无穷
+        // 正无穷大  Infinity
+        // 负无穷大  -Infinity
+        // var num = 5.6E256*3E256;
+        // // console.log(num);
+        // // console.log(isFinite(1));   //true
+        // // console.log(isFinite(num));    //false
+        // // num=1;
+        // if(isFinite(num)){
+        //     alert("数字是有限数字")
+        // }else{
+        //     alert("数字是无限的")
+        // }
+
+        // isFinite() 方法，判断一个数字是不是有限的
+
+        // ======================特殊的 值  NaN(Not a Number)
+        // var num1 = NaN;
+        // var num2 = NaN;
+        // // 任何两个NaN都不相同
+        // console.log(num1 == num2);
+
+        // isNaN()  //判断是不是 不是一个数值
+        // console.log(isNaN("blue"))       //true
+        // console.log(isNaN(1));           //false
+
+        //======================================================String
+        // 字符串中单双引号有自己的特殊的意义，表示字符串的开头和结尾的定界符号，所以单双引号嵌套时需要注意
+        // var str = "汉字、字母、数字、标点符号";
+        // console.log(str);
+        // str = "'汉字'、'数字'、'标点符号'";
+        // console.log(str);
+        // // str = ""汉字"、"数字"、"标点符号"";   //错误写法
+        // // 如果想要在双引号内部包含双引号，需要将内部的双引号进行转义，\
+        // // str = "\"汉字\"、\"数字\"、\"标点符号\"";
+        
+
+        // str = '"汉字"、"数字"、"标点符号"'; 
+        // console.log(str);
+
+        // var str1="hello n  world";
+        // // str1="hello \n  world";   \n表示换行
+        // console.log(str1);
+
+        // 字符串的拼接使用加号
+        // var str1 = "hello",str2="world";
+        // console.log(str1+" "+str2);
+    </script>
+</body>
+</html>

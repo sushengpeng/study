@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p.error1{
+            color:red;
+            background: url(unchecked.gif) no-repeat;
+            text-indent: 26px;
+        }
+        p.valid{
+            height: 26px;
+            background: url(checked.gif) no-repeat;
+        }
+        .valid1+.error1{
+            height: 26px;
+            background: url(checked.gif) no-repeat;
+        }
+        .success{
+            height: 26px;
+            background: url(checked.gif) no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div><label>用户名：<input type="text" name="uname" id="uname" /></label></div>
+        <div><label>密码<input type="text" name="pwd" id="pwd" /></label></div>
+        <div><label>确认密码<input type="text" name="cpwd" id="cpwd" /></label></div>
+        <div><label>邮政编码<input type="text" name="postcode" id="post" /></label></div>
+        <input type="submit" >
+    </form>
+    <div class="errorPlace"></div>
+    <script src="js/jquery-git.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- 覆盖插件默认的英文提示信息，让插件的提示信息为中文的 -->
+    <script src="js/messages_zh.js"></script>      
+    <script>
+        $(function(){
+            $("form").validate({
+                //验证规则
+                rules:{
+                   uname:{
+                       required:true,
+                       rangelength:[8,20],
+                       //远程验证
+                       remote:{
+                            url:"checkuser.php"
+                       }
+                   },
+                   pwd:{
+                       required:true,
+                       rangelength:[6,12]
+                   },
+                   cpwd:{
+                       required:true,
+                       rangelength:[6,12],
+                       equalTo:"#pwd"
+                   },
+                   postcode:{
+                    //    postcode:["中国",6]
+                        postcode:["美国",8]
+                   }
+                },
+                //提示信息
+                messages:{
+                    uname:{
+                        required:"用户名不能为空",
+                        remote:"用户名重名"
+                    },
+                    cpwd:{
+                        equalTo:"密码不一致"
+                    },
+                    postcode:{
+                        postcode:"请输入{0}的邮政编码，共{1}位"
+                    }
+                },
+
+
+                // 定义错误元素使用的标签
+                errorElement:"p",
+                //定义错误元素的类名，默认类名是error，会给消息提示元素和验证的表单元素都添加error1
+                errorClass:"error1",
+                //定义错误消息的放置位置
+                errorPlacement:function(error,element){
+                    //error指的是错误提示消息标签元素，element指的是当前验证的标签元素
+                    // console.log(error,element);
+                    element.after(error);   //默认位置，放置到验证元素的后面
+                    // element.closest("div").after(error);
+                    // error.appendTo(".errorPlace");
+                },
+
+
+                //验证通过的类名，默认类名是valid,会给消息提示元素和验证的表单元素都添加valid1
+                validClass:"valid1",
+                // /*添加校验成功后的执行函数--修改提示内容，并为正确提示信息添加新的样式(默认是valid)*/
+                success:"success"
+                // success: function(label){
+                //     console.log(label);
+                //     /*label的默认正确样式为valid，需要通过validClass来重置，否则这里添加的其他样式不能被清除*/
+                //     // label.text('').removeClass("error1").addClass('valid1');
+                // }
+            })
+
+
+            //添加自定义的校验规则
+            $.validator.addMethod("postcode",function(value,ele,para){
+                // var reg = /^\d{6}$/;
+                var reg = new RegExp("^\\d{"+para[1]+"}$");
+                console.log(para,reg.test(value),reg)
+                return this.optional(ele) || reg.test(value);
+            },"请输入正确的{0}{1}位邮政编码")
+        })
+    </script>
+</body>
+</html>

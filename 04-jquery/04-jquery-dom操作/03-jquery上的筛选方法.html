@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="show"></div>
+    <div id="box" class="box">
+        <ul>
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+            <li class="list">list 4</li>
+            <li>list 5</li>
+            <li>list 6</li>
+            <li>list 7</li>
+            <li>list 8</li>
+            <li>list 9</li>
+            <li>list 10</li>
+        </ul>
+    </div>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2
+            <ul>
+            <li>list item 2-a</li>
+            <li>list item 2-b</li>
+            </ul>
+        </li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        </ul>
+    <script src="../jquery.js" ></script>
+    <script>
+        //过滤
+        console.log($("#box li").eq(4))    //jquery 对象
+        console.log($("#box li").get(4))    //dom元素
+
+        // first()
+        // last()
+        // filter()
+        // 返回的是满足条件的结果集
+        console.log($("#box li").filter(".list"))
+        console.log($("#box li").filter(function(){
+            return this.innerHTML=="list 6";    //函数内部返回boolean true表示满足条件，会被筛选出来
+        }))
+
+        //not()
+        console.log($("li").not(".list"))
+
+
+
+        //has()  保留包含特定后代的元素
+        console.log($("ul li").has("ul"))
+
+        
+
+        //slice（start，end）
+        console.log($("#box li").slice(3,6));
+
+        //map()   用来遍历jQuery对象，将jQuery对象集合中的元素改变成return 后的值
+        console.log($("#show").html($("#box li").map(function(index){
+            return (index+1)+":"+this.innerHTML
+        }).get().join(",")))
+
+
+
+        //true 或者 false
+         //is()    
+        //返回的结果是true false
+        console.log( $("#box li").is("li"))
+        console.log($("#box li").is(function(){
+            return this.innerHTML=="list 11";
+        }))
+
+        console.log($("div").hasClass("box"))   //true false 用来判断有没有这个类名,只要集合中有一个满足条件就返回true
+
+    </script>
+</body>
+</html>

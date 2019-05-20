@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #map {
+            width: 500px;
+            height: 500px;
+            border: solid 1px red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script src="js/echarts.js"></script>
+    <script>
+        var charts = echarts.init(document.getElementById("map"));
+
+        function genData(count) {
+            var nameList = [
+                '赵', '钱', '孙', '李', '周', '吴', '郑', '王', '冯', '陈', '褚', '卫', '蒋', '沈', '韩', '杨', '朱', '秦', '尤', '许',
+                '何', '吕', '施', '张', '孔', '曹', '严', '华', '金', '魏', '陶', '姜', '戚', '谢', '邹', '喻', '柏', '水', '窦', '章',
+                '云', '苏', '潘', '葛', '奚', '范', '彭', '郎', '鲁', '韦', '昌', '马', '苗', '凤', '花', '方', '俞', '任', '袁', '柳',
+                '酆', '鲍', '史', '唐', '费', '廉', '岑', '薛', '雷', '贺', '倪', '汤', '滕', '殷', '罗', '毕', '郝', '邬', '安', '常',
+                '乐', '于', '时', '傅', '皮', '卞', '齐', '康', '伍', '余', '元', '卜', '顾', '孟', '平', '黄', '和', '穆', '萧', '尹',
+                '姚', '邵', '湛', '汪', '祁', '毛', '禹', '狄', '米', '贝', '明', '臧', '计', '伏', '成', '戴', '谈', '宋', '茅', '庞',
+                '熊', '纪', '舒', '屈', '项', '祝', '董', '梁', '杜', '阮', '蓝', '闵', '席', '季', '麻', '强', '贾', '路', '娄', '危'
+            ];
+            var legendData = [];
+            var seriesData = [];
+            var selected = {};
+            for (var i = 0; i < count; i++) {
+                name = Math.random() > 0.65 ?
+                    makeWord(4, 1) + '·' + makeWord(3, 0) :
+                    makeWord(2, 1);
+                legendData.push(name);
+                seriesData.push({
+                    name: name,
+                    value: Math.round(Math.random() * 100000)
+                });
+                selected[name] = i < 8;
+            }
+
+            return {
+                legendData: legendData,
+                seriesData: seriesData,
+                selected: selected
+            };
+
+            function makeWord(max, min) {
+                var nameLen = Math.ceil(Math.random() * max + min);
+                var name = [];
+                for (var i = 0; i < nameLen; i++) {
+                    name.push(nameList[Math.round(Math.random() * nameList.length - 1)]);
+                }
+                return name.join('');
+            }
+        }
+        var data = genData(5);
+        var option = {
+            color: ["green", "orange", "pink", "blue","red"],
+            title: {
+                text: "Echarts 入门",
+                left: "center" //left top right bottom 改变位置  
+            },
+            tooltip: {},
+            legend: {
+                data: ["销量", "价格","姓名"],
+                // left:"right"
+                right: 0,
+                selected: {
+                    "价格": false
+                } //显示图例默认为true ,可以只写false的图例
+            },
+            xAxis: {
+                data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+            },
+            yAxis: {
+                max:200
+            },
+            series: [{
+                    name: "销量",
+                    type: "bar",
+                    data: [5, 20, 36, 10, 10, 20]
+                },
+                {
+                    name: "价格",
+                    type: "line",
+                    data: [50, 20, 30, 60, 15, 200]
+                },
+                {
+                name: '姓名',
+                type: 'pie',
+                radius: '35%',
+                center: ['50%', '35%'],
+                data: data.seriesData,
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+            ]
+        }
+        // 默认为：
+
+        // ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3']
+        charts.setOption(option);
+    </script>
+</body>
+
+</html>

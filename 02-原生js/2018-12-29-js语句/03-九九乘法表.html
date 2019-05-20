@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border:solid 1px red;
+        }
+        table td{
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // document.write("<table>");
+        // for(var i=1;i<10;i++){
+
+        //     document.write("<tr><td>")
+            
+        //     document.write("1*"+i+"="+1*i)    //1*1  
+        //     document.write("</td></tr>")
+
+        // }
+        // document.write("</table>")
+        // document.write("<table>")
+
+        // outer:for(var i=1;i<10;i++){
+        //     document.write("<tr>")
+        //     console.log("i="+i);
+        //     // 另一个乘数是从1-i
+        //     for(var j=1;j<i+1;j++){
+        //         // if(j==5){
+        //         //     break outer;  //跳出的是本层循环
+        //         // }
+        //         document.write("<td>");
+        //         console.log("j="+j)
+        //         document.write(i+"*"+j+"="+i*j);
+        //         document.write("</td>")
+
+        //     }
+        //     document.write("</tr>")
+        // }
+        // document.write("</table>")
+        document.write("<table>")
+        for(var i=1;i<10;i++){
+            document.write("<tr>")
+            console.log("i="+i);
+            // 另一个乘数是从1-i
+            for(var j=i;j<10;j++){
+                // if(j==5){
+                //     break outer;  //跳出的是本层循环
+                // }
+                document.write("<td>");
+                console.log("j="+j)
+                document.write(i+"*"+j+"="+i*j);
+                document.write("</td>")
+
+            }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    </script>
+</body>
+</html>

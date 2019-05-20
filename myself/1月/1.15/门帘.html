@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: palegreen;
+            margin: 0 auto;
+            margin-top:400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        span {
+            width: 300px;
+            height: 300px;
+            background-color: peru;
+            list-style: none;
+            position: absolute;
+            top: -100%;
+        }
+
+        /* li {
+            width: 300px;
+            height: 300px;
+            background-color: olivedrab;
+            list-style: none;
+            position: absolute;
+            top: -100%;
+            z-index: 3;
+        }
+
+        ul li:nth-child(2) {
+            background-color: paleturquoise;
+            top: -100%;
+            z-index: 2;
+        }
+
+        ul li:nth-child(3) {
+            background-color: firebrick;
+            top: -100%;
+            z-index: 1;
+        } */
+    </style>
+</head>
+
+<body>
+    <div onmouseover="under()">
+        <span></span>
+        <!-- <ul>
+            <li class="li1"></li>
+            <li class="li2"></li>
+            <li class="li3"></li>
+        </ul> -->
+    </div>
+    <script>
+        var divHeight = document.getElementsByTagName("div")[0];
+        // var ul = document.getElementsByTagName("ul")[0];
+        // var liHeight = document.getElementsByTagName("li");
+        // var height = document.getElementsByTagName("span")[0];
+        var timerId;
+        var num = 100;
+        divHeight.onmouseenter = function () {   
+            clearInterval(timerId);      
+            timerId = setInterval(function () {
+                if (num >= 0) {
+                    height.style.top = "-" + num + "%";
+                    num--;
+                } else {
+                    clearInterval(timerId);
+                }
+            }, 50)
+        }
+        divHeight.onmouseleave = function () {
+            clearInterval(timerId);
+            timerId = setInterval(function () {
+                if (num <= 100) {
+                    height.style.top = "-" + num + "%";
+                    num++;
+                } else {
+                    clearInterval(timerId);
+                }
+            }, 50)
+        }
+
+        // liHeight[0].style.top="0";
+        // for (var i = 0; i < 3; i++) {
+        //     underLine(i);
+        // }
+
+
+        // function underLine(i) {
+        //     // clearInterval(timerId);
+        //     divHeight.onmouseover = function () {
+        //         timerId = setInterval(function () {
+        //             if (num > 0) {
+        //                 liHeight[i].style.top = "-" + num + "%";
+        //                 // console.log(getStyle(liHeight[i], "top"));
+        //                 num--;
+        //                 console.log(i);
+        //                 console.log(num)
+        //             } else {
+        //                 clearInterval(timerId);
+        //             }
+        //         }, 50)
+        //     }
+        // }
+        // function getStyle(obj, attr) {
+        //     if (window.getComputedStyle) {
+        //         return window.getComputedStyle(obj, null)[attr]
+        //     } else {
+        //         return obj.currentStyle[attr];
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

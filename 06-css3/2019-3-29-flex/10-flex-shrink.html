@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+            border: solid 1px blue;
+            height: 200px;
+            width: 600px;
+        }
+
+        li {
+            flex-shrink: 1;
+        }
+
+        li:nth-child(1) {
+            background-color: pink;
+            width: 200px;
+        }
+
+        li:nth-child(2) {
+            background-color: orange;
+            width: 400px;
+            flex-shrink: 2;
+        }
+
+        li:nth-child(3) {
+            background-color: green;
+            width: 300px;
+        }
+
+
+         /*计算方法为：(子元素的总宽度-父元素的宽度)*(子元素的宽度*份数/(所有子元素的宽度*各自的份数之和))=子元素缩小的宽度
+        300*(200*1/(200+400*2+300))
+        元素缩小了：46.15384615384615
+        300*(400*2/(200+400*2+300))
+        元素缩小了：184.6153846153846
+        300*(300/(200+400*2+300))
+        元素缩小了：69.23076923076924 */
+    </style>
+</head>
+
+<body>
+       
+    <ul>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+    </ul>
+</body>
+
+</html>

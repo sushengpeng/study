@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="div1">
+                <!-- 注释1 -->
+                <p id="p1">这是一个段落</p>
+                <p id="p2">这是另一个段落</p>
+        </div>
+        <script>
+            var div1 = document.getElementById("div1");
+
+            console.log(div1.nodeType)   //1
+            console.log(div1.nodeValue)  //null
+            console.log(div1.nodeName)   //DIV
+
+            console.log(div1.attributes[0].nodeName)  //id
+            console.log(div1.attributes[0].nodeValue)  //div1
+
+            console.log(div1.id);   //div1
+
+            console.log( div1.childNodes[1].nodeName)
+            console.log( div1.childNodes[1].nodeValue)
+            console.log(document.nodeName)
+        </script>
+</body>
+</html>

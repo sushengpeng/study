@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script>
+    /* 
+      state中存放的是组件们的公共数据
+
+      state中的数据如何在组件中使用
+      1.
+        $store.state.属性名
+      2. 
+        computed: {
+          属性名 () {
+            return this.$store.state.属性名
+          }
+        }
+
+      只要state中的值发生改变，则对应的数据会自动改变
+      
+
+
+    */
+
+    const store = new Vuex.Store({
+      state: {
+        msg: 'Vuex中的数据'
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      store
+    })
+  
+  </script>
+</body>
+</html>

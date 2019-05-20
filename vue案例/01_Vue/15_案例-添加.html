@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    v-model只能添加给表单元素
+    input textarea select 
+
+    <标签 v-model="data中的属性名"></标签>
+
+    见到表单元素,就直接给其添加v-model = 对应的data值 那么对应的data值就是表单元素的value值
+
+    修饰符 
+      .number 可以将表单元素的value值转为number类型
+      .trim 可以删除左右两边空格
+      .lazy 把原本的触发条件变为blur
+   -->
+  <div id="app">
+    <input type="text" v-model.number.lazy="num">
+    {{num}}
+    <button @click="add">添加</button>
+    <ul>
+      <li v-for="num in arr">{{num}}</li>
+    </ul>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        num: "",
+        arr: [1,2,3,4,5]      
+      },
+      methods: {
+        /* 
+          在一个函数中 找到对应的arr并往里面push内容
+          this.arr.push(6)
+        
+        */
+        add () {
+          // this.arr.push(Math.random())
+          // const input = document.querySelector('input')
+          // this.arr.push(input.value)
+
+          // this.num 就是input的value值
+          this.arr.push(this.num)
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

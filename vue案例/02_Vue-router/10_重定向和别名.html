@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    重定向
+      我们要访问 /a 当时 最终访问到 /b 同时页面内容也是 /b
+
+      [
+        {
+          path: '/a',
+          redirect: '/b'
+        }, {
+          path: '/b'
+        }
+      ]
+
+    别名
+      我们访问 /a 时，实际访问到的是/b的内容
+      [
+        {
+          path: '/a'
+        }, {
+          path: '/b',
+          alias: '/a'
+        }
+      ]
+
+   -->
+</body>
+</html>

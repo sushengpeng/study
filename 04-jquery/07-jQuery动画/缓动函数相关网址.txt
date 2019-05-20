@@ -1,0 +1,3 @@
+http://code.ciaoca.com/jquery/easing/   效果演示
+
+http://www.xuanfengge.com/easeing/easeing/#easeInOutSine  速查表

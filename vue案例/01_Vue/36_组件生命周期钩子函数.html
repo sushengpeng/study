@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    // 出现 - 出生 - 生长 - 走
+    /* 
+      Vue的每个组件都是有生命周期
+
+      创建 挂载 更新 销毁
+
+      每一个过程都有两个函数，这两个函数一前以后在生命周期过程中执行
+
+      create 
+        beforeCreate
+        created
+      mount 
+        beforeMount
+        mounted
+      update 
+        beforeUpdate
+        updated
+      destroy
+        beforeDestroy
+        destroyed
+      
+    
+      每个组件都有生命周期
+
+      经常会使用的钩子函数
+        created
+          如果有些操作想要在页面加载完成后执行
+            数据请求，自定义事件的监听
+        mouted
+          和created相同
+        destroyed
+          如果该组件上有计时器，销毁组件时
+
+    */
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: "xiaoxi",
+        t: null
+      },
+      // 生命周期函数直接写在组件配置对象中即可
+      beforeCreate () {
+        console.log("创建前")
+      },
+      created () {
+        console.log("创建后")
+        this.t = setInterval(function () {
+          console.log(1)
+        }, 1000)
+      },
+      beforeMount () {
+        console.log("挂载前")
+      },
+      mounted () {
+        console.log("挂载后")
+      },
+      beforeUpdate () {
+        console.log("数据更新前")
+      },
+      updated () {
+        console.log("数据更新后")
+      },
+      beforeDestroy () {
+        console.log("销毁前")
+      },
+      destroyed () {
+        console.log("销毁后")
+        clearInterval(this.t)
+      }
+
+    })
+  </script>
+</body>
+</html>

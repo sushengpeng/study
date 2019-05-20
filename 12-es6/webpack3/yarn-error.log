@@ -1,0 +1,45 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add loadsh
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\MySQL\MySQL Server 5.5\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Git\cmd;;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  10.15.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v4\npm-inherits-2.0.1-b17d08d326b4423e568eff719f91b0b1cbdf69f1\node_modules\inherits\inherits.js' -> 'E:\code\12_ES6\demo\03_模块\webpack3\node_modules\assert\node_modules\inherits\inherits.js'
+
+npm manifest: 
+  {
+    "name": "webpack3",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "dev": "webpack --mode development",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "webpack": "^4.30.0",
+      "webpack-cli": "^3.3.1"
+    },
+    "dependencies": {
+      "html-webpack-plugin": "^3.2.0",
+      "jquery": "^3.4.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

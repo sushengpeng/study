@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .active{
+            background-color: pink;
+            font-size: 20px;
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <a href="http://www.baidu.com">这是啊</a>
+    </div>
+    
+    <input type="text" value="sdfjidf"  id="text">
+    <input type="checkbox" id="cb"/>
+    <script src="../jquery.js" ></script>
+    <script>
+        console.log($("div").html())
+        console.log($("div").text())
+
+        console.log($("input").val())
+
+        //属性使用attr 和 prop ，两者的区别如下================================================面试题
+        //通过attr 可以获取自带的属性和自定义属性
+        // $("a").attr("href","http://www.baidu.com")
+        // console.log($("a").attr("href"))
+
+        // console.log($("a").attr("index"))
+
+        //prop 只能获取自带的属性，获取不了自定义属性
+        // console.log($("a").prop("href"))
+
+        // console.log($("a").prop("index"))
+
+        //checked 和disabled属性必须由prop获取
+        // $("#cb").click(function(){
+        //     // console.log($(this).attr("checked"))   //undefined
+        //     // console.log($(this).prop("checked")) 
+
+        //     console.log($("#text").attr("disabled"))   //undefined
+        //     console.log($("#text").prop("disabled"))    //true  || false
+
+        // })
+            //一次设置多个属性
+            // $("a").attr({
+            //     href:"http://www.baidu.com",
+            //     title:"百度",
+            //     index:"1"
+            // })
+            // 设置属性第二个参数可以是函数
+            // $("a").attr("title",function(){
+            //     return this.href;
+            // })
+        //一次设置多个属性
+
+        //================================================
+        // 用attr创建的属性，删除的时候用romoveAttr删除
+        // $("a").removeAttr("href")
+
+        //$("a").removeProp("href")
+
+        //使用时：
+        // 除了checked 和 disabled 属性之外，其他的属性最好使用attr来获取和设置
+
+
+        //操作类名
+        $("div").addClass("active  active1");
+        $("div").removeClass("active");
+
+        $("a").click(function(){
+            $("div").toggleClass("active")
+        })
+    </script>
+</body>
+</html>

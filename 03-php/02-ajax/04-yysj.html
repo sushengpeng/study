@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="dia" ><input type="button" id="send" value="发送">
+    <script>
+        function ajax(option){
+            var xhr = new XMLHttpRequest();
+
+            //
+            if(option.type=="GET"){
+                xhr.open("GET",option.url+"?"+option.param);
+                xhr.send();
+            }else{
+                
+            }
+
+            xhr.onreadystatechange = function(){
+                if(xhr.status==200 && xhr.readyState==4){
+                    var data = xhr.responseText;
+                    option.success(data);
+                }
+            }
+            
+        }
+        var send = document.getElementById("send");
+        var dia = document.getElementById("dia");
+        send.onclick = function(){
+   
+            ajax({
+                type:"GET",
+                url:"http://route.showapi.com/60-27",
+                param:"showapi_appid=87843&showapi_sign=15e4ed55500640409d659a8accc18906&info="+dia.value,
+                success:function(data){
+                    console.log(data);
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>

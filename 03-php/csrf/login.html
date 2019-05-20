@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input name="uname" type="text" id="uname" />
+        <input name="pwd" type="text" id="pwd"/>
+        <input type="button" value="登陆" id="login" />
+    </form>
+    <script>
+        var login= document.getElementById("login");
+        login.onclick = function(){
+            document.cookie="uname="+uname.value;
+            document.cookie="pwd="+pwd.value;
+            location.href="manage.html";
+        }
+    </script>
+</body>
+</html>

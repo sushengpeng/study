@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //全局作用域
+        // ============================================只要是定义在最外层函数和最外层函数外部的变量都是全局作用域
+        // var authorName="凤凰山";
+        // function funName(){
+        //     var blogName="H5";
+        //     function innerFun(){
+        //         console.log("innerFun")
+        //     }
+        //     innerFun();
+        //     console.log(blogName)
+        //     console.log(authorName);
+        // }
+
+        // funName();
+
+        
+        // console.log(blogName);
+
+
+        // var a=1;
+        // if(true){
+        //     var b=2;
+        //     console.log(a);
+        //     console.log(b)
+        // }
+        // console.log(a);
+        // console.log(b)
+
+
+        //=========================================所有未定义直接赋值（没有var关键字）的变量自动拥有全局作用域
+        // "use strict";
+        // function outerFun(){
+        //     var a="a";
+        //     b = "b";
+        //     console.log(a);
+        //     console.log(b);
+        // }
+        // outerFun();
+        // console.log(b);
+        // console.log(a);
+
+
+
+        //========================================window对象上的属性和方法拥有全局作用域
+        // alert(1);
+        // window.alert(1);
+        // window.可以省略
+
+
+        //===================================================其余的都是局部作用域（函数作用域）
+        
+
+
+
+
+
+        //总结：
+        // 全局环境中不能访问局部变量
+        // 但是，局部环境中可以访问全局变量
+    </script>
+</body>
+</html>

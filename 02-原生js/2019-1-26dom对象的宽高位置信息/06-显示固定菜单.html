@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding:0;list-style: none;}
+        #header{height: 500px;}
+
+
+        #menu{position: fixed;left:0;top:0;right:0;height: 80px;background-color: black;color:#fff;display: none}
+        #menu li{float: left;margin: 20px}
+        #menu .active{color:orange}
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>云计算</li>
+        <li>安全</li>
+        <li>爬数据</li>
+        <li>22222</li>
+    </ul>
+    <div id="header"></div>
+    <div>
+        <h2>云计算</h2>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div>
+            <h2>安全</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    </div>
+    <div>
+            <h2>爬数据</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    </div>
+    <div>
+            <h2>22222</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    </div>
+    <div style="height: 1000px"></div>
+    <script>
+        var h2s = document.getElementsByTagName("h2");
+        var menu = document.getElementById("menu");
+        var lis= document.querySelectorAll("#menu li");
+        window.onscroll = function(){
+            console.log(h2s[0].getBoundingClientRect().top)
+            //控制菜单显示
+            if(h2s[0].getBoundingClientRect().top<=80){
+                menu.style.display = "block";
+            }else{
+                menu.style.display = "none";
+            }
+
+            // if(h2s[0].getBoundingClientRect().top<=80){
+            //     for(var i=0;i<lis.length;i++){
+            //         lis[i].className = "";
+            //     }
+                
+            //     lis[0].className="active"
+            // }
+            // if(h2s[1].getBoundingClientRect().top<=80){
+            //     for(var i=0;i<lis.length;i++){
+            //         lis[i].className = "";
+            //     }
+            //     lis[1].className="active"
+            // }
+            // if(h2s[2].getBoundingClientRect().top<=80){
+            //     for(var i=0;i<lis.length;i++){
+            //         lis[i].className = "";
+            //     }
+            //     lis[2].className="active"
+            // }
+            // if(h2s[3].getBoundingClientRect().top<=80){
+            //     for(var i=0;i<lis.length;i++){
+            //         lis[i].className = "";
+            //     }
+            //     lis[3].className="active"
+            // }
+            for(var m=0;m<h2s.length;m++){
+                if(h2s[m].getBoundingClientRect().top<=80){
+                    for(var i=0;i<lis.length;i++){
+                        lis[i].className = "";
+                    }
+                    lis[m].className="active";
+                }
+                
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>开启click事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            background: #aaa;
+            overflow:hidden;
+        }
+        #wrapper ul {
+            width:1500px;
+            height: 200px; 
+        }
+        #wrapper li {
+            float: left;
+            height: 100px;
+            background: #fff;
+            width: 375px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+        </ul>
+    </div>
+    <script src="js/iscroll.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            mouseWheel: true,
+            // scrollbars: false
+            scrollX: true,
+            scrollY: false,
+            snap: "li"
+            // click: true
+        });
+
+        //单击第一个li,打印信息
+        //在模拟器中click有效，但是在真机上无效
+        var li = document.querySelector("li");
+            li.onclick = function(){
+                alert('hello');
+            }
+           
+    </script>
+</body>
+</html>

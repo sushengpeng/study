@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">这是一个段落</p>
+        <p id="p2">这是另一个段落</p>
+    </div>
+
+    <script>
+
+        //父元素.appendChild(子元素)   追加的位置是在父元素的最后
+        //方法一：
+        var para = document.createElement("p");
+        var text = document.createTextNode("这是新的段落");
+        para.appendChild(text);
+
+        //para <p>这是新的段落</p>
+
+        var div1 = document.getElementById("div1");
+        div1.appendChild(para);
+
+        //方法二：
+        para = document.createElement("p");
+        para.innerHTML = "又是一个新的段落";
+        para.className ="active";
+        para.style.backgroundColor="pink";
+        para.title = "段落";
+
+        div1.appendChild(para);
+
+
+        //在任何位置添加元素
+        // insertBefore() :新增子节点，将其插入指定子节点之前。
+        // parent.insertBefore(new,old);
+
+        para = document.createElement("span");
+        para.innerHTML = "span";
+        var p2 = document.getElementById("p2");
+        div1.insertBefore(para,p2);
+    </script>
+</body>
+</html>

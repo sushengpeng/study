@@ -1,0 +1,6 @@
+div {
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+}

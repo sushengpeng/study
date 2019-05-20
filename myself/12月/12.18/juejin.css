@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+dl{
+    font-size: 0px;
+    background-color: aqua;
+}
+img,dd{
+    /* vertical-align: middle; */
+    /* display:inline-block; */
+    height: 80px;
+    background-color: rebeccapurple;
+    float:left;
+}
+dd{
+    font-size: 20px;
+    color: rgb(253, 252, 252);
+    line-height: 80px;
+    padding: 10px;
+    color: #71777C;
+}
+dd:hover{
+    color: #3E8FFE;
+}

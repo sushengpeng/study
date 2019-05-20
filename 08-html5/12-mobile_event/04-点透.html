@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        #mask{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height: 100vh;
+            background-color: rgba(100,100,100,0.5);
+        }
+    </style>
+</head>
+<body>
+    <a href="http://www.baidu.com">百度</a>
+    <div id="mask"></div>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script>
+        // touchstart 先触发
+        //其次是 click
+        // 最后是tap
+
+
+
+        // $("#mask").on("click",function(){
+        //     console.log("click"+new Date()*1)
+        // })
+
+        $(function(){
+            FastClick.attach(document.body);
+        })
+
+
+        $("#mask").on("touchstart",function(){
+            console.log("touchstart"+new Date()*1);
+            $(this).hide();
+        })
+        // $("#mask").on("tap",function(){
+        //     console.log("tap"+new Date()*1)
+        // })
+
+        
+
+        // tap事件
+        // zepto的tap事件, 利用touchstart和touchend来模拟click事件
+        // 缺点: 点击穿透
+        // 解决穿透问题
+        // FastClick.attach(document.body);
+
+        // FastClick 原理：
+        // 原理: 在检测到touchend事件的时候，会通过DOM自定义事件立即出发模拟一个click事件，并把浏览器在300ms之后真正的click事件阻止掉
+    </script>
+</body>
+</html>

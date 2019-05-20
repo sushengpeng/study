@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+            width: 500px;
+        }
+
+        ul>li {
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        li:hover {
+            color: red
+        }
+        .list{
+            width: 500px;
+            height: 300px;
+            background-color: #ccc;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: none;
+        }
+        li:hover .list{
+            display: block
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li class="box1">小米手机
+            <div class="list">
+                1
+            </div>
+        </li>
+        <li>红米
+            <div class="list">
+                2
+            </div>
+        </li>
+        <li>电视
+            <div class="list">
+                3
+            </div>
+        </li>
+        <li>笔记本
+            <div class="list">
+                4
+            </div>
+        </li>
+        <li>家电
+            <div class="list">
+                5
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

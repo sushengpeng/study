@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <section id="s1">
+
+    </section>
+    <!-- 模板字符串 -->
+    <script type="text/template" id="temp1">
+        <div class="content">
+            <ul>
+                <li class="{{c1}}">{{data}}</li>
+            </ul>
+        </div>
+    </script>
+    <script>
+        // 发起ajax，请求数据
+        var data = "香蕉";
+        var c1="box"
+        //用真实的数据替换模板字符串中的模板语法，形成最终的html字符串
+        var temp1 = document.getElementById("temp1");
+        var str = temp1.innerHTML.replace(/{{(data)}}/,data).replace(/{{c1}}/,c1);
+
+        //将字符串放入最终的dom中
+        var s1 = document.getElementById("s1");
+        s1.innerHTML = str;
+    </script>
+</body>
+</html>

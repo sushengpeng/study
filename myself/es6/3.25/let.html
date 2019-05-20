@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var
+        // var a = [];
+        // for (var i = 0; i < 10; i++) {
+        //     a[i] = function () {
+        //         console.log(i);
+        //     };
+        // }
+        // a[5](); // 10
+        // let
+        // var a = [];
+        // for (let i = 0; i < 10; i++) {
+        //     a[i] = function () {
+        //         console.log(i);
+        //     };
+        // }
+        // a[6](); // 10
+        // var 的情况
+        // console.log(foo); // 输出undefined
+        // var foo = 2;
+
+        // // let 的情况
+        // console.log(bar); // 报错ReferenceError
+        // let bar = 2;
+        // 不报错
+        // var x = 2;
+
+        // 报错
+        // let x ;
+        // x=2
+        // ReferenceError: x is not defined
+        // var tmp = new Date();
+
+        // function f() {
+        //     console.log(tmp);
+        //     if (true) {
+        //         var tmp = 'hello world';
+        //     }
+        // }
+
+        // f(); // undefined
+        // console.log(tmp)
+        // var s = 'hello';
+
+        // for (var i = 0; i < s.length; i++) {
+        //     console.log(s[i]);
+        // }
+
+        // console.log(i); // 5
+        function f() {
+            console.log('I am outside!');
+        }
+
+        (function () {
+            if (false) {
+                // 重复声明一次函数f
+                function f() {
+                    console.log('I am inside!');
+                }
+            }
+
+            f();
+        }());
+    </script>
+</body>
+
+</html>

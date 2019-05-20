@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        #inner {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+    <script>
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+        outer.onclick  = function(){
+            alert("outer")
+        }
+        inner.onclick = function(e){
+            e = e || window.event;
+            alert("inner");
+
+            // 阻止事件冒泡
+            // e.stopPropagation();
+            // e.cancelBubble=true;
+            stopBubble(e);
+        }
+        function stopBubble(e){
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{
+                e.cancelBubble = true;
+            }
+
+            // 以下是错误写法
+            // console.log(e.cancelBubble);
+            // if(e.cancelBubble){
+            //     e.cancelBubble = true;
+            // }else{
+            //     e.stopPropagation();
+            // }
+        }
+    </script>
+</body>
+
+</html>

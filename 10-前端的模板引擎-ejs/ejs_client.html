@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="s1"></div>
+    <!-- 模板字符串 -->
+    <script type="text/template" id="temp1">
+        <div class="content">
+            <ul>
+                <% cars.forEach(function(car){ %>
+                <!-- <li><%= car %></li> -->
+                <li><%= car %></li>
+                <% }) %>
+            </ul>
+        </div>
+    </script>
+    <script type="text/template" id="temp2">
+        <div class="content">
+            <ul>
+                <? cars.forEach(function(car){ ?>
+                <li><?= car ?></li>
+                <? }) ?>
+            </ul>
+        </div>
+    </script>
+    <script src="ejs.js"></script>
+    <script>
+        var s1 = document.getElementById("s1")
+        // temp1
+        // var str = document.getElementById("temp1").innerHTML;
+        // var data = ["<span>bmw</span>","<span>bba</span>"];
+        // var html = ejs.render(str,{cars:data});
+        // console.log(html);
+
+        // temp2
+        var str = document.getElementById("temp2").innerHTML;
+        var data = ["<span>bmw</span>","<span>bba</span>"];
+        var html = ejs.render(str,{cars:data},{delimiter:"?"});
+        
+        console.log(html);
+        s1.innerHTML = html;
+    </script>
+</body>
+</html>

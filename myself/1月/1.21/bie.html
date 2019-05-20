@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      font-size:14px;
+      -webkit-user-select:none;
+    }
+    ul,li{
+      list-style
+    }
+    img{
+      display: block;
+      border:none;
+    }
+    .banner{
+      position:relative;
+      width:1000px;
+      height:300px;
+      margin:0 auto;
+      overflow:hidden;
+    }
+    .banner .bannerInner{
+      width:100%;
+      height:100%;
+      background:url("../img/default.gif") no-repeat center center #e1e1e1;
+    }
+    .banner .bannerInner div{
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:0;
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+    .banner .bannerInner img{
+      display:none;
+      width:100%;
+      height:100%s;
+    }
+ 
+    .banner .bannerTip{
+      position:absolute;
+      height:18px;
+      overflow:hidden;
+      right:20px;
+      bottom:20px;
+      z-index:10;
+    }
+    .banner .bannerTip li{
+      float:left;
+      margin-left:10px;
+      width:18px;
+      height:18px;
+      background:lightblue;
+      cursor:pointer;
+      border-radius:50%;
+    }
+    .banner .bannerTip li.bg{
+      background:red;
+    }
+ 
+    .banner a{
+      display:none;
+      position:absolute;
+      top:50%;
+      z-index:20;
+      margin-top:-22.5px;
+      width:30px;
+      height:45px;
+      background:url("../img/pre.png");
+      opacity:0.5;
+      filter:alpha(opacity=50);
+    }
+    .banner a:hover{
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+    .banner a.bannerLeft{
+      left:20px;
+      background-position:0 0;
+    }
+    .banner a.bannerRight{
+      right:20px;
+      background-position:-50px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class='banner' id='banner'>
+    <div class='bannerInner'>
+      <div><img src="./1.jpg" alt="" trueImg="./1.jpg"></div>
+      <div><img src="./2.jpg" alt="" trueImg="./2.jpg"></div>
+      <div><img src="./3.jpg" alt="" trueImg="./3.jpg"></div>
+      <div><img src="./4.jpg" alt="" trueImg="./4.jpg"></div>
+    </div>
+    <ul class='bannerTip'>
+      <li class='bg'></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <a href="javascript:;" rel="external nofollow" rel="external nofollow" class='bannerLeft'></a>
+    <a href="javascript:;" rel="external nofollow" rel="external nofollow" class='bannerRight'></a>
+  </div>
+ 
+  <script>
+    var banner = document.getElementById('banner');
+    var bannerInner = utils.firstChild(banner),
+    bannerTip = utils.children(banner,"ul")[0],
+    bannerLink = utils.children(banner,'a'),
+    bannerLeft = bannerLink[0],bannerRight = bannerLink[1];
+    var divList = bannerInner.getElementsByTagName('div');
+    var imgList = bannerInner.getElementsByTagName('img');
+    var oLis = bannerTip.getElementsByTagName('li');
+    //1、Ajax读取数据
+    var jsonData = null;
+    ~function(){
+      var xhr = new XMLHttpRequest;
+      xhr.open("get","json/banner.txt?_="+Math.random(),false);
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState ===4 && /^2\d{2}$/.test(xhr.status)){
+          jsonData = utils.formatJSON(xhr.responseText)
+        }
+      }
+      xhr.send(null)
+    }()
+    //2、数据绑定
+    ~function(){
+      var str = "",str2 = "";
+      if(jsonData){
+        for(var i = 0,len=jsonData.length;i<len;i++){
+          var curData = jsonData[i];
+          str+='<div><img src="" alt="" trueImg="'+curData['img']+'"></div>';
+          i===0?str2+="<li class='bg'></li>":str2+="<li></li>"
+        }
+      }
+      bannerInner.innerHTMl = str;
+      bannerTip.innerHTML = str2;
+    }()
+ 
+    //3、图片的延迟加载
+    window.setTimeout(lazyImg,500)
+    function lazyImg(){
+      for(var i = 0,len = imgList.length;i<len;i++){
+        ~function(i){
+          var curImg = imgList[i];
+          var oImg = new Image;
+          oImg.src = curImg.getAttribute('trueImg');
+          oImg.onload = function(){
+            curImg.src = this.src;
+            curImg.style.display = block;
+            //只对第一张处理
+            if(i===0){
+              var curDiv = curImg.parentNode;
+              curDiv.style.zIndex = 1;
+              myAnimate(curDiv,{opacity:1},200);
+            }
+            oImg = null;
+          }
+        }(i)
+      }
+    }
+    //4、自动轮播
+    var interval = 3000,autoTimer = null,step = 0;
+    autoTimer = window.setInterval(autoMove,interval);
+    function autoMove(){
+      //当已经把最后一张展示完成后(step等于最后一张的索引),我们应该展示第一张，我们让step = -1,这样再经过一次累加，step就变为0，来展示第一张
+      if(step === jsonData.length-1){
+        step = -1
+      }
+      step++;
+      setBanner();
+    }
+    //实现轮播图切换效果的代码
+    function setBanner(){
+      //1、让step索引对应的那个DIV的zIndex的值为1，其他的zIndex为0 
+      for(var i = 0,len = divList.length;i<len;i++){
+        var curDiv = divList[i];
+        if(i===step){
+          utils.css(curDiv,"zIndex",1)
+          //2、让当前的透明度从0变为1,当动画结束，我们需要让其他的div的透明度的值直接变为0
+          myAnimate(curDiv,{opacity:1},200,function(){
+            var curDivSib = utils.siblings(this);
+            for(var k = 0,len = curDivSib.length;k<len;k++){
+              utils.css(curDivSib[k],'opacity',0)
+            }
+ 
+          })
+          continue
+        }
+        utils.css(curDiv,"zIndex",0)
+      }
+      //实现焦点对其
+      for(i = 0,len = oLis.length;i<len;i++){
+        var curLi = oLis[i];
+        i === step?utils.addClass(curLi,"bg"):utils.removeClass(curLi,"bg");
+      }
+ 
+    }
+    //5、实现鼠标悬停停止自动轮播和离开在开启自动轮播
+    banner.onmouseover = function(){
+      window.clearInterval(autoTimer);
+      bannerLeft.style.display = bannerRight.style.display = "block"
+ 
+    }
+    banner.onmouseout = function(){
+      autoTimer = window.setInterval(autoMove,interval);
+      bannerLeft.style.display = bannerRight.style.display = "none"
+    }
+    //6、实现点击焦点切换
+    ~function(){
+      for(var i = 0,len = oLis.length;i<len;i++){
+        var curLi = oLis[i];
+        curLi.index = i;
+        curLi.onclick = function(){
+          step = this.index;
+          setBanner();
+        }
+      }
+    }()
+    //7、实现左右切换
+    bannerRight.onclick = autoMove;
+    bannerLeft.onclick = function(){
+      if(step === 0){
+        step = jsonData.length;
+      }
+      step--;
+      setBanner();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*块元素可设宽高*/
+        /*不给宽度 ？    */
+        /*宽度的单位%：相对于父元素的宽度
+            高度没有%的单位
+        */
+        /*
+        块元素特征：
+        1.独占一行
+        2.可设宽高
+        3.如果不设宽度的时候，宽度是父元素的100%，高度由内容撑起来的
+        */
+        div{
+            /* width: 200px; */
+            /* height: 200px; */
+            /* border-style: double;
+            border-color: red;
+            border-width: 3px; */
+            width: 50%;
+            border:3px double gray;
+            border-bottom:5px solid rebeccapurple
+        }
+        span{
+            width: 200px;
+            height: 200px;
+            border:3px double gray;
+            display:block
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我是div
+    </div>
+    <span>我是span</span>
+</body>
+</html>

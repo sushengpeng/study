@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一种方式，常规方式
+        // var cars = new Array();
+        // cars[0] = "Saab";
+        // cars[1] = "Volvo";
+        // cars[2] = "BMW";
+
+        // console.log(cars)
+
+        //2: 简洁方式:
+        // var cars = new Array("Saab","Volvo","BMW");
+        // console.log(cars);
+
+        //3.字面量方式
+        // 常用的方式
+        var cars = ["Saab","Volvo","BMW"];
+        console.log(cars)
+
+
+
+
+        //访问数组中的元素
+        console.log(cars[2]);
+        // console.log(cars.2)   //错误写法
+        //修改数组中的元素
+        cars[0]="byd";
+        console.log(cars)
+        //删除数组中的元素(了解)
+        delete cars[1];
+        console.log(cars)
+
+
+        var cars = ["a","b","c","d","e","BMW"];
+        for(var i=0;i<cars.length;i++){
+            if(cars[i]=="BMW"){
+                break;
+            }
+        }
+        console.log(i);
+
+    </script>
+</body>
+</html>

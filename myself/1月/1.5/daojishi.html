@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>倒计时</title>
+    <style>
+        h1{
+        text-align: center;
+    }
+    form{
+        text-align: center;
+    }
+    input{
+        text-align: center;
+        width: 60px;
+        height: 30px;
+        background-color: #686868;
+        color: white;
+        font-size: 20px;
+    }
+    </style>
+    <script>
+        // var d = new Date();
+        // document.formnow.hour.value=d.getHours();
+        // document.formnow.minute.value=d.getMinutes();
+        // document.formnow.second.value=d.getSeconds();
+        // var DifferenceDay = -1,
+            var DifferenceHour = -1,
+            DifferenceMinute = -1,
+            DifferenceSecond = -1;
+        var Tday = new Date("2019/1/27 17:30"); //要倒计时的时间
+        var dayms = 24 * 60 * 60 * 1000; //剩余日期计算方式
+        var hourms = 60 * 60 * 1000; //剩余小时计算方式
+        var secondms = 60 * 1000; //剩余分钟计算方式
+        var micrsecond=1000;//剩余秒数计算方式
+        function clock() {
+            var time = new Date();
+            var hour = time.getHours(); //获取小时
+            var minute = time.getMinutes(); //获取分钟
+            var second = time.getSeconds(); //获取秒数
+            var timevalue = "" + ((hour > 12) ? hour - 12 : hour);
+            timevalue += ((minute < 10) ? "0" : ":") + minute;
+            timevalue += ((second < 10) ? ":0" : ":") + second;
+            timevalue += ((hour > 12)) ? "PM" : "AM";
+            // var converDay = DifferenceDay;
+            var convertHour = DifferenceHour;
+            var convertMinute = DifferenceMinute;
+            var convertSecond = DifferenceSecond;
+            var Diffms = Tday.getTime() - time.getTime();
+            DifferenceHour = Math.floor(Diffms / dayms);
+            Diffms -= DifferenceHour * dayms; //天数
+            DifferenceMinute = Math.floor(Diffms / hourms);
+            Diffms -= DifferenceMinute * hourms; //小时
+            DifferenceSecond = Math.floor(Diffms / secondms);
+            Diffms -= DifferenceMinute * secondms; //分钟
+            var dSecs = Math.floor(Diffms / secondms); //秒
+            if (convertHour != DifferenceHour) {
+                document.formnow.dd.value = DifferenceHour;
+            }
+            if (convertMinute != DifferenceMinute) {
+                document.formnow.hh.value = DifferenceMinute;
+            }
+            if (convertSecond != DifferenceSecond) {
+                document.formnow.mm.value = DifferenceSecond;
+            }
+            document.formnow.ss.value = dSecs;
+            setTimeout("clock()", 1000);
+        }
+    </script>
+</head>
+<body onload="clock();return true">
+    <div>
+        <h1>倒计时显示</h1>
+        <form name="formnow">
+            <p>距离2020年1月1日还有: <input type="text" name="dd"> 天
+                <input type="text" name="hh" size="2"> 小时
+                <input type="text" name="mm" size="2"> 分钟
+                <input type="text" name="ss" size="2"> 秒
+            </p>
+        </form>
+    </div>
+    <script>
+    </script>
+</body>
+
+</html>

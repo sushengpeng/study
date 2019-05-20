@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 50px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        .outer {
+            width: 200px;
+            height: 50px;
+            color: red;
+            line-height: 50px;
+            font-size: 20px;
+            list-style: none;
+            position: relative;
+        }
+        li{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="outer">
+            <li class="inner">li1</li>
+            <li class="inner">li2</li>
+            <li class="inner">li3</li>
+            <li class="inner">li4</li>
+            <li class="inner">li5</li>
+        </ul>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+    <script>
+        setInterval(function () {
+            $(".outer").animate({marginTop:"-50px"},"slow").find("li").eq(0).clone().appendTo(".outer").closest("ul").css({"top":"0px"}).find("li").eq(0).remove();
+            // $(".box").find("li").eq(0).remove();
+        }, 1000)
+    </script>
+</body>
+
+</html>

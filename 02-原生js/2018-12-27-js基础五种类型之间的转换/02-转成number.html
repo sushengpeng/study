@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //parseInt(),parseFloat()  将其他类型通常是字符串转换成数字 
+        
+        var str="10px";
+        console.log(parseInt(str));     //10
+
+        str = "0x10fxaaa10";
+        console.log(parseInt(str));      //返回的是10进制整形数字
+
+        // 不能识别8进制的前导0
+        str = "010ass";
+        console.log(parseInt(str));    //10
+
+        // str="asfdf10";
+        // console.log(parseInt(str));     //NaN
+
+        // str="";
+        // console.log(parseInt(str));     //NaN
+
+        str="22.5";
+        console.log(parseInt(str));     //22
+
+        // parseInt的基模式,转换后的结果都是10进制的整数
+        str="af";
+        console.log(parseInt(str));      //NaN
+        console.log(parseInt(str,16));    //175
+
+        str="10";
+        console.log(parseInt(str,2));    //2
+        console.log(parseInt(str,8));    //8
+        console.log(parseInt(str,16));    //16
+
+
+        //parseFloat（）   转换成浮点型
+        //不分进制数
+        // 有效字符有小数点
+        str = "11.22.33";
+        console.log(parseFloat(str));    //11.22
+        str="0000000000011.22.33";
+        console.log(parseFloat(str));    //11.22
+
+        str="0xa";
+        console.log(parseFloat(str));    //0
+    </script>
+</body>
+</html>

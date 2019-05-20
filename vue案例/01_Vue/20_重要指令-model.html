@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    v-model=""
+
+    修饰符
+      .number 将表单元素的value值转换为Number 
+      .trim 将表单中左右两边空格去除
+      .lazy 失去焦点才会改变对应数据的值
+
+    v-model是我们获取表单元素value值的方法
+    
+
+    多选操作 
+      多个多选框应该对应的是同一个数组
+      <input type="checkbox" v-model="checkbox" value="值">
+      <input type="checkbox" v-model="checkbox" value="值2">
+      <input type="checkbox" v-model="checkbox" value="值3">
+      <input type="checkbox" v-model="checkbox" value="值4">
+
+      data: {
+        checkbox: []
+      }
+
+    单选操作
+      需要把对应的v-model指向的值改称普通字符串
+
+    :属性名="'1'" 和 属性名="1"是一样的效果
+    :属性名="1" 这个1是一个Number类型
+
+    v-on:xxxx
+    v-bind:xxx
+   --> 
+  <div id="app">
+  
+
+    <input type="text" v-model="msg">
+    {{msg}}
+    <hr>
+
+    <input type="checkbox" v-model="checkbox" name="checkbox" value="多选1">
+    <input type="checkbox" v-model="checkbox" name="checkbox" value="多选2">
+    <input type="checkbox" v-model="checkbox" name="checkbox" value="多选3">
+    <input type="checkbox" v-model="checkbox" name="checkbox" value="多选4">
+    <br>
+    {{checkbox}}
+
+    <hr>
+    <input type="radio" name="radio" v-model="radio" value="单选1">
+    <input type="radio" name="radio" v-model="radio" value="单选2">
+    <input type="radio" name="radio" v-model="radio" value="单选3">
+    <input type="radio" name="radio" v-model="radio" value="单选4">
+    <br>
+    {{radio}}
+    
+    <hr>
+    <select name="" id="" v-model="select">
+      <option value="">选项0</option>
+      <option v-bind:value="'1'">选项1</option>
+      <option value="2">选项2</option>
+      <option value="3">选项3</option>
+      <option value="4">选项4</option>
+      <option value="5">选项5</option>
+    </select>
+    <br>
+    {{typeof select}}
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        msg: '内容',
+        checkbox: [],
+        radio: "",
+        select: 3
+      }
+    })
+  
+  </script>
+</body>
+</html>

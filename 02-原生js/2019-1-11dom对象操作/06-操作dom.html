@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            background-color: red;
+        }
+        .div{
+            width:300px;
+            height: 300px;
+        }
+        .box{
+            border:solid 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="div" index="1">
+
+    </div>
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+        // div.style.width="200px";
+        // div.style.height="200px";
+        // div.style.backgroundColor="red";
+
+        // console.log(div.style.width);   //空字符串
+        // console.log(window.getComputedStyle(div,null).width);
+
+        // function getStyle(dom,attr){
+        //     if(dom.currentStyle){
+        //         return dom.currentStyle[attr];
+        //     }else{
+        //        return window.getComputedStyle(dom,null)[attr];
+        //     }
+        // }
+        // console.log(getStyle(div,"width"));
+
+        div.onclick=function(){
+            // div.className="div";
+            // div.className="box";
+            div.className+=" box";
+        }
+
+        console.log(div.index)    //undefined
+        console.log(div.getAttribute("index"));   //1
+    </script>
+</body>
+</html>

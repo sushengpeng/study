@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        li {
+            border: solid 1px red;
+        }
+
+        li:nth-child(6n+1) {
+            height: 50px;
+        }
+
+        li:nth-child(6n+2) {
+            height: 150px;
+        }
+
+        li:nth-child(6n+3) {
+            height: 100px;
+            order:1;   /*order 可以让元素排序，默认值是0，值越小排序越靠前，加在子元素上*/
+        }
+
+        li:nth-child(6n+4) {
+            height: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+    </ul>
+</body>
+
+</html>

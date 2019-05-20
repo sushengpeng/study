@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = {
+            a: "a",
+            b: "b",
+            c: "c"
+        }
+        var j = {
+            d: "d",
+            e: "e",
+            f: "f",
+            b: "g"
+        }
+        // 1、合并到i
+        // for(var key in j){
+        //     i[key]=j[key]
+        // }
+        // console.log(i);
+        // 2、合并到j
+        // for(var key in i){
+        //     j[key]=i[key]
+        // }
+        // console.log(j);
+        // 3、通用方法(合并放在前面)
+        // function combine(x,y){
+        //     for(var key in y){
+        //         x[key]=y[key]
+        //     }
+        //     console.log(x);
+        // }
+        // combine(i,j);
+        // 4、合并中有重复
+        // function combine(x, y) {
+        //     for (var key1 in y) {
+        //         for (var key2 in x) {
+        //             if (key1!=key2) {
+        //                 x[key1] = y[key1]
+        //             } else {
+        //                 x[key1]=x[key1]+y[key2];
+        //                 key1++;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        //     for (var key3 in x) {
+        //         console.log(x[key3]);
+        //     }
+        // }
+        // combine(i, j);
+
+
+    // var obj=new Object();
+    // for(x in i){
+    //     obj[x]=i[x];
+    // }
+    // for(x in j){
+    //     obj[x]=j[x];
+    // }
+    // for(y in obj){
+    //     console.log(obj[y]);
+    // }
+    </script>
+</body>
+
+</html>

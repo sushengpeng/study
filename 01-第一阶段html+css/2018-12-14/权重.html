@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+    <style>
+        /* 
+        
+        标签选择器 权值为1
+        类、伪类、属性选择器 权值为10
+        id选择器 权值为100
+        行内样式 权值为1000
+        通配选择器（*），子选择器（>)不在这四个等级中，它们权值都为0
+        !important 最高
+        
+        */
+        #word{
+            color: black
+        }
+        .word{
+            color: green;
+        }
+        p{
+            color: red!important;
+            font-size: 30px
+        }
+    </style>
+     <link rel="stylesheet" href="">
+</head>
+<body>
+    <p class="word" id="word" style="color:pink">
+        你好
+    </p>
+</body>
+</html>

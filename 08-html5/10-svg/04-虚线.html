@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            svg{
+                border:solid 1px red;
+                width:500px;
+                height: 500px;
+            }
+            svg #l2{
+                stroke-dashoffset:5px;
+            }
+        </style>
+</head>
+<body>
+    <svg>
+        <line x1="10" y1="100" x2="210" y2="100" stroke="green" stroke-dasharray="20 10" ></line>
+        <line id="l2" x1="10" y1="130" x2="210" y2="130" stroke="green" stroke-dasharray="20 10"  ></line>
+        <polygon points="250 120 300 220 200 220" stroke="red" stroke-wdth="5" fill="yellow" tranform="translate(150 0)"></polygon>
+    </svg>
+</body>
+</html>

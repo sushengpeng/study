@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            /* 标准的盒模型 */
+            .outer{
+                position: relative;
+                width:500px;
+                height: 500px;
+                border:solid 15px yellow;
+                padding:10px;
+                background-color: gray;
+            }
+            #box{
+                position: absolute;
+                left:80px;
+                top:80px;
+                margin: 20px;
+                width:100px;
+                height: 100px;
+                overflow: scroll;
+                background-color: pink;
+                padding:10px;
+                border-left:solid 5px red;
+                border-top:solid 15px red;
+                border-right:solid 10px red;
+                border-bottom:solid 20px red;
+            }
+        </style>
+</head>
+<body>
+    <div class="outer">
+        <div>
+            <div id="box">水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度</div>
+        </div>
+    </div>
+    <script>
+        //offsetWidth offsetHeigth = border+padding+content   跟滚动条没有关系
+        var box = document.getElementById("box")
+        console.log(box.offsetWidth)  //135    100+5+10+20
+        console.log(box.offsetHeight)  //155    100+15+20+20
+
+        //offsetTop offsetLeft
+        console.log(box.offsetTop);    //100   包含子元素的margin+top，不包含父元素的padding值
+        console.log(box.offsetLeft);   //100   包含子元素的margin+left，不包含父元素的padding值
+
+    </script>
+    
+</body>
+</html>

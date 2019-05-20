@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+            1.块元素
+                常见的块元素：div p ul li ol ........
+                特征：
+                    1.独占一行 不设置宽高的 宽=100%=父元素的宽度 高=由内容撑起来的
+                    2.可以设置宽高
+                水平居中：宽不等于父元素的宽度100%
+                    margin:0 auto;
+                
+                默认值：display:block;
+
+            2.行内元素
+                常见的行内元素：span 格式化的标签 img？ a.......
+                特征：
+                    1.一行里面可以由多个行内元素
+                    2.宽高不可设置
+                    3.宽高都是由内容撑起来
+
+                水平居中：
+                给父元素一个声明：text-align:center;
+
+                默认值：display：inline
+            3.行内块元素
+                常见的行内块元素：input img......
+                特征：
+                    1.可以设置宽高
+                    2.一行多个
+                水平居中方式：
+                给父元素一个声明：text-align:center;
+                默认值：
+                display：inline-block;
+
+            怎么做转化：
+            1.行内元素、行内块元素 ------ >   块元素
+                display：block；
+            2.块元素、行内块------->行内元素
+                display：inline
+            3.块元素、行内元素------>行内块元素
+                display：inline-block；
+        */
+        /* .box{
+            background-color: #ccc;
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .word{
+            background-color: red;
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .father{
+            text-align:center;
+        }
+        .span1{
+            background-color: blue;
+            color: white;
+           
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div class="box">我是div</div>
+    <div class="box">我是div</div>
+    <p class="word">我是p</p>
+    <p class="word">我是p</p>
+    <div class="father">
+        <span class="span1">我是span</span>
+    </div> -->
+    
+    <!-- <span class="span1">我是span</span>
+    <span class="span1">我是span</span>
+    <span class="span1">我是span</span>
+    <span class="span1">我是span</span>
+    <span class="span1">我是span</span> -->
+    <!-- <img src="1.jpg" alt="">
+    <img src="1.jpg" alt="">
+    <img src="1.jpg" alt=""> -->
+    <!-- <div class="father">
+        <img src="1.jpg" alt="">
+    </div> -->
+    
+</body>
+</html>

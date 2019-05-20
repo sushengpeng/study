@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        list-style: none;
+    }
+    .list li{
+        float: left;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        box-sizing: border-box;
+        border: 1px solid red;
+    }
+    .list .active{
+        background-color: orangered;
+        color:white;
+    }
+    .content{
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        font-size: 40px;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: 1px solid black;
+        clear: both;
+    }
+    .content li{
+        width: 300px;
+        height: 200px;   
+    }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="active">list1</li>
+        <li>list2</li>
+        <li>list3</li>
+    </ul>
+    <ul class="content">
+        <li>content1</li>
+        <li>content2</li>
+        <li>content3</li>
+    </ul>
+    <script src="./js/require.js" data-main="js/main.js"></script>
+</body>
+</html>

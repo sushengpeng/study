@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <style>
+    .topic {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .topic img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .topic p {
+      margin: 0;
+    }
+
+    .topic-detail {
+      display: flex;
+      align-items: center;
+    }
+
+    .topic .label {
+      margin: 10px;
+    }
+
+    .topic .count {
+      font-size: 12px;
+    }
+
+    .loading {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <!-- <node-app></node-app> -->
+    <router-view></router-view>
+  </div>
+  <script src="./axios.js"></script>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    const nodeApp = {
+      name: 'nodeApp',
+      template: `
+        <div class="container">
+          <nodePanel :topics="topics" :loading="loading"></nodePanel>
+          <nodePage @update:currentPage="setCurrentPage"
+          :max="max" :currentPage="currentPage"></nodePage>
+
+          <!--<nodePage 
+          :max="max" :currentPage.sync="currentPage"></nodePage>-->
+        </div>
+      `,
+      data() {
+        return {
+          topics: [],
+          loading: true,
+          max: 10,
+          currentPage: 1,
+        }
+      },
+      created() {
+        this.loading = true
+        this.topics = []
+        axios.get('https://cnodejs.org/api/v1/topics', {
+          params: {
+            page: 1,
+            limit: 10
+          }
+        }).then(res => {
+          this.topics = res.data.data
+          this.loading = false
+
+        })
+      },
+      methods: {
+        setCurrentPage(num) {
+          console.log(num)
+          //发送请求完成数据替换
+          this.loading = true
+          this.topics = []
+          axios.get('https://cnodejs.org/api/v1/topics', {
+            params: {
+              page: num,
+              limit: 10
+            }
+          }).then(res => {
+            this.topics = res.data.data
+            this.loading = false
+
+          })
+          this.currentPage = num
+
+        }
+      }
+    }
+    const nodePanel = {
+      name: 'nodePanel',
+      template: `
+        <div class="panel panel-default">
+          <nodePanelHeading></nodePanelHeading>
+          <nodeLoding v-if="loading"></nodeLoding>
+          <nodeList :topics="topics"></nodeList>
+        </div>
+      `,
+      props: {
+        topics: Array,
+        loading: Boolean
+      }
+    }
+    const nodePanelHeading = {
+      name: 'nodePanelHeading',
+      template: `
+        <div class="panel-heading">
+          <ul class="nav nav-pills">
+            <li class="active"><a href="javascript:;">全部</a></li>
+            <li><a href="#">精华</a></li>
+            <li><a href="#">分享</a></li>
+            <li><a href="#">问答</a></li>
+            <li><a href="#">招聘</a></li>
+          </ul>
+        </div>
+      `
+    }
+    const nodeLoding = {
+      name: 'nodeLoding',
+      template: `
+        <div class="panel-body">
+          <div class="loading">
+            <img src="./20130527034916434.gif" alt="">
+          </div>
+        </div>
+      `
+    }
+    const nodeList = {
+      name: 'nodeList',
+      template: `
+        <div class="list-group">
+          <nodeItem v-for="(topic,index) in topics" 
+          :key="index" 
+          :topic="topic"></nodeItem>
+        </div>
+      `,
+      props: {
+        topics: Array
+      }
+    }
+    const nodeItem = {
+      name: 'nodeItem',
+      template: `
+        <a href="javascript:;" class="list-group-item topic">
+          <div class="topic-detail">
+            <img :src="topic.author.avatar_url" alt="">
+            <span class="label label-success" v-if="topic.top">置顶</span>
+            <span class="label label-default" v-else>{{formatTab}}</span>
+            <div class="topic-info">
+              <p class="topic-title">{{sliceTitle}}</p>
+              <div class="count">
+                <span class="reply text-danger">{{topic.reply_count}}</span> /
+                <span class="visit">{{topic.visit_count}}6</span>
+              </div>
+            </div>
+          </div>
+          <time>{{formatTime}}</time>
+        </a>
+      `,
+      props: {
+        topic: Object
+      },
+      computed: {
+        formatTab() {
+          const tab = this.topic.tab
+          return tab === 'good' ? '精华' : tab === 'share' ? '分享' : tab === 'ask' ? '问答' : '招聘'
+        },
+        sliceTitle() {
+          const title = this.topic.title
+          return title.length > 20 ? title.slice(0, 21) + '...' : title
+        },
+        formatTime() {
+          const d = new Date(this.topic.last_reply_at)
+          //生成日期对象
+          const time = new Date(this.topic.last_reply_at).getTime()
+          //根据time获取事件戳
+          const t = Math.floor((Date.now() - time) / 1000)
+          return t < 60 ? t + "秒前" : t / 60 < 60 ? Math.floor(t / 60) + "分钟前" : t / 60 / 60 < 24 ? Math.floor(t / 60 / 60) + "小时前" : t / 3600 / 24 < 30 ? Math.floor(t / 3600 / 24) + "天前" : d.getFullYear() + "/" + (d.getMonth() + 1) + '/' + d.getDate()
+        }
+      }
+    }
+    const nodePage = {
+      name: 'nodePage',
+      template: `
+        <nav class="text-center">
+          <ul class="pagination">
+            <li v-if="currentPage ===1" class="disabled">
+              <a href="javascript:;">
+                <span>&laquo;</span>
+              </a>
+            </li>
+            <li v-else @click="setCurrentPage(currentPage-1)" >
+              <a href="javascript:;">
+                <span>&laquo;</span>
+              </a>
+            </li>
+            <li @click="setCurrentPage(num)" :class="{active:num === currentPage}" v-for="num in max"><a href="javascript:;">{{num}}</a></li>
+            <li v-if="currentPage === 10">
+              <a href="javascript:;"><span>&raquo;</span></a>
+            </li>
+            <li v-else @click="setCurrentPage(currentPage+1)">
+              <a href="javascript:;"><span>&raquo;</span></a>
+            </li>
+          </ul>
+        </nav>
+      `,
+      props: {
+        max: Number,
+        currentPage: {
+          type: Number,
+          default: 1
+        },
+      },
+      methods: {
+        setCurrentPage(num) {
+          console.log(num)
+          this.$emit('update:currentPage', num)
+        }
+      }
+    }
+
+    const components = [nodeApp, nodePanel, nodePanelHeading, nodeLoding, nodeList, nodeItem, nodePage]
+    components.forEach(component => Vue.component(component.name, component))
+
+    const routers = [
+      {
+        path: '/',
+        component: nodeApp
+      }
+    ]
+
+    const router = new VueRouter({
+      routers
+    })
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        
+      },
+      router:router
+    })
+  </script>
+</body>
+
+</html>

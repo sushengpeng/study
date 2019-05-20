@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a id="a" href="http://www.baidu.com">click me</a>
+    <script src="../public.js" ></script>
+    <script>
+        var a = document.getElementById("a");
+        // a.onclick = function(){
+        //     // alert(1);
+        //     console.log(1);
+        //     //dom 0级事件中会阻止浏览器的默认行为
+        //     return false;
+        // }
+        // document.oncontextmenu = function(){
+        //     console.log(2);
+        //     return false;
+        // }
+
+        //dom 2级事件来说，return false不能阻止浏览器的默认行为 
+        // a.addEventListener("click",function(e){
+        //     console.log(1);
+        //     // return false;
+        //     e = e || window.event;
+        //     //chrome中阻止浏览器的默认行为
+        //     e.preventDefault();
+
+        // },false)
+        
+        function preventDefault(e){
+            if(e.preventDefault){
+                e.preventDefault();
+            }else{
+                e.returnValue = false;
+            }
+        }
+
+        function handler(e){
+            console.log(1);
+            e = e || window.event;
+            //在chrome下阻止浏览器的默认行为
+            // e.preventDefault();
+            // e.returnValue = false;
+            preventDefault(e);
+        }
+
+        addEvent(a,"click",handler);
+
+        // a.attachEvent("onclick",handler);
+    </script>
+</body>
+</html>

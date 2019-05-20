@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+        <li>list 5</li>
+        <li>list 6</li>
+        <li>list 7</li>
+        <li>list 8</li>
+        <li>list 9</li>
+        <li>list 10</li>
+    </ul>
+    <script src="../jquery.1.11.3.min.js" ></script>
+    <script>
+        // $("li").click(function(){
+        //     alert($(this).html())
+        // })
+
+        //   $("li").mouseover(function(){
+        //       console.log("over")
+        //   }).mouseout(function(){
+        //       console.log("out")
+        //   })
+        // $("li").on("click",function(){
+        //     alert($(this).html())
+        // })
+
+        //on可以一次绑定多个事件
+        // $("li").on("click mouseover",function(){
+        //     alert($(this).html())
+        // })
+        // $("li").on({
+        //     mouseover:function(){
+        //         alert("over")
+        //     },
+        //     mouseout:function(){
+        //         alert("out")
+        //     }
+        // })
+
+        //=========================事件传参
+        // $("li").on("click",{foo:"zs"},function(e){
+        //     console.log(e.data);
+        //     console.log(e.data.foo)
+        // })
+
+        //事件委托
+        // $("ul").on("click","li",function(){
+        //     console.log(this);
+        //     console.log($(this).html())
+        // })
+
+        //移除事件
+        // $("li").off();
+        // $("li").off("mouseover");
+
+        //事件只能执行一次
+        // $("li").click(function(){
+        //     console.log("click")
+        //     $(this).off();
+        // })
+
+        // $("li").one("click",function(){
+        //     console.log("click")
+        // })
+
+        //hover 是jQuery扩展的事件类型，对应原生js中的mouseenter mouseleave
+        //传入一个函数，enter和leave的时候都会触发
+        // $("li").hover(function(){
+        //     console.log("hover")
+        // })
+        // $("li").hover(function(){
+        //     console.log("enter")
+        // },function(){
+        //     console.log("leave")
+        // })
+    </script>
+</body>
+</html>

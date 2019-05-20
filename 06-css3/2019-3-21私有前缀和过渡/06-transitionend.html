@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width:0;
+            height: 0;
+            background-color: red;
+            transition: all 1s;
+        }
+
+        div:hover {
+            width:100px;
+            height: 100px;
+        }
+
+        /* span {
+            font-weight: 100;
+            transition: all 1s;
+        }
+
+        span:hover {
+            font-weight: 600;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>span</span>
+    </div>
+    <script>
+        var transitionFlag=true;
+        // css3中的新事件类型，不能用以下写法
+        // document.getElementsByTagName("div")[0].ontransitionend=function(){
+        //     console.log("end")
+        // }
+        
+        // document.getElementsByTagName("div")[0].addEventListener("transitionstart",function(){
+        //     console.log("start")
+        // });
+        // document.getElementsByTagName("div")[0].addEventListener("transitionrun",function(){
+        //     console.log("transitionrun")
+        // });
+        // 以上 两种事件类型只有火狐支持
+        document.getElementsByTagName("div")[0].addEventListener("transitionend", function (e) {
+            // console.log("transitionend")
+            // 对于transitionend事件多次执行，一般情况下是因为监听元素有多个属性同时变化，所以执行多次transitionend事件，而且如果里面有子元素还会监听子元素的end事件，所以我们针对transitionEnd事件需要这样做：
+            if (e.target === this && transitionFlag) {
+                transitionFlag = false;
+                console.log(1);
+            }
+        })
+        document.getElementsByTagName("div")[0].addEventListener("mouseover",function(){
+            transitionFlag = true;
+        });
+        document.getElementsByTagName("div")[0].addEventListener("mouseout",function(){
+            transitionFlag = true;
+        });
+    </script>
+</body>
+
+</html>

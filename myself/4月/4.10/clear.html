@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            width: 400px;
+            height: 150px;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        p {
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            margin: 0 auto;
+            border-radius: 10px;
+            background-color: red;
+            color: white;
+            margin-top: 55px;
+        }
+
+        #mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <p class="win"></p>
+        <canvas id="mask" width="400" height="150"></canvas>
+    </div>
+    <script>
+        var canvas = document.getElementById("mask");
+        var win = document.getElementsByClassName("win")[0];
+        var context = canvas.getContext("2d");
+        var arr=["一等奖","二等奖","再买一瓶"];
+        var flag=true;
+        context.fillStyle = "#D1D1D1"; //设置填充色为浅灰色
+        context.fillRect(0, 0, 400, 150); //填充该颜色，以覆盖下方的背景图片
+        context.globalCompositeOperation = 'destination-out';
+        canvas.addEventListener('mousemove', function (event) {
+            if(flag){
+                flag=false;
+                var random=Math.floor(Math.random()*99)+1
+                console.log(random)
+                win.innerText=arr[random>5?random>15?2:1:0]
+            }
+            event.preventDefault(); //先去除默认的响应行为
+            var touch = event; //获取触摸的第一个点
+            context.beginPath(); //开始路径的绘制
+            context.arc(touch.pageX - canvas.offsetLeft, touch.pageY - canvas.offsetTop, 20, 0, Math.PI *
+                2); //在所触摸处绘制圆形，半径为20像素
+            context.closePath(); //结束路径绘制
+            context.fillStyle = "none"; //随意设置一种绘制颜色
+            context.fill(); //填充该颜色
+            var imgData = context.getImageData(0, 0, 400, 150); //获取画布中的所有像素
+            var data = imgData.data; //得到像素的字节数据
+            var length = data.length; //获取该数据的长度
+            var transparent = 0; //设置一个变量来记录已经变为透明的像素点的数量
+            for (var i = 0; i < length; i += 4) { //循环遍历每一个像素
+                var alpha = data[i + 3]; //获取每个像素的透明度数值
+                if (alpha < 10) //当透明度小于10时，认为它已经被擦除，transparent数值加1
+                    transparent++;
+            }
+            var percentage = transparent / (length / 4); //计算透明像素在所有像素点中所占比例
+            if (percentage > 0.5) //当比例大于90%时，显示刮奖结束字样
+            {
+                alert("刮奖结束！");
+                context.fillStyle = "none"; //设置填充色为浅灰色
+                context.fillRect(0, 0, 400, 150); //填充该颜色，以覆盖下方的背景图片
+            }
+
+        });
+    </script>
+</body>
+
+</html>

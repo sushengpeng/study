@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #tab li.active{border:solid 1px red; }
+        #tab #content div{display: none;}
+        #tab #content div.active{display: block}
+        #tab2 li.active{border:solid 1px red; }
+        #tab2 #content div{display: none;}
+        #tab2 #content div.active{display: block}
+    </style>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li class="active">menu 1</li>
+            <li>menu 2</li>
+            <li>menu 3</li>
+            <li>menu 4</li>
+        </ul>
+        <div id="content">
+            <div class="active">content 1</div>
+            <div>content 2</div>
+            <div>content 3</div>
+            <div>content 4</div>
+        </div>
+    </div>
+    <div id="tab2">
+            <ul>
+                <li class="active">menu 1</li>
+                <li>menu 2</li>
+                <li>menu 3</li>
+                <li>menu 4</li>
+            </ul>
+            <div id="content">
+                <div class="active">content 1</div>
+                <div>content 2</div>
+                <div>content 3</div>
+                <div>content 4</div>
+            </div>
+        </div>
+    <script>
+        //常规实现
+        // var ul = document.querySelector("#tab ul");
+        // var lis = document.querySelectorAll("#tab ul li");
+        // var divs = document.querySelectorAll("#tab #content div");
+        // ul.onclick = function(e){
+        //     e = e || window.event;
+        //     var target = e.target || e.srcElement;
+        //     if(target.tagName=="LI"){
+        //         for(var i=0;i<lis.length;i++){
+        //             lis[i].className="";
+        //             divs[i].className="";
+        //         }
+        //         target.className="active";
+        //         var index = [].indexOf.call(lis,target);
+        //         divs[index].className="active";
+        //     }
+        // }
+
+        //简单的自执行函数封装tab
+        // (function(){
+        //     var ul = document.querySelector("#tab ul");
+        //     var lis = document.querySelectorAll("#tab ul li");
+        //     var divs = document.querySelectorAll("#tab #content div");
+        //     ul.onclick = function(e){
+        //         e = e || window.event;
+        //         var target = e.target || e.srcElement;
+        //         if(target.tagName=="LI"){
+        //             for(var i=0;i<lis.length;i++){
+        //                 lis[i].className="";
+        //                 divs[i].className="";
+        //             }
+        //             target.className="active";
+        //             var index = [].indexOf.call(lis,target);
+        //             divs[index].className="active";
+        //         }
+        //     }
+        // })();
+        //函数封装的tab
+        // var option={
+        //     lisParent:document.querySelector("#tab ul"),
+        //     lis:document.querySelectorAll("#tab ul li"),
+        //     cons:document.querySelectorAll("#tab #content div")
+        // };
+        // function tab(option){
+        //     var ul = option.lisParent;
+        //     var lis = option.lis;
+        //     var divs = option.cons;
+        //     ul.onclick = function(e){
+        //         e = e || window.event;
+        //         var target = e.target || e.srcElement;
+        //         if(target.tagName=="LI"){
+        //             for(var i=0;i<lis.length;i++){
+        //                 lis[i].className="";
+        //                 divs[i].className="";
+        //             }
+        //             target.className="active";
+        //             var index = [].indexOf.call(lis,target);
+        //             divs[index].className="active";
+        //         }
+        //     }
+        // }
+        // tab(option)
+        // var option2={
+        //     lisParent:document.querySelector("#tab2 ul"),
+        //     lis:document.querySelectorAll("#tab2 ul li"),
+        //     cons:document.querySelectorAll("#tab2 #content div")
+        // };
+        // tab(option2)
+
+        // 闭包封装tab切换(可以多次调用)
+        // function tab(option){
+        //     function init(){
+        //         var ul = option.lisParent;
+        //         var lis = option.lis;
+        //         var divs = option.cons;
+        //         ul.onclick = function(e){
+        //             e = e || window.event;
+        //             var target = e.target || e.srcElement;
+        //             if(target.tagName=="LI"){
+        //                 for(var i=0;i<lis.length;i++){
+        //                     lis[i].className="";
+        //                     divs[i].className="";
+        //                 }
+        //                 target.className="active";
+        //                 var index = [].indexOf.call(lis,target);
+        //                 divs[index].className="active";
+        //             }
+        //         }
+        //     }
+        //     return {
+        //         init:init
+        //     };
+        // }
+        // var option={
+        //     lisParent:document.querySelector("#tab ul"),
+        //     lis:document.querySelectorAll("#tab ul li"),
+        //     cons:document.querySelectorAll("#tab #content div")
+        // };
+        // var tab1 = tab(option);
+        // tab1.init();
+
+        // var option2={
+        //     lisParent:document.querySelector("#tab2 ul"),
+        //     lis:document.querySelectorAll("#tab2 ul li"),
+        //     cons:document.querySelectorAll("#tab2 #content div")
+        // };
+        // var tab2 = tab(option2);
+        // tab2.init();
+
+        //闭包跟匿名自执行函数结合使用(函数定义完毕立即调用，只能执行一次)
+        var option={
+            lisParent:document.querySelector("#tab ul"),
+            lis:document.querySelectorAll("#tab ul li"),
+            cons:document.querySelectorAll("#tab #content div")
+        };
+        var tab = (function (option){
+            function init(){
+                var ul = option.lisParent;
+                var lis = option.lis;
+                var divs = option.cons;
+                ul.onclick = function(e){
+                    e = e || window.event;
+                    var target = e.target || e.srcElement;
+                    if(target.tagName=="LI"){
+                        for(var i=0;i<lis.length;i++){
+                            lis[i].className="";
+                            divs[i].className="";
+                        }
+                        target.className="active";
+                        var index = [].indexOf.call(lis,target);
+                        divs[index].className="active";
+                    }
+                }
+            }
+            return {
+                init:init
+            };
+        }(option))
+        tab.init();
+    </script>
+</body>
+</html>

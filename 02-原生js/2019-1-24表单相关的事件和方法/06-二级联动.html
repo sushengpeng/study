@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select id="city">
+        <option>请选择城市</option>
+    </select>
+    <select id="area">
+            <option>请选择区</option>
+    </select>
+    <script>
+        var citys = ["郑州市","焦作","洛阳"];
+        var areas = [
+            ["二七区","金水区","高新区","中原区"],
+            ["解放区","山阳区"],
+            ["西工区","瀍河区","涧西区"]
+        ]
+        // var mall = [
+        //     [
+        //         [],
+        //         [],
+        //         []
+        //     ]
+        // ]
+        // 将citys中的数据渲染进city
+        var city= document.getElementById("city");
+        for(var i=0;i<citys.length;i++){
+            // citys[i]
+            var opt = document.createElement("option");
+            opt.innerHTML = citys[i];
+            opt.value = i;
+
+            city.appendChild(opt);
+        }
+        var area = document.getElementById("area");
+        city.onchange = function(){
+            //清空area中的数据
+            area.length=1;
+
+            //获取选中的value值
+            // console.log(this.value);
+            // console.log(areas[this.value]);   //得到的区数据
+            var areadata = areas[this.value];
+            // 把得到的数据渲染进area中
+            for(var j=0;j<areadata.length;j++){
+                var opt = document.createElement("option");
+                opt.innerHTML = areadata[j];
+
+                area.appendChild(opt);
+            }
+
+        }
+    </script>
+</body>
+</html>

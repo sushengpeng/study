@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .stage{
+            margin: 200px auto;
+            border:solid 1px red;
+            width:500px;
+            height: 500px;
+             perspective:1000px;    /*景深，视点，指的是眼睛离屏幕的距离，通常写在父元素上，让子元素有透视效果 */
+        }
+        .scene{
+              transform-style:preserve-3d;  /* 让子元素呈现3d效果 */
+        }
+        .ele1{
+            width:100px;
+            height: 100px;
+            background-color: pink;
+            transform:translate3d(10px,10px,100px); 
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="scene">
+            <div class="ele1"></div>
+        </div>
+    </div>
+</body>
+</html>

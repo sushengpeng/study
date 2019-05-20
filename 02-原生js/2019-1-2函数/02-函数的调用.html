@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="myFun()"></div>
+    <script>
+        function myFun(){
+            alert("hello");
+            return 1;    //return 后面的语句都不会执行
+            console.log("aaa")
+        }
+        //直接调用
+        // myFun();
+
+        //作为事件处理程序调用
+        // <div onclick=“myfun()”></div>
+
+
+        //针对有返回值的函数，函数的返回值可以赋给变量
+        // console.log(myFun());   //当myFun没有返回值的时候，打印值为undefined
+        // console.log(myFun());
+
+        // var result= myFun();
+        // console.log(result);
+
+        
+    </script>
+</body>
+</html>

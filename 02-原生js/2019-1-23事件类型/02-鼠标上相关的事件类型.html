@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            position: absolute;
+            width:100px;
+            height: 100px;
+            background-color:red;
+        }
+        #box div{
+            width:50px;
+            height: 50px;
+            background-color: pink;
+            margin: 25px;
+        }
+        #menu{
+            background-color: pink;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div></div>
+    </div>
+    <ul id="menu">
+        <li>menulist</li>
+        <li>menulist</li>
+        <li>menulist</li>
+    </ul>
+    <script>
+       var box = document.getElementById("box");
+       // 左键单击会触发
+       box.onclick = function(){
+           console.log("click")
+       } 
+       // 左键双击会触发
+       //当单击事件和双击事件同时存在的话，双击元素，单击事件也会触发，所以绑定事件的时候最好两者只绑定一个
+       box.ondblclick =function(){
+           console.log("dblclick");
+       }
+
+        // oncontextmenu 右击的时候会触发,通常用于创建自定义上下文菜单
+        box.oncontextmenu = function(e){
+            e = e || window.event;
+            // e.clientX,e.clientY
+            
+            menu.style.display = "block";
+            menu.style.left = e.clientX+"px";
+            menu.style.top = e.clientY+"px";
+            return false;
+        }
+
+        // onmousedown、onmouseup
+        // box.onmousedown = function(){
+        //     console.log("down")
+        // }
+        // box.onmouseup = function(){
+        //     console.log("up")
+        // }
+        // //频繁触发的事件内部不要进行复杂的运算
+        // box.onmousemove = function(){
+        //     console.log("move")
+        // }
+        //简单的拖拽效果
+        // box.onmousedown = function(){
+        //     box.onmousemove = function(e){
+        //         e = e || window.event;
+        //         this.style.left = e.clientX-50+"px";
+        //         this.style.top = e.clientY-50+"px";
+        //     }
+        // }
+        // box.onmouseup = function(){
+        //     box.onmousemove = null;
+        // }
+
+        // onmouseover、onmouseout 事件会冒泡，当进入子元素的时候，会先离开父元素，在进入子元素，让事件变得复杂，当使用onmouseover、onmouseout 处理不了问题的时候，就用onmouseenter onmouseleave 来解决
+        // 兼容性好
+        box.onmouseover = function(){
+            console.log("over")
+        }
+        box.onmouseout = function(){
+            console.log("out")
+        }
+
+        // h5中的类似事件类型 onmouseenter onmouseleave
+        // h5指的是兼容到ie9 及以上浏览器
+        box.onmouseenter = function(){
+            console.log("enter")
+        }
+        box.onmouseleave =function(){
+            console.log("leave")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //方法
+        // getFullYear()
+
+        var d = new Date();
+
+        console.log(d.getFullYear());
+        //getYear()
+        console.log(d.getYear())   //119
+
+
+        // getMonth()    0-11
+        console.log(d.getMonth());    //0
+
+        //getDate()
+        console.log(d.getDate())      //9
+
+        // getDay()   返回星期  0-6
+        console.log(d.getDay());     //3
+
+        // d = new Date("2019/1/6");
+        // console.log(d.getDay());    //0  表示星期天
+
+        //getHours()   0-23
+        console.log(d.getHours());   //11
+
+        //getMinutes()  0-59
+        console.log(d.getMinutes());
+
+        //getSeconds()   0-59
+        console.log(d.getSeconds())
+
+        //getMilliseconds()   0-999
+        console.log(d.getMilliseconds());
+
+        //getTime()  返回距离1970-1-1 0：0距今的毫秒数   时间戳
+        console.log(d.getTime());    //1547003755664
+
+
+        console.log(new Date(1547003755664))
+
+        //setFullYear()设置日期对象上的年份
+        d.setFullYear(2020)
+        console.log(d);
+
+        //setMonth()
+        d.setMonth(1);
+        console.log(d);
+
+        //setDate() 设置日期
+        d.setDate(31);
+        console.log(d);
+
+        // setHours()  设置小时
+        d.setHours(12);
+        console.log(d);
+
+        // setMinutes()
+        d.setMinutes(50);
+        console.log(d)
+
+        // setSeconds()
+        d.setSeconds(60);
+        console.log(d);
+
+
+        //setMilliseconds()
+        d.setMilliseconds(100);
+        console.log(d);
+
+        //setTime()
+        d.setTime(2000);
+        console.log(d);
+
+        //toString()
+        console.log(d.toString())
+
+        // toTimeString()
+        console.log(d.toTimeString())
+
+        // toDateString()
+        console.log(d.toDateString())
+    </script>
+</body>
+</html>

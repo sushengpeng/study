@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数（主要作用是用来创建对象）
+        var obj = new Object();
+        console.dir(Object)
+        console.log(obj);
+
+
+        //函数的定义
+        function fun(){
+            this.name="zs";
+            this.age=18;
+            console.log(this)
+        }
+        //作为普通函数调用
+        window.fun();
+        //作为构造函数
+        var o = new fun();   //o 叫做实例对象   new fun()  构造函数
+        console.log(o)
+
+        //总结：
+        // 普通函数调用时直接加（）
+        // 构造函数的主要作用就是构造出来其他的普遍对象，跟普通函数的区别是前边new 
+    </script>
+</body>
+</html>

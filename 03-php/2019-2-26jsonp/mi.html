@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            border: 1px solid orangered;
+            border-top: transparent; 
+            
+        }
+        #content{
+            height: 40px;
+            width: 200px;
+            border: 1px solid orangered;
+            outline: none;
+        
+        }
+        p{
+            height: 30px;
+            font-size: 14px;
+            color: orangered;
+            line-height: 30px;
+        }
+        p span{
+            color: #bbb;
+            font-size: 12px;
+            float: right;
+        }
+    </style>
+  </head>
+
+  <body>
+    <input type="text" id="content" />
+    <div class="box">
+
+    </div>
+    <script>
+      //https://search.mi.com/search/expand?keyword=&jsonpcallback=xmsearch
+      function jsonp(option) {
+        var script = document.createElement("script");
+        script.src =
+        option.url + "?" + "keyword=" + option.key+ "&" + option.data;
+        window["xmsearch"] = option.jsonpcallback;
+        document.body.appendChild(script);
+        script.parentNode.removeChild(script);
+      }
+      var cont = document.querySelector("#content");
+      var box=document.querySelector(".box");
+      var timmer;
+      var starttime= new Date();
+      //xiaomi
+      cont.onkeyup = function() {
+        box.innerHTML="";
+        var option = {
+          url: "https://search.mi.com/search/expand",
+          key: cont.value,
+          data: "jsonpcallback=xmsearch", //
+          jsonpcallback: function(data) {
+            //回调函数
+            console.log(data);
+            var fragment=document.createDocumentFragment();
+            for(var i=0;i<data.length;i++){
+                var p=document.createElement("p");
+                p.innerHTML="";
+                p.innerHTML=data[i].Key+"<span>"+"约有"+data[i].Rst+"件"+"</span>";
+                fragment.appendChild(p);
+
+            }
+            box.appendChild(fragment)
+
+          }
+        };
+        //函数的防抖
+        //通常用于高频事件
+        //频繁触发的事件，只要两次事件时间间隔超过指定的事件才会触发事件，否则事件触发的时间重新计算
+        // clearTimeout(timmer);
+        // timmer = setTimeout(function(){
+        //   jsonp(option);
+        // }, 500);
+
+
+        //函数节流简单版
+        // 限制一个函数在一定时间内只能执行一次
+        // if(timmer){
+        //    return;
+        // }
+        // timmer = setTimeout(function(){
+        //   jsonp(option);
+        //   timmer = null;
+        // }, 1000);
+        //函数节流时间戳版
+        // if((new Date())-starttime>1000){
+        //   jsonp(option);
+        //   starttime=new Date();
+        // }
+
+        //以上两种方式都是减少高频事件的触发次数，提高性能
+      };
+    //   cont.onblur = function() {
+    //       box.innerHTML="";
+    //     var option = {
+    //       url: "https://search.mi.com/search/expand",
+    //       key: cont.value,
+    //       data: "jsonpcallback=xmsearch", //
+    //       jsonpcallback: function(data) {
+    //         //回调函数
+    //         console.log(data);
+    //         var fragment=document.createDocumentFragment();
+    //         for(var i=0;i<data.length;i++){
+    //             var p=document.createElement("p");
+    //             p.innerHTML="";
+    //             p.innerHTML=data[i].Key+"       "+"约有"+data[i].Rst+"件";
+    //             fragment.appendChild(p);
+
+    //         }
+    //         box.appendChild(fragment)
+
+    //       }
+    //     };
+    //     jsonp(option);
+    //   };
+      
+    </script>
+  </body>
+</html>

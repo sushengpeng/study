@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+        margin:0 ;
+        padding: 0;
+    }
+    .main{
+        width: 500px;
+        margin:0 auto;
+        position: relative;
+    }
+    ul{
+        margin-bottom: 50px;
+    }
+    li{
+        width:500px;
+        margin:0 auto;
+        background-color:papayawhip;
+        list-style: none;
+    }
+    input{
+        position: absolute;
+        left:150px;
+        top:80px;
+    }
+    .input2{
+        left:331px;
+    }
+    .node{
+        width: 500px;
+        height: 25px;
+        background-color: tomato;
+        margin:0 auto;
+        margin-top:10px;
+    }
+    .del{
+        float:right;
+        height: 25px;
+        width: 50px;
+        /* border-radius: 10px; */
+    }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <ul class="list">
+            <li class="li1">1</li>
+            <li class="li2">2</li>
+            <li class="li3">3</li>
+        </ul>
+        <input type="text" class="input1" placeholder="标签名(div/ul/li)">
+        <input type="submit" value="查找" class="input2" onclick="transmit()">
+    </div>
+    <script>
+        function transmit() {
+            var text = document.getElementsByClassName("input1")[0];
+            var main = document.getElementsByClassName("main")[0];
+            var textValue = text.value;
+            var elements = document.getElementsByTagName(textValue);
+            if (document.getElementsByClassName(text.value).length != 0) {
+                return 0;
+            } else {
+                for (var i = 0, len = elements.length; i < len; i++) {
+                    // var parent=elements[i].parentNode;
+                    var node = document.createElement("div");
+                    var del = document.createElement("button");
+                    var node = document.createElement("div");
+                    del.innerHTML = "del";
+                    node.className = "node";
+                    node.innerHTML = elements[i].className;
+                    main.appendChild(node);
+                    node.appendChild(del);
+                    del.className = "del";
+                    // del.setAttribute("onclick","del");
+                }
+            }
+            var del = document.getElementsByTagName("button");
+            for (var i = 0, len = del.length; i < len; i++) {
+                del[i].onclick = function () {
+                    this.parentNode.parentNode.removeChild(this.parentNode);
+                    console.log(this.parentNode);
+                    // p1.parentNode.removeChild(p1);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

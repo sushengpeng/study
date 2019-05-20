@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            border: solid 1px gray;
+            font-size: 0;
+            width:400px;
+            position: relative;
+        }
+        .max{
+            width:100px;
+            height: 100px;
+            background-image: url(2.png);
+            position: absolute;
+            display: none;
+            margin-top: -50px;
+            margin-left: -50px;
+
+        }
+        .bigImg{
+            position: absolute;
+            top:0;
+            left:410px;
+            width:400px;
+            height: 400px;
+            overflow: hidden;
+            display:none;
+        }
+        .bigImg img{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="1.jpg_400x400.jpg">
+        <div class="max"></div>
+        <div class="bigImg">
+            <img src="1.jpg_400x400.jpg" alt="" id="img">
+        </div>
+    </div>
+    <script>
+        console.log(document.images);
+        var box= document.getElementById("box");
+        var max = document.getElementsByClassName("max")[0];
+        var bigImg = document.getElementsByClassName("bigImg")[0];
+        var img = document.getElementById("img");  //大图
+        box.onmousemove = function(eve){
+            max.style.display="block";
+            bigImg.style.display="block";
+            eve = eve || window.event;
+            // offsetX和offsetY有兼容，并且速度慢，不建议使用
+            // var left = eve.offsetX;
+            var left = eve.clientX - this.getBoundingClientRect().left;
+            
+            // var top1 = eve.offsetY;
+            var top1 = eve.clientY - this.getBoundingClientRect().top;
+            
+
+            //处理放大镜超界的情况
+            console.log(left,top1);  //左上角是50,50
+            if(left<50){
+                left=50;
+            }
+            if(left>350){
+                left=350;
+            }
+            if(top1<50){
+                top1=50;
+            }
+            if(top1>350){
+                top1=350;
+            }
+
+            max.style.left = left+"px";
+            max.style.top = top1+"px";
+
+            //设置右侧大图的宽高
+            var w = bigImg.clientWidth/max.clientWidth*bigImg.clientWidth;
+            img.style.width=w+"px";
+            var h = bigImg.clientHeight/max.clientHeight*bigImg.clientHeight;
+            img.style.height=h+"px";
+
+            //设置右侧大图的位置
+            img.style.left= -(left-50)*bigImg.clientWidth/max.clientWidth+"px";
+            img.style.top= -(top1-50)*bigImg.clientWidth/max.clientWidth+"px";
+        }
+        box.onmouseout=function(){
+            max.style.display="none";
+            bigImg.style.display="none";
+        }
+    </script>
+</body>
+</html>

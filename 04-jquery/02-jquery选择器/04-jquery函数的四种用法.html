@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1">
+        <h2>这是板块一</h2>
+    </div>
+    <div id="box2">
+        <h2>这是板块二</h2>
+    </div>
+    <div id="box3">
+        <h2>这是板块3</h2>
+    </div>
+    <script src="../jquery.js" ></script>
+    <script>
+        //第一种$("选择器"[,上下文])
+        // $("#box2 h2")
+
+        // console.log($("h2","#box2"))
+
+        // $("div").click(function(){
+        //     console.log(this);     //dom
+        //     console.log($("h2",this).html())
+        // });
+
+        //第二种 $(dom)  window document this 
+            // $("div").click(function(){
+            //     console.log(this);     //dom
+            //     // this.style.border
+            //     // $(this).css("border","solid 1px red");
+            //     $(this).css("border","solid 1px red").siblings().css("border","none")
+            // })
+        //第三种  $("<p>这里是段落</p>")  通常用于创建元素
+        // console.log($("<p>这里是段落</p>"))
+
+        // $("div").click(function(){
+        //     $("<p>这里是段落</p>").appendTo(this);
+        // })
+        // $("div").click(function(){
+        //     $("<p />",{
+        //         html:"这里是段落",
+        //         css:{border:"solid 1px red",background:"pink"},
+        //         click:function(){
+        //             alert(124);
+        //         }
+        //     }).appendTo(this);
+        // });    
+        //第四种   等到所有的dom元素加载完毕才执行函数内的代码
+        //简写写法，建议使用
+        // $(function(){
+
+        // })
+        // // 等价于：
+        // $(document).ready(function(){
+
+        // })
+    </script>
+</body>
+</html>

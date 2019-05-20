@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="300" height="300"></canvas>
+    <script>
+        var can = document.getElementById("can");
+        var ctx = can.getContext("2d");
+        ctx.font="4em Arial";
+        // ctx.strokeStyle="red";
+        // ctx.fillStyle="pink";
+        // ctx.strokeText("60 %",0,0)
+        // fillText第2.3个参数表示文字的位置，文字默认是基线对齐，如果想让文字定对齐，可以设置textBaseline
+
+        // 让文字水平和垂直都居中
+        ctx.textBaseline="middle";
+        ctx.textAlign="center";
+        // ctx.textAlign = value  文字的水平对齐方式
+        ctx.fillText("60 %",150,150);
+        console.log(ctx.measureText("60 %").width);
+    </script>
+</body>
+</html>

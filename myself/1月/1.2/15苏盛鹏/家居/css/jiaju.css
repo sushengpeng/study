@@ -1,0 +1,274 @@
+.main{
+    width: 1920px;
+    margin:0 auto;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.pupop:hover{
+    position: relative;
+    top:-2px;
+}
+.nav{
+    height: 917px;
+    background-color: aquamarine;
+    position: relative;                                
+}
+.nav .top{
+    height: 100px;
+    width:1920px;
+    background-color:rgba(105, 105, 105,0.5);
+    position: absolute;
+}
+.nav .top .fl{
+    margin-top:19px;
+    margin-left:218px;
+}
+.nav .top ul{
+    font-size: 18px;
+    /* line-height: 100px; */
+    color:white;
+    float:left;
+    margin-left:313px;
+}
+.nav .top ul li{
+    float:left;
+    padding:40px 22px;
+}
+.nav .top ul li:hover{
+    background-color: #ea7207;
+    cursor: pointer;
+}
+.nav .banner{
+    position: absolute;
+    top:0;
+    left:0;
+}
+.nav .p1{
+    font-size: 80px;
+    font-family: "[FZDBSJW]";
+    color: white;
+    position: absolute;
+    letter-spacing: 5px;
+    top:388px;
+    left:393px;
+}
+.nav .p2{
+    font-size: 28px;
+    font-family: "仿宋";
+    color: white;
+    position: absolute;
+    letter-spacing: 12px;
+    top:494px;
+    left:471px;
+}
+.nav .box1,.nav .box2{
+    width: 22px;
+    height: 26px;
+    position: absolute;
+    background-image: url(../images/a.png);
+}
+.nav .box1{
+    top:76px;
+    left:1623px;
+    background-position:23px -17px ;
+}
+.nav .box2{
+    top:76px;
+    left:1655px;
+    background-position:23px -92px ;
+}
+
+
+
+
+
+
+.design{
+    /* height: 1420px; */
+    /* background: yellowgreen; */
+}
+.design .iconright,.design .iconleft{
+    width: 71px;
+    height: 72px;
+    background-image: url(../images/a.png);
+}
+.design .iconleft{
+    position: absolute;
+    top:391px;
+    left:-69px;
+    background-position: 370px -172px;
+}
+.design .iconleft:hover{
+    cursor: pointer;
+}
+.design .iconright{
+    position: absolute;
+    top:391px;
+    left:1278px;
+    background-position: 370px -329px;
+}
+.design .iconright:hover{
+    cursor: pointer;
+}
+.wrap1{
+    width: 1250px;
+    height: 826px;
+    margin:0 auto;
+    position: relative;
+    text-align: center;
+    /* background-color:khaki; */
+}
+.design .div1{
+    height: auto;
+}
+.design .p1{
+    font-size: 25px;
+    margin-top:40px;
+    margin-bottom:20px;
+}
+.design .p2{
+    font-size: 25px;
+    color: #f37e0b;
+    letter-spacing: 8px;
+    position: relative;
+}
+.design .p2 span{
+    display: block;
+    float:left;
+    position: absolute;
+}
+.design .p2 .span1{
+    top:11px;
+    left:427px;
+}
+.design .p2 .span2{
+    top:11px;
+    left:758px;
+}
+.design .wrap1 ul li{
+    float:left;
+    width: 281px;
+    height: 335px;
+    text-align: center;
+    margin-top:31px;
+}
+.design .wrap1 ul li:hover{
+    background-color: #f0f0f0;
+}
+.design .wrap1 ul .move{
+    margin-left:31px;
+}
+.design .wrap1 .p3,.design .wrap1 .p4{
+    font-family: "微软雅黑";
+    font-size: 16px;
+    margin:10px 0px;
+}
+.design .wrap1 .more{
+    font-family: "微软雅黑";
+    color: #4d4c4c;
+    width: 123px;
+    height: 38px;
+    font-weight: bold;
+    line-height: 38px;
+    margin: 0 auto;
+    letter-spacing: 3px;
+    border: 1px solid black;
+}
+.design .wrap1 .more span{
+    letter-spacing: -5px;
+}
+.design .wrap1 .more:hover{
+    background-color: #ea7207;
+    border:1px solid #ea7207;
+    color:white;
+}
+.wrap2{
+    width: 1091px;
+    /* height: 300px; */
+    margin:0 auto;
+    margin-top:40px;
+    text-align: justify;
+}
+.design .wrap1 .left{
+    left:460px;
+}
+.design .wrap1 .right{
+    left:728px;
+}
+.design .wrap1 .wrap2 p{
+    font-size: 18px;
+    color: #999999;
+}
+
+.about{
+    height: 434px;
+    margin-top:100px;
+    background-color: hotpink;
+    position: relative;
+}
+.about ul li{
+    float:left;
+}
+.about div{
+    width: 479px;
+    height: 217px;
+    margin:0 auto;
+    color:white;
+    text-align: center;
+    background-color:rgba(47,47,47,0.5);
+    *background-color:rgb(47,47,47);
+    background-color:rgb(47,47,47)\9;
+    position: absolute;
+}
+.about div .p1{
+    font-size: 16px;
+    margin-top:95px;
+    margin-bottom:8px;
+}
+.about div .p2{
+    font-size: 14px;
+}
+.about div div{
+    margin:34px 214px;
+    width: 59px;
+    height: 49px;
+    background-image: url(./../images/a.png);
+    background-position: 0px -243px;
+}
+.about .box2 div{
+    width: 57px;
+}
+.about .box3 div{
+    width: 53px;
+}
+.about .box4 div{
+    width: 40px;
+}
+.about .box2{
+    top:216px;
+    left:479px;
+}
+.about .box2 div{
+    background-position: 0px -384px;
+} 
+.about .box3{
+    top:0px;
+    left:958px;
+}
+.about .box3 div{
+    background-position: 0px -518px;
+} 
+.about .box4{
+    top:216px;
+    left:1440px;
+}
+.about .box4 div{
+    background-position: 0px -624px;
+}
+.about div:hover{
+    background-color:rgba(54, 54, 54,0.8);
+}

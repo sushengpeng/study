@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/yuedu.css">
+</head>
+<body>
+  <!-- 这样开发是否会显得很麻烦 -->
+  <div id="app">
+    <!-- 尽量的让这个div下只有一个router-view,其他的都不要有 -->
+    <router-view></router-view>
+  </div>
+  <script src="./js/vue.js"></script>
+  <script src="./js/vue-router.js"></script>
+  <script src="./js/axios.js"></script>
+  <script>
+    // 设置axios请求的公共URL
+    axios.defaults.baseURL = 'http://localhost:3000/api/'
+
+
+    const bus = new Vue()
+
+    /* **************普通组件*********************** */
+
+    const ydNav = {
+      template: `
+      <div class="container">
+        <nav class="menu">
+          <router-link exact-active-class="active" :to="'/channel/' + item.id"
+            v-for="item in menu"
+            :key="item.id"
+            >
+            {{item.type}}
+          </router-link>
+        </nav>
+      </div>
+      `,
+      watch: {
+        '$route': {
+          handler (to) {
+            // 得到to中的id
+            const id = to.params.id
+            // 根据id找到menu中对应的对象
+            const item = this.menu.find(item => item.id === +id)
+
+            // item就是我们找到的那个对象，将他存到sessionStorage中
+            /* sessionStorage.setItem('item', JSON.stringify(item)) */
+            bus.$emit('send:item', item)
+          },
+          immediate: true
+        }
+      },
+      data () {
+        return {
+          menu: []
+        }
+      },
+      created () {
+        // 请求数据获取对应的类别列表
+        axios.get('/types').then(res => {
+          this.menu = res.data.res
+        })
+      }
+    }
+
+    const ydList = {
+      template: `
+        <div class="channels">
+          <ul>
+            <li v-for="article in list">
+              <div class="channel-pic">
+                <img :src="article.img_url">
+              </div>
+              <div class="channel-body">
+                <div class="channel-title">
+                  <router-link :to="'/article/' + article.id">{{article.title}}</router-link>
+                </div>
+                <div class="channel-meta">
+                  <span>{{article.author}}</span>
+                  <span>{{article.podcast}}</span>
+                  <span>{{article.duration}}</span>
+                  <span>{{article.play_time}}次</span>
+                </div>
+                <div class="channel-desc">
+                  {{article.content | sliceContent}}
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      `,
+      filters: {
+        sliceContent (value) {
+          return value.slice(0, 70) + '……'
+        }
+      },
+      props: {
+        list: Array
+      }
+    }
+
+    const ydListTop10 = {
+      template: `
+        <div class="channel-top10">
+          <h3>{{type.type}}频道TOP10</h3>
+          <ul class="channel-list">
+            <li v-for="article in top10">
+              <router-link :to="'/article/' + article.id">{{article.title}}</router-link>
+              <div>
+                <span>文: {{article.author}}</span>
+                <span>主播: {{article.podcast}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      `,
+      data () {
+        return {
+          type: {
+            type: '悦读'
+          }
+        }
+      },
+      props: {
+        top10: Array,
+        
+      },
+      created () {
+        bus.$on('send:item', (item) => {
+          console.log(1)
+          this.type = item
+        })
+      }
+    }
+
+
+    const ydArticle = {
+      template: `
+        <div v-if="article" class="article">
+          <div class="item">
+            <div class="item-base">
+              <div class="item-name">{{article.title}}</div>
+              <div class="item-meta">
+                <span>{{article.author}}</span>
+                <span>{{article.podcast}}</span>
+                <span>{{article.duration}}</span>
+                <span>播放{{article.play_time}}次</span>
+              </div>
+              <div class="item-pic">
+                <img :src="article.img_url">
+              </div>
+              <audio controls :src="article.mp3_url"></audio>
+            </div>
+            <div @click="readAll" class="item-intro" v-html="article.content" :style="{height}">
+            </div>
+
+            <div class="item-label">
+              <div class="item-tags">
+                <strong>标签：</strong>
+                <span>{{article.labels.split(',').join("&nbsp;&nbsp;")}}</span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+      props: {
+        article: Object
+      },
+      data () {
+        return {
+          height: '280px'
+        }
+      },
+      methods: {
+        readAll () {
+          this.height = this.height === 'auto' ? '280px' : 'auto'
+        }
+      }
+    }
+
+    // 注册组件
+    Vue.component('ydNav', ydNav)
+    Vue.component('ydList', ydList)
+    Vue.component('ydListTop10', ydListTop10)
+    Vue.component('ydArticle', ydArticle)
+
+    /* *************路由导航组件******************** */
+
+    const index = {
+      template: `
+        <div>
+          <yd-nav></yd-nav>
+          <router-view />
+        </div>
+      `
+    }
+
+    const channel = {
+      template: `
+        <div class="wrap">
+          <yd-list :list="list"></yd-list>
+          <yd-list-top10 :top10="top10"></yd-list-top10>
+        </div>
+      `,
+      data () {
+        return {
+          list: [],
+          top10: []
+        }
+      },
+      watch: {
+        '$route': {
+          handler (to) {
+            const id = to.params.id
+            /* axios.get(`/articles/${id}/page/1`).then(res => {
+              this.list = res.data.res.articles
+            }) */
+
+            // 再次发起请求，请求top10的数据
+            /* axios.get(`/articles/${id}/top10`).then(res => {
+              console.log(res.data)
+              this.top10 = res.data.res
+            }) */
+
+            axios.all([axios.get(`/articles/${id}/page/1`), axios.get(`/articles/${id}/top10`)]).then(([res1, res2]) => {
+              // res是一个数组
+              console.log(res1, res2)
+              this.list = res1.data.res.articles
+              this.top10 = res2.data.res
+            })
+
+          }, 
+          immediate: true
+        }
+      },
+      // 当组件被创建出来后立即请求数据
+      created () {
+        // 根据当前的id获取数据 /articles/:id/page/1
+       /*  console.log(this.$route.params.id)
+        axios.get(`/articles/${this.$route.params.id}/page/1`).then(res => {
+          console.log(res.data)
+          this.list = res.data.res.articles
+        }) */
+      }
+    }
+
+    const article = {
+      template: `
+        <div class="wrap">
+          <ydArticle :article="article"></ydArticle>
+          
+        </div>
+      `,
+      data () {
+        return {
+          article: null
+        }
+      },
+      // this.$route.params.id
+      created () {
+        // 获取到对应的数据
+        const id = this.$route.params.id
+        // 根据id去对应的接口发起请求
+        axios.get(`/article/${id}`).then(res => {
+          this.article = res.data.res
+        })
+      }
+    }
+
+    const routes = [
+      {
+        path: '/',
+        component: index,
+        redirect: '/channel/1',
+        children: [
+          {
+            path: 'channel/:id',
+            component: channel
+          }, {
+            path: 'article/:id',
+            component: article
+          }
+        ]
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+
+    const app = new Vue({
+      el: '#app',
+      router
+    })
+  
+  </script>
+</body>
+</html>

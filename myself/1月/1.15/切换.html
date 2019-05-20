@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 400px;
+            height: 230px;
+            background-color: bisque;
+            margin: 0 auto;
+            margin-top: 300px;
+            position: relative;
+        }
+
+        li {
+            /* width: 40px;
+        height: 20px; */
+            color: black;
+            list-style: none;
+            float: left;
+        }
+
+        #div1,
+        #div2,
+        #div3,
+        #div4 {
+            width: 400px;
+            height: 180px;
+            /* background-color: orange; */
+            position: absolute;
+            top: 50px;
+            left: 0px;
+            display: none;
+        }
+
+        .needHover {
+            width: 100px;
+            height: 51px;
+            color: black;
+            line-height: 50px;
+            text-align: center;
+            z-index: 10;
+        }
+        span {
+            display: block;
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        #div1 {
+            background-color: olive;
+        }
+
+        #div2 {
+            background-color: teal;
+        }
+
+        #div3 {
+            background-color: tomato;
+        }
+
+        #div4 {
+            background-color: plum;
+        }
+
+        .line {
+            width: 50px;
+            height: 1px;
+            display: none;
+            position: absolute;
+        }
+
+        #div1 .line {
+            top: -1px;
+            left: 24px;
+            background-color: olive;
+        }
+
+        #div2 .line {
+            top: -1px;
+            left: 124px;
+            background-color: teal;
+        }
+
+        #div3 .line {
+            top: -1px;
+            left: 224px;
+            background-color: tomato;
+        }
+
+        #div4 .line {
+            top: -1px;
+            left: 324px;
+            background-color: plum;
+        }
+    </style>
+</head>
+
+<body onload="shade()">
+    <div class="main">
+        <ul>
+            <li>
+                <div class="needHover"><span>1</span></div>
+                <div id="div1" class="appear">
+                    <div class="line"></div>
+                </div>
+            </li>
+            <li>
+                <div class="needHover"><span>2</span></div>
+                <div id="div2" class="appear">
+                    <div class="line"></div>
+                </div>
+            </li>
+            <li>
+                <div class="needHover"><span>3</span></div>
+                <div id="div3" class="appear">
+                    <div class="line"></div>
+                </div>
+            </li>
+            <li>
+                <div class="needHover"><span>4</span></div>
+                <div id="div4" class="appear">
+                    <div class="line"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var needHover = document.getElementsByClassName("needHover");
+        var appear = document.getElementsByClassName("appear");
+        var spans = document.getElementsByTagName("span");
+        var lines = document.getElementsByClassName("line");
+        var timerId;
+        var num = 0;
+        var arr = [0, 1, 2, 3];
+        for (var i = 0; i < needHover.length; i++) {
+            action(i);
+            // console.log(document.querySelector("#div"+i));
+            console.log(appear[i]);
+        }
+
+        function action(n) {
+            needHover[n].onmouseenter = function () {
+                for(var z=0;z<arr.length;z++){
+                    disappear(z);
+                }
+                clearInterval(timerId);
+                shadeAction(n);
+            }
+            needHover[n].onmouseleave = function () {
+                shade();
+            }
+        }
+
+        function shade() {
+            timerId = setInterval(function () {
+                    if (num >= 2) {
+                        num = 0;   
+                        disappear(arr[3]);              
+                        shadeAction(arr[0]);
+                        swapper(arr); 
+                    } else {
+                        console.log(arr);
+                        num++;
+                    }
+            }, 700);
+        }
+
+        function shadeAction(n) {
+            spans[n].style.border = "1px solid orangered";
+            spans[n].style.height = "50px";
+            appear[n].style.display = "block";
+            appear[n].style.width = "398px";
+            appear[n].style.height = "178px";
+            appear[n].style.border = "1px solid orangered";
+            lines[n].style.display = "block";
+        }
+        function disappear(n) {
+            spans[n].style.border = "none";
+            appear[n].style.display = "none";
+            appear[n].style.width = "400px";
+            appear[n].style.height = "180px";
+            appear[n].style.border = "none";
+            lines[n].style.display = "none";
+        }
+
+        function swapper(arr) {
+            var i = arr[0];
+            arr.splice(0, 1);
+            arr.splice(3, 1, i);
+            return arr;
+        }
+    </script>
+</body>
+
+</html>

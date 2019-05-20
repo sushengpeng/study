@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>横向滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            background: #aaa;
+            overflow:hidden;
+        }
+        #wrapper ul {
+            width:1500px;
+            height: 200px; 
+        }
+        #wrapper li {
+            float: left;
+            height: 100px;
+            background: #fff;
+            width: 375px;
+            border: 1px solid #000;
+        }
+        .box {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+        <div class="box">
+                box
+            </div>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+        </ul>
+    </div>
+    <div class="box">
+            box
+        </div>
+    <script src="js/iscroll.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            mouseWheel: true,
+            // 只设置此项，而不设置 scrollX,则显示垂直滚动条，只能垂直滚动
+            // scrollbars: true,
+            // 只设置此项，而不设置scrollbars,则可横向滚动，但不显示滚动条
+            scrollX: true,
+
+            // //scrollbars和scrollX同时设置，则可横向滚动，但同时显示水平、垂直滚动条
+            // //所以可以再设scrollY:false,关闭垂直滚动条
+            scrollY: false,
+            // // 自动对齐li元素的边界，不设置则可能在滑动结束时显示一部分的li
+            snap: "li"
+        });
+        // 默认从wrapper上下滑动，不会滚动页面，只会左右滚动
+    </script>
+</body>
+</html>

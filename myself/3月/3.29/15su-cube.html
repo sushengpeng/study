@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正方体</title>
+    <style>
+        .outer {
+            perspective: 1000px;
+            box-sizing: border-box;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform-origin: 100px 100px 0;
+            margin: 300px auto;
+            position: relative;
+            transition: all 1s;
+            transform: rotate3d(-1,0,0,180deg);
+        }
+        .blot{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+        }
+
+        .bottom,.left,.right,.front,.back,.top {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            list-style: none;
+            border-radius: 20px;
+            /* padding: 20px; */
+            display: flex;
+            /* 弹性布局更改为纵向排列column(默认横向排列row) */
+            flex-direction: column;
+            background-color: wheat;
+        }
+        .bottom .blot{
+            /* align-items: center; */
+            /* justify-content:space-around; */
+            margin:auto auto;
+        }
+
+        .left {
+            /* background-color: yellowgreen; */
+            transform: rotateY(90deg);
+            transform-origin: 0 0;
+            align-content:space-around;
+            flex-direction:column;
+        }
+        .left .blot{
+            margin: auto auto;
+        }
+        .right {
+            /* background-color: orangered; */
+            transform: rotateY(-90deg);
+            transform-origin: 200px 0;
+            justify-content: center;
+        }
+        .right .blot:nth-child(2){
+            align-self: center;
+        }
+        .right .blot:nth-child(3){
+            align-self: flex-end;
+        }
+
+        .front {
+            /* background-color: greenyellow; */
+            transform: rotateX(90deg);
+            transform-origin: 200px 200px;
+            flex-flow: wrap;
+        }
+        .front .blot{
+            align-self :center;
+            margin-left: 34px;
+        }
+
+        .back {
+            /* background-color: sandybrown; */
+            transform: rotateZ(90deg) translateZ(-200px);
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center
+        }
+        .back .blot{
+            margin: 20px 10px;
+        }
+        .back .blot:nth-child(3){
+            margin: 50px 0;
+        }
+        .back .blot:nth-child(4){
+            align-self:flex-end;
+        }
+        .back .blot:nth-child(5){
+            align-self:flex-end;
+        }
+        .top {
+            transform: rotateX(-90deg);
+            transform-origin: 0 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .top .blot{
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="bottom">
+                <div class="blot"></div>
+            </div>
+            <div class="left">
+                <div class="blot"></div>
+                <div class="blot"></div>
+            </div>
+            <div class="right">
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+            </div>
+            <div class="front">
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+            </div>
+            <div class="back">
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+            </div>
+            <div class="top">
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+                <div class="blot"></div>
+            </div>
+        </div>
+    </div>
+    <button>点击</button>
+    <script>
+        var but = document.getElementsByTagName("button")[0];
+        var inner = document.getElementsByClassName("inner")[0];
+        // but.onclick = function () {
+        setInterval(function () {
+            var x, y, z, angle;
+            function getrandom() {
+                return Math.floor(Math.random() * 460 - 100)
+            }
+            x = getrandom();
+            y = getrandom();
+            z = getrandom();
+            angle = getrandom() + "deg";
+            inner.style.transform = "rotate3d(" + x + "," + y + "," + z + "," + angle + ")";
+        }, 1000)
+    </script>
+</body>
+
+</html>

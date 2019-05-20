@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>iscroll的事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul,li {
+            list-style-type: none;
+        }
+        #wrapper {
+            width: 100%;
+            height: 100px;
+            background: #aaa;
+            overflow:hidden;
+        }
+        #wrapper ul {
+            width:1500px;
+            height: 200px; 
+        }
+        #wrapper li {
+            float: left;
+            height: 100px;
+            background: #fff;
+            width: 375px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <ul>
+            <li>商品列表1</li>
+            <li>商品列表2</li>
+            <li>商品列表3</li>
+            <li>商品列表4</li>
+        </ul>
+    </div>
+    <button>add</button>
+    <script src="js/iscroll-probe.js"></script>
+    <script>
+        var myScroll = new IScroll('#wrapper',{
+            scrollX: true,
+            scrollY: false,
+            snap: true,
+            probeType: 2
+        });
+        // 当iscroll滚动的过程中会触发的事件
+        myScroll.on("scroll",function(){
+            console.log("scroll");
+            // console.log("scroll",this.x);
+        });
+        myScroll.on("scrollStart",function(){
+            console.log("scrollStart");
+            // 可以滚动的最大值： 比如四个li,每个200, 则最大值是-600
+            console.log(this.maxScrollX);
+        });
+        myScroll.on("scrollEnd",function(){
+            console.log('End');
+            // console.log('End',this.x);
+        });
+        myScroll.on("refresh",function(){
+            console.log('refresh');
+        });
+        
+        //添加新商品
+           var ul = document.querySelector("ul");
+           var btn = document.querySelector("button");
+           btn.onclick = function () {
+               ul.innerHTML += "<li>新的商品列表</li>";
+               var length = ul.children.length;
+               ul.style.width=length*100+"%";
+               //等到dom元素渲染完毕后再触发refresh事件
+               setTimeout(function(){
+                　　myScroll.refresh();
+                    console.log(myScroll);
+                },0)
+            //    myScroll.refresh();
+               
+           }
+        //    注意：更新完dom后，调用refresh方法，如果myscroll的配置项有snap:"li"的话，会报错，如果说配置项是snap:true的话就不会报错 ,snap:true指的是按照屏幕宽度进行分割
+    </script>
+</body>
+</html>

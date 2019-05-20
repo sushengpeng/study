@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--  -->
+    <script src="js/public.js"></script>
+    <script>
+        //同步的ajax
+        ajax({
+            url:"08-checkuser&pwd.php",
+            async:false,
+            success:function(data){
+                if(data!="验证通过"){
+                    location.href="login.html";
+                }
+            }
+        })
+    </script>
+    <style>
+        #table{
+            width:800px;
+            border:solid 1px gray;
+            
+        }
+        #table td{
+            border:solid 1px #aaa;
+        }
+        #table .del{
+            width:100px;
+            display: inline-block;
+            background-color:red;
+            color:#fff;
+            line-height: 36px;
+            text-align: center;
+        }
+        #table .update{
+            width:100px;
+            display: inline-block;
+            background-color:green;
+            color:#fff;
+            line-height: 36px;
+            text-align: center;
+        }
+        #addcontent{
+            position: fixed;
+            left:50%;
+            top:50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            width:200px;
+            height: 200px;
+            border:solid  1px gray;
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LOGO</h1>
+        <div style="text-align: right"><a id="loginout">注销</a></div>
+    </div>
+    <a href="###" id="add">添加</a><br />
+    <input type="text" id="scontent" placeholder="请输入要查看的内容" /><input type="button" id="search" value="搜索" />
+    <table id="table" cellspacing="0" cellpadding="0" >
+        
+    </table>
+    <div id="addcontent">
+        <form method="POST" enctype="multipart/form-data" id="form" >
+            <label>封面：<input type="file" name="face" id="file"/></label>
+            <label>书名：<input type="text" name="bookname" id="bookname"/></label><br />
+            <label>作者：<input type="text" name="author" id="author" /></label><br />
+            <label>价格：<input type="text" name="price"  id="price" /></label><br />
+            <input type="button" id="addbook" value="添加"  /><input type="button" id="cancle" value="取消"  />
+        </form>
+    </div>
+    <a id="del">删除</a>
+    <script src="cookie.js"></script>
+    <script>
+        var table= document.querySelector("#table");
+        var add = document.querySelector("#add");
+        var addcontent = document.querySelector("#addcontent");
+        var addbook = document.querySelector("#addbook");
+        
+        var bookname = document.querySelector("#bookname");
+        var author= document.querySelector("#author");
+        var price = document.querySelector("#price");
+
+        var search = document.querySelector("#search");
+
+
+        var str = "<tr><th>id</th><th>书名</th><th>作者</th><th>价格</th><th>操作</th></tr>";
+        function loaddata(){
+            str = "<tr><th>id<input type='checkbox' />全选</th><th>书名</th><th>作者</th><th>价格</th><th>操作</th></tr>";
+            ajax({
+                url:"01-connect-mysql.php",
+                success:function(data){
+                    var obj = JSON.parse(data);
+                    
+                    for(var i=0;i<obj.length;i++){
+                        str+="<tr><td>"+(i+1)+"<input type='checkbox' data-id='"+obj[i].Id+"'/> </td>"+
+                            "<td><img src='"+obj[i].picture+"'</td>"+
+                            "<td>"+obj[i].bookname+"</td><td>"+obj[i].author+"</td><td>"+obj[i].price+"</td>"+
+                        "<td data-id='"+obj[i].Id+"'><a href='###' class='del' >删除</a><a href='###' class='update'>修改</a></td></tr>";
+                    }
+                    
+                    table.innerHTML = str;
+                }
+            })
+        }
+        loaddata()
+
+        
+        table.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            //删除功能
+            if(target.className=="del"){
+                ajax({
+                   url:"02-del_data.php",
+                   param:"id="+target.parentNode.getAttribute("data-id"),
+                   success:function(data){
+                       
+                       if(data=="删除成功"){
+                        //    var tr = target.parentNode.parentNode;
+                        //     tr.parentNode.removeChild(tr);
+                            loaddata();
+                           alert(data);
+                       }
+                   }
+                });
+            }
+            //修改数据
+            if(target.className=="update"){
+                addbook.value="修改";
+                addcontent.style.display="block";
+
+                ajax({
+                    url:"01-connect-mysql.php",
+                    param:"id="+target.parentNode.getAttribute("data-id"),
+                    success:function(data){
+                        console.log(data);
+                        var obj = JSON.parse(data);
+                        addbook.dataId=obj[0].Id;
+                        bookname.value = obj[0].bookname;
+                        author.value = obj[0].author;
+                        price.value = obj[0].price;
+                    }
+                })
+            }
+        }
+        //添加按钮的事件
+        add.onclick = function(){
+            addbook.value="添加";
+            addcontent.style.display="block"
+        }
+        //添加书籍按钮
+        addbook.onclick = function(){
+            
+            // 省略了对数据格式有效性的验证
+            if(this.value=="添加"){
+                // 兼容性好
+                // form 表单提交文件会跳转到另外一个页面，或者提交给当前页面，但是会造成整个页面的刷新
+                // var  form = document.getElementById("form");
+                // form.submit();
+
+                // 用户体验好，但是兼容到ie9
+                var fd = new FormData();
+                var file = document.getElementById("file").files[0];
+                fd.append("face",file);
+                fd.append("bookname",document.getElementById("bookname").value);
+                fd.append("author",document.getElementById("author").value);
+                fd.append("price",document.getElementById("price").value);
+                ajax({
+                    url:"03-add_data.php",
+                    type:"POST",
+                    param:fd,
+                    contenttype:true,
+                    success:function(data){
+                        console.log(data)
+                        if(data=="添加成功"){
+                            loaddata();
+                            addcontent.style.display="none"
+                        }
+                    }
+                })
+            }else{
+                console.log(this);
+                var obj  = {
+                    url:"04-update.php",
+                    param:"bookname="+bookname.value+"&author="+author.value+"&price="+price.value+"&id="+this.dataId,
+                    success:function(data){
+                        console.log(data)
+                        if(data=="修改成功"){
+                            loaddata();
+                            addcontent.style.display="none"
+                        }
+                    }
+                }
+                ajax(obj);
+            }
+            
+        }
+        //删除
+        var del = document.getElementById("del");
+        del.onclick = function(){
+            if(confirm("确认要删除吗！")){
+                var inps = document.querySelectorAll("input[type=checkbox]");
+                var str="";
+                for(var i=1;i<inps.length;i++){
+                    if(inps[i].checked){
+                        str+= inps[i].getAttribute("data-id")+",";
+                    }
+                }
+                str = str.slice(0,-1);
+                ajax({
+                    url:"02-del_data.php",
+                    param:"id="+str,
+                    success:function(data){
+                        console.log(data);
+                        if(data=="删除成功"){
+                            loaddata();
+                        }
+                    }
+                })
+            }
+            
+        }
+        //搜索按钮
+        search.onclick = function(){
+            var val = document.querySelector("#scontent").value;
+            str = "<tr><th>id</th><th>书名</th><th>作者</th><th>价格</th><th>操作</th></tr>";
+            ajax({
+                url:"01-connect-mysql.php",
+                param:"con="+val,
+                success:function(data){
+                    if(data!=="数据不存在"){
+
+                        var obj = JSON.parse(data);
+                    
+                        for(var i=0;i<obj.length;i++){
+                            str+="<tr><td>"+(i+1)+"<input type='checkbox' data-id='"+obj[i].Id+"'/> </td><td>"+obj[i].bookname+"</td><td>"+obj[i].author+"</td><td>"+obj[i].price+"</td>"+
+                            "<td data-id='"+obj[i].Id+"'><a href='###' class='del' >删除</a><a href='###' class='update'>修改</a></td></tr>";
+                        }
+                        
+                        table.innerHTML = str;
+                    }else{
+                        str = "数据不存在";
+                        table.innerHTML = str;
+                    }
+                    
+                }
+            })
+        }
+        //loginout 注销
+        loginout.onclick = function(){
+            cookie.remove("uname");
+            cookie.remove("pwd");
+            location.href="login.html";
+        }
+    </script>
+</body>
+</html>

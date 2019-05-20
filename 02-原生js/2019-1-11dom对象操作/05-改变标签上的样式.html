@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            border:solid 1px blue;
+        }
+        .box1{
+            width:200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .box2{
+            width:300px;
+            height: 300px;
+            background-color: yellow;
+        }
+        .box3{
+            border:solid 10px black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+
+        //设置行内样式
+        // div.style.border="solid 1px red";
+
+        //访问行内样式
+        // 如果标签上没有style属性，则获取不到行内样式
+        // console.log(div.style.border)
+
+
+        //设置多个样式
+        // div.style.width="200px";
+        // div.style.height="200px";
+        // div.style.backgroundColor="pink"
+
+        // div.className = "box1";
+
+        // div.className="box2";
+        //一次同时添加两个类名
+        // div.className = "box2 box3";
+        //分两次添加两个类名
+        // div.className = "box3";
+        // div.className = div.className+" box3";
+
+
+        //访问类名
+        // console.log(div.className);
+
+
+        //获取元素的最终样式
+        //obj.currentStyle[attr] : 兼容IE
+        // console.log(div.currentStyle);
+        // console.log(div.currentStyle["border-width"])
+        // console.log(div.currentStyle["border-color"])
+
+        // window.getComputedStyle(obj , null)[attr]; 
+        // 兼容FF，chrome,safiri，只读
+        // console.log(window.getComputedStyle(div,null))   //css对象
+        // console.log(window.getComputedStyle(div,null).border)
+        // console.log(window.getComputedStyle(div,null)["border"])
+
+
+
+
+        //兼容性代码
+        if(div.currentStyle){
+            console.log(div.currentStyle["color"]);
+        }else{
+            console.log(window.getComputedStyle(div,null)["color"])
+        }
+
+
+        //封装一个函数
+        //功能：获取元素的最终样式
+        // function getStyle(obj,attr){
+        //     if(obj.currentStyle){
+        //         return obj.currentStyle[attr];
+        //     }else{
+        //         return window.getComputedStyle(obj,null)[attr]
+        //         // return window.getComputedStyle(obj,null).attr
+        //     }
+        // }
+
+        function getStyle(obj,attr){
+            if(window.getComputedStyle){
+                return window.getComputedStyle(obj,null)[attr]
+            }else{
+                return obj.currentStyle[attr];
+            }
+        }
+
+        console.log(getStyle(div,"color"))
+        // 对于复合属性，要分开写
+        console.log(getStyle(div,"font-family"))
+    </script>
+</body>
+</html>

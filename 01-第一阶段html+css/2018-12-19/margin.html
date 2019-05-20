@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+            有宽高
+            */
+        *{
+            margin: 0;
+            padding: 0
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            /*margin: 50px;/*四周*/
+            /*margin: 10px 50px;/*10px：上下、50px：左右*/
+           /* margin: 10px 50px 100px;/*10px:上、50px：左右、100px：下*/
+            /*margin: 10px 50px 100px 150px;/*10px:上、50px:右、100px：下、150px：左   按顺时针的方向*/
+            margin: 50px;
+            padding:50px;
+            float: left;
+            
+        }
+    </style>
+</head>
+<body>
+    <!--
+        w3c标准盒子模型：
+
+        盒子的实际占有宽度：左margin+左border+左padding+div宽+右padding+右border+右margin 
+        
+        IE传统盒子模型：ie低版本
+
+        盒子的实际占有宽度：左margin+width+右margin
+
+            padding：10px   border：1px    margin：50px  width：100px
+            实际占有宽度：margin*2+width
+
+
+    
+    -->
+    <div>
+        我是div
+    </div>
+    <div>
+            我是div
+        </div>
+    <p>我是p标签</p>
+
+    
+</body>
+</html>

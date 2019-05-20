@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                margin: 0;
+                padding:0;
+                list-style: none;
+            }
+            ul{
+                display: flex;
+                border:solid 1px blue;
+                height: 200px;
+            }
+            .box1{
+                align-items: flex-start; /* 侧轴上的对齐方式*/
+            }
+            .box2{
+                align-items: flex-end;
+            }
+            .box3{
+                align-items: center;
+            }
+            .box4{
+                align-items: stretch;   /* 如果每个子元素设置高度，则stretch不起作用，权重没有li标签的height高*/
+            }
+            .box5{
+                align-items: baseline;
+            }
+            li{
+                border:solid 1px red;
+            }
+            li:nth-child(1){
+                font-size: 20px;
+                /* line-height: 100px; */
+                height: 100px;
+            }
+            li:nth-child(2){
+                /* height: 200px; */
+                font-size: 60px;
+                line-height: 200px;
+            }
+            li:nth-child(3){
+                font-size: 40px;
+                /* line-height: 150px; */
+                height: 150px;
+            }
+        </style>
+</head>
+<body>
+        <ul class="box1">
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+            <ul class="box2">
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+            <ul class="box3">
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+            <ul class="box4">
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+            <ul class="box5">
+                <li>list 1</li>
+                <li>list 2</li>
+                <li>list 3</li>
+            </ul>
+</body>
+</html>

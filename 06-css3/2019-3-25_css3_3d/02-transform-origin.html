@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stage{
+            width:500px;
+            height: 500px;
+            border:solid 1px red;
+            margin: 200px auto;
+            perspective: 1000px;   /*视距，景深，指的是眼睛离屏幕的距离，可以认为是透视的z值 */
+            perspective-origin: 50% 50%;    /*视角，从哪个角度去看舞台上的元素，两个值分别是x和y坐标 */
+        }
+        .scene{
+            transform-style: preserve-3d;
+        }
+        .ele1{
+            width:500px;
+            height: 500px;
+            background-color: red;
+            transform-origin:0 0 0;  /*  设置元素变换的中心点 */
+            transition: all 1s;
+        }
+        .scene:hover .ele1{
+            transform: rotate3d(0,0,-90deg);   /*  hover到父元素，让子元素发生变换。*/ 
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="scene">
+            <div class="ele1"></div>
+        </div>
+    </div>
+</body>
+</html>

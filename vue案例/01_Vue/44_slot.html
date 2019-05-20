@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    正常情况下，组件标签中写的内容不会渲染到标签的任何一个位置
+
+    slot 插槽
+      组件标签中间的内容会自动的渲染到组件模板的插槽中
+
+
+    组件配置时
+      const com = {
+        template: `
+          <div>
+            <slot>默认内容</slot>
+          </div>
+        `
+      }
+
+      <com>内容</com>
+   -->
+  <div id="app">
+    <c-button>点击</c-button>
+    <c-button>按钮</c-button>
+    <c-button></c-button>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const cButton = {
+      template: `
+        <button>
+          <slot>默认内容</slot>
+        </button>
+      `
+    }
+
+    Vue.component("cButton", cButton)
+
+    const app = new Vue({
+      el: "#app",
+      data: {}
+    })
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>优先级案例</title>
+    <style>
+        a{color: yellow;} /*权重 1  第一行*/ 
+        div a{color: green;} /* 权重 1+1=2 第二行*/
+        .demo a{color: black;} /*权重 10+1=11 第三行*/
+        .demo input[type="text"]{color: #0000ff;}/*权重 10+10+1=21 第四行*/ 
+        .demo *[type="text"]{color: grey;}/* 权重 10+0+10=20 第五*/
+        #demo a{color: orange;} /* 权重 100+1=101 六*/
+        div#demo a{color: red;} /* 1+100+1=102 七*/
+    </style>
+</head>
+<body>
+    <a href="">第一条应该是黄色</a><br>
+    <div class="demo">
+        <input type="text" value="第二条应该是蓝色" /><br>
+        <a href="">第三条应该是黑色</a><br>
+    </div>
+    <div id="demo">
+        <a href="">第四条应该是红色</a><br>
+    </div>
+</body>
+</html>

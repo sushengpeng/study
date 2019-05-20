@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form id="user_form">
+        正则：<input type="text" pattern="[A-z]\w{5,19}" id="reg" required  autofocus /><br>
+        必填：<input type="text" required /><br>
+        邮箱：<input type="email" required /><br>
+        url: <input type="url" required /><br>
+        数字字段： <input type="number" min="1" max="10" value="1" step="2"><br>
+        滑动组件：<input type="range" min="1" max="10" id="range" value="1"><br>
+        <div style="border:solid 1px red;height: 550px;">
+        <img src="../03-html5_favicon/1.png" id="img" style="transform-origin: 0 0 ;" />
+        </div>
+        拾色器： <input type="color" value="#ed1c24" id="color" ><br>
+        搜索按钮：<input type="search" /><br>   <!-- 手机键盘会显示“搜索”键 -->
+        日期字段：<input type="date" min="2010-12-16"  value="2016-12-20"/><br>
+        时间字段：<input type="time" step="1800" /><br>
+        时间字段：<input type="datetime" /><br>
+        <input type="submit" />
+    </form>
+    Last name:<input type="text" name="lname" form="user_form" />  <!-- form属性可以让输入框跟form建立关联，并且不必写在表单内部-->
+    <p>我们在每天早上 <time>9:00</time> 开始营业。</p>
+    <p>网页修改时间 ： <time > 2016-05-14 </time> </p>
+
+    <script>
+        var reg = document.getElementById("reg");
+        // reg.onblur=function(){
+        //     if(!this.checkValidity()){
+        //         alert("验证不通过")
+        //     }
+        // }
+        var range = document.getElementById("range");
+        var img = document.getElementById("img");
+        img.onload=function(){
+            console.log(this.clientWidth,this.clientHeight);
+            // naturalWidth / naturalHeight
+            // HTML5提供了一个新属性naturalWidth/naturalHeight可以直接获取图片的原始宽高。
+        }
+        // range.onchange = function(){
+        //     img.style.transform="scale("+this.value+")"
+        //     // img.width=
+        // }
+        // range.onmousemove = function(){
+        //     img.style.transform="scale("+this.value+")"
+        //     // img.width=
+        // }
+
+
+        // html5中新的事件类型
+        // range.oninput = function(){
+        //     img.style.transform="scale("+this.value+")"
+        // }
+
+        var color = document.getElementById("color");
+        color.onchange = function(){
+            document.body.style.backgroundColor=this.value;
+        }
+    </script>
+</body>
+</html>

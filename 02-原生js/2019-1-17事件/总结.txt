@@ -1,0 +1,46 @@
+1.注册事件
+    属性方式
+    只能注册一个事件
+    添加事件监听
+    一个dom元素上可以注册多个事件
+    dom.addEventListener(eventType,handler,useCapter|false);
+    dom.attachEvent(on+eventType,handler);
+
+2.标准的事件流
+    事件分为三个阶段：
+    1.捕获阶段
+    document对象上产生事件流，沿着dom树向目标元素上流去，这个阶段流经的元素上的事件都不会被触发
+    2.目标阶段
+    目标元素上绑定的有事件就执行，没有就不执行
+    3.起泡阶段
+    从目标元素向document对象上流去，这个阶段如果父元素上绑定的有事件就会依次触发
+
+3.点击目标元素只想执行目标元素上的事件，不想让父元素或者祖先元素上的事件触发，这个时候就要阻止冒泡
+    chrome，Firefox，ie9下
+    e.stopPropagation();
+    ie7,8
+    e.cancelBubble = true;
+
+4.上面的e指的是事件对象，事件对象指的是在事件执行的过程中自动产生的对象，这个对象上面有操作dom的有用的信息，当事件执行完毕，e自动消失
+    参数中有e
+    e = e || window.event;
+
+5.浏览器的默认行为有些时候不想使用，这个时候需要阻止浏览器的默认行为
+    dom2级事件
+    chrome，Firefox，ie9下
+    e.preventDefault()
+    ie7,8
+    e.returnValue = false;
+    dom0级事件
+    return false;
+
+6.三种注册方式同时存在，执行顺序
+    属性>添加事件监听（addEventListener  按照注册顺序执行  attachEvent 无序）
+
+7.this在事件处理程序中的指向
+    谁绑定了事件处理程序，this就指向谁
+    attachEvent (this指向window，通过call和apply可以改变this的指向)
+
+
+    
+

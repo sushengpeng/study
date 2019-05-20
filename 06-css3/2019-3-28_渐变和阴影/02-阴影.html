@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 200px;
+            border:solid 1px red;
+        }
+        .box1{
+            box-shadow:2px 2px 5px 2px gray ; /*分别指的是水平偏移量，垂直偏移量，模糊半径，向外扩展半径，阴影颜色，内阴影或外阴影*/
+        }
+        .box2{
+            box-shadow: 0 -5px 5px 0px grey inset; /* 如果为内阴影，默认是左上方向，如果想要右下方向，需要写成负值*/
+        }
+        h1{
+            text-shadow: 1px 1px 1px gray,2px 2px 2px pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <h1>这里是一级标题</h1>
+</body>
+</html>

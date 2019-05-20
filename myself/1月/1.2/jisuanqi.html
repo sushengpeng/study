@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        td{
+        width: 40px;
+        height: 30px;
+        text-align: center;
+    }
+    table{
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <form name="calc">
+        <table border="1px" bgcolor="#ccccc">
+            <tr>
+                <td colspan="4"><input type="text" name="expr"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onClick="enter(this.form,one)"></td>
+                <td><input type="button" value="2" onClick="enter(this.form,two)"></td>
+                <td><input type="button" value="3" onClick="enter(this.form,three)"></td>
+                <td><input type="button" value="+" onClick="enter(this.form,plus)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onClick="enter(this.form,four)"></td>
+                <td><input type="button" value="5" onClick="enter(this.form,five)"></td>
+                <td><input type="button" value="6" onClick="enter(this.form,six)"></td>
+                <td><input type="button" value="-" onClick="enter(this.form,min)"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onClick="enter(this.form,seven)"></td>
+                <td><input type="button" value="8" onClick="enter(this.form,eight)"></td>
+                <td><input type="button" value="9" onClick="enter(this.form,nine)"></td>
+                <td><input type="button" value="*" onClick="enter(this.form,mlu)"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="0" onClick="enter(this.form,zero)"></td>
+                <td><input type="button" value="." onClick="enter(this.form,dot)"></td>
+                <td><input type="button" value="/" onClick="enter(this.form,div)"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="=" onclick="compute(this.form)"></td>
+                <td colspan="2"><input type="button" value="AC" onClick="clear(this.form)"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        var  zero="0",one = '1', two = '2', three = '3', four = '4', five = '5', six = '6', seven = '7', eight = '8', nine = '9', plus = '+', min = '-', mlu = '*', div = '/', dot = '.';
+        function enter(obj,string){
+            obj.expr.value+=string;
+        }
+        function clear(obj){
+            obj.expr.value="";
+        }
+        function compute(obj){
+            obj.expr.value=eval(obj.expr.value);
+        }
+    </script>
+</body>
+
+</html>

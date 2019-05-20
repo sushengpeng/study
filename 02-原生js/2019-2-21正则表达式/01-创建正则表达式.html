@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+        // 语法：
+        // 1.构造函数方式
+        // new RegExp(pattern,attributes);
+        // 参数1： pattern 正则表达式的模式
+        // 参数2：attributes  修饰符，用以说明高级匹配模式的规则（可选参数，并且可以组合使用）
+                //   g  global全局匹配
+                //   i  ignor 忽略字母的大小写
+
+        // var str = 'welcome';
+        // var re = new RegExp('a','i');//只会匹配字符串中出现的第一个字母a(不区分大小写)
+        // alert(re.test(str));   //false
+
+
+        // var reg=new RegExp("a","g")
+        // console.log(reg.test("AAA"));
+
+
+        //字面量方式：
+        // 语法：/pattern/attribute
+
+        var reg=/a/i;
+        console.log(reg.test("aaa"));
+    </script>
+</body>
+</html>

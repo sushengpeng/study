@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //call，apply
+        function fun(a,b,c){
+            console.log(this.name)
+            console.log(a+b+c)
+        }
+        // fun();  //函数的直接调用    //this指向window
+
+        //函数的间接调用
+        var o = {name:"zs"}
+        fun.call(o,1,2,3)              //this指向o
+
+        var o1= {name:"ls"}
+        fun.call(o1,1,2,3);
+
+        //apply
+        fun.apply(o,[1,2,3]);
+        fun.apply(o1,[1,2,3]);
+
+        // 总结：
+        // 1.函数是一个对象
+        // 2.call是函数对象上的方法       fun.call()
+        // 3.call(函数内部this指向的那个对象，函数的实参)
+        // 4.执行函数内部的代码，即调用函数
+
+
+        // 使用案例：
+        var arr=[100,2,3,53];
+        console.log(Math.max.apply(null,arr));
+        // Math.max(1,2,3);
+    </script>
+</body>
+</html>

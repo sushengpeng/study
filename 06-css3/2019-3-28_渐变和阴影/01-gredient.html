@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+            background-image: linear-gradient(0deg,transparent,transparent 24%,rgba(255,0,0,.3) 25%,rgba(255,0,0,.3) 26%,transparent 27%,transparent 74%,rgba(255,0,0,.3) 75%,rgba(255,0,0,.3) 76%,transparent 77%,transparent),linear-gradient(90deg,transparent,transparent 24%,rgba(255,0,0,.3) 25%,rgba(255,0,0,.3) 26%,transparent 27%,transparent 74%,rgba(255,0,0,.3) 75%,rgba(255,0,0,.3) 76%,transparent 77%,transparent);
+            /* 以上0deg表示画的横线，90deg表示画的竖线*/
+            background-size:40px 40px;   /* 背景图片的大小不能太小，如果是20px，则不显示*/
+        }
+        div{
+            height: 100px;
+            border:solid 1px red;
+        }
+        .box1{
+            background: linear-gradient(red,blue,yellow,grey);
+        }
+        .box2{
+            background: linear-gradient(to right,#391f8a,#3ac3d6)
+        }
+        .box3{
+            background: linear-gradient(to right bottom,red,blue,green)
+        }
+        .box4{
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(75deg,red,green,blue)
+        }
+        .box5{
+            background: repeating-linear-gradient(to right, yellow 10%, green 20%);
+        }
+        .box6{
+            background: repeating-linear-gradient(#aaa,#eee 50%)
+        }
+        .box7{
+            width:200px;
+            height: 400px;
+            background: radial-gradient(red,green ,blue);
+        }
+        .box8{
+            width:200px;
+            height: 400px;
+            background: radial-gradient(circle,red,green ,blue);
+        }
+        .box9{
+            width:200px;
+            height: 200px;
+            /* 径向渐变还没有被chrome浏览器作为标准实现 */
+            /* background: -webkit-radial-gradient(0 0,farthest-side,red,blue );   */
+            background: -webkit-radial-gradient(25px 50px,closest-side,red,blue );  
+        }
+        .box10{
+            width:200px;
+            height: 200px;
+            /* border-radius: 50%; */
+            background: -webkit-repeating-radial-gradient(red, yellow 10%, green 20%);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+    <div class="box6"></div>
+
+    <div class="box7"></div>
+    <div class="box8"></div>
+    <div class="box9"></div>
+    <div class="box10"></div>
+</body>
+</html>

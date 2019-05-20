@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            width: 300px;
+            height: 80px;
+            margin: 200px auto;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            position: relative;
+        }
+        .outer .inner{
+            width: 300px;
+            height: 80px;
+            box-sizing: border-box;
+        }
+        .outer .inner:after{
+            content: "";
+            right:-3px;
+            bottom:-3px;
+            width: 0;
+            height: 0;
+            border-bottom:3px solid red;
+            border-right:3px solid red;
+            position: absolute;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all .3s linear;
+        }
+        .outer .inner:before{
+            content: "";
+            left:-3px;
+            top:-3px;
+            width: 0;
+            height: 0;
+            border-top:3px solid red;
+            border-left:3px solid red;
+            position: absolute;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: all .3s linear;
+        }
+        .inner:hover:after{
+            width: 300px;
+            height: 80px;
+            right:-3px;
+            bottom:-3px;
+            border-bottom:3px solid red;
+            opacity: 1;
+            transition: all .3s linear;
+        }
+        .inner:hover:before{
+            width: 300px;
+            height: 80px;
+            left:-3px;
+            top:-3px;
+            border-top:3px solid red;
+            border-left:3px solid red;
+            opacity: 1;
+            transition: all .3s linear;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

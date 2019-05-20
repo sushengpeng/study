@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .banner {
+            width: 590px;
+            height: 470px;
+            border: solid 1px red;
+            /* background-color: black; */
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .imgs img {
+            width: 590px;
+            height: 470px;
+            display: none;
+        }
+
+        .imgs .active {
+            display: block;
+        }
+
+        .btn {
+            color: black;
+            position: absolute;
+            top: 415px;
+            left: -10px;
+        }
+
+        .btn li {
+            float: left;
+            list-style: none;
+            margin-left: 8px;
+        }
+
+        .btn li.active {
+            background-color: white;
+        }
+
+        .left,
+        .right {
+            width: 24px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .right {
+            left: 566px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="imgs">
+            <img src="./1.jpg" alt="" style="opacity:1">
+            <img src="./2.jpg" alt="" style="opacity:1">
+            <img src="./3.jpg" alt="" style="opacity:1">
+            <img src="./4.jpg" alt="" style="opacity:1">
+            <img src="./5.jpg" alt="" style="opacity:1">
+            <img src="./6.jpg" alt="" style="opacity:1">
+            <img src="./7.jpg" alt="" style="opacity:1">
+            <img src="./8.jpg" alt="" style="opacity:1">
+        </div>
+        <ul class="btn">
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+            <li>○</li>
+        </ul>
+        <div class="arrow">
+            <div class="left">&lt;
+            </div>
+            <div class="right">&gt;
+            </div>
+        </div>
+    </div>
+    <script>
+        var btns = document.getElementsByClassName("btn")[0];
+        var lis = btns.getElementsByTagName("li");
+        var imgs = document.getElementsByTagName("img");
+        var right = document.getElementsByClassName("right")[0];
+        var left = document.getElementsByClassName("left")[0];
+        var banner = document.getElementsByClassName("banner")[0];
+        var index = 0,
+            num = 1;
+        var timeId, timerId;
+        var arr = new Array();
+        // console.log(btns)
+        imgs[0].className = "active";
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            imgs[i].index = i;
+        }
+
+        function change(index, pre) {
+            for (var j = 0; j < imgs.length; j++) {
+                imgs[j].style.opacity = 1;
+            }
+
+            for (var z = 0; z < lis.length; z++) {
+                lis[z].className = "";
+                // imgs[z].className = "";
+            }
+            // clearInterval(timerId);
+            timerId = setInterval(function () {
+                num = imgs[pre].style.opacity;
+                if (num > 0) {
+                    imgs[pre].style.opacity = num - 0.1;
+                    num -= 0.1;
+                } else {
+                    clearInterval(timerId);
+                    imgs[pre].className = "";
+                    imgs[index].className = "active";
+                    lis[index].className = "active";
+                }
+            }, 100);
+        }
+        btns.onclick = function (e) {
+            e = e || e.event;
+            var target = e.target || e.srcElement;
+            console.log(target)
+            if (target.tagName == "LI") {
+                var n = target.index;
+                index = n;
+                if (arr.length > 1) {
+                    pre = arr[arr.length - 2]
+                }
+                change(index, pre);
+            }
+        }
+        right.onclick = function () {
+            clearInterval(timerId);
+            clearInterval(timeId);
+            index++;
+            if (index == 8) {
+                index = 0
+                console.log(index)
+            }
+            change(index);
+        }
+        left.onclick = function () {
+            index--;
+            if (index == -1) {
+                index = 7
+            }
+            if (index == 0) {
+                pre = 7;
+            } else {
+                pre = index - 1;
+            }
+            change(index, pre);
+        }
+
+        function auto() {
+            timeId = setInterval(function () {
+                index++;
+                if (index == 8) {
+                    index = 0;
+                }
+                if (index == 0) {
+                    pre = 7;
+                } else {
+                    pre = index - 1;
+                }
+                change(index, pre);
+            }, 2000)
+        }
+        auto();
+        banner.onmouseover = function () {
+            clearInterval(timeId);
+        }
+        banner.onmouseout = function () {
+            auto();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1、selectObj.selectedIndex ： 返回选中option的索引
+        2、optionObj.selected ： 返回选择状态
+        3、selectObj.value
+        4、selectObj.onchange 
+    -->
+    <select id="province">
+        <option value="0">选项</option>
+        <option value="1">河南省</option>
+        <option value="2">河北省</option>
+        <option value="3">湖南省</option>
+    </select>
+    <script>
+        var province = document.getElementById("province");
+        province.onchange = function(){
+            console.log( this.selectedIndex)
+            console.log( this.options)
+
+            console.log(this.options[this.selectedIndex])
+
+            console.log(this.options[this.selectedIndex].innerHTML)
+            // option dom元素上特有的属性text
+            console.log(this.options[this.selectedIndex].text)
+            //当value属性不存在时，得到的跟text属性是一样的
+            console.log(this.options[this.selectedIndex].value)
+
+            console.log(this.value)
+        }
+
+        for(var i=0;i<province.options.length;i++){
+            console.log(province.options[i].selected)
+        }
+    </script>
+</body>
+</html>

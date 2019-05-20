@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .checkbox2 .ouetrInput{
+            margin-left: 20px;
+        }
+        .checkbox3{
+            border: 1px solid gray;
+            margin-left: 10px;
+            width: 800px;
+            /* overflow: hidden; */
+        }
+        .checkbox3 input{
+            margin-left: 30px;
+        }
+        .commodity{
+            height: 50px;
+            width: 800px;
+            background-color: #FFF8E1;
+            border: 1px solid white;
+        }
+        .commodity .lab{
+            float: left;
+        }
+        .commodity span{
+            float: left;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border: 1px solid gray;
+            
+        }
+        .commodity .addSub{
+            float: left;
+            margin-left: 200px;
+            margin-top: 8px;
+        }
+        .commodity .delbtn{
+            float: right;
+            margin-right: 90px;
+            margin-top: 8px;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+        }
+        .commodity .price{
+            margin-left:50px;
+            margin-top: 8px;
+            width: 100px;
+        }
+        .commodity .delbtn:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form class="checkbox1" action="1.php">
+        <label><input type="checkbox" id="selectAll">全选</label>
+        <div class="checkbox2">
+            <div class="cb2">
+                <label class="labOut"><input type="checkbox" class="ouetrInput" name="store" value="outer1">店铺1</label>
+                <div class="checkbox3">
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="1">商品1</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=10>&yen;10.00</span>
+                        <button class="delbtn">删除</button>                     
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="2">商品2</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=20>&yen;20.00</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="3">商品3</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=30>&yen;30.00</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                </div>
+             </div>
+            <div class="cb2">
+                <label class="labOut"><input type="checkbox"  class="ouetrInput" name="store" value="outer2">店铺2</label>
+                <div class="checkbox3">
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="4">商品1</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=40>&yen;40.00</span>
+                        <button class="delbtn">删除</button>                     
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="5">商品2</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=50>&yen;50.00</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="6">商品3</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=60>&yen;60.00</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                </div>
+            </div>  
+            <div class="cb2">
+                <label class="labOut"><input type="checkbox" class="ouetrInput" name="store" value="outer3">店铺3</label>
+                <div class="checkbox3">
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="7">商品1</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=70>&yen;70.00</span>
+                        <button class="delbtn">删除</button>                     
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="8">商品2</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <!-- <span>&yen;</span> -->
+                        <span class="price" index=80>&yen;80.00</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                    <div class="commodity">
+                        <label class="lab"><input type="checkbox" name="commodity" value="9">商品3</label>
+                        <div class="addSub">
+                            <span class="sub">-</span>
+                            <span class="number">1</span>
+                            <span class="add">+</span>
+                        </div>
+                        <span class="price" index=90>&yen;90</span>
+                        <button class="delbtn">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="submit">
+    </form>
+</body>
+<script src="../public.js"></script>
+<script>
+   
+    var cb1 = document.getElementById("selectAll");
+    var cb2 = document.getElementsByClassName("ouetrInput");
+    var cb3 = document.querySelectorAll(".checkbox3  input[type=checkbox]")
+
+    console.log(cb1,cb2,cb3);
+
+    // 当点击一级checkbox时，会影响二级和三级
+    cb1.onclick = function(){
+        //对二级checkbox的影响
+        for(var i=0;i<cb2.length;i++){
+            cb2[i].checked = this.checked;
+        }
+        //对三级checkbox的影响
+        for(var j=0;j<cb3.length;j++){
+            cb3[j].checked = this.checked;
+        }
+    }
+    // 当点击二级checkbox时，会影响一级和三级
+    for(var i=0;i<cb2.length;i++){
+        cb2[i].onclick = function(){
+            //对一级的影响
+            var n=0;
+            for(var j= 0;j<cb2.length;j++){
+                if(cb2[j].checked){
+                    n++
+                }
+            }
+            if(n==cb2.length){
+                cb1.checked=true;
+            }else{
+                cb1.checked=false;
+            }
+            //对三级的影响
+            //先找到对应的三级checkbox
+            // console.log(getClosestParent(this,"cb2"))
+            var cb3 = getClosestParent(this,"cb2").querySelectorAll(".checkbox3 input[type=checkbox]");
+            console.log(cb3);
+            for(var k=0;k<cb3.length;k++){
+                cb3[k].checked = this.checked;
+            }
+        }
+    }
+    // 当点击三级checkbox时，会影响一级和二级
+    for(var j=0;j<cb3.length;j++){
+        cb3[j].onclick = function(){
+            //对二级的影响
+            //先找点击的三级checkbox对应的父亲
+            console.log(getClosestParent(this,"cb2"))
+            var cb22 = getClosestParent(this,"cb2").querySelector(".ouetrInput");
+            var cb3 = getClosestParent(this,"cb2").querySelectorAll(".checkbox3 input[type=checkbox]");
+
+            console.log(cb22,cb3)
+            var n=0;
+            for(var i=0;i<cb3.length;i++){
+                if(cb3[i].checked){
+                    n++
+                }
+            }
+            if(n==cb3.length){
+                cb22.checked=true;
+            }else{
+                cb22.checked=false;
+            }
+            //对一级的影响
+            var m=0;
+            for(var k=0;k<cb2.length;k++){
+                if(cb2[k].checked){
+                    m++
+                }
+            }
+            if(m==cb2.length){
+                cb1.checked = true;
+            }else{
+                cb1.checked = false;
+            }
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- {{$store.state.movies}}
+
+    {{$store.getters.watchedMovies}} -->
+    {{watchedMovies}}
+    <br>
+    {{stus}}
+    <br>
+    {{$store.getters.boys18}}
+  </div>  
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script>
+    /* 
+      Vuex中根据state生成新的数据时使用getter
+    
+    */
+    const store = new Vuex.Store({
+      state: {
+        movies: [
+          {
+            title: '电影1',
+            status: true
+          }, {
+            title: '电影2',
+            status: true
+          }, {
+            title: '电影3',
+            status: true
+          }, {
+            title: '电影4',
+            status: false
+          }, {
+            title: '电影5',
+            status: false
+          }
+        ],
+        stus: [
+          {
+            name: '张三',
+            age: 18,
+            sex: '男'
+          }, {
+            name: '张三',
+            age: 20,
+            sex: '男'
+
+          }, {
+            name: '张三',
+            age: 18,
+            sex: '女'
+
+          }, {
+            name: '张三',
+            age: 21,
+            sex: '女'
+
+          }, {
+            name: '张三',
+            age: 20,
+            sex: '男'
+
+          }, {
+            name: '张三',
+            age: 22,
+            sex: '女'
+
+          }
+        ]
+      },
+      getters: {
+        watchedMovies (state) {
+          // 怎么样在getter中获取到state，getter函数中有一个参数，这个参数就是对应的vuex的state
+          return state.movies.filter(movie => movie.status)
+        },
+        /* age18 (state) {
+          return state.stus.filter(stu => stu.age === 18)
+        },
+        age20 (state) {
+          return state.stus.filter(stu => stu.age === 20)
+        }, */
+        // stusByAge: state => age => state.stus.filter(stu => stu.age === age)
+        stusByAge (state) {
+          return age => {
+            return state.stus.filter(stu => {
+              return stu.age === age
+            })
+          }
+        },
+        boys (state) {
+          return state.stus.filter(stu => {
+            return stu.sex === '男'
+          })
+        },
+        boys18 (state, getters) {
+          // return state.stus.filter(stu => stu.age === 18 && stu.sex === '男')
+          // console.log(getters)
+          return getters.boys.filter(stu => stu.age === 18)
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      store,
+      computed: {
+        watchedMovies () {
+          return this.$store.getters.watchedMovies
+        },
+
+        stus () {
+          return this.$store.getters.stusByAge(18)
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

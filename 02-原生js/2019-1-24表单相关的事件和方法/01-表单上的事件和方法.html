@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="1.php" id="f">
+        <input type="text" name="uanme">
+        <input type="submit" id="btn1">
+        <!-- <input type="reset" /> -->
+    </form>
+    <button id='btn2'>外面的</button>
+    <script type="text/javascript">
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+        var f = document.getElementById('f');
+        btn2.onclick = function(){
+            //验证表单的代码
+
+            f.submit();
+            // f.reset();
+        }
+        f.onreset = function(){
+            alert('reset');
+        }
+        f.onsubmit = function(){
+            //验证表单的代码
+
+            alert('submit');
+            // return false;
+        }
+
+        //重置表单三种方式：
+        // 1.表单内部<input type="reset" />
+        // 2.在表单的外部的按钮上绑定事件，事件内触发f.reset();方法
+        // 3.在重置表单的时候想要做其他额外的操作,可以绑定f.onreset事件
+
+        // 提交表单
+        // 1.当点击表单内的<input type="submit" id="btn1">，会提交表单，并且触发onsubmit事件
+        // 2.在表单的外部的按钮上绑定事件，事件内部触发f.submit()方法，这个方法不会触发onsubmit事件
+        // onsubmit事件内部：return false 可以阻止表单提交
+    </script>
+</body>
+</html>

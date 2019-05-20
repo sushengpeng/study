@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border:solid 1px red;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        div img{
+            transition: transform 1s;
+            transform: translate(-7.5px,-12px);
+            transform-origin: left bottom;
+        }
+        div:hover img{
+            transform:scale(1.1,1.2);
+            /* transform:scale(-1) */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../2019-3-21私有前缀和过渡/images/flower.png">
+    </div>
+</body>
+</html>

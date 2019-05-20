@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- #aaa -->
+    <div id="aaa"></div>
+    <!-- span#aa -->
+    <span id="aa"></span>
+    <!-- p.box -->
+    <p class="box"></p>
+    <!-- div#box.box -->
+    <div id="box" class="box"></div>
+
+    <!-- 生成后代：> -->
+    <!-- ul>li*4 -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <ul>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+    </ul>
+
+    <!-- 生成兄弟：+ -->
+    <ul></ul>
+    <ol></ol>
+
+    <!-- 生成上级元素：^ -->
+    <!-- div>ul>li>span -->
+    <div>
+        <ul>
+            <li><span></span></li>
+        </ul>
+    </div>
+
+    <!-- div>ul>li^span -->
+    <div>
+        <ul>
+            <li></li>
+        </ul>
+        <span></span>
+    </div>
+
+
+    <!-- 生成分组：() -->
+    <!-- div>(header>ul>li*2>a)+footer>p -->
+    <div>
+        <header>
+            <ul>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </header>
+        <footer>
+            <p></p>
+        </footer>
+    </div>
+
+    <!-- ul>li*4>div*4 -->
+    <ul>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </li>
+    </ul>
+    <!-- 生成自定义属性：[attr] -->
+    <!-- a[href="http://blog.wpjam.com" title="我爱水煮鱼"] -->
+    <a href="http://blog.wpjam.com" title="我爱水煮鱼"></a>
+
+    <img src="" alt="">
+
+
+    <!-- 对生成内容编号：$ -->
+    <!-- ul>li{menu$}*8 -->
+    <ul>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+        <li>menu6</li>
+        <li>menu7</li>
+        <li>menu8</li>
+    </ul>
+
+    <ul>
+        <li class="menu1"></li>
+        <li class="menu2"></li>
+        <li class="menu3"></li>
+        <li class="menu4"></li>
+        <li class="menu5"></li>
+        <li class="menu6"></li>
+        <li class="menu7"></li>
+        <li class="menu8"></li>
+    </ul>
+    <!-- ul>li.menu${menu$}*8 -->
+    <ul>
+        <li class="menu1">menu1</li>
+        <li class="menu2">menu2</li>
+        <li class="menu3">menu3</li>
+        <li class="menu4">menu4</li>
+        <li class="menu5">menu5</li>
+        <li class="menu6">menu6</li>
+        <li class="menu7">menu7</li>
+        <li class="menu8">menu8</li>
+    </ul>
+
+
+    <!-- 生成文本内容：{} -->
+    <a href="http://blog.wpjam.com">点击这里到 我爱水煮鱼</a>
+
+    <!-- 不要有空格 -->
+    <!-- (header > ul.nav > li*5) + footer -->
+
+    <!-- ul>li.item$@-*5 -->
+    <ul>
+        <li class="item5"></li>
+        <li class="item4"></li>
+        <li class="item3"></li>
+        <li class="item2"></li>
+        <li class="item1"></li>
+    </ul>
+
+    <!-- p>{click}+a{here}+{to continue} -->
+    <p>
+        click
+        <a href="">here</a>
+        to continue
+    </p>
+</body>
+</html>

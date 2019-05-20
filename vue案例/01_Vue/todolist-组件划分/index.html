@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="font/iconfont.css">
+	<script src="js/rem.js"></script>
+</head>
+<body>	
+	<div id="box">
+		<todos-app></todos-app>
+
+	</div>
+	
+	<script src="js/vue.js"></script>
+	<script>
+		/* 
+			[
+				{
+					status: '', // 表示事件是否已完成,
+					content: '', // 表示事件内容,
+					del: false // 表示是否显示删除按钮
+				}
+			]
+
+			content: '' // 和input绑定起来
+		
+		 */
+		const bus = new Vue()
+
+
+		const todosApp = {
+			template: `
+				<div class="todos-app">
+					<header @click="add">
+						提醒事项
+					</header>
+					<!-- 将todos传递给组件todos-list -->
+					<todos-list :todos="todos"></todos-list>
+					<!--<todos-input @send:content="getContent"></todos-input>-->
+					<todos-input2 @send:content="getContent"></todos-input2>
+				</div>
+			`,
+			data () {
+				return {
+					todos: [
+						{
+							content: '事件1',
+							del: false
+						}, {
+							content: '事件2',
+							del: false
+						}
+					]
+				}
+			},
+			methods: {
+				getContent (content) {
+					this.todos.push({
+						// content: content, 
+						content,
+						del: false
+					})
+				},
+				add () {
+					/* this.todos.push({
+						content: '内容',
+						del: false
+					}) */
+					this.todos[1].del = true
+				}
+			},
+			created () {
+				bus.$on('change:del', (index) => {
+					this.todos[index].del = !this.todos[index].del
+				})
+
+				bus.$on('del:index', (index) => {
+					this.todos.splice(index, 1)
+				})
+			}
+		}
+
+		const todosList = {
+			template: `
+				<div class="todosList">
+					<div v-if="!todos.length">
+						<span class="msg">暂无记事</span>
+					</div>
+					<ul v-else>
+						<todos-item 
+							v-for="(todo, index) in todos" 
+							:todo="todo" 
+							:key="index"
+							:index="index"></todos-item>
+					</ul>
+				</div>
+			`, 
+			// 设置props用来接收从父组件中传递的数据
+			props: ['todos'],
+			data () {
+				return {
+
+				}
+			}
+		}
+ 
+		const todosItem = {
+			template: `
+				<!-- 未完成的事件没有类名 -->
+				<li :class="{active: todo.del}">
+					<span>{{todo.content}}</span>
+					<div class="option">
+						<i class="iconfont" @click="change">&#xe68b;</i>
+						<!-- 如果可以被删除则删除图标不显示 -->
+						<i class="iconfont" v-show="todo.del" @click="del">&#xe624;</i>
+					</div>
+				</li>
+			`,
+			props: ['todo', 'index'],
+			methods: {
+				change () {
+					// 我们不应该直接改变prop （永远不要想着改变prop） 需要将想改变的内容发送给数据的源头
+					// this.todo.del = true
+					bus.$emit('change:del', this.index)
+				},
+				del () {
+					bus.$emit('del:index', this.index)
+				}
+			}
+		}
+
+		const todosInput = {
+			template: `
+				<input type="text" class="content" v-model="content" @keyup.enter="sendContent">
+			`, 
+			data () {
+				return {
+					content: ''
+				}
+			},
+			methods: {
+				sendContent () {
+					console.log(this.content)
+					this.$emit('send:content', this.content)
+					this.content = ""
+				}
+			}
+		}
+
+		const todosInput2 = {
+				template: `
+				<input type="text" class="content" v-model="content" @keyup.enter="sendContent">
+			`,
+				data() {
+					return {
+						content: ''
+					}
+				},
+				methods: {
+					sendContent() {
+						console.log(this.content)
+						this.$emit('send:content', this.content)
+						this.content = ""
+					}
+				}
+			}
+
+
+
+		Vue.component('todosApp', todosApp)
+		Vue.component('todosList', todosList)
+		Vue.component('todosItem', todosItem)
+		Vue.component('todosInput', todosInput)
+		Vue.component('todosInput2', todosInput2)
+
+
+		const app = new Vue({
+			el: "#box",
+			data: {
+			
+			}
+		})
+
+	</script>
+</body>
+</html>

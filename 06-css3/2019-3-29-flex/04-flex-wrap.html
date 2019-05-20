@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        ul{
+            display: flex;
+            border:solid 1px blue;
+            flex-wrap: wrap;  /*wrap 换行 */
+            justify-content: space-between;
+            /* align-items: center; */
+            align-content:space-around;   /* 多行的对齐方式，stretch(默认值)前提是元素有高度,flex-start 剩余空间都在下面，flex-end剩余空间在上面，center 剩余空间在上下两边，space-between 剩余空间均分在各行中间  space-around 剩余空间分配在行的上下两边*/
+            height: 800px;
+        }
+        li{
+            border:solid 1px green;
+            border-radius: 2px;
+            height: 180px;
+        }
+        li:nth-child(6n+1){
+            height: 50px;
+        }
+        li:nth-child(6n+2){
+            height: 150px;
+        }
+        li:nth-child(6n+3){
+            height: 100px;
+        }
+        li:nth-child(6n+4){
+            height: 250px;
+        }
+        li:nth-child(6n+5){
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+        <li>list 5</li>
+        <li>list 6</li>
+        <li>list 7</li>
+        <li>list 8</li>
+        <li>list 9</li>
+        <li>list 10</li>
+        <li>list 11</li>
+        <li>list 12</li>
+        <li>list 13</li>
+        <li>list 14</li>
+        <li>list 15</li>
+        <li>list 16</li>
+        <li>list 17</li>
+        <li>list 18</li>
+        <li>list 19</li>
+        <li>list 20</li>
+        <li>list 21</li>
+        <li>list 22</li>
+        <li>list 23</li>
+        <li>list 24</li>
+        <li>list 25</li>
+        <li>list 26</li>
+        <li>list 27</li>
+        <li>list 28</li>
+        <li>list 29</li>
+        <li>list 30</li>
+        <li>list 31</li>
+        <li>list 32</li>
+        <li>list 33</li>
+        <li>list 34</li>
+        <li>list 35</li>
+        <li>list 36</li>
+        <li>list 37</li>
+        <li>list 38</li>
+        <li>list 39</li>
+        <li>list 40</li>
+        <li>list 41</li>
+        <li>list 42</li>
+        <li>list 43</li>
+        <li>list 44</li>
+        <li>list 45</li>
+        <li>list 46</li>
+        <li>list 47</li>
+        <li>list 48</li>
+        <li>list 49</li>
+        <li>list 50</li>
+    </ul>
+</body>
+</html>

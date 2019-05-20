@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #dkyj div {
+            width: 378px;
+            height: 170px;
+            overflow: hidden;
+        }
+
+        #map {
+            position: relative;
+            width: 1200px;
+            height: 400px;
+            border: solid 1px red;
+        }
+
+        #map>div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 800px;
+            top: 200px;
+        }
+        #map>#box2{
+            left: 200px;
+            top: 200px;
+        }
+        #map>#box3{
+            left: 500px;
+            top: 200px;
+        }
+        #map>div>div:nth-child(2) {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -12.5px;
+            margin-top: -12.5px;
+
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: pink;
+
+        }
+
+        #map>div>div:nth-child(3),
+        #map>div>div:nth-child(4) {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -13px;
+            margin-top: -13px;
+            width: 25px;
+            height: 25px;
+            border: solid 1px pink;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dkyj">
+        <div>
+            <img src="760-460.jpg" width="378" height="170">
+            <p>图片一</p>
+        </div>
+        <div>
+            <img src="760-460.jpg" width="378" height="170">
+            <p>图片二</p>
+        </div>
+        <div>
+            <img src="760-460.jpg" width="378" height="170">
+            <p>图片三</p>
+        </div>
+    </div>
+    <div id="map">
+        <div id="box1">
+            <a>日本</a>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="box2">
+                <a>日本</a>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div id="box3">
+                    <a>日本</a>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+        $("#dkyj div").hover(function () {
+            $(this).find("img").animate({
+                width: "+=50",
+                height: "+=22",
+                marginTop: "-11",
+                marginLeft: -25
+            })
+        }, function () {
+            $(this).find("img").animate({
+                width: 378,
+                height: 170,
+                marginTop: 0,
+                marginLeft: 0
+            })
+        })
+
+        console.log($("#map").children().find("div").eq(1))
+
+        function wave(dom,delay){
+            dom.delay(delay).animate({
+                width: "150px",
+                height: "150px",
+                marginLeft: "-75px",
+                marginTop: "-75px",
+                opacity: 0.5
+            }, 1000, function () {
+                // console.log(this)
+                $(this).css({width:"25px",height:"25px",marginLeft:"-13px",marginTop:"-13px",opacity:1});
+            })
+        }
+        setInterval(function () {
+            $("#map").children().each(function(){
+                wave($(this).find("div").eq(1),0)
+                wave($(this).find("div").eq(2),500)
+            })
+
+        }, 1200)
+    </script>
+</body>
+
+</html>

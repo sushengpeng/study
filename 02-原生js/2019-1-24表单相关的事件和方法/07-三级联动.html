@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <select name="" id="oneArea">
+
+    </select>
+    <select name="" id="twoArea">
+        <option>请选择城市</option>
+    </select>
+
+    <select name="" id="threeArea">
+            <option>请选择地区</option>
+    </select>
+    <script>
+        //主要思路：
+        //1：找数据    （把数据整理成自己想要的数据，json格式或者数组格式，或者其他格式）
+        //2：写结构    （把html和css写好）
+        //3：做动作    （js动作）
+        //4：调试      （不可能一次写正确）
+
+        //这种数据结构的优点：
+        //之所以是写成这种格式，是因为我们近几天会讲到php和ajax，在前后端配合的过程中，你需要与后台工程师交流，你需要告诉他把数据整理成什么样式的，
+        // 比如数组或者就是现在下面这种格式。在ajax中数据默认的状态就是这种，他就相当于是一个excel表格（或者是一个成绩单）。主要前后端都省劲了，默认
+        // 传进来就行，也不需要修改了，数据表达的也很清晰。这样更好的一个方面就是，现在只是三级。如果以后是四级、五级、六级或者更多，排到各家各户的门牌号，
+        // 这样统计数据是不是更加清晰省力？
+
+
+
+        //找数据
+        //areaData  地区数据库
+        var areaData = [{
+                'id': 1,
+                'name': "北京",
+                "parentId": 0
+            },
+            {
+                'id': 2,
+                'name': "东城区",
+                "parentId": 1
+            },
+            {
+                'id': 3,
+                'name': "西城区",
+                "parentId": 1
+            },
+            {
+                'id': 4,
+                'name': "河南",
+                "parentId": 0
+            },
+            {
+                'id': 5,
+                'name': "郑州",
+                "parentId": 4
+            },
+            {
+                'id': 6,
+                'name': "驻马店",
+                "parentId": 4
+            },
+            {
+                'id': 7,
+                'name': "金水区",
+                "parentId": 5
+            },
+            {
+                'id': 8,
+                'name': "惠济区",
+                "parentId": 5
+            },
+            {
+                'id': 9,
+                'name': "西平",
+                "parentId": 6
+            },
+            {
+                'id': 10,
+                'name': "舞阳",
+                "parentId": 6
+            },
+            {
+                'id': 11,
+                'name': "漯河",
+                "parentId": 4
+            },
+            {
+                'id': 12,
+                'name': "信阳市",
+                "parentId": 4
+            },
+            {
+                'id': 13,
+                'name': "河北省",
+                "parentId": 0
+            },
+            {
+                'id': 14,
+                'name': "安阳市",
+                "parentId": 4
+            },
+            {
+                'id': 15,
+                'name': "中原区",
+                "parentId": 5
+            },
+        ];
+
+        var province = document.getElementById("oneArea");
+        var city = document.getElementById("twoArea");
+        var area = document.getElementById("threeArea");
+
+
+
+        var str = "<option>请选择省份</option>";    
+        //遍历数据，将parentId为0的数据渲染进province
+        for(var i=0;i<areaData.length;i++){
+            
+            if(areaData[i].parentId==0){
+                str += "<option value='"+areaData[i].id+"'>"+areaData[i].name+"</option>";
+            }
+        }
+        console.log(str)
+        province.innerHTML = str;
+
+        province.onchange = function(){
+            // console.log(this.value);
+            var str = "<option>请选择城市</option>"
+            for(var j=0;j<areaData.length;j++){
+                if(areaData[j].parentId == this.value){
+                    str += "<option value='"+areaData[j].id+"'>"+areaData[j].name+"</option>";
+                }
+            }
+            city.innerHTML = str;
+        }
+        city.onchange = function(){
+            // console.log(this.value);
+            var str = "<option>请选择城市</option>"
+            for(var j=0;j<areaData.length;j++){
+                if(areaData[j].parentId == this.value){
+                    str += "<option value='"+areaData[j].id+"'>"+areaData[j].name+"</option>";
+                }
+            }
+            area.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

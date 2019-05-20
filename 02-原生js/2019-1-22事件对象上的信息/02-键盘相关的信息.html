@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:10px;
+            height: 10px;
+            background-color: pink;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="left:0;top:0"></div>
+    <script>
+        // e.keyCode 获取
+        // onkeyup onkeydown onkeypress
+        var box = document.getElementById("box");
+
+        //onkeypress 的时候，上下左右方向的按键得不到键盘内码
+        document.onkeyup = function(e){
+            e = e || window.event;
+            console.log(e.keyCode);
+            if(e.keyCode==115){
+                console.log(box.style.top);
+                box.style.top = parseInt(box.style.top)+1+"px";
+            }
+            if(e.keyCode==119){
+                console.log(box.style.top);
+                box.style.top = parseInt(box.style.top)-1+"px";
+            }
+            if(e.keyCode==97){
+                console.log(box.style.top);
+                box.style.left = parseInt(box.style.left)-1+"px";
+            }
+            if(e.keyCode==100){
+                console.log(box.style.top);
+                box.style.left = parseInt(box.style.left)+1+"px";
+            }
+        }
+    </script>
+</body>
+</html>

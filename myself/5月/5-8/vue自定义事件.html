@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='send'>发送消息</button>
+        <hr>
+        <button @click='get'>对方接收消息</button> <br>
+        小明:{{msg}}
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg: '当前没有消息',
+            },
+            methods: {
+                send (){
+                    this.$emit('massage','对方发送了一条消息')
+                },
+                get (){
+                    this.$on('massage',(data) =>{
+                        this.msg = data
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

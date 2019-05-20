@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数没有返回值的话，默认返回的是this
+        // function fun(){
+        //     this.name="zs";
+        //     this.age = 18;
+        //     this.say = function(){
+
+        //     }
+        // }
+
+        // var o = new fun();
+        // console.log(o)
+        // new的过程发生了什么：
+        // 1.新创建一个对象{}，让this指向这个对象，相当于this={}
+        // 2.执行函数内部的代码 this就拥有了属性和方法
+        // 3.默认返回了this
+        
+
+
+        //当函数内部返回值为引用类型的话，函数内部this消失，返回的是指定的对象
+        // function fun(){
+        //     this.name="zs";
+        //     this.age = 18;
+        //     this.say = function(){
+
+        //     }
+        //     return {abc:"acb"}
+        // }
+
+        // var o = new fun();
+        // console.log(o)
+        //当函数内部返回值为值类型的话，值忽略，返回的还是this   
+        // function fun(){
+        //     this.name="zs";
+        //     this.age = 18;
+        //     this.say = function(){
+
+        //     }
+        //     return 123;
+        // }
+
+        // var o = new fun();
+        // console.log(o)
+
+
+        //总结：一般情况下，构造函数不写返回值，默认让其返回this
+    </script>
+</body>
+</html>

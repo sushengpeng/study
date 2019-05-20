@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    padding:0;
+}
+.main{
+    margin:0 auto;
+}
+.top{
+    margin: 0 auto;
+    width:80%;
+    height:200px;
+    background-color: aquamarine;
+    /* 下边框 */
+    border-bottom-width: 2px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+}
+.center{
+    margin: 0 auto;
+    width:80%;
+    height:500px;
+    background-color: coral;
+    border-width: 2px;
+    border-color:black;
+    border-style: solid;
+}

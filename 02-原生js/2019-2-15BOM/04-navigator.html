@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 存放有关Web浏览器的信息，在检测浏览器及操作系统方面非常有用
+
+        console.log(navigator.appCodeName) //浏览器代码名的字符串表示 
+        console.log(navigator.appName) //官方浏览器名的字符串表示 
+        console.log(navigator.appVersion) //浏览器版本信息的字符串表示 
+        console.log(navigator.cookieEnabled) //如果启用cookie返回true，否则返回false 
+        console.log(navigator.javaEnabled) //如果启用java返回true，否则返回false 
+        console.log(navigator.platform) //浏览器所在计算机平台的字符串表示 
+        console.log(navigator.plugins) //安装在浏览器中的插件数组 
+        console.log(navigator.taintEnabled) //如果启用了数据污点返回true，否则返回false 
+        console.log(navigator.userAgent)   //用户代理
+
+        if(navigator.userAgent.indexOf("Chrome")>-1){
+            alert("chrome")
+        }else if(navigator.userAgent.indexOf("MSIE ")>-1){
+            alert("ie")
+        }
+    </script>
+</body>
+</html>

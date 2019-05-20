@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    <标签 v-for="item in arr"></标签>
+
+    item的名字是自定义的
+    for (var i = 0; i < arr.length; i++) {
+      var item = arr[i]
+    }
+
+
+    <标签 v-for="item in arr"></标签>
+    如果想要下标
+    <标签 v-for="(item, index) in arr"></标签>
+
+    v-for还可以遍历对象(基本不用)
+    {
+      key: value
+    }
+
+    <标签 v-for="value in obj"></标签>
+    <标签 v-for="(value, key) in obj"></标签>
+    <标签 v-for="(value, key, index) in obj"></标签>
+
+
+   -->
+  <div id="app">
+    <h1>电影列表</h1>
+    <ul v-if="movies.length">
+      <!-- 想要遍历生成哪个标签, 就把v-for指令添加到哪个标签上 -->
+      <li v-for="(movie, index) in movies">
+        <p>序号: {{index + 1}}</p>
+        <p>标题: {{movie.name}}</p>
+        <p>时长: {{movie.time}}</p>
+      </li>
+    </ul>
+    <div v-else>暂无电影</div>
+
+    <div v-for="(value, key, index) in obj">{{value}} {{key}} {{index}}</div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        movies: [
+          {
+            name: '电影1',
+            time: '1小时'
+          }, {
+            name: '电影2',
+            time: '1小时'
+          }, {
+            name: '电影3',
+            time: '1小时'
+          }, {
+            name: '电影4',
+            time: '1小时'
+          }, {
+            name: '电影5',
+            time: '1小时'
+          }
+        ],
+        obj: {
+          a: 1,
+          b: 2,
+          c: 3
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

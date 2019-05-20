@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outer{
+            width:500px;
+            height: 500px;
+            border:solid 1px red;
+            margin: 100px auto;
+        }
+        #inner{
+            width:50px;
+            height: 50px;
+            background-color: pink;
+            border-radius: 50%;
+            transition: all 1s;
+        }
+        /* 定义动画 */
+        @keyframes move{
+            25%{
+                /* transform 始终是相对于元素本身的位置偏移 */
+                transform: translateX(450px);    
+            }
+            50%{
+                transform: translate(450px,450px);
+            }
+            75%{
+                transform: translateY(450px);
+            }
+        }
+        #outer:hover #inner{
+            /* 使用动画 */
+            animation: move 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+</body>
+</html>

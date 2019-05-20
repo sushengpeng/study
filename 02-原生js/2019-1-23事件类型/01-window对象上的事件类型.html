@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 2000px;
+        }
+    </style>
+    <!-- <script src="js/index.js" ></script> -->
+    <script>
+        //指的是dom元素可供操作，并且图片等资源已经加载完毕才触发
+        window.onload = function(){
+            var box = document.getElementById("box");
+            console.log(box);
+            console.log(2,"整个页面资源都加载完毕")
+        }
+        
+        //想要dom元素可供操作，但是图片等资源不一定加载完毕就触发 事件
+        // document对象上有onreadystatechange，不能是window对象
+        // 只要document对象上的状态发生变化，都会执行绑定的事件
+        document.onreadystatechange = function(){
+            // interactive   dom可功操作
+            if(document.readyState =="interactive"){
+                console.log(document.getElementById("img"));
+            }
+            //complete  资源加载完毕
+            if(document.readyState =="complete"){
+                // 图片的onload事件已经执行了
+            }
+        }
+        // h5中新出的事件类型，必须通过addEventListener注册DOMContentLoaded事件类型
+        window.addEventListener("DOMContentLoaded",function(){
+            console.log(4,"DOMContentLoaded")
+        })
+
+        // 总结：
+        // 三种事件类型的顺序：document.onreadystatechange  > DOMContentLoaded > onload
+
+        //当窗口发生变化的时候触发onresize
+        window.onresize = function(){
+            var n1 = Math.floor(Math.random()*256)
+            var n2 = Math.floor(Math.random()*256)
+            var n3 = Math.floor(Math.random()*256)
+
+            document.body.style.backgroundColor = "rgb("+n1+","+n2+","+n3+")";
+        }
+
+        // onscroll  事件在元素滚动条在滚动时触发
+        window.onscroll = function(){
+            console.log(document.documentElement.scrollTop);
+            console.log(document.body.scrollTop)
+            if(document.documentElement.scrollTop>420){
+                document.body.style.backgroundColor ="red"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- //onload -->
+    <div id="box"></div>
+    <img src="https://aecpm.alicdn.com/simba/img/TB183NQapLM8KJjSZFBSutJHVXa.jpg" id="img">
+    <script>
+        var img = document.getElementById("img");
+        img.onload = function(){
+            console.log(1,"图片加载完毕")     //先打印1，在打印2
+        }
+    </script>
+    <!-- <script>
+        var box = document.getElementById("box");
+        console.log(box);
+    </script> -->
+    <!-- <script src="js/index.js" ></script> -->
+</body>
+</html>

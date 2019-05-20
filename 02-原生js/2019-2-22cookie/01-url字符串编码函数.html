@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../public.js"></script>
+    <script>
+        //foo://example.com:8042/over/there?name=ferret#nose
+        // name= fer&s=ret
+        // age=18
+        var str = "http://www.baidu.com/over/there?name= fer=ret&age=18"
+        // escape()
+        console.log( escape(str))
+        console.log( "http://www.baidu.com/over/there?name="+escape("fer&s=ret")+"&age=18")
+
+        console.log(getSearch("name"))
+
+        console.log(unescape("https%3A%2F%2Fi.taobao.com%2Fmy_taobao.htm%3Fspm%3Da21bo.2017.754894437.3.5af911d9H5s0ZG%26ad_id%3D%26am_id%3D%26cm_id%3D%26pm_id%3D1501036000a02c5c3739"))
+
+        // console.log(decodeURI("https%3A%2F%2Fi.taobao.com%2Fmy_taobao.htm%3Fspm%3Da21bo.2017.754894437.3.5af911d9H5s0ZG%26ad_id%3D%26am_id%3D%26cm_id%3D%26pm_id%3D1501036000a02c5c3739"))
+
+        console.log(decodeURIComponent("https%3A%2F%2Fi.taobao.com%2Fmy_taobao.htm%3Fspm%3Da21bo.2017.754894437.3.5af911d9H5s0ZG%26ad_id%3D%26am_id%3D%26cm_id%3D%26pm_id%3D1501036000a02c5c3739"))
+
+        // escape()    编码的字符个数最多
+        // encodeURI(str)  对整个url进行编码
+        // encodeURIComponent(str)  通常用于对search部分传入的value值进行编码
+
+        // XSS攻击
+        // CSRF攻击
+    </script>
+</body>
+</html>

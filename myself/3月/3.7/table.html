@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .table {
+            width: 400px;
+            height: 400px;
+            /* box-sizing: border-box; */
+            border: 1px solid tomato;
+            margin: 0 auto;
+        }
+
+        .login,.regedit {
+            width: 200px;
+            height: 80px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            float: left;
+            text-align: center;
+            line-height: 80px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .content {
+            width: 400px;
+            height: 320px;
+            float: left;
+        }
+
+        .logContent,.regContent {
+            width: 400px;
+            height: 320px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <p class="login">登录</p>
+        <p class="regedit">注册</p>
+        <div class="content">
+            <div class="logContent">登录内容</div>
+            <div class="regContent">注册内容</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $(".table").click(function (event) {
+                if (event.target.className == "login") {
+                    $(".logContent").show().css("background-color", "palegreen").siblings().hide();
+                } else {
+                    $(".regContent").show().css("background-color", "palevioletred").siblings().hide();
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

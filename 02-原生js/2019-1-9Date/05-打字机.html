@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            word-wrap:break-word;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var str = "sdfsjdoifweqtjqe rlkgjoqerutyoeiqwrljdslk fhgsdjgdfklhgkdfjgldfjgoierutg ioerjhtgrjhgreujre iouyerjghjgkjdfgj";
+        // document.write(str.charAt(0))
+        //每隔50ms打印一个字符
+        var i=0;
+        function print(){
+            document.write(str.charAt(i));
+            i++;
+            console.log(i);
+            if(str.length==i){
+                clearInterval(timerId);
+            }
+        }
+        var timerId =setInterval(print,50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+/* 全局 */
+*{
+    margin:0;
+    padding:0;
+    font-family: "楷体";
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color:black;
+}
+a:hover{
+    color: white;
+    background-color: black;
+}
+/* ......... */
+main{
+    margin: 0 auto;
+}
+.div1_1:nth-child(1){
+    height:80px; 
+}
+.div1{
+    /* width: 1950px; */
+    height: 950px;
+    margin:0 auto;
+    background-image: url(../../image/div1.jpg);
+    background-position: center;
+    min-width: 1200px;
+}
+.div1_1{
+    margin: 0 auto;
+    width:1200px;
+    height:950px;
+}
+.divp1{
+    float: left;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: black;
+    line-height: 80px;
+}
+.div1 dd{
+    float: right;
+    font-size: 20px;
+    line-height: 80px;
+    margin-right: 20px;
+    padding: 20px;
+}
+.divp2{
+    margin-left: 400px;
+    padding-top: 270px;
+    width: 100px;
+    height: 50px;
+    font-size: 40px;
+    letter-spacing: 20px;
+}
+/*.....................第一部分结束................. */
+/*.....................第二部分开始................. */
+.bgc2{
+    width: 1950px;
+    height: 950px;
+    margin:0 auto; 
+    background-color:#ffffff;
+}
+.div2{
+    width: 1200px;
+    height: 950px;
+    margin:0 auto;
+    padding-top:100px;
+    background-position: center;
+    min-width: 1200px;
+    
+}
+.div2_1 p{
+    text-align: right;
+    padding:10px;
+}
+
+.div2_1 p:nth-child(1){
+    font-size: 40px;
+    font-family: "宋体";
+    font-weight: bold;
+}
+.div2_1 p:nth-child(2){
+    font-size: 25px;
+    color: #ccc;
+    letter-spacing:4px;
+}
+.upline{
+    float: right;
+    width:40px;
+    height:20px;
+    margin-right:20px;
+    border-top:1px solid black;
+}
+.div2_2 dd{
+    font-size:20px;
+    float: left;
+    padding:10px 15px 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+}
+.div2_2 dd:hover{
+    background-color: black;
+    color:white;
+}
+/* 产品图片 */
+.div2_3 dl,.div2_3 dd{
+    float:left;
+}
+.div2_3 dl{
+    margin-top: 70px;
+}
+.div2_3 dd{
+    font-size: 20px;
+    color:#ccc;
+    margin-left: 10px;
+    text-align: center;
+}
+.div2_3p1{
+    font-size: 25px;
+    color: black;
+    font-size:25px;
+    font-weight: bold;
+    padding: 10px;
+} 
+/*.....................第二部分结束................. */
+/*.....................第三部分开始................. */
+
+.div3{
+    width: 1950px;
+    height: 820px;
+    margin:0 auto; 
+}
+.div3_1{
+    width: 1200px;
+    height: 820px;
+    margin:0 auto;
+}
+.div3_1p1{
+    font-size: 40px;
+    font-weight: bold;
+    padding:70px 3px 10px;
+}
+.div3_1p2{
+    letter-spacing:3px;
+    font-size: 25px;
+    color:#ccc;
+    margin-left: 10px;
+}
+.div3_1p3{
+    float: left;
+    width:55px;
+    height:20px;
+    margin-top:10px;
+    margin-left: 10px;
+    border-top:3px solid black;
+}
+.div3_2 dl{
+    display: inline-block;
+    background-color:white;
+}
+
+.div3_4{
+    width: 600px;
+    float: left;
+}
+.icon{
+    display:inline-block;
+    margin-top:40px;
+}
+.icon:nth-child(2){
+    margin-left: 200px;
+}
+.icon:nth-child(3){
+    margin-left: 190px;
+}
+.div3_2 dd{
+    float: left;
+}
+.div3_3 div{
+    width:250px;
+}
+.section{
+    width: 750px; 
+    height: 150px;
+    float: left;
+}
+.section p:nth-child(1){
+    font-size: 20px;
+    padding:10px 0px ;
+}
+.div3_3 p{
+    padding-bottom: 10px;
+}
+
+
+/*.....................第三部分结束................. */
+
+/*.....................第四部分开始................. */
+.div4{
+    width:1920px;
+    height: 950px;
+    background-image: url(../../image/关于.jpg);
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid transparent;
+}
+.about{
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-left: 900px;
+    margin-top: 20px;
+}
+.about p{
+    float: right;
+}
+.about p:nth-child(1){
+    font-size: 40px;
+}
+.about p:nth-child(2){
+    font-size: 20px;
+    color: #ccc;
+}
+.about p:nth-child(3){
+    width: 40px;
+    height: 10px;
+    margin-right: 15px;
+    border-bottom:2px solid black;
+}
+.more{
+    width: 470px;
+    height: 500px;
+    margin-left:1045px; 
+    margin-top: 170px;
+    line-height: 35px;
+    text-align:justify;
+    /* background-color: black; */
+}
+.more p:nth-child(1){
+    text-align: center;
+    font-size: 20px;
+}
+.more p:nth-child(2){
+    margin-top: 30px;
+    font-size: 15px;
+}
+.more p:nth-child(3){
+    width: 80px;
+    height: 30px;
+    line-height:30px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+}
+
+/*.....................第四部分结束................. */
+/*.....................第五部分开始................. */
+.div5{
+    width: 1920px;
+    height: 950px;
+    background-image: url(../../image/图层13.jpg);
+    margin:0 auto;
+    margin-top: 2px;
+    border: 1px solid transparent;
+}
+.message{
+    width: 100px;
+    height: 100px;
+    float: right;
+    margin-top: 20px;
+    margin-right: 400px;
+}
+.message p{
+    float: right;
+}
+.message p:nth-child(1){
+    font-size: 40px;
+}
+.message p:nth-child(2){
+    font-size: 20px;
+    color: #ccc;
+}
+.message p:nth-child(3){
+    width: 40px;
+    height: 10px;
+    margin-right: 15px;
+    border-bottom:2px solid black;
+}
+.submit{
+    margin-left:400px;
+    margin-top: 310px;
+}
+label{
+    width:400px;
+    font-size: 25px;
+    display: block;
+    margin-bottom: 20px;
+    border-bottom: 2px dotted #ccc;
+}
+input{
+    border:none;
+    height:30px;
+    background-color: #F2F2F2;
+}
+.sub{
+    width:180px;
+    height:40px;
+    font-size: 30px;
+    color: white;
+    background-color: black;
+    margin-left: 110px;
+}
+/*.....................第五部分结束................. */

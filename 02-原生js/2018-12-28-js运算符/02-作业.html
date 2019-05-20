@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 1.
+     var j=1;
+     j=j=j+1;
+     console.log(j);
+
+
+        // 2
+     var j=1;
+     j=j++;
+     
+	console.log(j);
+
+        // 3
+    var j=1;
+     j=(j++)+j+(j++)+(++j)+j;
+    //  j=j++ +j+ j++  +  ++j  +j
+     	
+	console.log(j);
+
+
+    // 4
+    var j=1;
+     j+=j++;
+     
+	console.log(j);
+
+    // 5.
+    var j=1;
+     j+=++j;
+     console.log(j);
+
+    // 6.
+     var j=1;
+     j=j=j+1;
+     j=j++;
+     console.log(j);
+    //  j+=++j;
+    //  j+=j++;
+    //  console.log(j);
+
+    // 7.
+    // var i=1;
+    //  i+=i/i+i++;
+    //  alert(i);       //
+    //  i++; 
+    //  ++i;
+    //  i+=i/i+(++i);
+    //  console.log(i);
+
+        // 8
+    var i=1;
+     i+=(i++)+(++i)/i;   
+     
+	console.log(i);
+    </script>
+</body>
+</html>

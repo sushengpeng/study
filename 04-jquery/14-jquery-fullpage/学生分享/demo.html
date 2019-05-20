@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css">
+    <style>
+        body,html,header,section,div,ul,li,div,a,p,h1{ padding:0; margin:0; font-family:"微软雅黑"}
+        li{ list-style:none;}
+        a{ text-decoration:none;}
+
+        .s1{ background: url("img/s1.jpg") center; }
+        .s1 img{ position:absolute; top: 50%; left: 50%; margin-left: -545px; margin-top: -240px; opacity: 0; transition: 0.8s 0.8s; }
+        .s1.active img{ opacity: 1 }
+        /*公共*/
+        .section{ overflow: hidden  }
+        .section .left{ position: absolute; top: 50%; margin-top: -200px; left: 5%; z-index: 2}
+        .section .left li{ float: left; margin-right: 20px; transition: 0.8s; }
+        .section .left li p{ margin: 20px 0; font-size: 18px; color:#333 }
+        .section .left li a{ width:98px; height:36px; background:url(img/buy.jpg); display:block;}
+        .section .right{ position: absolute; right: 5%;border-right:2px solid #000000; padding-right: 10px; text-align: right; top: 15%;z-index: 3; transition: 0.8s }
+        .section .right h1{ font-size:34px; color:#333; font-weight:100;}
+        .section .right p{ font-size:18px; color:#333; line-height:1.5em;margin-top:20px; margin-bottom:10px; }
+        .section .right a{ color:#333;  text-decoration:underline; cursor: pointer }
+        .section .right a:hover{ text-decoration:none;}
+        .section .bg{ position: absolute; bottom: 0; right: 0; z-index: 1 }
+
+        .s2{ background: url("img/s2.jpg") center }
+        .s2 .left li{ -webkit-transform: translateY(1000px); transform: translateY(1000px); }
+        .s2 .left li:nth-child(1){ transition-delay: 0.8s }
+        .s2 .left li:nth-child(2){ transition-delay: 0.9s }
+        .s2 .left li:nth-child(3){ transition-delay: 1s }
+        .s2.active .left li{ -webkit-transform: translateY(0); transform: translateY(0); }
+        .s2 .right{ -webkit-transform: translateY(-500px);  transform: translateY(-500px); transition-delay: 1.2s}
+        .s2.active .right{ -webkit-transform: translateY(0); transform: translateY(0);}
+
+        .s3{ background: url("img/s3.jpg") center }
+        .s3 .left li{ transition-delay: 0.8s }
+        .s3 .left li:nth-child(2){ -webkit-transform: translateX(-279px); transform: translateX(-279px) }
+        .s3 .left li:nth-child(3){ -webkit-transform: translateX(-558px); transform: translateX(-558px) }
+        .s3.active .left li{ -webkit-transform: translateX(0); transform: translateX(0) }
+        .s3 .right{ -webkit-transform: translateX(500px); transform: translateX(500px); transition-delay: 1.2s}
+        .s3.active .right{ -webkit-transform: translateX(0); transform: translateX(0); }
+
+        .s4{ background: url("img/s4.jpg") center }
+        .s4 .left li:nth-child(1){ -webkit-transform: translate(330px,-1000px); transform: translate(330px,-1000px) }
+        .s4.active .left li:nth-child(1){ -webkit-animation: move1 2s 0.8s forwards; animation: move1 2s 0.8s forwards }
+        .s4 .left li:nth-child(2){ -webkit-transform: translate(0,-1000px); transform: translate(0,-1000px) }
+        .s4.active .left li:nth-child(2){ -webkit-animation: move2 2s 0.8s forwards; animation: move2 2s 0.8s forwards }
+        .s4 .left li:nth-child(3){ -webkit-transform: translate(-330px,-1000px); transform: translate(-330px,-1000px) }
+        .s4.active .left li:nth-child(3){ -webkit-animation: move3 2s 0.8s forwards; animation: move3 2s 0.8s forwards }
+        .s4 .right{ opacity: 0; transition: 0.8s 2.5s}
+        .s4.active .right{ opacity: 1 }
+
+        .s5{ background: url("img/s5.jpg") center; perspective: 500px }
+        .s5 .left li{ -webkit-transform: translate3d(-1000px,-800px,-500px) rotateX(145deg); transform: translate3d(-1000px,-800px,-500px) rotateX(145deg) }
+        .s5.active .left li:nth-child(1){ -webkit-transform: translate3d(0,0,0) rotateX(0deg); transform: translate3d(0,0,0) rotateX(0deg); transition-delay: 0.8s }
+        .s5.active .left li:nth-child(2){ -webkit-transform: translate3d(0,0,0) rotateX(0deg); transform: translate3d(0,0,0) rotateX(0deg); transition-delay: 1s }
+        .s5.active .left li:nth-child(3){ -webkit-transform: translate3d(0,0,0) rotateX(0deg); transform: translate3d(0,0,0) rotateX(0deg); transition-delay: 1.2s }
+        .s5 .right{ opacity: 0; transition: 0.8s 1.8s}
+        .s5.active .right{ opacity: 1 }
+
+
+        /*头部导航*/
+        .hd{ position: absolute; left: 0; top: 0; z-index: 1;     background: rgba(0,0,0,0.8); color: white; width: 100%; height: 60px; }
+        .inner{ width: 980px; height: 60px; margin: 0 auto }
+        .logo{ float: left; text-decoration: none; margin: 16px 20px 0 0  }
+        .inner nav{ float:left; }
+        .inner nav .menu li{ float: left; }
+        .inner nav .menu li a{ display: block;  padding: 0 20px; line-height: 60px; cursor:pointer; color: #ffffff; }
+        .inner nav .menu li a:hover,.inner nav .menu li.active a{ background: #fc0; color: #000;  }
+
+
+        @-webkit-keyframes move1 {
+             0%{ -webkit-transform: translate(330px,-1000px); transform: translate(330px,-1000px) }
+             20%{ -webkit-transform: translate(330px,0); transform: translate(330px,0) }
+             40%{ -webkit-transform: translate(330px,-50px); transform: translate(330px,-50px) }
+             60%{ -webkit-transform: translate(330px,0px); transform: translate(330px,0px) }
+             100%{ -webkit-transform: translate(0,0); transform: translate(0,0) }
+         }
+        @-webkit-keyframes move2 {
+            0%{ -webkit-transform: translate(0,-1000px); transform: translate(0,-1000px) }
+            20%{ -webkit-transform: translate(0,0); transform: translate(0,0) }
+            40%{ -webkit-transform: translate(0,-50px); transform: translate(0,-50px) }
+            60%{ -webkit-transform: translate(0,0px); transform: translate(0,0px) }
+            100%{ -webkit-transform: translate(0,0) ; transform: translate(0,0)}
+        }
+        @-webkit-keyframes move3 {
+            0%{ -webkit-transform: translate(-330px,-1000px); transform: translate(-330px,-1000px) }
+            20%{ -webkit-transform: translate(-330px,0); transform: translate(-330px,0) }
+            40%{ -webkit-transform: translate(-330px,-50px); transform: translate(-330px,-50px) }
+            60%{ -webkit-transform: translate(-330px,0px); transform: translate(-330px,0px) }
+            100%{ -webkit-transform: translate(0,0); transform: translate(0,0) }
+        }
+        @keyframes move1 {
+            0%{ transform: translate(330px,-1000px) }
+            20%{ transform: translate(330px,0) }
+            40%{ transform: translate(330px,-50px) }
+            60%{ transform: translate(330px,0px) }
+            100%{ transform: translate(0,0) }
+        }
+        @keyframes move2 {
+            0%{ transform: translate(0,-1000px) }
+            20%{ transform: translate(0,0) }
+            40%{ transform: translate(0,-50px) }
+            60%{ transform: translate(0,0px) }
+            100%{ transform: translate(0,0) }
+        }
+        @keyframes move3 {
+            0%{ transform: translate(-330px,-1000px) }
+            20%{ transform: translate(-330px,0) }
+            40%{ transform: translate(-330px,-50px) }
+            60%{ transform: translate(-330px,0px) }
+            100%{ transform: translate(0,0) }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航开始 -->
+    <header class="hd">
+        <div class="inner">
+            <a class="logo"><img src="img/logo.png"></a>
+            <nav>
+                <ul class="menu">
+                    <li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+                    <li data-menuanchor="page2"><a href="#page2">吉祥物语</a></li>
+                    <li data-menuanchor="page3"><a href="#page3">Chow-Lee</a></li>
+                    <li data-menuanchor="page4"><a href="#page4">北邦</a></li>
+                    <li data-menuanchor="page5"><a href="#page5">赵娜</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- 头部导航结束 -->
+
+    <!-- 主体开始 -->
+    <div class="con">
+
+        <div class="section s1 active">
+            <img src="img/wenzi.png">
+        </div>
+
+        <!-- 第二页 -->
+        <div class="section s2">
+            <div class="left">
+                <ul>
+                    <li>
+                        <img src="img/img1.png">
+                        <p>望<br>30*40cm / 40*50cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img2.png">
+                        <p>听<br>30*40cm / 40*50cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img3.png">
+                        <p>悟<br>30*40cm / 40*50cm</p>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h1>观止</h1>
+                <p>价格：99元起<br>艺术家：吉祥物语</p>
+                <a>站酷主页</a>
+            </div>
+            <div class="bg"><img src="img/sc2.png"></div>
+        </div>
+
+        <!-- 第三页 -->
+        <div class="section s3">
+            <div class="left">
+                <ul>
+                    <li>
+                        <img src="img/img4.png">
+                        <p>Love<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img5.png">
+                        <p>Filial and eros aw<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img6.png">
+                        <p>Good Time<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h1>KIDS</h1>
+                <p>价格：249元<br>艺术家：Chow-Lee</p>
+                <a>站酷主页</a>
+            </div>
+            <div class="bg"><img src="img/sc3.png"></div>
+        </div>
+
+        <!-- 第四页 -->
+        <div class="section s4">
+            <div class="left">
+                <ul>
+                    <li>
+                        <img src="img/img7.png">
+                        <p>绽放2009<br>60*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img8.png">
+                        <p>绽放2010<br>60*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img9.png">
+                        <p>绽放2011<br>60*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h1>绽放</h1>
+                <p>价格：269元<br>艺术家：北邦</p>
+                <a>站酷主页</a>
+            </div>
+            <div class="bg"><img src="img/sc4.png"></div>
+        </div>
+
+        <!-- 第五页 -->
+        <div class="section s5">
+            <div class="left">
+                <ul>
+                    <li>
+                        <img src="img/img10.png">
+                        <p>栖息<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img11.png">
+                        <p>惊蛰<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <img src="img/img12.png">
+                        <p>恬静<br>50*60cm</p>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <h1>沉睡的森林</h1>
+                <p>价格：249元<br>艺术家：赵娜</p>
+                <a>站酷主页</a>
+            </div>
+            <div class="bg"><img src="img/sc5.png"></div>
+        </div>
+    </div>
+    <!-- 主体结束 -->
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+    $(function(){
+        $('.con').fullpage({
+            // navigation: true,
+            anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
+            menu: '.menu',
+            navigationTooltips: ['首页','吉祥物语','Chow-Lee','北邦','赵娜',],
+            verticalCentered:false,
+
+        });
+
+    });
+</script>
+</body>
+</html>

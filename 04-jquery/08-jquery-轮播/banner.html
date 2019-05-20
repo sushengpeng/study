@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .banner{
+            width: 600px;
+            height: 600px;
+            margin:0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner .imgs{
+            position: absolute;
+            width:400%;
+        }
+        .banner .imgs img{
+            float: left;
+            width: 600px;
+            height: 600px;
+        }
+
+        .banner .btns{
+            position: absolute;
+            bottom:20px;
+            left:50%;
+            margin-left: -160px;
+        }
+        .btns li{
+            float:left;
+            width: 10px;
+            height: 10px;
+            border:solid 5px blue;
+            background-color: rgba(240,240,240,0.8);
+            border-radius:50%;
+            margin:0 10px;
+        }
+        .btns li.active{
+            border:solid 5px aqua;
+            background-color: yellow;
+        }
+        .arrow .left,.arrow .right{
+            width: 40px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,0.3);
+            cursor:default;
+        }
+        .arrow .left{
+            left:0;
+        }
+        .arrow .right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+        <div class="banner">
+            <div class="imgs">
+                <img src="img/5.jpg" alt="">
+                <img src="img/6.jpg" alt="">
+                <img src="img/7.jpg" alt="">
+                <img src="img/8.jpg" alt="">
+            </div>
+            <ul class="btns">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="arrow">
+                <span class="left">&lt;</span>
+                <span class="right">&gt;</span>
+            </div>
+        </div>
+    <script src="../jquery.js"></script>
+    <script>
+        //复制第一张图片克隆到imgs的最后
+        $(".imgs img").first().clone().appendTo(".imgs");
+        $(".imgs").width("500%");
+        var w = $(".banner").width();
+        var l= $(".imgs img").length;
+
+        var flag=true;   //防止连点
+        //索引是整个轮播的核心
+        var index = 0;
+        function move(){
+            //当到达最后一张，并且要到下一张的时候，要让index归到
+            if(index==l){
+                index=1;
+                $(".imgs").css("left",0);
+            }
+            //当在第一张，要移动到上一张的时候，要让index纠正到len-2
+            if(index==-1){
+                index=l-2;
+                $(".imgs").css("left",-w*(l-1)+"px");
+            }
+            var left = -w*index+"px";
+            // $(".imgs").css("left",left);
+            $(".imgs").animate({
+                left:left
+            },function(){
+                flag=true;
+            })
+            //改变下面的小按钮
+            var i = index;
+            if(i==l-1){
+                i=0;
+            }
+            $(".btns li").eq(i).addClass("active").siblings().removeClass("active");
+        }
+
+        $(".arrow .left").click(function(){
+            if(flag){
+                flag=false;
+                index--;
+                move();
+            }
+        })
+        $(".arrow .right").click(function(){
+            if(flag){
+                flag= false;
+                index++;
+                move();
+            }
+        })
+        $(".btns").on("click","li",function(){
+            if(flag){
+                flag=false;
+                 var j = $(this).index();
+                index = j;
+                move();
+            }
+        })
+
+        //自动轮播
+        var timmer;
+        function auto(){
+            timmer=setInterval(function(){
+                index++;
+                move();
+            },2000)
+        }
+        
+        $(".banner").hover(function(){
+            clearInterval(timmer)
+        },function(){
+            auto();
+        })
+
+        auto();
+    </script>
+</body>
+</html>

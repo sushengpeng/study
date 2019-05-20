@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .ball {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            /* background-color: white; */
+            /* opacity: 0; */
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function Balls() {
+
+        }
+        Balls.prototype = {
+            init: function () {
+                var body = document.body;
+                var colors = ['red', 'orange', 'yellow', 'green', 'tomato', 'purple'];              
+                var _this = this;
+                setInterval(function () {
+                    var star = document.createElement("div");
+                    star.className = "ball";
+                    var thecolor = colors[_this.rnd(0, colors.length-1)];
+                    var size = _this.rnd(50, 100);
+                    var thestyle = {
+                        backgroundColor: thecolor,
+                        left: _this.getdirection().x + "px",
+                        top: _this.getdirection().y + "px",
+                        width:size+"px",
+                        height:size+"px"
+                    }
+                    _this.setstyle(star,thestyle);
+                    body.appendChild(star);
+                }, 1667)
+            },
+        //     x=a*(2*cos(t)-cos(2*t))
+        // y=a*(2*sin(t)-sin(2*t))
+            getdirection: function () {
+                var x = this.rnd(0, 1920);
+                var y = this.rnd(0, 930);
+                return {
+                    x: x,
+                    y: y
+                };
+            },
+            setstyle: function (ele, obj) {
+
+                for (var key in obj) {
+                    ele.style[key] = obj[key];
+                }
+            },
+            change: function (obj) {
+                setInterval(function () {
+
+                }, 16.67)
+            },
+            rnd: function (start, end) {
+                return Math.floor(Math.random() * (end - start + 1)) + start;
+            }
+        }
+        var star1 = new Balls;
+        star1.init();
+    </script>
+</body>
+
+</html>

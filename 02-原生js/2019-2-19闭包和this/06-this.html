@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = 0; 
+        function test(){ 
+            alert(this.x); 
+        } 
+        var o={}; 
+        o.x = 1; 
+        o.m = test; 
+        o.m.apply();    //0      //apply()的参数为空时，默认调用window对象
+        o.m.apply(o);   //1
+
+
+        // 总结：
+        // this  this只有在函数内部才能使用，this是关键字，谁调用这个函数this指向谁
+        // 1.事件处理函数中的this    this——>绑定事件的dom对象
+        // 2.构造函数中的this     this->通常情况下指向实例对象
+        // 3.纯粹的函数调用       this->通常指向window    谁调用指向谁
+        // 4.作为对象的方法调用    this->指向的是调用的对象
+    </script>
+</body>
+</html>

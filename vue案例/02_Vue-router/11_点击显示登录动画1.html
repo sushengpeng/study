@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 300px;
+      height: 200px;
+      background: red;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .masking {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,.5);
+    }
+    
+    .move-enter {
+      left: -50%;
+    }
+    .move-enter-to, .move-leave {
+      left: 50%;
+    }    
+    .move-leave-to {
+      left: 150%;
+    }
+    .move-enter-active, .move-leave-active {
+      transition: left .5s;
+    }
+    
+
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
+    }
+    .fade-enter-to, .fade-leave {
+      opacity: 1;
+    }
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .5s;
+    }
+
+    
+
+
+    
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button @click="show = true">登录</button>
+    <transition name="move">
+      <div class="box" v-show="show">
+        <button @click="show = false">关闭</button>
+      </div>
+    </transition>
+    <transition name="fade">
+      <div class="masking" v-show="show">
+      </div>
+    </transition>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        show: false
+      }
+    })
+  
+  </script>
+</body>
+</html>

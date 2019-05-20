@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+                margin: 0;
+                padding:0;
+                list-style: none;
+        }
+        ul{
+            display: flex;
+            border:solid 1px blue;
+            height: 200px;
+            width: 600px;
+        }
+        li{
+            /* border:solid 1px orange; */
+            flex-grow: 1;
+        }
+        li:nth-child(1){
+            width:50px;
+            background-color: red;
+        }
+        li:nth-child(2){
+            width:250px;
+            flex-grow: 2;
+            background-color: green;
+        }
+        li:nth-child(3){
+            width:100px;
+            background-color: blue;
+        }
+
+        /* 计算公式为：
+            50+(600-(元素的总和50+250+100)*(1/(1+2+1))
+            250+(600-(元素的总和50+250+100)*(2/(1+2+1))
+            100+(600-(元素的总和50+250+100)*(1/(1+2+1))
+         */
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list</li>
+        <li>list</li>
+        <li>list</li>
+    </ul>
+</body>
+</html>

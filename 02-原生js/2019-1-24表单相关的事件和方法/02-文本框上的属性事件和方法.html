@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="1.php" id="f">
+        <input type="text" name="uname" id="uname" value="123" maxlength="20" minlength="6" required>
+        <input type="text" name="pwd" id="pwd" value="123">
+        <input type="submit" id="btn1">
+        <!-- <input type="reset" /> -->
+    </form>
+    <script>
+        var uname = document.getElementById("uname");
+        var pwd = document.getElementById("pwd");
+        // 常用的属性：
+        console.log(uname.value);
+        console.log(uname.name);
+        console.log(uname.type);
+        // 常用的方法：
+        uname.focus();
+        uname.select();
+        // uname.blur();
+
+        //常用的事件：
+        // onfocus
+        // onblur
+        // onselect
+        // onkeyup
+
+        // uname.onfocus = function(){
+        //     uname.select();
+        // }
+        // uname.onkeydown = function(e){
+        //     e = e || window.event;
+        //     if(e.keyCode==40){
+        //         pwd.focus();
+        //     }
+        // }
+        // pwd.onfocus = function(){
+        //     this.select();
+        // }
+
+
+        // onblur 通常用于验证表单内容的合法性
+        uname.onblur = function(){
+            var v= this.value;
+            if(v.indexOf("@")>=0){
+                alert("验证通过")
+            }else{
+                alert("验证不通过");
+                uname.value="";
+            }
+        }
+    </script>
+</body>
+</html>

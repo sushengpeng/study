@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>求一个数的平方根</title>
+</head>
+<body>
+    <h1>求输入数的平方根</h1>
+    <form id="form1">
+        <input type="text" name="num" id="num" size="20" placeholder="请输入数字">
+        <input type="button" value="提交" onclick="sqrtNum()">
+    </form>
+    <script>
+    //正值返回征服平方根
+    //负值返回它的两个虚数平方根
+    function sqrtNum(){
+        var inputNum=form1.num.value;
+        console.log(inputNum);
+        if(isNaN(inputNum)){
+            alert("没有数值传入");
+        }else{
+            var str1="数的平方根是:"+"\n\n";
+            var Num1,Num2;
+            if(inputNum>0){
+                Num1=Math.sqrt(inputNum);
+                Num2="-"+Num1;
+                alert(inputNum+str1+Num1+"\n"+Num2);
+            }else{
+                inputNum=-inputNum;
+                Num1=Math.sqrt(inputNum)+"i";
+                Num2="-"+Num1;
+                alert(inputNum+str1+Num1+"\n"+Num2);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var arr =[];
+        // var arr = new Array();
+        // console.log(typeof arr);   //object 
+
+        //给Array构造函数上添加方法
+        // Array.prototype.ucase = function(){
+        //     // console.log(this);
+        //     for(var i=0;i<this.length;i++){
+        //         this[i]=this[i].toUpperCase();
+        //     }
+        // }
+
+        var arr = ["sdf","sdfd","sss"];
+        // arr.ucase();
+        // console.log(arr);
+
+        //封装indexOf方法
+        
+        Array.prototype.indexOf=function(ele){
+            var index;
+            for(var i=0;i<this.length;i++){
+                // console.log(this[i],ele);
+                if(this[i]==ele){
+                    index = i;
+                    break;
+                }else{
+                    index = -1;
+                }
+            }
+            return index;
+        }
+        console.log(arr.indexOf("sdfd"));
+    </script>
+</body>
+</html>

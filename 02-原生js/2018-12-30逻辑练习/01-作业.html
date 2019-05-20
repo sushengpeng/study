@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    
+    // 1.求1 * 2 * 3 * 4 * ... * 19 * 20的结果?(即20的阶乘)
+            // var result=1 ;
+            // result = result *1;
+            // result = result *2;
+            // result = result *3
+            // result = result *4
+            // ...
+            // result = result *20
+            // for(var i=1;i<21;i++){
+            //     result = result*i;
+            // }
+            // console.log(result);
+    // 2.求2！+3！+4！+5！+6！+7！+8！的和
+    // 2！=1*2
+    // 3！=1*2*3
+    // 4！=1*2*3*4
+
+            // var result = 0;
+            // var data = 1;
+            // for(var i=2;i<9;i++){
+            //     data= data *i;    //求阶乘
+            //     result= result+data;    //求和
+            // }
+            // console.log(result)
+
+    // 3.求1+2+4+5+7+8+10+11+13+14+16+17+19...+100的和
+
+    // 3.编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)
+        //   100-999
+        // 135
+        // 个数：    135%10=5
+        // 十位数：  (135-5)/10%10=3;
+        // 百位数    parseInt(135/100)
+        // for(var i=100;i<1000;i++){
+        //     // i   100-999
+        //     var a = i%10;
+        //     var b = (i-a)/10%10;
+        //     var c = parseInt(i/100);
+        //     if(a*a*a+b*b*b+c*c*c==i){
+        //         console.log(i+"是水仙花数")
+        //     }
+        // }
+        // 四位的四叶玫瑰数
+
+
+    // 4.求任意一个小于100000的正整数的位数，并逆序打印每一位数字
+
+    // 比如：567，位数是3位，以此打印7 ，6 ，5
+        //    var num = parseInt(prompt("请输入一个1-100000的整数"));
+        //    num=567;
+        //    个位数：    567%10=7
+        //    十位数：    parseInt(567/10%10)    6
+        //    百位数      parseInt(567/100%10)   5
+        // ....
+        //    千位数      parseInt(num/1000%10)   
+
+        // 结束条件       parseInt(num/1000)<1
+        // 语法
+        // while(condition){
+        //     当条件为真的时候才执行循环体
+        //     循环体
+        // }
+        // var i=1;
+        // while(parseInt(num/i)>=1){
+        //     console.log(parseInt(num/i%10));
+        //     i=i*10;
+        // }
+    // 5.打印99乘法表
+
+    // 6.求x，y，z中的最大值（数字任意给）
+        // var x = parseInt(prompt("请输入一个整数"));
+        // var y = parseInt(prompt("请输入一个整数"));
+        // var z = parseInt(prompt("请输入一个整数"));
+        // if(x>y){
+        //     if(x>z){
+        //         console.log("最大值为:"+x);
+        //     }else{
+        //         console.log("最大值为:"+z);
+        //     }
+        // }else{
+        //     if(y>z){
+        //         console.log("最大值为:"+y);
+        //     }else{
+        //         console.log("最大值为:"+z);
+        //     }
+        // }
+
+    // 7.任意给x,y,z,从大到小排序
+        // var x = parseInt(prompt("请输入一个整数"));
+        // var y = parseInt(prompt("请输入一个整数"));
+        // var z = parseInt(prompt("请输入一个整数"));
+
+
+        // // x=1;
+        // // y=2;
+
+        // // x=y;    //x=2
+        // // y=x;    //y=2
+
+        // // x中始终存放最大值
+        // var temp;
+        // if(x<y){
+        //     temp=x;
+        //     x=y;
+        //     y=temp;
+        // }
+        // if(x<z){
+        //     temp=x;
+        //     x=z;
+        //     z=temp;
+        // }
+        // if(y<z){
+        //     temp = y;
+        //     y=z;
+        //     z = temp;
+        // }
+        // console.log(x,y,z);
+
+
+    // 8.求数列1,1,2,3,5,8,13,21,34.。。前20项之和
+            // var a = 1,b=1,c=1;     //三个初值必须是1
+            // var sum=2;
+
+            // // 第三项：a=1   b=1   c=a+b;   sum=sum+ c;
+            // // 第四项：a=b;  b=c;  c=a+b;   sum=sum+c;        a=1  b=2 c=3 
+            // // 第五项：a=b;  b=c;  c=a+b;   sum=sum+c;        a=2  b=3 c=5
+            // // 第六项：a=b;  b=c;  c=a+b;   sum=sum+c;        a=3  b=5 c=8
+
+
+            // for(var i=3;i<21;i++){
+            //     a=b;
+            //     b=c;
+            //     c=a+b;
+            //     sum+=c;
+            // }
+
+            // console.log(sum);
+
+    // 9.有一分数序列：2/1，3/2，5/3，8/5，13/8，21/13...求出这个数列的前20项之和。 
+    // 1.程序分析：请抓住分子与分母的变化规律。
+
+    // 10.判断一个数字是不是素数
+
+            // var num  = parseInt(prompt("请输入一个数字"));
+            //     // 其实就是用num%(2到num-1)  除尽就表示不是素数
+            // for(var i=2;i<num;i++){
+            //     if(num%i==0){
+            //         console.log(num+"不是一个素数")
+            //         break;
+            //     }
+            // }
+            // if(num==i){
+            //     console.log(num+"是一个素数")
+            // }
+
+
+
+
+    // 11.利用条件运算符的嵌套来完成此题：学习成绩>=90分的同学用A表示，60-89分之间的用B表示，60分以下的用C表示。
+    // 1.程序分析：(a>b)?a:b这是条件运算符的基本例子。
+    // var cj = parseInt(prompt("请输入成绩"));
+
+    // console.log(89>cj>60);
+    // console.log(89>cj && cj>60);
+
+
+    // if(cj>=90){
+    //     console.log("A");
+    // }else if(cj>=60){
+    //     console.log("B");
+    // }else{
+    //     console.log("C");
+    // }
+
+    // var result = cj>=90 ? "A" : (cj>=60?"B":"C");
+    //     console.log(result);
+
+    // 12。求s=a+aa+aaa+aaaa+aa...a的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，几个数相加由用户输入（prompt）
+        // var i = parseInt(prompt("请输入一个数字！"));    //几个数相加
+        // var a =  2;                                     //一定是一个小于10的正整数
+        // // var sum = 2+ 22 +222+2222+22222
+        // var sum = 0;                            // 存放表达式的和
+        // var num = 0;                            // 算出来的数字
+
+
+        // j=1;
+        // num=  num*10+a;    //2
+        // j=2;
+        // num = num*10+a;    //22
+        // j=3:
+        // num= num*10+a;    //220+2
+        // j=4:
+        // num=num*10+a;
+        // ...
+        // sum = sum + num;
+
+        // for(var j=1;j<=i;j++){
+        //     num = num*10+a;
+        //     sum=sum+num;
+        // }
+        // console.log(sum);
+
+
+    // 13.一球从100米高度自由落下，每次落地后反跳回原高度的一半；再落下，求它在第10次落地时，共经过多少米？第10次反弹多高？
+            // var sum = 100;  //共经过多少米
+            // var height=100;   //反弹高度
+            // i=1:
+            // sum =sum +100;   height=height/2=50 等价于height/=2;
+            // // i =2
+            // sum = sum + height*2;    height=height/2;  等价于height/=2;     //25
+            // //i = 3;
+            // sum = sum + height*2;    height/=2;    //12.5
+            // //i =4;
+            // sum = sum + height*2;    height/=2; 
+
+            // var sum = 100,height=50;
+            // for(var i=2;i<=10;i++){
+            //     sum += height*2;
+            //     height/=2;
+            // }
+
+            // console.log(sum);
+            // console.log(height);
+
+    // 14.猴子吃桃问题：猴子第一天摘下若干个桃子，当即吃了一半，还不瘾，又多吃了一个 第二天早上又将剩下的桃子吃掉一半，又多吃了一个。以后每天早上都吃了前一天剩下的一半零一个。到第10天早上想再吃时，见只剩下一个桃子了。求第一天共摘了多少。 
+    // 1.程序分析：采取逆向思维的方法，从后往前推断。
+                // i=10:
+                // num=1;
+                // i=9:
+                // num=(num+1)*2;    4
+                // i=8:
+                // num=(num+1)*2;    10
+
+
+
+                // var num=1;   //第几天摘了多少个桃
+                // for(var i=9;i>0;i--){
+                //     num = (num+1)*2;
+                // }
+                // console.log(num);
+    </script>
+</body>
+</html>

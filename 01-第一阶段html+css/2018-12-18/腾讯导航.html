@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            font-size: 0;
+            /* background-color: #2A7BBD; */
+        }
+        .item{
+            display: inline-block;
+            color: #FFFFFF;
+            background-color: #2A7BBD;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 20px
+        }
+        li:hover{
+            background-color: red;
+        }
+        li:hover span{
+            display: none;
+        }
+        /*消除li之间的空隙*/
+        /* 使用display：inline-block的时候出现 */
+        /*解决办法：
+            1.li写到一行里
+            2.借助注释
+            3.给父元素一个font-size：0
+                在给自己设置一个font-size
+        */
+    </style>
+</head>
+<body>
+    <ul class="nav">  
+        <li class="item">首页<span>|</span></li>
+        <li class="item">新闻<span>|</span></li>
+        <li class="item">教育<span>|</span></li>
+        <li class="item">文化<span>|</span></li>
+        <li class="item">财经<span>|</span></li>
+        <li class="item">公益<span>|</span></li>
+        <li class="item">视频<span>|</span></li>
+        <li class="item">拍客<span>|</span></li>
+        <li class="item">体育<span>|</span></li>
+        <li class="item">娱乐<span>|</span></li>
+        <li class="item">时尚<span>|</span></li>
+        <li class="item">汽车<span>|</span></li>
+        <li class="item">房产<span>|</span></li>
+        <li class="item">游戏<span>|</span></li>
+        <li class="item">小说</li>
+    </ul>
+
+    <p>我是p</p>
+</body>
+</html>

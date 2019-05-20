@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="imgs/banner1.jpg" />
+    <a href="###">1</a>
+    <a href="###">2</a>
+    <a href="###">3</a>
+    <a href="###">4</a>
+    <a href="###">5</a>
+    <script>
+        // for(var i=0;i<1000;i++){
+            //     console.log(i);
+            // }
+
+        //======================================================
+        // var i;
+        // for(i=0;i<6;i++){
+        //     // setTimeout(function(){
+        //     //     console.log(i,new Date().getTime());
+        //     // },1000);
+        // }
+        // console.log(i);
+        //======================================================    
+        var a = document.getElementsByTagName("a");
+
+        // function getNum(i){
+        //     // i=0;
+        //     a[i].onclick = function(){
+        //         console.log(i)
+        //     }
+        // }
+        // for(var i=0;i<a.length;i++){
+        //     getNum(i);
+        // }
+
+
+        // a[0].onclick=function(){
+        //     console.log(0)
+        // }
+        // a[1].onclick=function(){
+        //     console.log(1)
+        // }
+        // a[2].onclick=function(){
+        //     console.log(2)
+        // }
+
+        var arr = ["banner1.jpg","banner2.jpg","banner3.png","banner4.png","banner5.png"];
+        var img = document.getElementsByTagName("img")[0];
+        function num(n){
+            console.log(n);  //0-5
+            a[n].onclick = function(){
+                // console.log(n);  //0-5
+                // var m = n+1;
+                img.src="imgs/"+arr[n];
+                // img.src = "imgs/"+n+".jpg";
+            }
+        }
+        for(var i=0;i<a.length;i++){
+            num(i);
+        }
+        console.log(i);   //6
+    </script>
+</body>
+</html>

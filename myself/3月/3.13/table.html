@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        clear: both;
+    }
+    p{
+        width: 100px;
+        float: left;
+        height: 30px;
+        line-height: 30px;
+        /* background-color: gold; */
+        text-align: center;
+    }
+    .active{
+        background-color: gold;
+    }
+    div{
+        display: none;
+    }
+    .box1{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <p class="p1 active">1</p>
+    <p class="p2">2</p>
+    <p class="p3">3</p>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+    <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
+    <script src="switchtable.js"></script>
+    <script>
+        var active={};
+        // $.switcht(active,[$(".p1"),$(".p2")],[$(".box1"),$(".box2")]);
+        $.fn.switcht({
+            tab:{
+                tabActive:"",
+            },
+            box:{
+                boxActive:"",
+            }
+        })
+        $.fn.switcht(active,[$(".p1"),$(".p2"),$(".p3")],[$(".box1"),$(".box2"),$(".box3")])
+    </script>
+</body>
+</html>

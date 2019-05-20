@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            filter: url(#goo);
+        }
+        .circle{
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            position: relative;
+
+        }
+        .c1{
+            background:#00b3ee;
+            top: 30px;
+            animation: t11Move 3s infinite;
+
+        }
+        .c2{
+            background:#ef3e4a;
+            top:-30px;
+            animation: t22Move 3s infinite;
+        }
+        @keyframes t11Move{
+            0%{
+                top: 30px;
+            }
+            100%{
+                top: 0
+            }
+        }
+        @keyframes t22Move{
+            0%{
+                top: -30px;
+            }
+            100%{
+                top: 0
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <svg>
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                <feBlend in="SourceGraphic" in2="goo" />
+            </filter>
+        </defs>
+    </svg>
+</body>
+</html>

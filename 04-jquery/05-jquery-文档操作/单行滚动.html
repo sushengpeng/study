@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{margin:0;padding:0;}
+		div{height:40px;overflow:hidden;line-height:40px;border:solid 1px red;}
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>menu 1</li>
+			<li>menu 2</li>
+			<li>menu 3</li>
+			<li>menu 4</li>
+		</ul>
+	</div>
+	<script src="../jquery.js"></script>
+	<script type="text/javascript">
+		// 简单切换
+		// setInterval(function(){
+		// 	$("li:first-child").appendTo("ul");
+		// },1000)
+
+		//动画切换
+		setInterval(function(){
+			// 动画改变的是margin-top这个属性，让margin-top从0到-40一直在变
+			$("ul").animate({"margin-top":-40},400,function(){
+				$("li:first-child").appendTo("ul").parent().css("margin-top",0);
+			})
+		},1000)
+	</script>
+</body>
+</html>

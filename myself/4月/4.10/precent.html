@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content{
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <canvas id="can" width="500" height="500"></canvas>
+        <label>请输入扇形的角度:<input type="number" value="0"></label>
+        <button>确认</button>
+    </div>
+    <script>
+        var can = document.getElementById("can");
+        var context = can.getContext("2d");
+        var btn = document.getElementsByTagName("button")[0];
+        var inp = document.getElementsByTagName("input")[0];
+        var init_num = inp.value;
+        var timeId;
+        btn.onclick = function () {
+            clearInterval(timeId)
+            var change_num = inp.value;
+            context.clearRect(0, 0, 500, 500);
+            var angle = change_num / 360 * Math.PI * 2;
+            var min = 0,count = 0;
+            timeId = setInterval(function () {
+                if (count <= angle) {
+                    context.beginPath();
+                    context.moveTo(250, 250); /*添加，为饼形，不加，为弧形*/
+                    context.arc(250, 250, 250, min, count + 0.01, false);
+                    context.closePath();
+                    context.fillStyle = 'rgba(255,0,0,0.8)';
+                    context.fill();
+                    min = count;
+                    count += 0.01;
+                } else {
+                    clearInterval(timeId)
+                    context.font = "40px Georgia";
+                    context.fillStyle = "white";
+                    context.fillText(angle / Math.PI / 2 * 360, 270, 280);
+                }
+            }, 16.67)
+
+
+
+            init_num = change_num;
+        }
+    </script>
+</body>
+
+</html>

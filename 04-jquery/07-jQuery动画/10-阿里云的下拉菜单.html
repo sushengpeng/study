@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            width:50px;
+        }
+        #menu span{
+            display: inline-block;
+            width:50px;
+            height: 50px;
+            background-color: gold;
+        }
+        #menu span:hover{
+            background-color: aqua
+        }
+        #dropdownlist1{
+            border: solid 1px red;
+            width:200px;
+            position: fixed;
+            left:-100%;
+            top:50px;
+            bottom:0;
+            line-height: 35px;
+            background-color: #fff;
+            z-index:2;
+        }
+        li:hover{
+            background-color: pink;
+        }
+        #dropdownlist2{
+            position: fixed;
+            width:200px;
+            left:-100%;
+            top:50px;
+            bottom:0;
+            z-index: 1;
+        }
+        #dropdownlist2 ul{
+            border:solid 1px orange;
+            display: none;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <span>菜单</span>
+        <ul id="dropdownlist1">
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+            <li>list 4</li>
+            <li>list 5</li>
+            <li>list 6</li>
+            <li>list 7</li>
+            <li>list 8</li>
+            <li>list 9</li>
+            <li>list 10</li>
+        </ul>
+        <div id="dropdownlist2">
+            <ul>
+               <li>list1--1</li>
+               <li>list1--2</li>
+               <li>list1--3</li>
+               <li>list1--4</li>
+               <li>list1--5</li>
+            </ul>
+            <ul>
+                <li>list2--1</li>
+                <li>list2--2</li>
+                <li>list2--3</li>
+                <li>list2--4</li>
+                <li>list2--5</li>
+                <li>list2--6</li>
+                <li>list2--7</li>
+                <li>list2--8</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+        $("#menu").hover(function(){
+            $("#dropdownlist1").animate({
+                left:0
+            },function(){
+                // $(".menu2").css("left",0);
+            })
+        },function(){
+            $("#dropdownlist2,#dropdownlist1").animate({
+                left:"-200px"
+            })
+        })
+
+        $("#dropdownlist1").on("mouseenter","li",function(){
+            var index=$(this).index();
+            $("#dropdownlist2 ul").hide().eq(index).show();
+            if(!$("#dropdownlist2 ul").is(":visible")){
+                $("#dropdownlist2").css({
+                    left:"-200px"
+                })
+            }else{
+                $("#dropdownlist2").animate({
+                    left:"200px"
+                })
+            }
+        })
+        $("#menu span").on("mouseenter",function(){
+            $("#dropdownlist2").animate({
+                left:"-200px"
+            })
+        })
+    </script>
+</body>
+</html>

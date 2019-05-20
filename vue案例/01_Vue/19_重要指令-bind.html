@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  
+  </style>
+</head>
+<body>
+  <!-- 
+    内容插值用双大括号, 但是属性插值有另外的写法
+
+    <img v-bind:src="data中的值">
+
+    v-bind:属性名="属性值"
+    :属性名="属性值"
+  -->
+  <div id="app">
+    {{url}}
+    <!-- <img v-bind:src="url" alt=""> -->
+    <div :a="a"></div>
+
+    <!-- <button v-bind:disabled="'false'">按钮</button> -->
+
+    <div :class="status" @click="change">未选中</div>
+    <div :class="{'active': status2}">未选中</div>
+
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '信息',
+        url: 'https://cn.vuejs.org/images/logo.png',
+        a: 1,
+        status: '',
+        status2: false
+      },
+      methods: {
+        change () {
+          this.status = this.status ? "" : 'active'
+        }
+      }
+    })
+
+  
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <video preload="auto"  poster="media/timg.jpg"  id="video" controls  >
+        <source src="media/2.mp4" type="video/mp4" >
+        <source src="media/movie.ogg"  type="video/ogg" >
+         你的浏览器不支持video标签，请升级浏览器
+    </video>
+    <button id="play">play</button>
+    <button id="fullpage" >全屏</button>
+    <script>
+        var play = document.getElementById("play");
+        var video = document.getElementById("video");
+        play.onclick = function(){
+            if(video.paused){
+                video.play();
+            }else{
+                video.pause();
+            }
+            
+        }
+        var fullpage = document.getElementById("fullpage");
+        fullpage.onclick = function(){
+            video.webkitRequestFullScreen();
+            video.requestFullscreen();
+
+        }
+    </script>
+</body>
+</html>

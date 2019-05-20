@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 重点：
+        //========================================1.往后端传数据
+        // 方式1：通过form,全部刷新
+        //传文件
+        // <form enctype="multiple/form-data" method="post" action="">  
+        // 传普通文本数据
+        // <form   action=""> 
+            // <input name="" /> 
+
+        // 方式2：ajax，局部刷新
+        // 传普通文本数据
+        // ajax({
+                // url:
+                // param:"",
+                //success:function(data)
+        // })
+        //传文件
+        //var fd= new FormData();
+        // var file = document.getElementById("file").files[0]
+            // fd.append("key",file)
+
+        //========================================2.从后端获取数据
+        //form 
+        // <form enctype="multiple/form-data" method="post" action="data.php"> 
+        //  ajax
+        // 写在success回调函数中
+    </script>
+</body>
+</html>

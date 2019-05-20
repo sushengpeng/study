@@ -1,0 +1,45 @@
+1.函数是对象，是一种特殊的对象
+typeof 函数     //function
+2.属性
+arguments      
+1.函数内部的一个对象
+2.是函数的实参的集合（instanceof）
+3.arguments.length   实参的个数
+
+实际应用：
+可以封装一些不定参数的函数
+
+length
+1.函数.length    //指的是形参的个数
+
+
+prototype（原型对象）
+1.函数上特有的属性prototype，这个prototype是一个对象的引用，我们把这个对象叫做原型对象
+
+3.函数对象上的方法
+call  apply  叫做函数的间接调用
+如果说想要改变函数内部的this指向，那么函数调用的时候就要间接调用
+
+fun.call(obj,参数1，参数2...）
+
+fun.apply(obj,[参数1，参数2...]）
+
+数组中的最大值
+Math.max.apply(null,arr)
+
+[].indexof.call(集合，集合中的元素)
+
+3.普通函数和构造函数的区别是是否使用new 
+fun()
+new fun()
+
+var o = new fun();   //通过构造函数来得到一个实例对象
+构造函数的返回值
+1.没有返回值，默认返回this
+2.如果返回类型为引用类型，this丢失，返回对象
+3.如果返回类型为值类型，值忽略，返回this
+
+
+
+
+

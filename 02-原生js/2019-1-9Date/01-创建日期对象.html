@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //返回当前日期和时间
+        var d = new Date();
+        console.log(d);
+
+        //Date(毫秒数)
+        // 1s = 1000ms
+        var d = new Date(1000);
+        console.log(d);
+
+        //传入日期字符串
+        var d = new Date("January 12,2006 22:19:35");
+        console.log(d)
+
+        //有兼容，在ie下是无效时间
+        var d = new Date("2019-1-8 10:50");
+        console.log(d);
+
+        //建议写法，兼容性好
+        var d = new Date("2019/1/8 10:50")
+        console.log(d);
+
+
+        //传入年月日时分秒的参数
+        // 月份从0开始
+        var d= new Date(2019,1,9,10,50);
+        console.log(d);
+
+        var d= new Date(2019,13,10,10,150);
+        console.log(d);
+
+        var d= new Date(2019,13);
+        console.log(d);
+    </script>
+</body>
+</html>

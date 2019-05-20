@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model="todo.name">
+      <br>
+      <input type="text" v-model="todo.thing">
+      <br>
+      <button @click="add">按钮</button>
+    </div>
+    <ul>
+      <li v-for="todo in todos">
+        <p>{{todo.name}}: </p>
+        <p>{{todo.thing}}</p>
+      </li>
+    </ul>
+  </div>
+  
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        todo: {
+          name: '',
+          thing: '',
+        },
+        todos: [
+          {
+            name: '张三',
+            thing: '事情',
+            // done: false
+          }
+        ]
+      },
+      methods: {
+        add () {
+          this.todos.push(Object.assign({}, this.todo))
+          // Object.assign 对象拷贝
+          // Object.assign({}, this.todo)
+
+          this.todo.name = ''
+          this.todo.thing = ""
+        }
+      }
+      
+    })
+  
+  </script>
+</body>
+</html>

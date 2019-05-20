@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="send">发射信号弹</button>
+    <hr>
+    <button @click="watch">派小明监听信号弹</button>
+    <br>
+    小明: {{msg}}
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    /* 
+      订阅者模式
+
+        订阅
+        发布
+
+
+        绑定一个点击事件，  当点击对应元素时就会触发
+        自定义事件需要原生事件去触发
+
+
+      this.$on 订阅 （绑定自定义事件）
+      this.$emit 发布 （触发自定义事件）
+
+      this.$emit('自定义事件名', 数据)
+
+      this.$on('自定义事件名', (数据参数名) => {
+
+      })
+
+      红色 黄色 绿色
+    */
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '暂时没有信号弹发射'
+      },
+      methods: {
+        send () {
+          // 触发对应的自定义事件
+          this.$emit("xhdfs", '红色')
+        },
+        watch () {
+          // 绑定自定义事件
+          this.$on("xhdfs", (color) => {
+            // console.log('1')
+            this.msg = `对方发射了${color}信号弹了`
+          })
+        }
+      }
+    })
+  
+  
+  </script>
+</body>
+</html>

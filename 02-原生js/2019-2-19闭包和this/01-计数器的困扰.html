@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //方法一：
+        // var i=0;
+        // function add(){
+        //     i++;
+        // }
+
+        // add();
+        // add()
+        // add()
+        // console.log(i);
+
+
+        // var i=10;
+        // //
+
+
+
+
+
+
+        // console.log(i);
+
+        //计数器i在全局环境中会收到影响
+
+        //方法二：
+        
+        // function add(){
+        //     var i=0;
+        //     i++;
+        // }
+
+        // add();
+        // add()
+        // add()
+        // console.log(i);
+
+
+        //方法三：闭包方式
+        // function outer(){
+        //     var i=0;
+        //     var f= function(){
+        //         return ++i;
+        //     }
+        //     return f;
+        // }
+
+        // function outer(){
+        //     var i=0;
+        //     return function(){
+        //         return ++i;
+        //     }
+        // }
+        // var add = outer();
+        // add();
+        // add();
+        // add();
+        // add();
+        // var result = add();
+        // console.log(result)
+
+        //PPT
+        function greet(who) {
+            var iterations = 0;
+            return function () {
+                console.log(++iterations);
+                return 'Hello ' + who + '!';
+            };
+        }
+
+        var greeting = greet('World');
+        console.log(typeof greeting);    //function
+        console.log(typeof greeting());    //string
+        console.log(greeting());     //2     “Hello world!”
+        console.log(greeting("Universe"));  //3    “hello world”
+
+    </script>
+</body>
+</html>

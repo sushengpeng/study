@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    子父通信
+      当子组件想要修改父组件中的数据时
+      将子组件想要传递的数据发送给父组件，然后父组件接收到之后在父组件中进行修改
+
+      子组件
+        给对应的某个原生事件的函数里添加自定义事件触发过程
+          this.$emit('自定义的自定义事件名', 要传递的数据)
+        
+      父组件
+        在父组件的组件模板中找到子组件标签
+        <子组件标签 @自定义的自定义事件名="父组件methods中的某个函数"></子组件标签>
+
+        methods: {
+          函数 (子组件传递的数据) {
+            // 对数据进行处理
+          }
+        }
+
+
+
+   -->
+  <div id="app">
+    <parent></parent>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const Parent = {
+      name: 'Parent',
+      template: `
+        <div>
+          {{msg}}
+          <hr>
+          <child @change:msg="getMsg"></child>
+        </div>
+      `,
+      data () {
+        return {
+          msg: "父组件中数据"
+        }
+      },
+      methods: {
+        getMsg (newMsg) {
+          this.msg = newMsg
+        }
+      }
+      /* created () {
+        this.$on('change:msg', (newMsg) => {
+          console.log('监听到')
+          this.msg = msg
+        })
+      } */
+    }
+
+    const Child = {
+      name: 'Child',
+      template: `
+        <div>
+          子组件
+          <button @click="change">按钮</button>
+        </div>
+      `,
+      methods: {
+        change () {
+          console.log('emit成功')
+          this.$emit('change:msg', "子组件传递的数据")
+        }
+      }
+    }
+
+    /* 
+      子组件传数据 是发布 $emit
+      父组件接数据 是订阅 $on
+    
+    */
+
+    Vue.component(Parent.name, Parent)
+    Vue.component(Child.name, Child)
+
+
+
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+
+      }
+    })
+  
+  </script>
+
+</body>
+</html>

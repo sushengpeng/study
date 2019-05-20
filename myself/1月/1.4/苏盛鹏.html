@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 验证邮箱有效性
+        // eg:email@126.com
+        // 1.最短8位，最长20位
+        // 2.字符串中必须有@，并且@不能是第一位
+        // 3.必须有点.,必须在@后边，并且不能是最后一位
+        // var email = prompt("请输入邮箱");
+        // var a = email.indexOf("@");
+        // var b = email.indexOf(".");
+        // if (email.length >= 8 && email.length <= 20) {
+        //     if (a != -1 && b != -1) {
+        //         if (a < b) {
+        //             for (var i = 0; i <= a; i++) {
+        //                 if (email.charCodeAt(i) >= 48 && email.charCodeAt(i) <= 122) {
+        //                     if (b > email.length - 2) {
+        //                         alert("输入的邮箱无效");
+        //                         break;
+        //                     } else {
+        //                         alert("输入的邮箱有效");
+        //                         break;
+        //                     }
+        //                 }
+        //                 else {
+        //                     alert("输入的邮箱无效");
+        //                 }
+        //             }
+        //         }
+        //     } else {
+        //         alert("输入的邮箱无效");
+        //     }
+        // } else {
+        //     alert("输入的邮箱无效");
+        // }
+        // 错误写法
+        // 1,5
+        // 5>num>1
+        // 使用两种方式得到下列字符串中a出现的次数
+        // var str1 = "jlkasdfljksdljkaflsjkdafljksdaflkjlssddsdsfsssssasdfsdafsadfwerwerwrwesfasfdalllsdfljksdfljkdlsdfljsdafjklsdfjlkjskldfsdaljkfasduioowerpwm;lvxcz.mxcvopuiwerlasddp[fpweripiower;sdf;ksdfkl;sdaf;sd;fm/xcvlksdaf;klsdafk;lsdafa;sdkl";
+        // 1、循环
+        // var time=0;
+        // for(var i=0;i<str1.length;i++){
+        //     if(str1[i]=="a"){
+        //         time++;
+        //     }
+        // }
+        // document.write(time);
+        //2、split
+        // str2=str1.split("a");
+        // document.write(str2.length-1);
+
+        // 得到下列字符串中sd出现的次数
+        // var str1 = "jlkasdfljksdljkaflsjkdafljksdaflkjlssddsdsfsssssasdfsdafsadfwerwerwrwesfasfdalllsdfljksdfljkdlsdfljsdafjklsdfjlkjskldfsdaljkfasduioowerpwm;lvxcz.mxcvopuiwerlasddp[fpweripiower;sdf;ksdfkl;sdaf;sd;fm/xcvlksdaf;klsdafk;lsdafa;sdkl";
+        // 1、双重循环
+        // function cycle(str2) {
+        //     var length1 = str1.length;
+        //     var length2 = str2.length;
+        //     var num = 0;
+        //     for (var i = 0; i <= length1; i++) {
+        //         for (var j = 0; j < length2; j++) {
+        //             if (str2[j] == str1[i]) {
+        //                 if (str2[j + 1] == str1[i + 1]) {
+        //                     num++;
+        //                     i++;
+        //                 } else {
+        //                     continue;
+        //                 }
+        //             } else {
+        //                 continue;
+        //             }
+        //         }
+        //     }
+        //     document.write(num);
+        // }
+        // cycle("sd");
+       
+        // 2、使用replace indexOf
+        // var str2 = str1;
+        // var time=0;
+        // var a;
+        // while((a=str2.indexOf("sd"))!= -1) {
+        //     str2 = str2.replace("sd","");
+        //     var b=str2.indexOf("sd");
+        //     if(a<b+2){
+        //         time++;
+        //     }
+        // }
+        // document.write(time);
+        // 3、使用split
+        // var str2 = str1.split("sd");
+        // console.log(str2.length - 1);
+
+
+        //  righttrim
+        // var str = "   sdfd sdf  ";
+        // console.log(str.length);
+        // function righttrim(str){
+        //     while(str.lastIndexOf(" ")==str.length-1){
+        //         str=str.substr(str[0],str.length-1);
+        //     }
+        //     console.log(str.length);
+        // }
+        // righttrim(str);
+
+    </script>
+</body>
+
+</html>

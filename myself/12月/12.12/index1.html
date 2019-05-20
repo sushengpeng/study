@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>用户登陆</legend>
+        <form action="www.baidu.com" method="GET">
+            <!--method数据传输方式get小数据/post大数据传输2G-->
+            <label for="user">用户名：</label>
+            <input type="text" name="username" id="use" placeholder="请输入用户名">
+            <label for="pwd">密 码:</label>
+            <input type="text" id="pwd" name="pwd" placeholder="请输入密码" autocomplete="off"><!--autocomplete用来记录用户已经输入的数据方彪下次填入-->>
+            <button>提交</button>
+            <button type="reset">重置</button>
+            <input type="password" name="psw">
+    </fieldset>
+    <textarea name="提示" id="" cols="30" rows="10" placeholder="提示" value="无"></textarea>
+    <!--大框-->
+    <select name="city" id="city">
+        <option value="1">郑州</option>
+        <option value="2">深圳</option>
+        <option value="3" selected>广州</option>
+    </select>
+    文件上传<input type="file">
+    hidden隐藏<input type="hidden">
+    </form>
+</body>
+
+</html>

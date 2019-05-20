@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    v-if可以将元素直接从当前的结构中删除
+    如果 true 则显示
+    如果 false 则删除
+
+    v-if 
+    v-else-if
+    v-else 
+
+    当前的条件判断结果为true,则v-if或v-else-if所在的标签就会显示在页面上, 判断在前面的优先级更高
+    <div v-if="true">暂无内容</div>
+    <div v-else-if="true">暂无内容2</div>
+    <div v-else>暂无内容3</div>
+
+
+    
+   -->
+  <div id="app">
+    <div v-if="arr.length === 0">暂无内容</div>
+    <div v-else-if="arr.length === 1">只有一个值</div>
+    <div v-else>{{arr}}</div>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        arr: [1]
+      }
+    })
+    
+
+   /*  if (true) {
+      console.log(1)
+    } else {
+      console.log(2)
+    } */
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        .mask{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.3);
+            display:none;
+        }
+        .dialog{
+            background-color: pink;
+            width:200px;
+            height: 500px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-top:-250px;
+            margin-left: -100px;
+        }
+        .tabs{
+            height: 50px;
+        }
+        .tabs li{
+            float: left;
+            border:solid 1px red;
+        }
+        .tabs .active{
+            background-color: red;
+        }
+        .content div{
+            display: none;
+        }
+        .content .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a id="login">登陆</a>
+    <div class="mask">
+        <div class="dialog">
+            <div class="header">这里是标题部分   <span>close</span></div>
+            <div class="body">
+                <ul class="tabs">
+                    <li class="active">登陆</li>
+                    <li>注册</li>
+                </ul>
+                <div class="content">
+                    <div class="active">
+                        <input type="text">
+                        <input type="text">
+                        <input type="button" value="登陆">
+                    </div>
+                    <div>
+                        <input type="text">
+                        <input type="text">
+                        <input type="button" value="注册">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var login = document.getElementById("login");
+        var mask = document.getElementsByClassName("mask")[0];
+        var dialog = document.getElementsByClassName("dialog")[0];
+        var close = document.querySelector(".mask .header span");
+        var lis = document.querySelectorAll(".mask .tabs li");
+        var divs = document.querySelectorAll(".mask .content div");
+        // console.log(close)
+        login.onclick = function(){
+            mask.style.display="block";
+        }
+        mask.onclick = function(){
+            this.style.display="none"
+        }
+        dialog.onclick = function(e){
+            e = e || window.event;
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }else{
+                e.cancelBubble = true;
+            }
+        }
+        close.onclick = function(){
+            mask.style.display = "none"
+        }
+        for(var i=0;i<lis.length;i++){
+            lis[i].index = i;
+            lis[i].onclick = function(){
+                console.log(this);
+                // 得到索引
+                console.log(this.index);  
+                for(var j=0;j<lis.length;j++){
+                    lis[j].className="";
+                    divs[j].className="";
+                }
+                this.className = "active";
+                divs[this.index].className = "active"
+            }
+        }
+    </script>
+</body>
+</html>

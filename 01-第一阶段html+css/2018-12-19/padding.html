@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*如果块元素有宽高的话，设置padding一定会撑大盒子*/
+        /*块元素没有宽度：设置padding 宽高？ 宽度不变 高度撑起来 */
+       *{
+           margin: 0;
+           padding: 0
+       }
+    .box1{
+        text-align: justify;
+        /* width: 300px; */
+        /* height: 300px; */
+        border: 1px solid red;
+        /*padding: 50px;*//*四周*/
+        /*padding:10px 50px;*//* 上下 、 左右*/
+        /*padding:10px 50px 100px;*//*上、左右、下*/
+        /*padding: 10px 50px 100px 150px;*//*上 、 右 、 下 、 左*//*顺时针*/
+
+        /*没有宽高的时候*/
+        /*
+        */
+        padding: 50px
+
+    }
+    .box2{
+        width: 300px;
+        height: 300px;
+        border: 1px solid red;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="box1">我是box1</div>
+    <div class="box2">我是box2</div>
+
+
+
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li> <li></li>
+    </ul>
+</body>
+</html>

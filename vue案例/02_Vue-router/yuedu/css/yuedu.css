@@ -1,0 +1,178 @@
+a {
+  text-decoration: none;
+  color: #707070;
+}
+
+a:hover {
+  color: #ee5044;
+}
+
+body {
+  background: #F5F5F5;
+}
+
+.container {
+  background: #fff;
+}
+
+.menu {
+  height: 106px;
+  line-height: 106px;
+  width: 1010px;
+  margin: 0 auto;
+}
+
+.menu a {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.menu a.active {
+  color: #ee5044;
+}
+
+.wrap {
+  margin: 0 auto;
+  width: 1010px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  align-items: flex-start;
+}
+
+.channels {
+  width: 620px;
+}
+
+.channels li {
+  display: flex;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.channels .channel-pic {
+  width: 210px;
+  height: 210px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.channels .channel-body {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.channels .channel-title  {
+  margin-bottom: 15px;
+}
+
+.channels .channel-title a {
+  font-size: 18px;
+}
+
+.channels .channel-meta {
+  margin-bottom: 25px;
+  color: #999;
+  font-size: 12px;
+}
+
+.channels .channel-desc {
+  font-size: 12px;
+  color: rgb(112, 112, 112);
+  line-height: 22px;
+  letter-spacing: 1px;
+}
+
+
+.channel-top10 {
+  padding: 30px;
+  box-sizing: border-box;
+  background: #fff;
+  margin-bottom: 30px;
+  overflow: hidden;
+  width: 360px;
+}
+
+.channel-top10 h3 {
+  font-size: 14px;
+  border-left: 3px solid #ee5044;
+  padding-left: 8px;
+  line-height: 16px;
+}
+
+.channel-list {
+  padding-top: 30px;
+}
+
+.channel-top10 li  {
+  border-bottom: 1px solid #EEE;
+  list-style: decimal;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  line-height: 20px;
+  color: #707070;
+  font-size: 12px;
+
+
+}
+
+.channel-top10 li a{
+  color: #707070;
+  font-size: 12px;
+
+}
+
+.channel-top10 li div {
+  color: #999;
+  font-size: 12px;
+}
+
+.channel-top10 li div span {
+  margin-right: 20px;
+}
+
+
+.article {
+  width: 620px;
+}
+.item-base {
+  padding: 30px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+
+  background: #fff;
+}
+.item-name {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.item-meta {
+  color: #999;
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+.item-meta span {
+  margin-right: 20px;
+}
+
+.item-intro {
+  padding: 20px 30px;
+  background: #fff;
+  margin-bottom: 30px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  color: rgb(112, 112, 112);
+  overflow: hidden;
+}
+
+.item-label {
+  padding: 5px 30px;
+  background: #FFF;
+  margin-bottom: 30px;
+  line-height: 28px;
+  color: #707070;
+}

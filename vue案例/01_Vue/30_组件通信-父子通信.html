@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <house></house>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    /* 
+      子父通信
+
+      在子组件配置对象中，添加props配置
+      props: ['自定义prop名字']
+        就可以在子组件模板中把这个当做是data一样使用
+    
+      在父组件模板中找到子组件标签，在上面添加属性
+        <子组件标签 自定义prop名字="要传递的数据"></子组件标签>
+
+      如果在某个组件标签上看到有属性
+        如:
+          <组件标签 a="1"></组件标签>
+
+        那么我们可以基本上可以确定，该组件的配置对象中一定有
+          props: ['a']
+
+      不要直接改变prop的数据，如果想要改变某个数据，我们需要告知数据的源头进行改变
+     */
+    // 创建一个房子组件
+    const House = {
+      template: `
+        <div>房子
+          <basin :water="water" money="100元"></basin>
+        </div>
+      `,
+      data () {
+        return {
+          water: '房子上漏得水'
+        }
+      }
+    }
+
+    // 创建一个盆组件
+    const Basin = {
+      template: `
+        <div>盆—盆里有{{water}} - {{money}}</div>
+      `,
+      props: ['water', 'money']
+    }
+
+
+    Vue.component('House', House)
+    Vue.component('Basin', Basin)
+    
+
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+
+      }
+    })
+  
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1 引入Vue.js    
+
+    2 创建vue实例
+
+    3 将Vue实例和页面中的模板结合
+      el设置挂载点, 挂载点就是页面中的一个HTML标签
+  -->
+  <div id="app">
+    {{msg}}
+
+  </div>
+  <a href="" data-value="up"></a>
+  {{msg}}
+  <script src="./vue.js"></script>
+  <script>
+    console.log(Vue)
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello World'
+      }
+    })
+    
+  
+  </script>
+</body>
+</html>

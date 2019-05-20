@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" method="POST" id="signupForm">
+        <label for="username">
+            用户名：<input type="text" name="username" id="username">
+        </label> <br>
+        <label for="pwd">
+            密码：<input type="text" name="pwd" id="pwd">
+        </label><br>
+        <label for="cpwd">
+            确认密码：<input type="text" name="cpwd" id="cpwd">
+        </label><br>
+        <label for="email">
+            邮箱：<input type="text" name="email" id="email">
+        </label><br>
+        <input type="submit" value="提交">
+    </form>
+    <script src="./jquery-git.js"></script>
+    <script src="./jquery.validate.min.js"></script>
+    <script src="./messages_zh.js"></script>
+    <script>
+        !(function ($) {
+            $("form").validate({
+                debug: true,
+                rules: {
+                    username: {
+                        required: true,
+                        rangelength: [2, 10]
+                    },
+                    pwd: {
+                        required: true,
+                        rangelength: [7, 10]
+                    },
+                    cpwd: {
+                        required: true,
+                        equalTo: "#pwd"
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    }
+                },
+                messages: {
+                    uname: {
+                        required: "用户名不能为空",
+                        remote: "用户名重名"
+                    },
+                    cpwd: {
+                        equalTo: "密码不一致"
+                    },
+                    email: {
+                        required: "E-mail不能为空",
+                        email: "E-mail地址不正确", 
+                    }
+                },
+                // hightlight:{
+                //     uname,
+                //     cpwd,
+                //     email
+                // },
+                focusCleanup:true,
+            })
+        })(jQuery)
+    </script>
+</body>
+
+</html>

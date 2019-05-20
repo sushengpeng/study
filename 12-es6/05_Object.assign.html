@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>  
+    /* 
+      $.extend({}, {}) // 浅拷贝
+      $.extend(true, {}, {}) // 深拷贝
+    
+     */  
+
+    
+    // Object.assign()返回值是一个对象
+    const obj = {
+      a: 1,
+      b: 2,
+      arr: [1,2,3]
+    }
+    const obj2 = Object.assign({}, obj)
+
+    console.log(obj2)
+
+
+    function deepCopy(obj) {
+      var result = Array.isArray(obj) ? [] : {};
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          if (typeof obj[key] === 'object') {
+            result[key] = deepCopy(obj[key]);   //递归复制
+          } else {
+            result[key] = obj[key];
+          }
+        }
+      }
+      return result;
+    }
+
+    
+    const obj3 = deepCopy(obj)
+    console.log(obj3)
+  </script>
+</body>
+</html>

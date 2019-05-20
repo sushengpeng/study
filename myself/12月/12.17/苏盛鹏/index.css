@@ -1,0 +1,49 @@
+*{
+    width: 100%;
+    margin:0 auto;
+    padding: 0;
+    background-color:whitesmoke;
+}
+main{
+    width:50%;
+}
+p,span{
+    float: left;
+    font-family:"宋体";
+    line-height: 25px;
+}
+h2,h3{
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+h1{
+    float: left;
+    text-align: center;
+}
+dd,li,ol,dl,ul{
+    margin: 0;
+    text-align: left;
+    float: left;
+}
+p{
+    float: left;
+    text-align: left;
+}
+.p1{
+    float: left;
+    margin-left: 0px;
+    margin-bottom:5px;
+    vertical-align: center;
+    width: 400px;
+    height:30px;
+    background-color:#EEEEEE; 
+}
+img{
+    vertical-align: middle;
+    margin:0 auto;
+}
+a:link{
+    color:blue;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin:0;padding:0;}
+        div{
+            border:solid 1px red;
+            height: 36px;
+            margin-top:200px;
+            overflow: hidden;
+        }
+        ul{
+            
+            line-height: 36px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+        <li>list 5</li>
+    </ul>
+    </div>
+    <script src="../jquery.js"></script>
+    <script>
+    //    console.log( $("ul").animate({marginTop:"-36px"}).children().first())
+    setInterval(function(){
+        $("ul").animate({marginTop:"-36px"},function(){
+            // console.log($(this).children().first().appendTo("ul"))
+            $(this).css({marginTop:0}).children().first().appendTo("ul")
+        });
+    },1000)
+        
+    </script>
+</body>
+</html>

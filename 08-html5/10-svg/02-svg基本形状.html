@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        svg{
+            border:solid 1px red;
+            width:500px;
+            height: 500px;
+        }
+        svg polygon{
+            transform: scale(1.5) translate(100px,0);
+        }
+    </style>
+</head>
+<body>
+    <!-- svg 默认宽高是300*150 -->
+    <svg>
+        <rect x="10" y="10" rx="3" ry="3" width="100" height="50" stroke="green" stroke-width="20" fill="none"></rect>
+        <circle cx="250" cy="250" r="50" fill="orange" ></circle>
+        <ellipse cx="250" cy="50" rx="150" ry="50" fill="green"></ellipse>
+        <line x1="0" y1="0" x2="500" y2="500" stroke="orange"></line>
+        <line x1="500" y1="0" x2="0" y2="500" stroke="orange"></line>
+        <!-- <polyline points="0 100,100 100,0 200,100 200" stroke="black" fill="none"></polyline> -->
+        <!-- <polyline points="0, 100 100,100 0,200 100,200" stroke="pink" fill="none"></polyline> -->
+
+
+        <!-- transform 属性变换的方式 -->
+        <!-- <polygon points="0, 100 100,100 0,200 100,200" stroke="green" fill="none" transform="translate(100,150)"></polygon> -->
+        <polygon points="0, 100 100,100 0,200 100,200" stroke="green" fill="none" ></polygon>
+    </svg>
+    <svg>
+        <path d="M 10 10 L 250 10" stroke="blue" ></path>
+        <path d="M 10 20 l 240 0" stroke="blue" ></path>
+        <path d="M 10 30 H 250 v 10" stroke="blue" fill="none" ></path>
+        <path d="M 10 100 C 50 120,70 120,110 100 " fill="none" stroke="blue"></path>  <!-- 三次贝塞尔曲线 C 两个控制点，一个关键点 S 一个控制点 一个关键点-->
+        <path d="M 10 200 C 50 100,210 100,250 200 S 450 300,490 200 " fill="none" stroke="blue" ></path>
+        
+        <path d="M 10 300 Q 130 400,250 300 T 490 300"  fill="none" stroke="blue" ></path><!-- 二次贝塞尔曲线 Q 一个控制点 一个关键点 T 关键点 -->
+    </svg>
+    <svg>
+        <!-- A 画圆弧
+            第1,2个参数 x轴半径 y轴半径
+            第三个参数  x轴旋转的角度
+            第四个参数  大角度弧指大于180的弧度，值为1，小角度弧值为0
+            第5个参数   从起点到终点是顺时针 1 还是逆时针 0
+            第6,7个参数  是终点x y坐标
+        -->
+        <!-- <path d="M 10 200 A 30 100 0 0 1 70 200 Z" fill="green" stroke="blue" ></path> -->
+        <path d="M 10 200 A 30 100 45 1 0 70 200 Z" fill="green" stroke="blue" ></path>
+
+        <path d="M 230 230 A 45 45 0 1 1  275 275 L 275 230 Z" fill="green" stroke="none"></path>
+    </svg>
+
+</body>
+</html>

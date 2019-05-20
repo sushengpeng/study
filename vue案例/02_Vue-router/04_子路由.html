@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    子路由的组件会被渲染到其父路由的组件的组件模板中的router-view里
+
+    routes里最顶端的内容会被渲染到#app下的router-view里
+    对应的路由中的组件上有相关的切换效果时，子路由会渲染到对应父路由组件的router-view里
+   -->
+  <div id="app">
+    <router-view></router-view>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    const Parent = {
+      template: `
+        <div>
+          父路由的组件模板
+          <!-- parent的子路由会显示在这个router-view里 -->
+          <router-view></router-view>
+        </div>
+      `
+    }
+
+    const a = {
+      template: `
+        <div>
+          a
+        </div>
+      `
+    }
+
+    const child = {
+      template: `
+      <div>
+        child
+      </div>
+    `
+    }
+    const routes = [
+      {
+        path: '/parent',
+        component: Parent,
+        // 子路由的属性为children
+        children: [
+          // 配置方式上，路由配置都相同
+          {
+            path: 'child', // 这个路由就是/parent/child
+            component: child
+          }
+        ]
+      }, {
+        path: '/a',
+        component: a
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+
+    const app = new Vue({
+      el: '#app',
+      router        
+    })
+  </script>
+</body>
+</html>

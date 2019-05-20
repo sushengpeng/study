@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-clock] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    当数据渲染完成后,vue会将拥有v-clock指令的标签上的v-clock去除
+
+    需要配合css使用
+    [v-clock] {
+      display: none;
+    }
+
+    在数据没有渲染时, 对应标签隐藏,当渲染完成后,v-clock被去除, 之后显示对应的内容
+
+   -->
+  <div id="app">
+    {{msg}}
+    <div v-clock>{{msg}}</div>
+
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const app = new Vue({
+      el:'#app',
+      data: {
+        msg: '消息'
+      }
+    })
+  
+  </script>
+</body>
+</html>

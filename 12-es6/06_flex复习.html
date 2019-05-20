@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      /* flex-direction:  */
+      width: 120px;
+      height: 120px;
+      padding: 5px;
+      box-sizing: border-box;
+      background: #000;
+      margin: 10px;
+      float: left;
+    }
+
+    .item {
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .box1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box2 {
+      display: flex;
+      justify-content: center;
+    }
+    .box3 {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+    .box4 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .box5 {
+      display: flex;
+      justify-content: space-between;
+    }
+    .box5 .item:nth-child(2) {
+      align-self: flex-end;
+    }
+
+    /* .box6 {
+      display: flex;
+      justify-content: space-between;
+    }
+    .box6 .item:nth-child(2) {
+      align-self: center;
+    }
+    .box6 .item:nth-child(3) {
+      align-self: flex-end;
+    } */
+    .box6 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .box6 .item:nth-child(2) {
+      align-self: center;
+    }
+    .box6 .item:nth-child(3) {
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    flex分为容器和项目 
+
+    flex容器有主轴和副轴之分，默认主轴是横轴，副轴是纵轴
+
+    每个轴都有开始和结束点
+      flex-start center flex-end 正常情况 从左到右 从上到下
+    
+    容器就是加了display:flex的元素
+    项目也可以是容器
+    display:flex
+    容器有6个属性
+    flex-direction
+      切换主副轴
+      row 
+      column
+      row-reverse  切换开始结束点位置
+      column-reverse
+
+      如果元素左右排列，没什么用
+      如果元素上下排列，设置为column，reverse属性一般不用
+    flex-wrap
+      换行，一般不适用
+      wrap
+      nowrap
+      wrap-reverse
+
+    flex-flow
+      flex-direction flex-wrap的复合属性
+    justify-content
+      设置项目在主轴上的排列方式
+      flex-start 在flex-start位置 默认值
+      flex-end 在flex-end位置
+      center 全部居中
+      space-between 左右贴边，中间等分
+      space-around 不太常用
+    align-items
+      拉伸 stretch 如果副轴上没有距离，会填满
+      flex-start
+      flex-end
+      center
+
+    align-content
+      不常用 如果换行 那么控制每行的排列方式，属性和justify-content一致
+
+    项目有6个属性
+    flex-grow
+      当容器中主轴上有剩余空间时，自动放大，填充剩余空间
+      默认值0 不会自动放大
+      剩余空间除以总grow数 乘对应项目的grow值 
+    flex-shrink
+      当容器主轴上剩余空间不足时，自动缩小，压缩以适应空间
+      默认值1 会自动缩小
+      超出部分 除以 总shrink数 乘 对应项目的shrink值
+    flex-basis
+      默认值auto
+      设置主轴上项目所占的距离 主轴如果为x轴 则为宽度 主轴为y轴则为高度
+    flex
+      上面三个属性复合属性
+      flex: 0 1 auto; 默认值
+      flex: 1; flex-grow: 1
+    align-self
+      单独修改某项目在副轴上的排列方式，和align-items属性相同
+    order
+      改变项目在所有项目中的排列顺序
+
+
+   -->
+
+  <div class="box box1">
+    <div class="item"></div>
+  </div>
+  <div class="box box2">
+    <div class="item"></div>
+  </div>
+  <div class="box box3">
+    <div class="item"></div>
+  </div>
+  <div class="box box4">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <div class="box box5">
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <div class="box box6">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+
+  </div>
+</body>
+</html>

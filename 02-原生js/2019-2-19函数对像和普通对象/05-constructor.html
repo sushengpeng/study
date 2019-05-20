@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function People(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        People.prototype.say=function(){
+            console.log("hi ! My name is "+this.name)
+        }
+
+        console.log(People.prototype.constructor)
+        console.dir(People);
+        // People.prototype.constructor={name:"zs"};
+        console.log(People.prototype.constructor)
+        var lyy = new People("liuyangyang",18);
+        console.log(lyy);
+        console.log(lyy.name);
+        lyy.say();
+
+        //constructor属性易改变，不能用来进行类型判断
+        console.log(lyy instanceof People);   //true
+
+
+        console.log(lyy.__proto__==People.prototype);   //true
+        console.log(lyy.constructor.prototype==People.prototype);  //true
+    </script>
+</body>
+</html>

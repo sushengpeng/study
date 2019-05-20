@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            /* width: 300px; */
+            height: 3000px;
+            background-color: red;
+            background-image: url(hua.png);
+             background-repeat: no-repeat;/*不平铺 */
+            /*background-repeat: repeat-x;/*在水平方向平铺*/
+            /*background-repeat: repeat-y;/*在垂直方向平铺*/
+            /* background-repeat: no-repeat; */
+            /*background-position: -50px -50px;/*水平方向 垂直方向*/
+            /* background-position:10% 50%; */
+            /* background-position: 10px 50% */
+            /*
+            background-position %的单位：
+                距离左边的宽度=（盒子宽度-图片的宽度）*百分比
+            */
+            /* 水平方向的关键字：left center right */
+            /* 垂直方向的关键字：top  center bottom */
+            /*background-position: center center;/*两个值*/
+            /*background-position: top;/*一个值的话 另一个方向自动补充为center*/
+            background-position: 50% 50%;
+            /*如果用的是%;定位的位置是根据窗口的宽度改变*/
+            background-attachment: fixed;
+            /* background: red url(hua.png) no-repeat 50px 50px ; */
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    .outer{
+        width: 800px;
+        margin:0 auto;
+        background-color: steelblue;
+    }
+    .tittle{
+        height: 50px;
+        background-color: rosybrown;
+        text-align: center;
+        line-height: 50px;
+        color-adjust: #fff;
+    }
+    #text{
+        width: 650px;
+        line-height: 50px;
+        font-size: 15px;
+    }
+    #submit{
+        height: 50px;
+        width: 120px;
+        margin-left: 10px;
+    }
+    .story{
+        /* height: 200px; */
+        background-color: pink;
+        line-height: 50px;
+    }
+    .para{
+        width:700px;
+        float:left;
+        
+        font-size: 15px;
+        color:black;
+        background-color: pink;
+
+    }
+    .number{
+        float:left;
+        padding:0px 20px;
+        background-color: pink;
+    }
+    .likeButton{
+        float:right;
+        width: 100px;
+        height: 50px;
+        background-color: black;
+        color: white;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <p class="tittle">留言板</p>
+        <input type="text" name="text" id="text">
+        <input type="submit" value="提交" id="submit">
+        <div class="story"></div>
+    </div>
+    <script>
+        var story = document.getElementsByClassName("story")[0];
+        var submit = document.getElementById("submit");
+        var num = 1;
+        submit.onclick = function () {
+            var text = document.getElementById("text");
+            var para = document.createElement("div");
+            var likeButton = document.createElement("input");
+            var number = document.createElement("p");
+            para.className = "para";
+            para.innerHTML = text.value;
+            story.appendChild(number);
+            story.appendChild(para);
+            para.appendChild(likeButton);
+            number.innerHTML = num + "、";
+            number.className = "number";
+            num++;
+            likeButton.type = "button";
+            likeButton.className = "likeButton";
+            likeButton.value = 0;
+            var like = document.getElementsByClassName("likeButton");
+            console.log(like);
+            for (var i = 0, len = like.length; i < len; i++) {
+                like[i].onclick = function () {
+                    this.value = parseInt(this.value) + 1;
+                    this.parentNode.value=this.value;
+                    var children=document.getElementsByClassName("likeButton");
+                    console.log(children);
+                    var childrenValue=new Array();
+                    var parentValue=new Array();
+                    for(var j=0,length=children.length;j<length;j++){
+                        childrenValue[j]=children[j].value; 
+                        parentValue[j]=children[j].value;
+                    }
+                    childrenValue.sort(function (a,b){return b-a});
+                    // console.log(childrenValue);   
+                    // console.log(parentValue);
+                    for(var i=0,len=childrenValue.length;i<len;i++){
+                        for(var j=0;j<len;j++){
+                            if(childrenValue[i]==parentValue[j]){//parp[j]
+                            var temp=para[i];
+                            para[i].parentNode.replace(para[j],para[i]);
+                            para[j].parentNode.replace(temp,para[j]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

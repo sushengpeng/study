@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    v-bind最常用用法
+      一些数据中有img的src 将图片渲染到img上
+
+      <img :src="data中的对应属性名">
+
+    v-bind="{x: 1, b: 2, c: 3}"
+    v-bind:x="1" v-bind:b="2" v-bind:c="3"
+
+    属性有多个值的情况
+    v-bind:属性名 = "[1,2,3,4,5,6]"
+
+    如果一个div有多个类名 
+    class其中一个类型是动态值
+    <div :class="['box1', 'box2', 'box3', x]"></div>
+
+    <div :class="['box', 'box2', 'box3', {box: true}]"></div>
+
+    <div :class="{'box': true, 'box1': false, 'box2': true}"></div>
+   -->
+  <div id="app">
+    <div :x="x" v-bind="{a: num1, b: num2, c: num3}"></div>
+    <div :x="x" :a="num1" :b="num2" :c="num3"></div>
+    <div :class="['box1', 'box2', 'box3', x]"></div>
+    <div :class="['box1', 'box2', 'box3', {box: true}]">{{x }}</div>
+    <div :class="{'box': true, 'box1': true, 'box2': true}"></div>
+
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        x: "box",
+        num1: "box2",
+        num2: "box3",
+        num3: "box4"
+      }
+    })
+  
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="font/iconfont.css">
+	<script src="js/rem.js"></script>
+</head>
+<body>	
+	<div id="box">
+		<header>
+			提醒事项
+		</header>
+		<span class="msg" v-if="!todos.length">暂无记事</span>
+		<ul v-else>
+			<!-- 已完成的事件添加active -->
+			<!-- <li class="active">
+				
+				<span>内容</span> 
+				<div class="option">
+					<i class="iconfont">&#xe68b;</i>
+					<i class="iconfont">&#xe624;</i>
+				</div>
+			</li> -->
+			<!-- 未完成的事件没有类名 -->
+			<!-- 渲染li -->
+			<li :class="{active: +todo.del}" v-for="(todo, index) in todos" :key="index">
+				<span>{{todo.content}}</span>
+				<div class="option">
+					<i class="iconfont" @click="change(index)">&#xe68b;</i>
+					<!-- 如果可以被删除则删除图标不显示 -->
+					<i class="iconfont" v-show="+todo.del" @click="del(index)">&#xe624;</i>
+				</div>
+			</li>
+		</ul>
+		<input type="text" class="content" V-model="content" @keyup.13="add">
+	</div>
+	
+	<script src="js/vue.js"></script>
+	<script src="js/axios.js"></script>
+	<script>
+		/* 
+			[
+				{
+					status: '', // 表示事件是否已完成,
+					content: '', // 表示事件内容,
+					del: false // 表示是否显示删除按钮
+				}
+			]
+
+			content: '' // 和input绑定起来
+		
+		 */
+		const app = new Vue({
+			el: '#box',
+			data: {
+				content: '',
+				todos: [
+					// {
+					// 	content: '内容1',
+					// 	del: true
+					// }, {
+					// 	content: '内容2',
+					// 	del: false
+					// }, {
+					// 	content: '内容3',
+					// 	del: false
+					// }
+				]
+			},
+			methods: {
+				change (index) {
+					/* const id = this.todos[index].id
+					const del = this.todos[index].del */
+					let {id, del} = this.todos[index]
+					axios.get('http://localhost/todos/editTodo.php', {
+						params: {
+							id,
+							del: +del ? 0 : 1
+						}
+					}).then(res => {
+						if (res.data.code === 1) {
+							// 当接口调用成功后,改变对应的内容
+							this.todos[index].del = +this.todos[index].del ? 0 : 1
+						}
+					})
+				},
+				del (index) {
+					if (this.todos[index].del) {
+						const {id} = this.todos[index]
+						axios.get('http://localhost/todos/delTodo.php', {
+							params: {
+								id
+							}
+						}).then(res => {
+							if (res.data.code === 1) {
+								this.todos.splice(index, 1)
+								
+							}
+						})
+					}
+				},
+				add () {
+					axios.get('http://localhost/todos/addTodo.php', {
+						params: {
+							content: this.content
+						}
+					}).then(res => {
+							// this.content就是input中的内容
+							this.todos.push({
+								id: res.data.id,
+								content: this.content,
+								del: false
+							})
+							// 删除input中的内容
+							this.content = ""
+					})
+				},
+				getTodos () {
+					axios.get('http://localhost/todos/getTodos.php').then(res => {
+						// console.log(res)
+						// 将获取到的数据res.data赋值给this.todos
+						this.todos = res.data
+					})
+				}
+			},
+			created () {
+				// 请求数据
+				// 在其他函数中调用另外一个函数
+				this.getTodos()
+			}
+		})
+
+	</script>
+</body>
+</html>

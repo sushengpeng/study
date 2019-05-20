@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>姓名：<input type="text" id="name"></label><br>
+    <label>年龄：<input type="text" id="age"></label><br>
+    <label>邮箱：<input type="text" id="email"></label><br>
+    <button id="add">向数据库中新增数据</button>
+    <button id="read">从数据库中读取数据</button>
+    <button id="readAll">读取所有数据</button>
+    <button id="update">更新数据</button>
+    <button id="remove">删除数据</button>
+    <button id="useIndex">使用索引</button>
+    <script>
+        // 参考地址
+        // http://www.ruanyifeng.com/blog/2018/07/indexeddb.html
+        // 打开数据库
+        var request = window.indexedDB.open("imgs");
+        request.onerror = function (event) {
+            console.log('数据库打开报错');
+        };
+        request.onsuccess = function (event) {
+            db = request.result;
+            console.log('数据库打开成功');
+            console.log(db);
+        };
+
+        // 新建数据库
+        //         新建数据库与打开数据库是同一个操作。如果指定的数据库不存在，就会新建。不同之处在于，后续的操作主要在upgradeneeded事件的监听函数里面完成，因为这时版本从无到有，所以会触发这个事件。
+
+        // 通常，新建数据库以后，第一件事是新建对象仓库（即新建表）。
+        var db;
+        request.onupgradeneeded = function (event) {
+            db = event.target.result;
+            if (!db.objectStoreNames.contains('section1')) {
+                // 创建表格
+                var objectStore = db.createObjectStore('section1', {
+                    keyPath: 'id',
+                    autoIncrement: true
+                });
+                // 创建表格索引
+                // IDBObject.createIndex()的三个参数分别为索引名称、索引所在的属性、配置对象（说明该属性是否包含重复的值）。
+                objectStore.createIndex('name', 'name', {
+                    unique: false
+                });
+                objectStore.createIndex('email', 'email', {
+                    unique: false
+                });
+            }
+
+        }
+
+        // 新增数据
+        // 必须启动服务器环境才能添加数据成功
+        function add() {
+            var request = db.transaction(['section1'], 'readwrite')
+                .objectStore('section1')
+                .add({
+                    name: document.getElementById("name").value,
+                    age: document.getElementById("age").value,
+                    email: document.getElementById("email").value
+                });
+
+            request.onsuccess = function (event) {
+                console.log('数据写入成功');
+            };
+
+            request.onerror = function (event) {
+                console.log('数据写入失败');
+            }
+        }
+        document.getElementById("add").onclick = add;
+
+
+        //读取数据
+        function read() {
+            var transaction = db.transaction(['section1']);
+            var objectStore = transaction.objectStore('section1');
+            var request = objectStore.get(1);
+
+            request.onerror = function (event) {
+                console.log('事务失败');
+            };
+
+            request.onsuccess = function (event) {
+                if (request.result) {
+                    console.log('Name: ' + request.result.name);
+                    console.log('Age: ' + request.result.age);
+                    console.log('Email: ' + request.result.email);
+                } else {
+                    console.log('未获得数据记录');
+                }
+            };
+        }
+        document.getElementById("read").onclick = read;
+
+        //读取所有数据
+        function readAll() {
+            var objectStore = db.transaction('section1').objectStore('section1');
+
+            objectStore.openCursor().onsuccess = function (event) {
+                var cursor = event.target.result;
+
+                if (cursor) {
+                    console.log('Id: ' + cursor.key);
+                    console.log('Name: ' + cursor.value.name);
+                    console.log('Age: ' + cursor.value.age);
+                    console.log('Email: ' + cursor.value.email);
+                    cursor.continue();
+                } else {
+                    console.log('没有更多数据了！');
+                }
+            };
+        }
+        document.getElementById("readAll").onclick = readAll;
+
+        //更新数据
+        function update() {
+            var request = db.transaction(['section1'], 'readwrite')
+                .objectStore('section1')
+                .put({
+                    id: 1,
+                    name: '李四',
+                    age: 35,
+                    email: 'lisi@example.com'
+                });
+
+            request.onsuccess = function (event) {
+                console.log('数据更新成功');
+            };
+
+            request.onerror = function (event) {
+                console.log('数据更新失败');
+            }
+        }
+
+        document.getElementById("update").onclick = update;
+
+        //删除数据
+        function remove() {
+            var request = db.transaction(['section1'], 'readwrite')
+                .objectStore('section1')
+                .delete(1);
+
+            request.onsuccess = function (event) {
+                console.log('数据删除成功');
+            };
+        }
+        document.getElementById("remove").onclick = remove;
+
+        // 使用索引
+        //         索引的意义在于，可以让你搜索任意字段，也就是说从任意字段拿到数据记录。如果不建立索引，默认只能搜索主键（即从主键取值）。
+
+        // 假定新建表格的时候，对name字段建立了索引。
+
+        function useIndex(){
+            var transaction = db.transaction(['section1'], 'readonly');
+            var store = transaction.objectStore('section1');
+            var index = store.index('name');
+            var request = index.get('李四');
+            request.onsuccess = function (e) {
+                var result = e.target.result;
+                if (result) {
+                    // ...
+                    console.log(result);
+                } else {
+                    // ...
+                    console.log("没有找到数据")
+                }
+                }
+        }
+        
+
+        document.getElementById("useIndex").onclick = useIndex;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Referee(){
+            this.result = 0;
+        }
+        Referee.prototype._timer=null;
+        Referee.prototype.start = function(){
+            console.log(this);
+            console.log(this._timer);
+        }
+
+        var r = new Referee();
+        r.start();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+        }
+        
+        div::before{
+            content: "";
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left:0;
+            top:0;
+            border-left:solid 10px red;
+            border-top:solid 10px red;
+            border-right:solid 10px blue;
+            border-bottom:solid 10px blue;
+            border-radius: 50%;
+            transition: transform 1s;
+        }
+        div:hover::before{
+            /* 父元素旋转，子元素也旋转 */
+            transform: rotate(180deg);  
+        }
+    </style>
+</head>
+<body>
+    <div>汽车</div>
+</body>
+</html>

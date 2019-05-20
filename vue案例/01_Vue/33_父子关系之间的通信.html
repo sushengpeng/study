@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <movies-list></movies-list>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+
+    /* 
+      moviesList - moviesItem 父子通信
+
+      当我们触发子组件中相关事件，想要让父组件中数据改变时，就肯定需要子父通信
+
+
+
+      如果给一个子组件标签上添加click事件，那么该事件会执行吗？
+      <组件标签 @click="函数"></组件标签>
+
+      那么我们知道，该click是一个自定义事件，只有该组件中去触发了this.$emit('click') 该事件才能触发
+      除非是
+        <组件标签 @click.native="函数"></组件标签>
+        这种写法会将click事件绑定给该组件的组件模板的根节点
+    
+    */
+    const moviesList = {
+      // 父组件中监听事件
+      template: `
+        <ul>
+          <movies-item 
+            v-for="(movie, index) in movies" 
+            :key="index" 
+            :movie="movie" 
+            :index="index"
+            @change="changeWatched"
+          ></movies-item>
+        </ul>
+      `,
+      data () {
+        return {
+          movies: [
+            {
+              name: '电影1',
+              watched: false
+            }, {
+              name: '电影2',
+              watched: true
+            }, {
+              name: '电影3',
+              watched: false
+            }
+          ]
+        }
+      },
+      methods: {
+        changeWatched (index) {
+          console.log(index)
+          this.movies[index].watched = true
+        }
+      }
+    }
+
+    const moviesItem = {
+      template: `
+        <li @click="changeWatched">{{movie.name}}<span v-show="movie.watched">已观看</span></li>
+      `,
+      props: ['movie', 'index'],
+      methods: {
+        changeWatched () {
+          console.log(this.index)
+          // 触发自定义事件，将this.index传递给父组件
+          this.$emit('change', this.index)
+        }
+      }
+    }
+
+
+    Vue.component('moviesList', moviesList)
+    Vue.component('moviesItem', moviesItem)
+
+
+    const app = new Vue({
+      el: "#app"
+    })
+  
+  </script>
+</body>
+</html>

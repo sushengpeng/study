@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 850px;
+            height: 160px;
+            margin: 0 auto;
+            clear: both;
+            list-style: none;
+        }
+
+        li {
+            width: 200px;
+            height: 150px;
+            float: left;
+            margin-left: 10px;
+        }
+
+        .list1 li {
+
+            background-color: olive;
+            margin-top: 10px;
+        }
+
+        .list2 li {
+            float: left;
+            background-color: thistle;
+            margin-top: 10px;
+        }
+
+        .list3 li {
+
+            background-color: orange;
+            margin-top: 10px;
+        }
+
+        div {
+            clear: both;
+            width: 830px;
+            height: 250px;
+            background-color: black;
+            margin: 0 auto;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- <div class="ali-product-hot-box">
+        <div class="ali-product-hot-item">
+            <a class="ali-product-hot-item-wrap" href="" target="_blank">
+                <div class="ali-product-hot-item-name">
+                    云服务器 ECS
+                    <img src="">
+                </div>
+                <div class="ali-product-hot-item-description">全面覆盖多场景需求的高性能云服务器</div>
+            </a>
+            <a class="ali-product-hot-item-btn" href="">立即购买</a>
+        </div>
+        <div class="ali-product-hot-item">
+            <a class="ali-product-hot-item-wrap" href="" target="_blank">
+                <div class="ali-product-hot-item-name">
+                    轻量应用服务器
+                </div>
+                <div class="ali-product-hot-item-description">快速搭建和易于管理的轻量级云服务器</div>
+            </a>
+            <a class="ali-product-hot-item-btn" href="">立即购买</a>
+        </div>
+    </div>
+    <div class="ali-product-normal-box">
+        <a class="ali-product-normal-item" href="https://www.aliyun.com/product/ebm" target="_blank">
+            <div class="ali-product-normal-item-name">
+                弹性裸金属服务器
+
+                <img src="../image/hot.png">
+
+            </div>
+            <div class="ali-product-normal-item-description">具备极限计算、物理隔离、弹性的服务器</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="" target="_blank">
+            <div class="ali-product-normal-item-name">
+                超级计算集群（公测中）
+                <img src="../image/hot.png">
+            </div>
+            <div class="ali-product-normal-item-description">通过RDMA网络扩展的强大的并行计算能力</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="" target="_blank">
+            <div class="ali-product-normal-item-name">
+                FPGA 云服务器
+            </div>
+            <div class="ali-product-normal-item-description">FPGA实例、低时延可编程硬件加速服务</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="" target="_blank">
+            <div class="ali-product-normal-item-name">
+                GPU 云服务器
+            </div>
+            <div class="ali-product-normal-item-description">GPU实例、强大的计算性能、弹性按需扩展</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="" target="_blank">
+            <div class="ali-product-normal-item-name">
+                块存储
+            </div>
+            <div class="ali-product-normal-item-description">可弹性扩展、高性能、高可靠的块级随机存储</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+    </div>
+    <div class="ali-product-normal-box">
+        <a class="ali-product-normal-item" href=" target="_blank">
+            <div class="ali-product-normal-item-name">
+                专有网络 VPC
+            </div>
+            <div class="ali-product-normal-item-description">构建逻辑隔离网络，确保资源安全</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="   " target="_blank">
+            <div class="ali-product-normal-item-name">
+                弹性容器实例 ECI
+                <img src="../image/hot.png">
+            </div>
+            <div class="ali-product-normal-item-description">敏捷安全的 Serverless 容器运行服务</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="" target="_blank">
+            <div class="ali-product-normal-item-name">
+                弹性高性能计算
+            </div>
+            <div class="ali-product-normal-item-description">提供一站式HPCaaS的技术计算云平台</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="https://www.aliyun.com/product/ess" target="_blank">
+            <div class="ali-product-normal-item-name">
+                弹性伸缩
+            </div>
+            <div class="ali-product-normal-item-description">自动调整弹性计算资源的管理服务</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+        <a class="ali-product-normal-item" href="https://www.aliyun.com/product/containerservice" target="_blank">
+            <div class="ali-product-normal-item-name">
+                容器服务
+            </div>
+            <div class="ali-product-normal-item-description">支持微服务架构、全生命周期管理的Docker服务</div>
+            <i class="ali-product-normal-item-icon icon-arrow-right"></i>
+        </a>
+    </div> -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <ul class="list2">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <ul class="list3">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var divs = document.getElementsByTagName("div");
+        var uls = document.getElementsByTagName("ul");
+        var lis = document.getElementsByTagName("li");
+        var timeId;
+        var pre = [];
+        for (var i = 0, len = divs.length; i < len; i++) {
+            divs[i].index = i;
+            lis[i].index = i;
+            // console.log(divs[i].index)
+        }
+        for (var j = 0; j < uls.length; j++) {
+
+            uls[j].onclick = function (e) {
+                var num = 0;
+                clearInterval(timeId);
+                for (var z = 0; z < lis.length; z++) {
+                    divs[z].style.display = "none";
+                }
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                pre.push(target);
+                console.log(pre);
+                timeId = setInterval(function () {
+                    if (pre[pre.length - 1].parentNode == pre[pre.length - 2].parentNode && pre[pre.length -
+                            2]) {
+                        divs[pre[pre.length - 2].index].style.height = "0px";
+                        divs[pre[pre.length - 2].index].style.display = "none";
+                        divs[pre[pre.length - 1].index].style.display = "block";
+                        divs[pre[pre.length - 1].index].style.height = "250px";
+                    } else if (num <= 250) {
+                        divs[target.index].style.height = num + "px";
+                        num += 4;
+                    } else {
+                        divs[target.index].style.height = "250px;"
+                        clearInterval(timeId);
+                    }
+                }, 27.69)
+                divs[target.index].style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

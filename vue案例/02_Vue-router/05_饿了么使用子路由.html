@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 
+    首页  / 
+    发现  /discover
+    订单  /order
+    我的  /profile
+
+    因此要有四个组件
+
+
+    当当前路由和router-link上的to一致时，那么就会自动给对应的router-link上添加类名router-link-exact-active router-link-active
+
+    
+   -->
+  <div id="app">
+    <router-view></router-view>
+    
+  </div>
+  <!--  -->
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+
+  <script>
+    // 1 创建组件配置对象
+    const Index = {
+      template: `
+        <div>
+          首页
+        </div>
+      `
+    }
+
+    const Discover = {
+      template: `
+        <div>发现页</div>
+      `
+    }
+
+    const Order = {
+      template: `
+        <div>订单页</div>
+      `
+    }
+
+    const Profile = {
+      template: `
+        <div>个人中心</div>
+      `
+    }
+
+    const Main = {
+      template: `
+        <div>
+          <router-view></router-view>
+          <nav>
+            <router-link to="/parent">首页</router-link>
+            <router-link to="/parent/discover">发现</router-link>
+            <router-link to="/parent/order">订单</router-link>
+            <router-link to="/parent/profile">我的</router-link>
+          </nav>
+        </div>
+      `
+    }
+
+    // 2 创建路由配置对象
+    const routes = [
+      {
+        path: '/parent',
+        component: Main,
+        children: [
+          {
+            path: '',
+            component: Index
+          },
+          {
+            path: 'discover',
+            component: Discover
+          },
+          // {
+          //   path: 'order', // /parent/order
+          //   component: Order
+          // },
+          {
+            path: 'profile',
+            component: Profile
+          }
+        ]
+      },
+      // 下面的配置会把Order渲染到#app的router-view里
+      /* {
+        path: '/order',
+        component: Order
+      } */
+      
+      {
+        path: '/parent/order',
+        component: Order
+      }
+    ]
+
+    // 3 创建路由对象将配置放入其中
+    const router = new VueRouter({
+      routes,
+      // linkActiveClass: 'active'
+      linkExactActiveClass: 'active'
+    })
+
+    // 4 创建vue对象，将router写入配置
+    const app = new Vue({
+      el: '#app',
+      router
+    })
+  </script>
+</body>
+
+</html>

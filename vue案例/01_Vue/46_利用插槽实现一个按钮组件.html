@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+</head>
+<body>
+  <!-- 
+    如果prop中只有属性名没有属性值，则这个值就是布尔值，添加该属性则为true，不加为false
+
+
+   -->
+  <div id="app">
+    <button class="btn btn-danger btn-xs">按钮</button>
+    <button class="btn btn-default">按钮</button>
+    <button class="btn btn-info">按钮</button>
+    <button class="btn btn-primary">按钮</button>
+    <button class="btn btn-link">按钮</button>
+
+
+    <c-button type="info" size="xs" dis>按钮</c-button>
+    <c-button type="danger" text="点击" size="lg"></c-button>
+    <c-button type="warning" text="点击"></c-button>
+    <c-button type="default" text="点击" size="sm"></c-button>
+    <c-button type="primary" text="点击" @click="handler"></c-button>
+  
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const cButton = {
+      template: `
+        <button
+          @click="clickHandler($event)"
+          :class="['btn', 'btn-' + type, 'btn-' + size]" 
+          :disabled="dis"
+        ><slot>{{text}}</slot></button>
+      `,
+      /* 
+        如果type=danger则显示类名 btn btn-danger
+        如果type=info 则显示类名 btn btn-info
+      
+       */
+      props: {
+        text: String,
+        type: String,
+        size: String,
+        dis: Boolean
+      },
+      methods: {
+        clickHandler (e) {
+          this.$emit('click', e)
+        }
+      }
+    }
+
+    Vue.component('cButton', cButton)
+    const app = new Vue({
+      el: '#app',
+      methods: {
+        handler () {
+          console.log(1)
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

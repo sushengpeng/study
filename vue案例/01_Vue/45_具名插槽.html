@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <!-- 
+    给slot命名
+      <slot name="自定义名字"></slot>
+
+    
+      <组件名>
+        <div slot="对应的slot名字"></div>
+      </组件名>
+
+    因为想要给插入的内容添加slot属性，所以我们的内容就必须有一个标签，如果我们不想要标签，可以使用template
+      <template slot="对应的slot名字"></template>
+      这样写不会产生新的标签内容
+    
+
+   -->
+  <div id="app">
+    <com>
+      <span slot="keybord">键盘</span>
+
+      <!-- <span slot="mouse">鼠标</span> -->
+      <template slot="mouse">鼠标</template>
+    </com>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const com = {
+      template: `
+        <div>
+          <slot name="keybord"></slot>
+          <slot name="mouse"></slot>
+        </div>
+      `
+    }
+
+    Vue.component('com', com)
+
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+
+      }
+    })
+  
+  </script>
+</body>
+</html>

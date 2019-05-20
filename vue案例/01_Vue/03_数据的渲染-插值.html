@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1.挂载点的选取, 挂载点不要使用body及其父元素
+    2.一个html页面中,尽量只写一个挂载点
+   -->
+  <!-- 创建挂载点 -->
+  <div id="app">
+
+    <!-- 
+      接将数据名放在对应的双大括号中即可 
+      数据名就是data中的属性名
+
+      {{名字}}
+    -->
+    {{a}}
+    {{msg}}
+
+    {{c}}
+
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    /* 
+      new Vue({
+        el: '挂载点', // 相当于是我们页面的模板
+        // data是一个对象,对象中的属性是自定义的
+        data: {
+
+        }
+      })
+
+      data就是用来渲染页面的数据
+    
+    */
+    const app = new Vue({
+      el: '#app',      
+      data: {
+        a: 1,
+        b: 2,
+        c: 3,
+        msg: '消息'
+      }
+    })
+
+  
+  </script>
+</body>
+</html>

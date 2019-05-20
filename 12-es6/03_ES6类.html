@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* function Person (name, sex, age) {
+      this.name = name
+      this.age = age
+      this.sex = sex
+    }
+
+    Person.prototype.type = '人'
+
+    Person.prototype.eat = function () {
+      console.log('吃饭')
+    } */
+
+    class Person {
+      // 构造函数 (会在new class的时候自动执行)
+      constructor (name, age, sex) {
+        this.name = name
+        this.age = age
+        this.sex = sex
+      }
+
+      // static type = '人'
+      type () {
+        return "人"
+      }
+
+      eat () {
+        console.log('吃饭')
+      }
+    }
+
+    /* class Student {
+      constructor (name, age, sex, sid) {
+        this.name = name
+        this.age = age
+        this.sex = sex 
+        this.sid = sid
+      }
+
+      eat () {
+        console.log('吃饭')
+      }
+      
+      study () {
+        console.log('学习')
+      }
+    } */
+
+    class Student extends Person { // 继承父类 （继承父类的方法）
+      constructor (name, age, sex, sid) {
+        super(name, age, sex) // 继承父类的属性
+        this.sid = sid
+      }
+
+      study () {
+        console.log('学习')
+      }
+    }
+
+
+
+
+    const p1 = new Person('张三', 18, '男')
+
+    const s1 = new Student('张三', 18, '男', '001')
+  
+  </script>
+</body>
+</html>

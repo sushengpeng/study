@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "楷体";
+        }
+        .background{
+            width: 1200px;
+            height:600px;
+            margin:0 auto;
+        }
+        .main{
+            width: 920px;
+            height: 600px;
+            margin:0 auto;
+            background-color: #ccc;
+        }
+        .nav {
+            width: 920px;
+            height: 25px;
+            background-color: #36373A;
+        }
+        .nav ul {
+            font-size: 10px;
+            float: left;
+            margin-left: 150px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .nav li {
+            float: left;
+            list-style: none;
+            color: white;
+            padding: 0px 10px;
+        }
+
+        .nav img:nth-child(1) {
+            float: left;
+            margin-top: 5px;
+
+        }
+
+        .image2 {
+            float: left;
+            margin-left: 100px;
+            margin-top: 5px;
+        }
+        
+        .image3 {
+            float: left;
+            margin-left: 10px;
+            margin-top: 15px;
+        }
+
+        .top {
+            width: 920px;
+            height: 40px;
+            margin: 0 auto;
+            background-color: white;
+            margin-bottom: 5px;
+        }
+
+        .top p {
+            line-height: 40px;
+        }
+
+        .top>p:nth-child(1) {
+            float: left;
+            margin-left: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .top>p:nth-child(2) {
+            width: 80px;
+            height: 25px;
+            line-height: 25px;
+            float: right;
+            padding: 0px 8px;
+            margin: 5px 5px 0 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            /* padding:5px 0px; */
+            border: 1px solid #ccc;
+        }
+
+        .shop {
+            width: 920px;
+            height: 260px;
+            margin: 0 auto;
+            background-color: #ccc;
+        }
+
+        .shop li {
+            width: 226px;
+            height: 250px;
+            margin: 0px 2px;
+            text-align: center;
+            float: left;
+            list-style: none;
+            background-color: white;
+        }
+
+        .shop img {
+            margin: 30px 0px;
+        }
+
+        .p1 {
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .cover1 {
+            display: none;
+            margin-top: 50px;
+        }
+
+        .cover:hover .cover2 {
+            display: none;
+        }
+
+        .cover:hover .p1,.cover:hover .p2 {
+            display: none;
+        }
+
+        .cover:hover .cover1 {
+            display: block;
+        }
+
+        .foot {
+            width: 920px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        table {
+            float: left;
+            width: 600px;
+            height: 250px;
+            text-align: center;
+        }
+        .foot p{
+            text-align: center;
+            width: 200px;
+            height: 30px;
+        }
+        .foot div,.foot p{
+            float:right;
+        }
+        .foot div{
+            width: 200px;
+            height: 250px;
+            margin-top: 50px;
+        }
+        .foot p:nth-child(1),.foot p:nth-child(4){
+            color:rgb(129, 129, 243);
+        }
+        .foot p:nth-child(4){
+            width: 100px;
+            height: 30px;
+            margin-right: 50px;
+            border:1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+<div class="background">
+    <div class="main">
+        <div class="nav">
+            <img src="./images/浮动练习4_03.jpg" alt="">
+            <ul>
+                <li>在线商城</li>
+                <li>坚果Pro2S</li>
+                <li>坚果R1</li>
+                <li>坚果TNT工作室</li>
+                <li>Smartisan OS</li>
+                <li>欢喜云</li>
+                <li>应用</li>
+                <li>论坛</li>
+                <li>荣誉与奖项</li>
+            </ul>
+            <img src="./images/浮动练习4_05.jpg" alt="" class="image2">
+            <img src="./images/浮动练习4_07.jpg" alt="" class="image3">
+        </div>
+        <div class="contain">
+            <div class="top">
+                <p>锤子应用</p>
+                <p>全部应用></p>
+            </div>
+            <div class="shop">
+                <ul>
+                    <li><img src="./images/浮动练习4_20.jpg" alt="" style="margin-top:42px;">
+                        <p class="p1" style="margin-top:17px;">HandShaker</p>
+                        <p>在Mac和Windows电脑上也可以方便自如的管理你在Android手机中的内容</p>
+                    </li>
+                    <li class="cover">
+                        <div class="cover1"><img src="./images/浮动练习4_27.jpg" alt=""></div>
+                        <div class="cover2"><img src="./images/浮动练习4_13.jpg" alt=""></div>
+                        <p class="p1">锤子标签</p>
+                        <p class="p2">雅致的信纸，精心调整的文字排版这可能是最让人最想写字的标签应用</p>
+                    </li>
+                    <li>
+                        <img src="./images/浮动练习4_15.jpg" alt="">
+                        <p class="p1">锤子阅读</p>
+                        <p>信息过载年代的干净阅读</p>
+                    </li>
+                    <li>
+                        <img src="./images/浮动练习4_17.jpg" alt="">
+                        <p class="p1">锤子科技论坛</p>
+                        <p>是一个科技论坛不只是科技论坛</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="foot">
+            <table>
+                <tr>
+                    <th height="100px">订单服务</th>
+                    <th>服务支持</th>
+                    <th>自助服务</th>
+                    <th>媒体中心</th>
+                    <th>关于公司</th>
+                    <th>关于我们</th>
+                </tr>
+                <tr>
+                    <td>购买指南</td>
+                    <td>售后服务</td>
+                    <td>热点咨询</td>
+                    <td>新闻动态</td>
+                    <td>公司简介</td>
+                    <td>新浪微博</td>
+                </tr>
+                <tr>
+                    <td>支付方式</td>
+                    <td>维修门面</td>
+                    <td>预约购买</td>
+                    <td>官方视频</td>
+                    <td>加入我们</td>
+                    <td>官方微信</td>
+                </tr>
+                <tr>
+                    <td>送货政策</td>
+                    <td>零售门店</td>
+                    <td>订单物流</td>
+                    <td>图片资源</td>
+                    <td>荣誉奖项</td>
+                    <td>联系我们</td>
+                </tr>
+            </table>
+            <div>
+                <p>400-626-5666</p>
+                <p>周一到周日9:00-18:00</p>
+                <p>(仅收市话费)</p>
+                <p>在线帮助</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

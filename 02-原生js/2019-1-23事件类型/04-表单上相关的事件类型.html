@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form" action="1.php">
+        <input type="text" id = "uname" maxlength="15"><span id="unamemsg"></span>
+        <input type="reset" />
+        <input type="submit" />
+    </form>
+    <script>
+        //onblur
+        // 元素失去焦点时触发
+        var uname = document.getElementById("uname");
+        var unamemsg = document.getElementById("unamemsg")
+        var form = document.getElementById("form")
+        // uname.onblur = function(){
+        //     //验证输入框中的格式
+        //     // 格式：是合法的邮箱 或者是简单的用户名（用户由字母数字下划线组成，首字母不能是数字）
+        //     var checked = true;
+        //     if(checked){
+        //         unamemsg.style.display = "block";
+        //         unamemsg.innerHTML = "验证通过"
+        //     }else{
+        //         unamemsg.style.display = "block";
+        //         unamemsg.innerHTML = "验证不通过"
+        //     }
+        // }
+        // onchange  失去焦点，并且内容发生改变时才触发
+        // uname.onchange = function(){
+        //     console.log("change")
+        // }
+
+        // onfocus 指的是元素获取焦点的时候触发
+        // uname.onfocus= function(){
+        //     console.log("focus")
+        // }
+
+        // onreset 表单重置时触发 ,绑定的dom对象一定是表单
+        // form.onreset = function(){
+        //     console.log("reset")
+        // }
+
+        //onselect 当用户选取文本时触发
+        // uname.onselect = function(){
+        //     console.log("select")
+        // }
+
+        // onsubmit  提交表单时触发
+        form.onsubmit = function(){
+            alert("submit")
+        }
+        
+    </script>
+</body>
+</html>

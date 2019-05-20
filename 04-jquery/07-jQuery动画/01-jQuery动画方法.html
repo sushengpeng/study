@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:200px;
+            height: 500px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="../jquery.js"></script>
+    <script src="jquery.easing.1.3.js" ></script>
+    <script>
+        //默认动画时间 400 ，fast 200  slow 600
+        $("div").hover(function(){
+            // 常用写法
+            // animate（目标值对象，动画的持续时间，缓动函数（linear，swing），回调函数）
+            // $(this).animate({
+            //     width:"90% ",     //目标绝对值  
+            //     height:"+=200",    //目标相对值
+            //     opacity:0.5        //还可以是目标关键字”toggle“
+            // });
+            // $(this).animate({
+            //     width:"90%",     //目标绝对值
+            //     height:"+=200",    //目标相对值
+            //     // opacity:0.5
+            // },2000,"easeOutElastic",function(){
+            //     console.log(this);   //this指的是当前元素div
+            // });
+
+            //高级写法
+            // animate(目标值对象，配置对象)
+            $(this).animate({
+                width:"toggle",      
+                height:"toggle"
+            },{
+                duration :5000,       //动画的持续时间
+                // easing:"easeOutElastic",    //缓动函数
+                specialEasing:{width:"linear",height:"easeOutElastic"},
+                complete:function(){       //动画完成后执行的回调函数
+                    console.log(this)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

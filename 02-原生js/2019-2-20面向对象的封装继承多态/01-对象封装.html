@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //new Object 或JSON方式封装
+        // var Cat = {
+        //     name:"",
+        //     color:""
+        // }
+
+        // var cat1 = {};
+        // cat1.name="大毛";
+        // cat1.color="黄色";
+
+        // var cat2 = {};
+        // cat2.name="二毛";
+        // cat2.color="黑色"
+
+        // 缺点：创建实例对象比较麻烦
+        // 改进方式，通过工厂模式创建实例对象
+        // function  factory(name,color){
+        //     return {
+        //         name:name,
+        //         color:color
+        //     }
+        // }
+        // var cat1 = factory("大毛","黄色")
+        // var cat2 = factory("二毛","黑色")
+
+        // 缺点是：cat1和cat2没有内在联系
+        // 改进方式：构造函数写法
+        // function Cat(name,color){
+        //     this.name=name;
+        //     this.color=color;
+        // }
+        // var cat1 = new Cat("大毛","黄色")
+        // var cat2 = new Cat("二毛","黑色")
+
+        // console.log(cat1.constructor==Cat);   //true
+        // console.log(cat2.constructor==Cat);
+
+        // //instanceof
+        // console.log(cat1 instanceof Cat)//true
+        // console.log(cat2 instanceof Cat);
+
+        //这种写法很好，但是有一个内存浪费的问题
+        // function Cat(name,color){
+        //     this.name=name;
+        //     this.color=color;
+        //     this.type="猫科动物";
+        //     this.eat=function(){
+        //         console.log("吃鱼")
+        //     }
+        // }
+        // var cat1 = new Cat("大毛","黄色")
+        // var cat2 = new Cat("二毛","黑色")
+
+        // console.log( cat1.eat ==cat2.eat)    //false
+
+        // 每一个实例对象上都有eat，并且实现的功能是一样的，因此造成内存浪费，
+        // 解决方法是：将所有的属性放在原型对象上
+        // function Cat(){
+
+        // }
+        // Cat.prototype.name="大毛";
+        // Cat.prototype.color="黄色";
+        // Cat.prototype.type="猫科动物";
+        // Cat.prototype.eat = function(){
+        //     console.log("吃鱼")
+        // }
+
+
+        // var cat1 = new Cat();
+        // var cat2 = new Cat();
+
+        // console.log(cat2.name)
+        // Cat.prototype.name="二毛"
+        // console.log(cat2.name)
+        // console.log(cat1.name)
+
+        //缺点：可变的属性会收到影响，一个改变会影响另一个
+        //解决方案：把可以的属性和方法放在构造函数本身，把共有的属性和方法放在原型对象上
+        //混合构造函数+原型对象模式
+        // function Cat(name,color){
+        //     this.name=name;
+        //     this.color=color;
+        // }    
+        // Cat.prototype.type="猫科动物";
+        // Cat.prototype.eat = function(){
+        //     console.log("吃鱼")
+        // }
+
+        // var cat1 = new Cat("大毛","黄色")
+        // var cat2 = new Cat("二毛","黑色")
+
+        // console.log(cat1.eat == cat2.eat)   //true
+        // console.log(cat1.name);
+        // console.log(cat2.name);
+        // cat1.name="三毛"
+        // console.log(cat1.name);
+        // console.log(cat2.name);
+
+        //动态的原型模式
+        function Cat(name,color){
+            this.name=name;
+            this.color=color;
+            if(typeof Cat._initialized=="undefined"){
+                Cat.prototype.type="猫科动物";
+                Cat.prototype.eat=function(){
+                    console.log("吃鱼")
+                }
+                Cat._initialized=true;
+            }
+        }
+        console.dir(Cat)
+        var cat1 = new Cat("大毛","黄色");
+        var cat2 = new Cat("二毛","黄色");
+    </script>
+</body>
+</html>

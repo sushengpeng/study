@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script src="../jquery.js"></script>
+    <script src="../zepto.js"></script>
+    <script>
+        // $ 跟 zepto中的$冲突了
+        // jQuery.noConflict();    //释放$,$可以被其他类库使用
+        // jQuery("div").html("123");   //jQuery中$ 跟 jQuery 等价，所以释放$后只能使用jQuery
+
+        // 方法一：将jQuery对象封装在立即执行表达式的内部，内部可以用$接受
+        // !(function($){
+        //     $("div").html("123");
+        // })(jQuery);
+
+        // 方法二：
+        // var j=jQuery.noConflict();
+        // j("div").html("456");
+    </script>
+</body>
+</html>

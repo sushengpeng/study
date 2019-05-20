@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*新建   Ctrl + N*/
+        /*如果盒子比较宽
+            我想在盒子的最左边显示小图标   对应的小图标最好放到精灵图的最右边
+            我想在盒子的最右边显示小图标   对应的小图标最好放到精灵图的最左边
+        */
+        *{
+            margin: 0;
+            padding: 0
+        }
+        /* div{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            background-image: url(1.png);
+            background-repeat:no-repeat; 
+            background-position: 5px 2px;
+        } */
+        .box{
+            width: 300px;
+            height: 30px;
+            background-color: red;
+            background-image: url(1.png);
+            background-repeat:no-repeat; 
+            background-position: 280px 0px
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <div class="box">
+
+    </div>
+</body>
+</html>

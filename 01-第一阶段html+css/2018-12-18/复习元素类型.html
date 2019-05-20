@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*元素类型*/
+        /*
+            1.块元素
+                特征：
+                    1.独占一行
+                    2.可以设置宽高
+                    3.如果宽度不设置，宽度等于父元素的宽度
+
+                常见的块元素：div p ul ol li.....
+            
+                水平居中： 
+                    ！！！前提：宽度不能为父元素的100%
+                    margin:0 auto;
+
+            2.行内元素
+                特征：
+                    1.一行可以有多个
+                    2.宽高不能设置，宽高是由内容撑起来的
+                
+                    常见的行内元素：span a 格式化标签.....
+                
+                水平居中：
+                    给父元素一个：text-align：center；
+
+            3.行内块元素
+                特征：
+                    1.一行可以有多个
+                    2.可以设置宽高
+                常见的行内块元素：img input......
+
+            类型转换：
+            行内元素、行内块元素 ------->  块元素
+                display：block；
+            块元素、行内块元素 ------->   行内元素
+                display：inline；
+            行内元素、块元素 -------->   行内块元素
+                display：inline-block；
+
+            隐藏
+            display：none
+        */
+        /* body{
+            text-align: center;
+        } */
+        img{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <span>我是span</span> -->
+    <img src="1.jpg" alt="">
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top:10px;
+            width:200px;
+            height: 200px;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        span{
+            position: absolute;
+            width:200px;
+            height: 200px;
+            top:-100%;
+            background-color: rgba(0,0,0,0.3)
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <div>
+        <span></span>
+    </div>
+    <script>
+       var divs = document.getElementsByTagName("div");
+       var spans = document.getElementsByTagName("span");
+       
+       
+       function action(n){
+        //    n
+            var timmerId;
+            divs[n].onmouseenter = function(){
+                //-100%   到 0 
+              clearInterval(timmerId);
+              timmerId = setInterval(function(){
+                //   console.log(n);
+                //   console.log(spans[n]);     //   
+                   spans[n].style.top = parseInt(spans[n].style.top)+1+"%";
+                   if(parseInt(spans[n].style.top)>=0){
+                       clearInterval(timmerId);
+                   }
+              },16.67);
+           }
+           divs[i].onmouseleave = function(){
+                clearInterval(timmerId);
+                    timmerId = setInterval(function(){
+                //   console.log(n);
+                //   console.log(spans[n]);     //   
+                   spans[n].style.top = parseInt(spans[n].style.top)-1+"%";
+                   if(parseInt(spans[n].style.top)<=-100){
+                       clearInterval(timmerId);
+                   }
+              },16.67);
+           }
+       }
+
+       for(var i=0;i<divs.length;i++){
+           
+           spans[i].style.top="-100%";
+           action(i);
+       } 
+       console.log(i);   //3
+    </script>
+</body>
+</html>

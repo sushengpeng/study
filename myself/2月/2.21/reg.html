@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form{
+        width: 300px;
+        margin: 0 auto;
+    }
+    label{
+        display: block;
+        height: 21px;
+        margin-top:10px;
+        /* font-size: 0px; */
+    }
+    label span{
+        display: inline-block;
+        width: 100px;
+    }
+    label .pass{
+        width: 25px;
+        height: 21px;
+        /* background-color: tomato; */
+        position: relative;
+        top:-21px;
+        right:-273px;
+        text-align: center;
+    }
+    input{
+        border-radius: 2px;
+    }
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }   
+    #submit{
+        margin-left:150px;
+        margin-top:20px;
+        text-align: center;
+        line-height: 21px;
+    }
+    </style>
+</head>
+
+<body>
+    <form action="###" method="get">
+        <label for="name">
+            <span>用户名:</span><input type="text" id="name" name="name" autofocus placeholder="请输入用户名">
+            <div class="pass"></div>
+        </label>
+        <label for="psd">
+            <span>密码:</span><input type="text" id="psd" name="psd" placeholder="请输入密码">
+            <div class="pass"></div>
+        </label>
+        <label for="confirm">
+            <span>确认密码:</span><input type="text" id="confirm" name="confirm" placeholder="请确认密码">
+            <div class="pass"></div>
+        </label>
+        <label for="cardid">
+            <span>身份证:</span><input type="text" id="cardid" name="cardid" placeholder="请输入身份证号码">
+            <div class="pass"></div>
+        </label>
+        <label for="email">
+            <span>邮箱地址:</span><input type="text" id="email" name="email" placeholder="请输入邮箱地址">
+            <div class="pass"></div>
+        </label>
+        <label for="bankcard">
+            <span>银行卡号:</span><input type="text" id="bankcard" name="bankcard" placeholder="请输入银行卡号">
+            <div class="pass"></div>
+        </label>
+        <input type="submit" value="提交" id="submit" disabled>
+    </form>
+    <script>
+        var username = document.getElementById("name")
+        var psd = document.getElementById("psd")
+        var confirm = document.getElementById("confirm")
+        var cardid = document.getElementById("cardid")
+        var bankcard = document.getElementById("bankcard")
+        var sub = document.getElementById("submit")
+        var email = document.getElementById("email")
+        var spans = document.getElementsByClassName("pass")
+        // 1、用户名由中英文字符、下划线、数字组成，不能为纯数字
+        // 2、用户名的长度不能超过7-14个字符
+        username.onchange = function () {
+            if (/^\w{7,14}/.test(this.value)) {
+                changespan(this, !/^^\d/.test(this.value));
+            } else {
+                changespan(this, false);
+            }
+        }
+        psd.onchange = function () {
+            if (confirm.value == "") {
+                if (/^\w{8,14}/.test(this.value)) {
+                    changespan(this, /\D/.test(this.value));
+                } else {
+                    changespan(this, false);
+                }
+            } else {
+                if (this.value != confirm.value) {
+                    changespan(this, false);
+                }else{
+                    changespan(this, true);
+                }
+            }
+
+        }
+        confirm.onchange = function () {
+            changespan(this, this.value == psd.value);
+            changespan(psd, true);
+        }
+        cardid.onchange = function () {
+            changespan(this, /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(this.value));
+        }
+        email.onchange = function () {
+            changespan(this, /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/.test(this.value));
+        }
+        bankcard.onchange = function () {
+            changespan(this, /^([1-9]{1})(\d{14}|\d{18})$/.test(this.value));
+        }
+        // 让对应的span改变
+        function changespan(obj, bool) {
+            var thespan = obj.parentNode.children[2];
+            if (bool) {
+                thespan.innerHTML = "✔";
+                thespan.style.color = "green";
+                thespan.index = 1;
+                verify();
+            } else {
+                thespan.innerHTML = "✘";
+                thespan.style.color = "red";
+                thespan.index = 0;
+                verify();
+                // obj.select();
+            }
+        }
+        //判断
+        function verify() {
+            var num = 0;
+            for (var i = 0, len = spans.length; i < len; i++) {
+                if (spans[i].index == 1) {
+                    num++;
+                }
+            }
+            if (num == spans.length) {
+                sub.disabled = false;
+                num = 0;
+            } else {
+                sub.disabled = true;
+                num = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{msg | smh}}
+
+    {{ 1216515641 | formatCurrency | add1}}
+
+    <div :x="4.43256436743 | formatCurrency | add1"></div>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    function formatCurrency(num) {
+      num = num.toString().replace(/\$|\,/g, '');
+      if (isNaN(num))
+        num = "0";
+      sign = (num == (num = Math.abs(num)));
+      num = Math.floor(num * 100 + 0.50000000001);
+      cents = num % 100;
+      num = Math.floor(num / 100).toString();
+      if (cents < 10)
+        cents = "0" + cents;
+      for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+        num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+          num.substring(num.length - (4 * i + 3));
+      return (((sign) ? '' : '-') + num + '.' + cents);
+    }
+
+    // 创建过滤器的方式有两种 
+    Vue.filter('smh', function (value) {
+      console.log(value)
+      return `《${value}》`
+    })
+
+    Vue.filter("formatCurrency", formatCurrency)
+
+    // Vue.filter('add1')
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        msg: '书名'
+      },
+      filters: {
+        add1 (value) {
+          return +value + 1
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

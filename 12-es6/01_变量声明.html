@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>  
+  <!-- 
+    var声明变量存在以下问题
+    1 变量提升
+    2 不存在块级作用域
+
+      console.log(a)
+      var a = 1  
+
+      {
+        var b = 2
+      }
+
+      console.log(b)
+      var btn = document.querySelectorAll('button')
+      for (var i = 0; i < 10; i++) {
+        btn[i].onclick = function () {
+          this.innerText = '新的按钮'
+        }
+      }
+      console.log(i)
+
+
+    ES6新的声明变量的方式
+    let const
+    共同点
+      不存在变量提升的问题
+      都可以绑定对应的代码块出现块级作用域（这个块级作用域是模拟的）
+      已声明变量不能再次声明, let只能重新赋值，const不能重新赋值
+
+    不同点
+      let用于声明变量
+      const用于声明常量
+
+      引用值只要不重新赋值成新的引用值，那么可以随意改变堆内存中数据
+   -->
+  <button>按钮1</button>
+  <button>按钮2</button>
+  <button>按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+  <button>按钮6</button>
+  <button>按钮7</button>
+  <button>按钮8</button>
+  <button>按钮9</button>
+  <button>按钮10</button>
+  <script>
+    /* console.log(a)
+    const a = 1 */
+    /* {
+      const b = 2
+      console.log(b)
+
+    } */
+
+    /* const a = 1
+    const a = 2 */
+
+    const obj = {}
+    // obj.a = 1
+    // obj = {}
+
+    /* document.onclick = function (e) {
+      e = e || window.event
+    } */
+    const btn = document.querySelectorAll('button')
+    for (let i = 0; i < 10; i++) {
+      /* setTimeout(() => {
+        console.log(i)
+      }, 1000) */
+
+      btn[i].onclick = function () {
+        btn[i].innerText = '新的内容'
+      }
+     }
+  </script>
+</body>
+</html>

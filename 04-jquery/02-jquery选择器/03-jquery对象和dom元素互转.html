@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <div></div>
+    <script src="../jquery.js"></script>
+    <script>
+        // $("div").css("border","solid 1px red");
+        $("div").css({"border":"solid 1px red","height":"100px",backgroundColor:"pink"});
+
+        // $("div:first").html("123");
+        // 将jQuery对象转dom元素
+        // $("div").get(0).innerHTML="123";
+        // $("div")[0].innerHTML="456";
+
+        //dom转jQuery对象
+        var box = document.getElementById("box");
+        $(box).html("789");
+    </script>
+</body>
+</html>

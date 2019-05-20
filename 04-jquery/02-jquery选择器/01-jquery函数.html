@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="text" id="fruit" /><input type="button" id="add" value="添加" />
+    <ul id="list"></ul>
+    <script src="../jquery.js" ></script>
+    <script>
+        $("#add").click(function(){
+            // console.log($("#fruit").val());
+            // console.log($("<li>"+$("#fruit").val()+"</li>"))
+            $("#list").append($("<li>"+$("#fruit").val()+"</li>"));
+        })
+
+        //
+        console.log($("#add"))
+        console.log($("#add").length)
+        console.log(document.getElementById("add"))
+
+        // $();
+    </script>
+</body>
+</html>

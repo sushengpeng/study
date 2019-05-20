@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      只在第一次对数据进行渲染,渲染后,对应的添加v-once的标签就和data失去联系
+    -->
+    <span v-once>{{msg}}</span>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+  
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '消息'
+      }
+    })
+  
+  </script>
+</body>
+</html> 

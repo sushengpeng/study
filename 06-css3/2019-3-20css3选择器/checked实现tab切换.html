@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            display: none;
+        }
+        input:checked+div{
+            display: block
+        }
+    </style>
+</head>
+<body>
+    <label>tab1</label><input type="radio" name="tab" />
+    <div>div1</div>
+    <label>tab2</label><input type="radio" name="tab" />
+    <div>div2</div>
+    <label>tab3</label><input type="radio" name="tab" />
+    <div>div3</div>
+</body>
+</html>

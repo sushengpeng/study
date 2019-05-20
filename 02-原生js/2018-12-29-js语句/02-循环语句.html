@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table{
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // var i=1;
+        // i+=2;
+        // i+=3;
+        // ...
+        // i+=100;
+
+        // ===========================================================while 语句  循环体最少执行次数为0
+        // 语法：
+        // while(condition){
+        //     语句
+        // }
+        // var i=1;   //存从1到100
+        // var result=0;
+
+        // result=result+i;
+        // i++;   //2
+        // result=result+i;   //1+2 = 3
+        // i++;    //3
+        // result=result+i;
+        // ...
+        // i==100
+        // result = resulte+i;
+        // while(i<=100){
+        //     result+=i;
+        //     i++;
+        // }
+        // console.log(i);   //101
+        // console.log(result);   //5050
+
+        // 死循环，条件一直为真   
+        // while(i<=1){
+        //     console.log("test");
+        // }
+
+        //====================================================do-while 语句
+        // 先执行循环体，再判断条件，循环体最少执行次数为1次
+        // do{
+        //     循环语句
+        // }while(condition)
+
+        // do{
+        //     result+=i;
+        //     i++;
+        // }while(i<=100);
+        // console.log(i)
+        // console.log(result)
+
+        // do{
+        //     console.log("test")
+        // }while(i<=0)
+
+        //============================================================for 
+        // 语法：
+        // for (语句 1; 语句 2; 语句 3){
+        // 被执行的代码块
+        // 循环体
+        // } 
+
+        // 顺序：
+        // 先执行语句1
+        // 再判断语句：
+        //     满足判断条件就执行循环体
+        //         继续语句3
+        //         再判断语句：
+        //              满足判断条件就执行循环体
+        //                 继续语句3
+        //     不满足条件，直接结束for语句
+        // for(var i=1,result=0;i<=100;i++){
+        //     result+=i;
+        // }
+        // console.log(result);
+        // console.log(i);
+
+        // document.write("1*1=1");
+
+        // break 结束整个循环语句
+        // continue 结束本次循环，后续的循环继续执行
+
+        document.write("<table>");
+        for(var i=1;i<10;i++){
+
+            //判断条件一定要写在上面，否则的话就 有可能打断不了循环
+            if(i==5){
+                continue;
+                // break;
+            }
+            document.write("<tr><td>")
+            
+            document.write("1*"+i+"="+1*i)    //1*1  
+            document.write("</td></tr>")
+
+        }
+        document.write("</table>")
+    </script>
+</body>
+</html>

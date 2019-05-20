@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var endDate = new Date("2019/1/27 17:30");
+        var startDate = new Date();
+
+
+        var ms = endDate - startDate
+        console.log( ms )
+
+        // d 天  h 时   m   分  s 秒 
+
+
+        
+        // 100分钟 = 1小时 40分钟 
+        //100s=  1分 40 s
+        //1000s=16 分 40s
+
+        // 得到秒数：
+        var diffs = parseInt( ms/1000);
+        console.log(diffs);
+
+        var s = diffs%60;
+        console.log(s);
+
+        //得到分钟：
+        var diffm = parseInt(diffs/60);
+        var m = diffm%60;
+        console.log(m);
+
+
+        //50小时 = 2天2小时
+        //得到小时数：
+        var diffH = parseInt(diffm/60);
+        var h = diffH%24;
+        console.log(h);
+
+        //得到天数：
+        var d = parseInt(diffH/24);
+
+        document.write(d+"天"+h+"时"+m+"分"+s+"秒")
+    </script>
+</body>
+</html>

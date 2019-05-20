@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="###" id="btn">click me</a>
+    <a id="delEvent" >delEvent</a>
+    <script>
+        var btn = document.getElementById("btn");
+        var delEvent = document.getElementById("delEvent");
+        //删除属性注册的事件
+        // 按钮只能点击一次
+        // btn.onclick = function(){
+        //     console.log("clicked");
+        //     // btn.onclick = null;
+        // }
+
+        // //啥时候触发按钮，啥时候删除
+        // delEvent.onclick = function(){
+        //     btn.onclick = null;
+        // }
+
+        //删除添加事件监听方式注册的事件
+        function handler(){
+            console.log(this);
+            console.log("clicked");
+        }
+        // btn.addEventListener("click",handler,false);
+        // btn.removeEventListener("click",handler,false)
+        //======= 下面这种方式删除不了事件处理函数
+        // btn.addEventListener("click",function (){
+        //     console.log("clicked");
+        // },false);
+        //=========
+       
+        // btn.attachEvent("onclick",handler)
+        // btn.detachEvent("onclick",handler);
+        function addEvent(dom,eventType,handler){
+
+            if(dom.attachEvent){
+                window[handler] = function(){
+                    // handler();
+                    handler.call(dom);
+                };
+                dom.attachEvent("on"+eventType,window[handler])
+            }else{
+                dom.addEventListener(eventType,handler)
+            }
+        }    
+        function removeEvent(dom,eventType,handler){
+            if(dom.removeEventListener){
+                dom.removeEventListener(eventType,handler,false)
+            }else{
+                dom.detachEvent("on"+eventType,window[handler]);
+            }
+        }
+        //绑定事件
+        addEvent(btn,"click",handler);
+        delEvent.onclick = function(){
+            // 移除事件
+            removeEvent(btn,"click",handler);
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="stop">stop</button>
+    <script>
+        //计时器
+        // 第一种写法
+        //setInterval()
+        // var timerId=setInterval(function(){
+        //     console.log(1)
+        // },2000);
+
+        // var stop = document.getElementById("stop");
+        // stop.onclick = function(){
+        //     //清除计时器
+        //     clearInterval(timerId)
+        // }
+        //=================================================================================   
+        //第二种写法
+        // var handler = function(){
+        //     console.log(1);
+        // };
+        // function handler(){
+        //     console.log(1)
+        // }
+
+        // 第二个参数最小值：1000/60
+        // var timerId = setInterval(handler,50,)
+        //=================================================================================
+
+
+        // 传参：
+        // 下面这种方式在ie下有兼容
+        // function handler(str){
+        //     console.log(str);
+        // }
+
+        // var timerId = setInterval(handler,100,"hello sdfdsf")
+
+        //=================================================================================
+        // 可以这样来传参
+        // function handler(str){
+        //     console.log(str);
+        // }
+
+        // setInterval("handler('hello world')",100)
+
+        // var str = "ssss";
+        // setInterval("handler('str')",100)
+        //=================================================================================
+
+
+
+
+
+        // setTimeout跟setInterval用法相同，不同之处在于setTimeout只执行一次，setInterval是一直执行，直到停止
+
+        function  handler(){
+            console.log(1)
+        }
+        var timerId =setTimeout(handler,2000)
+        console.log(timerId);
+        clearTimeout(timerId);
+    </script>
+</body>
+</html>

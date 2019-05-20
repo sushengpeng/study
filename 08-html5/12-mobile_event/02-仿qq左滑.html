@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+        li {
+            width:100%;
+            height: 50px;
+            overflow: hidden;
+            display: flex;
+        }
+        li div{
+            width:100%;
+            height: 100%;
+            background-color: pink;
+            flex-shrink: 0;
+        }
+        li a{
+            width:60px;
+            height: 100%;
+            border:solid 1px red;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div></div><a>置顶</a><a>删除</a>
+        </li>
+    </ul>
+    <script>
+        var li = document.getElementsByTagName("li")[0];
+        var div = document.getElementsByTagName("div")[0];
+        var sx,sy,ex,ey;
+        li.addEventListener("touchstart",function(e){
+            sx = e.targetTouches[0].clientX;
+            sy = e.targetTouches[0].clientY;
+        })
+        li.addEventListener("touchmove",function(e){
+            // 移动到的位置
+            ex = e.targetTouches[0].clientX;
+            ey = e.targetTouches[0].clientY;
+            //左滑
+            if(ex<sx && sx-ex>sy-ey){
+                // 左滑距离
+                div.style.marginLeft = ex-sx+"px";
+            }
+        })
+    </script>
+</body>
+
+</html>

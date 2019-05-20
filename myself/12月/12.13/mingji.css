@@ -1,0 +1,28 @@
+main{
+    width:60%;
+    height:auto;
+    margin: 0 auto;
+    border-width:2px;
+    border-style: dotted;
+    border-color:black;
+}
+*{
+    margin:0;
+    padding:0;
+}
+.p1{
+    text-indent: 2em;
+    margin-left: 20px;
+    margin-right:20px;
+    margin-top:5px;
+}
+.p2{
+    color: red;
+    margin-top:5px;
+}
+h3{
+    margin:10px;
+}
+h2{
+    margin:10px;
+}

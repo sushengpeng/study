@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //search()
+        //参数正则表达式，忽略g
+        //结果：正则表达式匹配的子字符串第一次出现的位置
+        // var str = "javascript JAVA";
+        // console.log(str.search(/JAVA/ig));
+
+        // replace()
+        // 参数： 
+        // 1：字符串或者正则表达式
+        // 2: 要替换的新字符串
+        //返回值
+            // 替换后的字符串
+        // var str="     sdfdsf sdfsdf        ";
+        // var pattern = /^\s*/;
+        // pattern = /\s*$/g;
+        // pattern = /^\s*|\s*$/g;
+        // console.log(str.replace(pattern,"").length);
+
+        var str = "最近比较火的电影是《流浪地球》,《知否知否》！"
+        // var pattern = /《([^《》]+)》/g;
+        // console.log(pattern.exec(str));
+        // console.log(str.replace(pattern,"《$13》"));
+
+        var pattern = /(?:《)([^《》]+)(?:》)/g;
+        console.log(pattern.exec(str));
+        console.log(str.replace(pattern,"《$13》"));
+
+        //match()
+        //参数：正则表达式
+        //返回值：数组
+        // console.log("1 plus 2 equals 3".match(/\d+/g));  //["1", "2", "3"]
+        // console.log("1a plus 2a equals 3a".match(/\d+(\w)/g));  //["1a", "2a", "3a"]
+        // console.log("1a plus 2a equals 3a".match(/\d+(\w)/));  //1a a
+
+        // //split
+        // var str= "sdfd   ,  sss,sfd , dddd, ddddd";   //sdfd,sss,sfd,dddd,ddddd
+        // console.log(str.split(","));
+        // console.log(str.split(/\s*,\s*/));
+
+
+        //正则表达式上的方法
+        // test  返回true或false
+
+
+
+        //reg.exec(str);
+        //返回结果为【】或null
+        var str1="34uw9uwd";
+        var patt=/uw/;  //”g”:全局匹配
+
+        var t=patt.exec(str1);
+        console.log(t); //与正则匹配文本，没找到返回null   ["uw"]
+        console.log(patt.lastIndex); //下一次开始查找的位置   4
+        
+        t=patt.exec(str1);         //["uw"]
+        console.log(t);
+        console.log(patt.lastIndex);   //7
+
+
+
+
+
+    </script>
+</body>
+</html>

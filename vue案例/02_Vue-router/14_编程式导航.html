@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 
+    编程式导航里的写法和声明式导航中to的写法一致
+
+    
+   -->
+
+  <div id="app">
+    <button @click="handler">跳转到组件2的路由/demo/:id</button>
+
+    <router-view></router-view>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    const com1 = {
+      template: `
+        <div>组件1{{$route.query.id}}</div>
+      `
+    }
+
+    const com2 = {
+      template: `
+        <div>组件2 {{$route.params.id}}</div>
+      `
+    }
+
+    const routes = [
+      {
+        path: '/',
+        component: com1
+      }, {
+        name: 'com2',
+        path: '/demo/:id',
+        component: com2
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+
+    const app = new Vue({
+      el: '#app',
+      router,
+      data: {
+        num: 10
+      },
+      methods: {
+        handler () {
+          // 编程式导航需要使用router 当我们吧router放在vue的配置对象中时，vue实例中就多了一个$router的属性
+          console.log(this.$router === router)
+
+          // this.$router.push('/demo/1')
+          // this.$router.push({name: 'com2', params: {id: 10}})
+          // this.$router.replace({ name: 'com2', params: { id: 10 }})
+          /* router.back()
+          router.forward() */
+
+          this.$router.go(num) // num是一个数字，指的是当前历史记录中的第几条 
+        }
+      }
+    })
+
+  </script>
+</body>
+
+</html>

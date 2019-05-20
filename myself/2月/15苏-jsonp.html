@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#inp{
+    width: 245px;
+    height: 50px;
+    outline:none;
+    border: 1px solid black;
+    position: relative;
+    left: 50%;
+    margin-left:-127.5px;
+    margin-top:100px;
+    /* text-align: 2em; */
+}
+#inp:focus{
+    border:1px solid orangered;
+}
+#content{
+    width: 245px;
+    position: relative;
+    left: 50%;
+    margin-left:-127.5px;
+    border:1px solid orangered;
+    border-top:transparent;
+    display: none;
+}
+.box{
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    color: orangered;
+    cursor: pointer;
+}
+.left{
+    float:left;
+    margin-left:20px;
+}
+.right{
+    color: #ccc;
+    float:right;
+    margin-right:20px;
+}
+</style>
+
+<body>
+    <input type="text" id="inp">
+    <div id="content"></div>
+    <script>
+        var inp = document.querySelector("#inp");
+        var cont = document.querySelector("#content");
+        // https://search.mi.com/search/expand?keyword=asdadas&jsonpcallback=xmsearch
+        function jsonp(option) {
+            var script = document.createElement("script");
+            script.src = option.url + "?" + option.keyword + "&" + option.data;
+            //变量的提升，将callback属性作为全局变量，指向了jsonpcallback
+            window["xmsearch"] = option.jsonpcallback;
+            document.body.appendChild(script);
+            script.parentNode.removeChild(script);
+        }
+        inp.onkeyup = function () {
+            cont.innerHTML="";
+            cont.style.display="block";
+            var option = {
+                url: "https://search.mi.com/search/expand",
+                keyword: "keyword=" + inp.value,
+                data: "jsonpcallback=xmsearch",
+                jsonpcallback: function (data) {
+                    //回调函数
+                    var _data = data;
+                    var Fragment = document.createDocumentFragment();
+                    for (var i = 0, len = _data.length; i < len; i++) {
+                        var box=document.createElement("div");
+                        box.className="box";
+                        var pro=document.createElement("div");//商品
+                        pro.className="left";
+                        pro.innerHTML=_data[i].Key;
+                        var rst=document.createElement("div");//数量
+                        rst.className="right";
+                        rst.innerHTML="约有"+_data[i].Rst+"件";
+                        box.appendChild(pro);
+                        box.appendChild(rst);
+                        Fragment.appendChild(box);
+                    }
+                    cont.appendChild(Fragment);
+                    }
+                }
+                jsonp(option);
+            }
+            
+    </script>
+
+</body>
+
+</html>

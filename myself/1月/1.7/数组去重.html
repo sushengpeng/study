@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        arr = [1, 23, 234, 1, 23, 5, 22, 45, 1];
+        // 使用不同的方式来实现数组去重
+        // 1、双重循环
+        // function clearRepeat(arr) {
+        //     for (var i = 0; i < arr.length; i++) {
+        //         for (var j = i + 1; j < arr.length; j++) {
+        //             if (arr[i] == arr[j]) {
+        //                 arr.splice(j, 1);
+        //                 j--;
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // console.log(clearRepeat(arr));
+        // 2、下标判断
+        // function clearRepeat(arr){
+        //     var num=0;
+        //     var arr1=new Array();
+        //     for (var i = 0; i < arr.length; i++){
+        //         if(arr.indexOf(arr[i])==i){
+        //             arr1[num]=arr[i];
+        //             num++;
+        //         }
+        //     }
+        //     return arr1;
+        // }
+        // 3、判断arr中的值是否在arr1中存在
+        // function clearRepeat(arr){
+        //     var arr1=new Array();
+        //     var num=0;
+        //     for(var i=0;i<arr.length;i++){
+        //         if(arr1.indexOf(arr[i])==-1){
+        //             arr1[num]=arr[i];
+        //             num++;
+        //         }
+        //     }
+        //     return(arr1);
+        // }
+        // 4、借用对象
+        // function clearRepeat(arr){
+        //     var obj={};
+        //     var arr1=new Array();
+        //     for(var i=0;i<arr.length;i++){
+        //         obj[arr[i]]=arr[i];
+        //     }
+        //     for(var key in obj){
+        //         arr1.push(obj[key]);
+        //     }
+        //     return(arr1);
+        // }
+        // 5、排序后判断
+        function clearRepeat(arr){
+            var arr1=new Array();
+            arr.sort(function(a,b){return a-b});
+            for(var i=0;i<arr.length;i++){
+                for(var j=i+1;j<arr.length;j++){
+                    var num=arr[i];
+                    if(num!=arr[j]){
+                        arr1.push(num);
+                        i=j;
+                    }
+                }
+            }
+            return arr1;
+        }
+        console.log(clearRepeat(arr));
+    </script>
+</body>
+
+</html>

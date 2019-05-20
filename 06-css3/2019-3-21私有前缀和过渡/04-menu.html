@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #menu1 {
+            width: 200px;
+            height: 50px;
+            border: solid 3px #aaa;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        #menu1::before {
+            content: "";
+            box-sizing: border-box;
+            border-top: solid 3px blue;
+            border-right: solid 3px blue;
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -3px;
+            top: -3px;
+            opacity: 0;
+            transition: width 0.4s linear 0.2s, height 0.2s linear 0.6s;
+        }
+
+        #menu1:hover:before {
+            width: 200px;
+            height: 50px;
+            opacity: 1;
+        }
+
+        #menu1::after {
+            content: "";
+            box-sizing: border-box;
+            border-left: solid 3px blue;
+            border-bottom: solid 3px blue;
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: -3px;
+            bottom: -3px;
+            opacity: 0;
+            transition: width 0.4s linear 0.2s, height 0.2s linear 0.6s;
+        }
+
+        #menu1:hover:after {
+            width: 200px;
+            height: 50px;
+            opacity: 1;
+        }
+
+        #outer2 {
+            margin: 0 auto;
+        }
+
+        #outer2 {
+            width: 150px;
+            line-height: 30px;
+            height: 30px;
+            text-align: center;
+            border: solid 1px #aaa;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        /* hout outer2时before和after同时消失 */
+        #outer2:before {
+            content: "";
+            position: absolute;left: 0;top: 0;
+            width: 0;height: 0;
+            border-top: solid 2px rgba(0, 0, 255, 0);border-right: solid 2px rgba(0, 0, 255, 0);
+            transition: border-color 0s  0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in 0s;
+        }
+        /* hover outer2时before和after同时出现 */
+        #outer2:hover:before,#outer2:hover:after {
+            width: 146px;height: 26px;
+            border-color:blue;
+            transition:  width 0.2s ease-in, height 0.2s ease-in 0.2s;
+        }
+        /* hout outer2时before和after同时消失 */
+        #outer2:after {
+            content: "";
+            position: absolute;right: 0;bottom: 0;
+            width: 0;height: 0;
+            border-bottom: solid 2px rgba(0, 0, 255, 0);border-left: solid 2px rgba(0, 0, 255, 0);
+            transition: border-color 0s  0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in 0s;
+        }
+        /* hover outer2时before和after同时出现 */
+        /* #outer2:hover:after {
+            width: 146px;height: 26px;
+            border-color:blue;
+            transition:  width 0.2s ease-in, height 0.2s ease-in 0.2s;
+        } */
+
+
+        #outer3 {
+            margin: 100px auto;
+        }
+
+        #outer3 {
+            position: relative;
+            width: 150px;
+            height: 30px;
+            box-sizing: border-box;
+            border: solid 1px #aaa;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        /* hout outer3时的过渡效果 */
+        #outer3:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: solid 2px rgba(0, 0, 255, 0);
+            border-right: solid 2px rgba(0, 0, 255, 0);
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: border-color 0s 0.8s, width 0.2s ease-in 0.6s, height 0.2s ease-in 0.4s;
+            /* transition: border-color 0s  0.8s 的transition属性是让before和after宽高为0后再消失 */
+        }
+
+        /* hover outer3时的过渡效果 */
+        #outer3:hover:before {
+            width: 146px;
+            height: 26px;
+            border-color: blue;
+            transition: width 0.2s ease-in, height 0.2s ease-in 0.2s;
+        }
+
+        /* hout outer3时的过渡效果 */
+        #outer3:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-bottom: solid 2px rgba(0, 0, 255, 0);
+            border-left: solid 2px rgba(0, 0, 255, 0);
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            transition: border-color 0s 0.4s, width 0.2s ease-in 0.2s, height 0.2s ease-in;
+            /* border-color 0s  0.4s 的transition属性是让左下角的边框等到宽高为0时再消失 */
+        }
+        /* hover outer3时的过渡效果 */
+        #outer3:hover:after {
+            width: 146px;
+            height: 26px;
+            border-color: blue;
+            transition: border-color 0s 0.4s, width 0.2s ease-in 0.4s, height 0.2s ease-in 0.6s;
+            /* transition: border-color 0s  0.4s 的transition属性是让右下角的小点等到右上边框执行完毕后再显示 */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu1">
+        hover menu
+    </div>
+
+    <div id="outer2">
+        hover me
+    </div>
+
+    <div id="outer3">
+        hover me
+    </div>
+</body>
+
+</html>

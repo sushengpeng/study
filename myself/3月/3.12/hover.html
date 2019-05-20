@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .img{
+        width: 200px;
+        height: 200px;
+        border: 1px solid goldenrod;
+        position: relative;
+    }
+    .add .mask{
+        position: absolute;
+        left: 0;
+        top:0;
+        right:0;
+        bottom:0;
+        background-color: rgba(0,0,0,.1);
+    }
+    .mask .movetocart,.mask .movetofav{
+        font-size: 12px;
+        letter-spacing: 1px;
+        color:white;
+        position:absolute;
+        width: 60%;
+        height: 30px;
+        line-height: 30px;
+        background-color: tomato;
+        text-align: center;
+        bottom:60px;
+        left:50%;
+        margin-left:-30%;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .mask .movetofav{
+        position:absolute;
+        bottom:20px;
+    }
+    </style>
+</head>
+<body>
+    <div class="img add">asdadasdadsadaadad</div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <div class="img add"></div>
+    <script>
+    var add=document.getElementsByClassName("add");
+    for(var i=0;i<add.length;i++){
+        add[i].onmouseenter=function(){
+            this.innerHTML+="<div class='mask'><div class='movetocart'>添加到购物车</div><div class='movetofav'>添加到收藏夹</div></div>"
+        }
+        add[i].onmouseleave=function(){
+            var mask=this.getElementsByClassName("mask")[0]
+            this.removeChild(mask)
+        }
+    }
+    </script>
+</body>
+</html>

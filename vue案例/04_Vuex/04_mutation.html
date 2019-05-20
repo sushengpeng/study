@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- {{$store.state.msg}} -->
+
+    {{count}}
+    <hr>
+    <button @click="add">+1</button>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script>
+    /* 
+      mutation函数是改变state唯一方法
+
+      一般情况下，只要有state xxx你就可以写setXXX
+
+      mutation不会自动执行，需要相关函数触发
+
+      提交mutation
+        store.commit('mutation的名字')
+
+        store就是this.$store
+
+        在提交mutation时可以附带一些载荷（数据）
+    */
+
+
+    const store = new Vuex.Store({
+      state: {
+        msg: '信息',
+        count: 1
+      },
+      mutations: {
+        setMsg (state, a) {
+          // 在mutation中如何才能获取state  mutation的第一个参数即为state
+
+          state.msg = a
+        },
+        setCount (state, num) {
+          // 尽量的在mutation中只进行纯粹的数据设置工作
+
+          // state.count = num
+          // state.count+=num
+          state.count = num
+        }
+      },
+      actions: {
+        getNum ({commit, state}, num) {
+          // 得到相加后的数
+          const n = state.count + num
+
+          commit('setCount', n)
+        }
+      }
+    })
+
+
+    const app = new Vue({
+      el: '#app',
+      store,
+      methods: {
+        add () {
+          // this.$store.commit('setCount', 2)
+          this.$store.dispatch('getNum', 1)
+        }
+      },
+      computed: {
+        count () {
+          return this.$store.state.count
+        }
+      },
+      created () {
+        // this.$store.commit('setMsg', "多划算发哈速度")
+      }
+    })
+  
+  </script>
+</body>
+</html>

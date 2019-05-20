@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 必须在 -->
+    <canvas id="can" width="300" height="300"></canvas>
+    <a id="download">下载</a>
+    <script>
+        var can = document.getElementById("can");
+        var ctx = can.getContext("2d");
+
+        ctx.beginPath();
+        ctx.arc(50, 50, 50, 0, 2 * Math.PI, false);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(255,0,0,0.8)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,0,0,1)'
+        ctx.stroke();
+
+        var a = document.getElementById("download");
+        a.onclick = function(){
+            var img = can.toDataURL('image/png');
+            console.log(img)
+            var copy = new Image();
+            copy.src=img;
+            document.body.appendChild(copy)
+        }
+
+        //可以通过canvas实现截屏功能，截屏功能必须在服务器环境下使用，可以参考html2canvas.js
+    </script>
+</body>
+
+</html>

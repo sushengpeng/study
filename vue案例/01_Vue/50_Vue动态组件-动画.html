@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    动态组件可以将一些组件直接显示在component的位置
+
+    component只是一个容器（占位的组件） 真正显示的组件是is属性后跟着的组件
+
+   -->
+  <div id="app">
+    <ul>
+      <li @click="changeTab('com1')">标签1</li>
+      <li @click="changeTab('com2')">标签2</li>
+      <li @click="changeTab('com3')">标签3</li>
+    </ul>
+    <transition>
+      <component :is="componentName"></component>
+    </transition>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    /* 
+      vue提供一个原生组件 component
+    */
+    const com1 = {
+      template: `
+        <div>第一个组件</div>
+      `
+    }
+
+    const com2 = {
+      template: `
+        <div>第二个组件</div>
+      `
+    }
+
+    const com3 = {
+      template: `
+        <div>第三个组件</div>
+      `
+    }
+    const vTable = {
+      template: `
+        <table>
+          <item></item>
+        </table>
+      `
+    }
+    const item = {
+      template: `
+        <tr>
+          <td>表格</td>
+        </tr>
+      `
+    }
+
+    Vue.component('Com1', com1) 
+    Vue.component('Com2', com2) 
+    Vue.component('Com3', com3) 
+
+    Vue.component('item', item) 
+
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        componentName: 'com1'
+      },
+      methods: {
+        changeTab (name) {
+          this.componentName = name
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '内容',
+        stu: {
+          name: '张三',
+          class: ['课程1', '课程2', '课程3']
+        }
+      },
+      watch: {
+        // 要监听谁: 改变后执行的函数
+        /* msg (newValue, oldValue) {
+          console.log(newValue, oldValue)
+        }, */
+        /* stu () {
+          console.log(111)
+        } */
+        // 如果想要监听某个对象下的属性的改变可以使用deep
+        /* stu: {
+          handler () {
+            console.log(111)
+          },
+          deep: true
+        } */
+        /* "stu.name" () {
+          console.log(1)
+        } */
+        // 如果我们想要让监听的函数在页面加载后立即执行
+        msg: {
+          handler () {
+            console.log('msg发生改变')
+          },
+          immediate: true
+        }
+
+      }
+    })
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div.stage{
+            perspective: 1000px;
+        }
+        div.scene{
+            border:solid 1px red;
+            position: relative;
+            transition: all 1s;
+            width:200px;
+            height: 150px;
+            transition: all 1s;
+            transform-style: preserve-3d;
+        }
+        .scene:hover {
+            transform: rotateX(180deg);
+        }
+        img{
+            backface-visibility: hidden;
+            width:200px;
+            height: 150px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .img2{
+            transform: rotateX(180deg);
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="scene">
+            <img src="理解透视/灭点.jpg" class="img1" />
+            <img src="理解透视/灭点2.jpg"  class="img2" />
+        </div>
+    </div>
+    
+</body>
+</html>

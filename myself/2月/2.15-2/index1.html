@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <button>返回</button>
+    </div>
+    <script>
+    var arr=["green","yellow","red","blue"]
+    // var num=location.search;
+    // num=parseInt(num.replace("?id=",""));
+    var num=locationsearch("id");
+    var divbox=document.getElementsByTagName("div")[0];
+    divbox.style.backgroundColor=arr[num];
+    var but=document.getElementsByTagName("button")[0];
+    but.onclick=function(){
+        window.history.go(-1);
+    }
+    console.log(locationsearch("pvid"))
+    //获取location.search中想要的参数
+    function locationsearch(para){
+        var arr=location.search;
+        var arrindex=arr.indexOf(para);//获取para的位置
+        //从arrindex开始遍历直到找到第一个&获取结束位置i
+        for(var i=arrindex,len=arr.length;i<len;i++){
+            if(arr[i]=="&"){
+                break;
+            }
+        }
+        arr=arr.substring(arrindex+para.length+1,i);//截取para=后i前之间的字符串
+        if(para=="id"){
+           arr=parseInt(arr); 
+        }
+        return arr;
+    }
+    </script>
+</body>
+</html>

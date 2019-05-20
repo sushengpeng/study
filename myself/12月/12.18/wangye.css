@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+dl{
+    font-size: 0;
+}
+dl:nth-child(1) dd{
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    font-size:20px;
+    padding:10px;
+    background-color: antiquewhite;
+}
+dl:nth-child(2) dd{
+    display: none;
+    color:black;
+    font-size: 15px;
+    background-color: antiquewhite;
+    padding:10px;
+}
+dl:nth-child(1) dd:hover{
+    color: green;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: green;
+}
+a{
+    text-decoration: none;
+}
+a:link{
+    color:black;
+}
+dl:nth-child(1) a:hover{
+    color: green;
+}
+dl:nth-child(1) dl:nth-child(2){
+    display:inline-block;
+}
+dl:nth-child(2) a:hover{
+    color: green;
+}
+dl:nth-child(2) dd:hover{
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: green;
+}

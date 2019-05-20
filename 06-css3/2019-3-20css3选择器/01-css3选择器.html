@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        :focus{border:solid 1px orange;outline: none;}
+        p{width:200px;}
+        p:first-letter{font-size: 50px;color:orange}
+        p:first-line{line-height: 100px;font-size: 30px;}
+        /* li:first-child{border:solid 1px red;} */
+        p::before{
+            /* 得到标签上的属性 */
+            content: attr(data-h);     
+        }
+        /* 不必相邻，可以选中后面的所有的兄弟 */
+        /* #list3~li{
+            background-color: aqua
+        } */
+        /* 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。 */
+        p:first-of-type  
+        {
+            background-color: red;
+        }
+        /* div:first-of-type{
+            border:solid 1px green;
+        } */
+
+        /* 选择的是属于其父元素中唯一的一种类型的标签 */
+        /* :only-of-type{
+            border:solid 1px blue;
+        } */
+        /* 选择的是父元素中只有一个孩子的标签 */
+        :only-child{
+            border: solid 1px pink;
+        }
+        /* 选中的是ul中的第四个孩子 */
+        /* ul :nth-child(4){
+            background-color: pink;
+        }
+        ul :nth-child(2n){
+            background-color: gray;
+        }
+        ul :nth-child(2n+1){
+            background-color: #eee;
+        } */
+
+        ul li:nth-of-type(4){
+            background-color: green;
+        }
+
+        /* :root{
+            background-color: gray;
+        } */
+
+        /* 选中的是标签中没有任何内容的元素 */
+        :empty{
+            border:solid 1px black;
+        }
+
+        ::selection{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" />
+    <p data-h="hello">士大夫似的djfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdg djfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdgdjfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdgdjfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdg</p>
+    <p data-h="hello">士大夫似的djfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdg djfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdgdjfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdgdjfoiwuert jew dsjfewrjtremnt ejrtiuertjerjg gftuiosdg</p>
+    <ul>
+        <li>list 1</li>
+        <li>list 2</li>
+        <li id="list3">list 3</li>
+        <div>sdfdsf</div>
+        <li>list 4</li>
+        <li>list 5</li>
+        <li>list 6</li>
+        <li>list 7</li>
+        <li>list 8</li>
+    </ul>
+
+    <div>sdfdsf
+        <div>sdfsdfds
+            <div>sdfsdfsdje</div>
+            <div>sdfsdfsdje</div>
+            <div>sdfsdfsdje</div>
+            <div>sdfsdfsdje</div>
+            <div>sdfsdfsdje</div>
+        </div>
+    </div>
+</body>
+</html>

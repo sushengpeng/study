@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+                    
+            {{/foreach}}
+            <? value.forEach(function(car){ ?>
+                <li>
+                <p>书名:<?= itemid ?></p>
+                <p>作者:<?= itemname ?></p>
+                <p>价格:<?= price ?></p>
+                // <p>封面:<img src='{{$value["picture"]}}' /></p>
+                <p>其他:<?= other ?></p>
+                </li>
+            <? }) ?>
+            // <p>封面:<img src='{{$value["picture"]}}' /></p>
+</html>

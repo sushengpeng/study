@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./bootstrap.css">
+  <style>
+    #app {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    commentApp
+    commentList
+    commentItem
+    commentInput
+  -->
+  <div id="app">
+    <comment-app></comment-app>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const commnetApp = {
+      name: 'commentApp',
+      template: `
+        <div class="commentApp">
+          <comment-input @send:comment="getComment"></comment-input>
+          <hr>
+          <comment-list :comments="comments"></comment-list>
+        </div>
+      `,
+      data () {
+        return {
+          comments: [
+            /* {
+              name: '张三',
+              content: '留言内容'
+            } */
+          ]
+        }
+      },
+      methods: {
+        getComment (comment) {
+          // 这个comment就是对应的评论 把这个评论加到comments中
+          this.comments.unshift(comment)
+        }
+      }
+    }
+
+    const commnetList = {
+      name: 'commentList',
+      template: `
+        <div>
+          <ul class="list-group" v-if="!comments.length">
+            <li class="list-group-item disabled">暂无数据</li>
+          </ul>
+          <ul class="list-group" v-else>
+            <comment-item 
+              v-for="(comment, index) in comments" 
+              :comment="comment"
+              :key="index"></comment-item>
+          </ul>
+        </div>
+      `,
+      props: {
+        comments: Array
+      }
+    }
+
+    const commnetItem = {
+      name: 'commentItem',
+      template: `
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">{{comment.name}}</h4>
+          <p class="list-group-item-text">{{comment.content}}</p>
+        </li>
+      `,
+      props: {
+        comment: Object
+      }
+    }
+
+    const commnetInput = {
+      name: 'commentInput',
+      template: `
+        <div>
+          <div class="form-group">
+            <input type="text" class="form-control" v-model="comment.name">
+          </div>
+          <div class="form-group">
+            <textarea v-model="comment.content" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" @click="send">发布</button>
+          </div>
+        </div>
+      `,
+      data () {
+        return {
+          comment: {
+            name: '',
+            content: ''
+          }
+        }
+      },
+      methods: {
+        send () {
+          // 发送两个数据 this.$emit('', this.comment)
+          this.$emit('send:comment', Object.assign({}, this.comment))
+          // this.comment.name = ""
+          this.comment.content = ""
+        }
+      }
+    }
+
+    const components = [commnetApp, commnetList, commnetItem, commnetInput]
+
+    components.forEach(component => Vue.component(component.name, component))
+
+
+    /* for (let i = 0; i < components.length; i++) {
+      const component = components[i]
+      Vue.component(component.name, component)
+    } */
+
+    const app = new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

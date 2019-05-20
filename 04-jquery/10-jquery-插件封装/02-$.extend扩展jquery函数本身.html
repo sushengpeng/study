@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../jquery.js"></script>
+    <script>
+
+        //相当于在jQuery本身上面扩展一些工具函数，
+        //缺点是不能够使用jQuery中强大的dom操作功能
+        $.extend({
+            min:function(){
+                //arguments
+                console.log(arguments instanceof Array);
+                return Math.min.apply(null,arguments);
+            },
+            max:function(){
+                return Math.max.apply(null,arguments);
+            }
+        })
+        console.log($.min(334,7656,4543,1,83,34,4));
+        console.log($.max(334,7656,4543,1,83,34,4));
+
+
+        // $("选择器").css()
+    </script>
+</body>
+</html>

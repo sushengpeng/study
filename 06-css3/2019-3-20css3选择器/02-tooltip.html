@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0
+        }
+        p{
+            width:100px;
+            /* height: 100px; */
+            border:solid 1px red;
+            position: relative;
+            word-break: break-all;
+        }
+        p::before{
+            content:attr(data-title);
+            display: none;
+            width:100px;
+        }
+        p:hover::before{
+            position: absolute;
+            background: black;
+            color:#fff;
+            display: block;
+            top:100%;
+        }
+
+
+
+        .haorooms {
+            position:relative;
+            display:inline-block;
+            font-size:80px; /*  任何宽度都可以 */
+            color: black; /* 任何颜色，或透明 */
+            overflow:hidden;
+            /* white-space: pre; 处理空格 */
+        }
+        .haorooms:before {
+            display:block;
+            /* z-index:1; */
+            position:absolute;
+            top:0;
+            left:0;
+            width: 50%;
+            content: attr(data-content); /* 伪元素的动态获取内容 */
+            overflow:hidden;
+            color: #f00;
+        }
+
+    </style>
+</head>
+<body>
+    <p data-title="这是一个段落">sdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjieriksdfjierik</p>
+
+
+    <span class="haorooms" data-content="前">前</span>
+    <span class="haorooms" data-content="端">端</span>
+    <span class="haorooms" data-content="博">博</span>
+    <span class="haorooms" data-content="客">客</span>
+
+</body>
+</html>

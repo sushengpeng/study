@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function People(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        People.prototype.say=function(){
+            console.log("hi ! My name is "+this.name)
+        }
+
+
+        
+        // 原型对象是什么对象；  普通对象
+        console.log(typeof People.prototype);  //object
+
+        var lyy = new People("liuyangyang",18);
+        console.log(lyy);
+        console.log(lyy.name);
+        lyy.say();
+        console.log(lyy.hi());
+    </script>
+</body>
+</html>

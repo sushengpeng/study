@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+        </style>
+</head>
+<body>
+        <div id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+
+        function handler1(){
+            alert("hello1")
+        }
+        function handler2(){
+            alert("hello2")
+        }
+        // 可以给一个dom对象上注册多个事件
+        // box.addEventListener("click",handler1);
+        // box.addEventListener("click",handler2);
+
+        //ie7,8下注册事件的方式
+        // box.attachEvent("onclick",handler1);
+        // box.attachEvent("onclick",handler2);
+
+        function addEvent(dom,eventType,handler){
+            if(dom.attachEvent){
+                dom.attachEvent("on"+eventType,handler)
+            }else{
+                dom.addEventListener(eventType,handler)
+            }
+        }
+
+        addEvent(box,"click",handler1)
+        addEvent(box,"click",handler2)
+
+    </script>
+</body>
+</html>

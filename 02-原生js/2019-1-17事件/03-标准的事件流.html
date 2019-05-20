@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #outer{
+            width:200px;
+            height: 200px;
+            background-color: red;
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+
+    <script>
+        var outer = document.getElementById("outer");
+        var inner = document.getElementById("inner");
+        // outer.onclick  = function(){
+        //     alert("outer")
+        // }
+        // inner.onclick = function(){
+        //     alert("inner");
+        // }
+
+        //标准的事件流，面试题
+        //当点击inner的时候，先弹出inner，再弹出outer
+
+        // 如果想要先弹出outer，再弹出inner
+        function out(){
+            alert("outer")
+        }
+        function inn(){
+            alert("inner")
+        }
+        // outer.addEventListener("click",out,true);    //第三个参数指的是在捕获阶段执行父元素上的事件
+        // inner.addEventListener("click",inn,true);    //第三个参数指的是在捕获阶段执行父元素上的事件
+
+
+        // 第三个参数的默认值是false，指的是按照标准的事件流执行事件
+        outer.addEventListener("click",out,false);
+        inner.addEventListener("click",inn,false);
+    </script>
+</body>
+</html>

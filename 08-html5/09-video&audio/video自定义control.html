@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+
+		}
+		.view{
+			position: relative;
+		}
+		.progressbar{
+			float: left;
+			width: 300px;
+			height: 4px;
+			background-color: #999;
+			margin: 23px 15px;
+			position: relative;
+
+		}
+		.dot{
+			width: 10px;
+			height: 10px;
+			background-color: orange;
+			border-radius: 50%;
+			position: absolute;
+			top: -3px;
+			left: 0;
+
+		}
+		.sm{
+			width: 0;
+			height: 4px;
+			background-color: red;
+		}
+		.sound{
+			width: 25px;
+			height: 25px;
+			float: left;
+			margin: 10px 5px;
+		}
+		#play{
+			/* position: absolute;
+			left: 10px;
+			top: 5px; */
+			width: 40px;
+			height: 40px;
+			float: left;
+			margin:5px 10px;
+
+		}
+		#play .pause{
+			display: none;
+		}
+		.next{
+			width: 20px;
+			height: 20px;
+			float: left;
+			margin: 16px 0;
+		}
+		.control{
+			width: 500px;
+			height: 50px;
+			background-color: white;
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+
+		}
+
+	</style>
+</head>
+<body>
+	<div class="view">
+		<video src="media/2.mp4" id="vid" width="500"></video>
+		<div class="control">
+			<div id="play">
+				<img src="img/play.png" height="40" alt="" class="start">
+				<img src="img/pause.png" height="40" alt="" class="pause">
+			</div>
+			<div class="next">
+				<img src="img/next.png" height="20" alt="">
+			</div>
+			<div class="progressbar">
+				<div class="dot"></div>
+				<div class="sm"></div>
+			</div>
+			<div class="sound">
+				<img src="img/sound.png" height="25" alt="">
+			</div>
+		</div>
+	</div>
+	<script>
+		var start=document.getElementsByClassName("start")[0];
+		var pause=document.getElementsByClassName("pause")[0];
+		var sm=document.getElementsByClassName("sm")[0];
+		var dot=document.getElementsByClassName("dot")[0];
+		var control=document.getElementsByClassName("control")[0];
+		var progressbar=document.getElementsByClassName("progressbar")[0];
+
+		var next=document.getElementsByClassName("next")[0];
+		var flag=false;
+
+		//播放暂停
+		play.onclick=function(){
+			if(vid.paused){
+				start.style.display="none";
+				pause.style.display="block";
+				vid.play();
+			}else{
+				start.style.display="block";
+				pause.style.display="none";
+				vid.pause();
+			}
+			
+		}
+
+		//进度条
+		window.onload=function(){
+			var total=vid.duration;
+			var timer=setInterval(function(){
+				var con=vid.currentTime;
+				sm.style.width=con/total*300+"px";
+				dot.style.left=sm.style.width;
+			},300)
+			
+			progressbar.onmousedown=function(e){
+				flag=true;
+				var x=e.clientX-progressbar.getBoundingClientRect().left+5;
+				console.log(x);
+				vid.currentTime=x*total/300;
+			}
+			progressbar.onmousemove=function(e){
+				if(flag){
+					var y=e.clientX;
+					var x=e.clientX-progressbar.getBoundingClientRect().left;
+					console.log(y);
+					vid.currentTime=x*total/300;
+				}
+			}
+			progressbar.onmouseup=function(e){
+				flag=false;	
+			}
+			// progressbar.onmouseout=function(){
+			// 	flag=false;
+			// }
+		}
+		//快进
+		next.onclick=function(){
+			vid.currentTime+=5;
+		}
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <!-- 给html标签添加属性的方式注册事件 -->
+    <!-- 只适用于事件处理程序比较简单的情况 -->
+    <!-- 缺点:不利于结构 与行为相分离的思想 -->
+    <button onclick="alert('Thank you')" id="btn1">点击这里</button>
+    <button 
+    onclick="handler()"
+    id="btn2">点击这里2</button>
+    <script>
+        //最常用的注册事件的方式
+        //给dom对象添加属性的方式注册事件
+        var domObj = document.getElementById("box");
+        
+        domObj.onclick = function(){
+            alert("hello2");
+        }
+        domObj.onclick = function(){
+            alert("hello1");
+        }
+        function handler1(){
+            console.log(2)
+            console.log(2)
+            console.log(2)
+            console.log(2)
+            console.log(2)
+        }
+        domObj.onclick=handler1;
+        // 当注册多个事件处理程序时，后面的会覆盖前面的
+
+
+        // <!-- 给html标签添加属性的方式注册事件 -->
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            alert('Thank you 2');
+        }
+
+        function handler(){
+            console.log(1)
+            console.log(1)
+            console.log(1)
+            console.log(1)
+            console.log(1)
+            console.log(1)
+            console.log(1)
+        }
+
+        var btn2 = document.getElementById("btn2");
+        btn2.onclick = function(){
+            handler();
+        }
+       
+    </script>
+</body>
+</html>

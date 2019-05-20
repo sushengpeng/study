@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="imgs/1.jpg" width="500px" style="opacity:1" />
+    <a id="toggle">隐藏</a>
+    <script>
+        var img = document.getElementsByTagName("img")[0];
+        var btn = document.getElementById("toggle");
+        var timerId;
+        btn.onclick = function(){
+            // 清掉上次的计时器，否则的话会存在两个计时器，一个在加一个在减
+            clearInterval(timerId);
+            if(this.innerHTML=="隐藏"){
+                //想让开始隐藏，从当前的状态慢慢减去0.01,目标值为0
+                // 并且让文字变成显示
+                timerId = setInterval(function(){
+                    img.style.opacity = parseFloat(img.style.opacity)-0.01;
+                    if(img.style.opacity<=0){
+                        clearInterval(timerId);
+                    }
+                },50);
+                this.innerHTML = "显示";
+
+            }else{
+                //想让开始显示，从当前的状态慢慢加上0.01,目标值为1
+                // 并且让文字变成隐藏
+                timerId = setInterval(function(){
+                    img.style.opacity = parseFloat(img.style.opacity)+0.01;
+                    if(img.style.opacity>=1){
+                        clearInterval(timerId);
+                    }
+                },50)
+                this.innerHTML = "隐藏";
+            }
+        }
+    </script>
+</body>
+</html>

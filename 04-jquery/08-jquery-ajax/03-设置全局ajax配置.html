@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="loading.gif" style="display: none">
+    <script src="js/jquery.js"></script>
+    <script>
+        //设置共有的ajax配置，适用于多个ajax请求
+        // $.ajaxSetup({
+        //     beforeSend:function(){     //发送请求之前显示loading
+        //         $("img").show();
+        //     },
+        //     complete:function(){    //请求之后隐藏loading
+        //         $("img").hide();
+        //     }
+        // });
+
+        // $.ajax({
+        //     url: 'city.json',
+        //     type: 'get',
+        //     dataType: 'json',
+        //     success:function(data){
+        //         console.log(data);
+        //     }
+        // })//一经调用，立马发起ajax请求
+        // $.ajax({
+        //     url: '1.php',
+        //     type: 'get',
+        //     success:function(data){
+        //         console.log(data);
+        //     },
+        //     error:function(xhr,stutas,msg){
+        //         console.log(xhr,stutas,msg)
+        //     },
+        //     complete:function(){
+        //         console.log("complete")
+        //     }
+        // })
+
+        $.ajax({
+            url: 'http://www.b.com/data.php',
+            dataType: 'jsonp',
+            jsonp:"callback1",
+            success:function(data){
+                console.log(data);
+            }
+        })
+
+        //当页面中只有一个ajax请求
+        // $.ajax({
+        //     url: '1.php',
+        //     type: 'get',
+        //     beforeSend:function(){
+        //         $("img").show();
+        //     },
+        //     success:function(data){
+        //         console.log(data);
+        //     },
+        //     error:function(xhr,stutas,msg){
+        //         console.log(xhr,stutas,msg)
+        //     },
+        //     complete:function(){
+        //         console.log("complete")
+        //         $("img").hide();
+        //     }
+        // })
+    </script>
+</body>
+</html>

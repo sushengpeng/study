@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <child msg="字符串"></child> -->
+    <child :msg="1"></child>
+    <!-- <child :msg="true"></child> -->
+    <child :msg="20"></child>
+    <child :msg="14"></child>
+
+
+    
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+
+    const Child = {
+      template: `
+        <div>
+          {{msg}}
+
+          <br>
+          {{student.name}}
+        </div>
+      `,
+      // props: ['msg']
+      props: {
+        // 类型验证
+        // msg: String
+
+        // 多类型
+        // msg: [String, Number]
+
+        // 默认值
+        msg: {
+          // 必填项
+          required: true,
+          type: Number,
+          default: 10,
+          // 自定义验证
+          validator (value) {
+            console.log(value)
+            // 自定义验证中需要有返回值 值为布尔值如果为true则验证成功，为false则验证失败
+            return value >= 10 && value <= 20
+          }
+        },
+
+        student: {
+          type: Object,
+          default () {
+            return {
+              name: '张三',
+              age: 18
+            } 
+          }
+        }
+      }
+    }
+
+    Vue.component('Child', Child)
+
+    const app = new Vue({
+      el: '#app',
+
+    })
+  
+  </script>
+</body>
+</html>

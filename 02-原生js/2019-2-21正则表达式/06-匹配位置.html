@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "javascript is fun!";
+        var pattern = /\bjavascript\b\s\bis\b\s\bfun\b!/;
+        console.log(pattern.test(str));
+
+        var str = " box1  box  ";
+        var pattern = /\bbox\b/;
+        console.log( str.replace(pattern,""));
+
+        //正向前瞻
+        var sToMatch1 = "bedroom";
+        var sToMatch2 = "bedding";
+        var reBed = /(bed(?=room))/;
+        var reBed2 = /(bed(?!room))/;
+        console.log(reBed.test(sToMatch1));    //true
+        console.log(reBed2.test(sToMatch1));   //false
+        console.log(reBed.test(sToMatch2));    //false
+        console.log(reBed2.test(sToMatch2));   //true
+
+        //千位分割符
+        var str = "1000000000000000";   //100,000,000,000,000
+        var pattern = /(?=\B(\d{3})+$)/g;
+        console.log(str.replace(pattern,","))
+    </script>
+</body>
+</html>

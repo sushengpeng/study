@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in students.filter((item)=>item>20)">{{item.name}}</li>
+        </ul>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            msg:'你好',
+            students:[
+                {
+                    name:'张1',
+                    age:18
+                },
+                {
+                    name:'张2',
+                    age:22
+                },
+                {
+                    name:'张3',
+                    age:25
+                },
+                {
+                    name:'张4',
+                    age:26
+                },
+            ]
+        }
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.view{
+			height: 500px;
+			border:1px solid red;
+			perspective:1000px;
+		}
+		.box{
+			width: 300px;
+			height: 200px;
+			position: relative;
+			top:99px;
+			margin:0 auto;
+			/* background: blue; */
+			transform-style:preserve-3d; 
+			/*以3d效果显现*/
+			/* transform:rotateX(45deg); */
+		}
+		.box img{
+			position: absolute;
+			top:0;
+			left:0;
+			transition:all .5s;
+			box-shadow: 0 5px 10px #666;
+			/*加阴影*/
+		}
+	</style>
+</head>
+<body>
+	<div class="view">
+		<div class="box" id="box">
+			<img src="images/1.jpg" height="300" width="200" alt="">
+			<img src="images/2.jpg" height="300" width="200" alt="">
+			<img src="images/3.jpg" height="300" width="200" alt="">
+			<img src="images/4.jpg" height="300" width="200" alt="">
+			<img src="images/5.jpg" height="300" width="200" alt="">
+			<img src="images/6.jpg" height="300" width="200" alt="">
+			<img src="images/7.jpg" height="300" width="200" alt="">
+			<img src="images/8.jpg" height="300" width="200" alt="">
+			<img src="images/9.jpg" height="300" width="200" alt="">
+			<img src="images/10.jpg" height="300" width="200" alt="">
+			<img src="images/11.jpg" height="300" width="200" alt="">
+		</div>
+	</div>
+	<button id="next">next</button>
+</body>
+<script>
+
+
+window.onload=function(){
+	var arr=[];
+	// 建立一个空数组；来存放对应的每个元素要移动的值
+	for(var i=0;i<box.children.length;i++){
+		// 遍历每个img标签，以中间的img图片为分界点把索引值小于5的img标签在Y轴旋转50度；
+		// 索引大于5的在Y轴旋转-50度；
+		if(i==5){
+			arr.push("");
+			continue;
+		};
+		// 再根据索引来计算z轴的位移；离中间最近的元素位移量小
+		// 离中间远的元素位移量大；两边依次类推
+		arr.push("rotateY("+(i<5?1:-1)*50+"deg) translateZ("+Math.abs(i-5)*(-200)+"px)")
+		// arr.push("rotateY("+(i<5?1:-1)*50+"deg) ");
+
+		box.children[i].style.transform=arr[i];
+	}
+	// 当点击下一张时重新排序
+	next.onclick=function(){
+		var arr2=[];
+		// 建立一个空数组arr2;从索引为一的值开始遍历arr再把相对应的值存放在arr2中；最后再把arr的第一个值存进arr2；
+
+		for(var i=1;i<arr.length;i++){
+			arr2.push(arr[i]);
+		}
+		arr2.push(arr[0]);
+		arr=arr2;
+		// 重新把arr2里面的值赋给arr；然后再遍历img把值依次加到img上
+		for(var i=0;i<box.children.length;i++){
+			box.children[i].style.transform=arr[i];
+		}
+	}
+	document.onselectstart=function(){return false}
+}
+</script>
+</html>

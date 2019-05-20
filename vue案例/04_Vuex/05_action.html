@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-show="loading">请求中</div>
+    <span>{{itemLength}}</span>
+    <ul>
+      <li v-for="item in list">{{item.title}}</li>
+    </ul>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script src="./axios.js"></script>
+  <script>
+    /* 
+      action需要被dispatch
+        this.$store.dispatch('action名字')
+        this.$store.dispatch('action名字', 数据)
+
+      action中可以进行异步操作
+
+      因此相关ajax我们都可以放在action中
+
+
+      actions: {
+        demoAction () {}
+      }
+    
+    */
+
+    const store = new Vuex.Store({
+      state: {
+        list: []
+      },
+      getters: {
+        itemLength (state) {
+          return state.list.length
+        }
+      },
+      mutations: {
+        setList (state, list) {
+          state.list = list
+        }
+      },
+      actions: {
+        // 获取list的action
+        /* getList (context) {
+          // action中一定要提交mutation，既然要提交，那么一定少不了commit 所以action函数有一个参数和store是一模一样的
+          // context === store true
+          context.commit()
+        } */
+        getList({commit, state}) {
+          // 请求数据
+          return axios.get('http://localhost:3000/api/articles/1/page/1').then(res => {
+            if (res.data.res_code === 200) {
+              // 请求成功，则将数据发送给mutation
+              commit('setList', res.data.res.articles)
+            }
+          })
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      store,
+      data: {
+        loading: false
+      },
+      computed: {
+        list () {
+          return this.$store.state.list
+        },
+        itemLength () {
+          return this.$store.getters.itemLength
+        }
+      },
+      created () {
+        this.loading = true
+        this.$store.dispatch('getList').then(() => {
+          this.loading = false
+        })
+      }
+    })
+  
+  
+  </script>
+</body>
+</html>

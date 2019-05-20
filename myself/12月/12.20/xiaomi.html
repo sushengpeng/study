@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            color: white;
+            background-color: black;
+        }
+        dl{
+            width: 530px;
+            height: 240px;
+            background-color: wheat;
+            padding:10px;
+        }
+        dd{
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            margin-left:2px;
+            background-color: white;
+            text-align: center;
+        }
+        dd:nth-child(1){
+            width: 100px;
+            height: 210px;
+            background-color: #D1D6E9;
+        }
+        dd:nth-child(10){
+            width: 530px;
+            height:40px;
+            margin-top: -230px;
+        }
+        dd:nth-child(10)>p:nth-child(1){
+            float: left;
+        }
+        dd:nth-child(10)>p:nth-child(2){
+            float: right;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <dl>
+        <dd><p>1</p></dd>
+        <dd><p>2</p></dd>
+        <dd><p>3</p></dd>
+        <dd><p>4</p></dd>
+        <dd><p>5</p></dd>
+        <dd><p>6</p></dd>
+        <dd><p>7</p></dd>
+        <dd><p>8</p></dd>
+        <dd><p>9</p></dd>
+        <dd><p>手机</p><p>查看全部</p></dd>
+    </dl>
+</body>
+
+</html>

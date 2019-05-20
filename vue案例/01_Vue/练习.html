@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    创建父组件parent
+    创建子组件child
+
+    父组件中有data: {
+      a: 1, b: 2, c: 3
+    }
+
+    将对应的 abc传递给子组件，在子组件中获取
+
+
+  -->
+  <div id="app">
+    <parent></parent>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const Parent = {
+      name: 'Parent',
+      template: `
+        <div>
+          父组件
+          <child :num1="a" :num2="b" :num3="c"></child>  
+        </div>
+      `,
+      data () {
+        return {
+          a: 1,
+          b: 2,
+          c: 3
+        }
+      }
+    }
+
+    const Child = {
+      name: 'Child',
+      template: `
+        <div>子组件
+          {{num1}} - {{num2}} - {{num3}}
+        </div>
+      `,
+      props: ["num1", "num2", "num3"]
+    }
+
+    const components = [Parent, Child]
+
+    Vue.component(Parent.name, Parent)
+    Vue.component(Child.name, Child)
+
+
+    const app = new Vue({
+      el: '#app',
+    })
+  
+  </script>
+</body>
+</html>

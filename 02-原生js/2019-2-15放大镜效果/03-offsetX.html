@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            ul{
+                background-color: yellow;
+            }
+            div,li{
+                width:100px;height: 100px;background-color: pink;margin: 10px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- <div id="box"></div>
+        <script>
+            var box = document.getElementById("box");
+            box.onclick = function(eve){
+                eve = eve || window.event;
+                console.log(eve.offsetX,eve.offsetY);
+    
+            }
+        </script> -->
+        <!-- 事件委拖 -->
+        <ul id="box">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <script>
+            var box = document.getElementById("box");
+            box.onclick = function(eve){
+                eve = eve ||window.event;
+                //得到事件源
+                var src = eve.target || eve.srcElement;
+                if(src.tagName=="LI"){
+                    console.log(eve.offsetX,eve.offsetY);
+                }
+                console.log(eve.offsetX,eve.offsetY);
+                // 兼容方案：
+                // offsetX:
+                // eve.offsetX || eve.clientX - this.getBoundingClientRect().left;
+                // eve.offsetY || eve.clientY - this.getBoundingClientRect().top;
+            }
+        </script>
+</body>
+</html>

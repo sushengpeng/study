@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #box{
+            width:400px;
+            height: 400px;
+            border:solid   1px red;
+            border-radius:50%;
+            position: relative;
+        }
+        #box span{
+            position: absolute;
+            /* border:solid 1px red; */
+            width:24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            margin-top: -12px;
+            margin-left: -12px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <span id="span1">1</span>
+        <span id="span2">2</span>
+        <span id="span3">3</span>
+        <span id="span4">4</span>
+        <span id="span5">5</span>
+        <span id="span6">6</span>
+        <span id="span7">7</span>
+        <span id="span8">8</span>
+        <span id="span9">9</span>
+        <span id="span10">10</span>
+        <span id="span11">11</span>
+        <span id="span12">12</span>
+    </div>
+    <script>
+        //
+        // console.log(Math.sin(30));
+        
+
+        // console.log(Math.sin(Math.PI/6));
+
+        //360角度=2PI弧度
+        // 1弧度=180/PI角度
+        // 1角度=PI/180弧度
+
+        // console.log(Math.sin(30*(PI/180)));
+        // span1.style.left="200px";
+        // span1.style.top = "200px"
+
+        // span1.style.left = "400px";
+        // span1.style.top = "200px";
+
+        // span2.style.left = 200+Math.cos(30*(Math.PI/180))*200+"px";
+        // span2.style.top = 200+Math.sin(30*(Math.PI/180))*200+"px";
+
+        // span3.style.left = 200+Math.cos(60*(Math.PI/180))*200+"px";
+        // span3.style.top = 200+Math.sin(60*(Math.PI/180))*200+"px";
+
+        // span4.style.left = 200+Math.cos(90*(Math.PI/180))*200+"px";
+        // span4.style.top = 200+Math.sin(90*(Math.PI/180))*200+"px";
+
+        // span5.style.left = 200+Math.cos(120*(Math.PI/180))*200+"px";
+        // span5.style.top = 200+Math.sin(120*(Math.PI/180))*200+"px";
+
+        //ox和oy指的是中心点o点坐标，r指的是半径
+        var ox=200,oy=200,r=170;
+        for(var i=1;i<13;i++){
+            var span  = document.getElementById("span"+i);
+            span.style.left= ox+Math.cos((30*i+270)*(Math.PI/180))*r+"px";
+            span.style.top = oy+Math.sin((30*i+270)*(Math.PI/180))*r+"px";
+        }
+    </script>
+
+
+</body>
+</html>

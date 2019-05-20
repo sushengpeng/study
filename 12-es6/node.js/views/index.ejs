@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>document</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <ul class="list">
+    <li><a href="channel/1">悦读</a></li>
+    <li><a href="channel/2">情感</a></li>
+    <li><a href="channel/3">连播</a></li>
+    <li><a href="channel/4">校园</a></li>
+    <li><a href="channel/5">音乐</a></li>
+    <li><a href="channel/6">Labs</a></li>
+  </ul>
+
+  <ul class="content">
+    <% lists.forEach(function (article){ %>
+    <li>
+      <a href="../article/<%=article.id%>">
+        <img src="<%=article.img_url%>" class="fl">
+        <div class="channel-body">
+          <p class="title"><%=article.title%></p>
+          <div class="channel-meta fl">
+            <span class="author"><%=article.author%></span>
+            <span class="podcast"><%=article.podcast%></span>
+            <span class="play_time"><%=article.play_time%></span>
+            <span class="duration"><%=article.duration%></span>
+          </div>
+          <p class="con fl"><%-article.content.slice(0,61).replace(/<\/?[^>]*>/gim,"")+"....."%></p>
+        </div>
+       
+      </a>
+    </li>
+    <%})%>
+  </ul>
+</body>
+
+</html>

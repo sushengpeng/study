@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        ul{
+            display: flex;
+            border:solid 1px blue;
+        }
+        .box1{
+            justify-content: flex-start; /* 主轴上的对齐方式*/
+        }
+        .box2{
+            justify-content: flex-end;
+        }
+        .box3{
+            justify-content: center;
+        }
+        .box4{
+            justify-content: space-between;
+        }
+        .box5{
+            justify-content: space-around;
+        }
+        li{
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <ul class="box1">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+    <ul class="box2">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+    <ul class="box3">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+    <ul class="box4">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+    <ul class="box5">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+    </ul>
+</body>
+</html>

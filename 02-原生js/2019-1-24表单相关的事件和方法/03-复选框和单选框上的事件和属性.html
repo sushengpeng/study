@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <label>苹果：<input type="checkbox" name="fruit" checked id="apple" value="apple"></label><br>
+        <label>梨：<input type="checkbox" name="fruit" id="pear" value="pear" ></label><br>
+        <label>香蕉：<input type="checkbox" name="fruit" value="banana"></label><br>
+        <div>
+            选中了：<span></span>个水果
+            <p></p>
+        </div>
+    </div>
+    <script>
+        //属性：
+        // value 
+        // checked     true/false
+        // 事件：
+        // onclick
+
+        // var apple = document.getElementById("apple");
+        // console.log(apple.checked)
+        // console.log(apple.value)
+        // var pear = document.getElementById("pear");
+        // console.log(pear.checked)
+
+        var fs = document.querySelectorAll("input[type=checkbox]");
+        var box = document.getElementById("box")
+        var p = document.querySelector("div p")
+        //获取所有input中选中的个数，并且赋值给span
+        function setNum(){
+            var num=0;
+            var arr = [];
+            var span = document.querySelector("div span")
+            for(var i=0;i<fs.length;i++){
+                if(fs[i].checked){
+                    num++;
+                    arr.push(fs[i].value);
+                }
+            }
+            span.innerHTML = num;
+            p.innerHTML = arr.join(",")
+        }
+        setNum();
+
+        box.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if(target.tagName=="INPUT"){
+                setNum();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        margin-left: 500px;
+        position: relative;
+    }
+    li{
+        list-style: none;
+        float: left;
+        color: black;
+        line-height: 50px;
+        margin-right: 5px;
+        text-align: center;
+        background-color: aquamarine;
+    }
+    div{
+        width: 540px;
+        height:200px;
+        background-color: #ccc;
+        position: absolute;
+        top:50px;
+        left: 0;
+        display: none;
+    }
+    li:hover div{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>电话
+            <div></div>
+        </li>
+        <li>手机
+            <div></div>
+        </li>
+        <li>笔记本
+            <div></div>
+        </li>
+        <li>家电
+            <div></div>
+        </li>
+        <li>出行
+            <div></div>
+        </li>
+    </ul>
+</body>
+</html>

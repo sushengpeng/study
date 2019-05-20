@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .main {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .ban {
+            width: 100%;
+            height: 100px;
+            background-color: orange;
+            position: fixed;
+            top: 0px;
+            display: none;
+        }
+
+        .nav {
+            width: 100px;
+            position: absolute;
+            top: 510px;
+            left: 1710px;
+        }
+
+        .nav .list li {
+            list-style: none;
+            height: 90px;
+            background-color: thistle;
+            border-bottom: 1px solid white;
+            text-align: center;
+            line-height: 90px;
+            font-size: 25px;
+
+        }
+
+        .nav .list li:hover {
+            cursor: pointer;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .content li {
+            list-style: none;
+            width: 80%;
+            height: 1200px;
+            margin: 0 auto;
+            margin-top: 10px;
+            background-color: gold;
+            text-align: center;
+            line-height: 1200px;
+            font-size: 120px;
+        }
+
+        .blank {
+            height: 500px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="blank"></div>
+        <div class="ban"></div>
+        <div class="nav">
+            <ul class="list">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script>
+        var nav = document.getElementsByClassName("nav")[0];
+        var list = document.getElementsByClassName("list")[0];
+        var content = document.getElementsByClassName("content")[0];
+        var contentli = content.getElementsByTagName("li");
+        var lis = document.getElementsByClassName("list")[0].getElementsByTagName("li");
+        var ban = document.getElementsByClassName("ban")[0]
+        window.onscroll = function () {
+            if (content.getBoundingClientRect().top <= 10) {
+                nav.style.position = "fixed";
+                nav.style.top = "110px";
+            } else {
+                nav.style.position = "absolute";
+                nav.style.top = "510px";
+            }
+            if (contentli[0].getBoundingClientRect().top <= 15) {
+                ban.style.display = "block";
+            } else {
+                ban.style.display = "none";
+            }
+            if (contentli[0].getBoundingClientRect().top <= 15 && contentli[0].getBoundingClientRect().top >= -1015) {
+                lis[0].style.backgroundColor = "yellowgreen";
+                // lis[0].style.color = "white";
+            } else {
+                lis[0].style.backgroundColor = "tomato";
+                // lis[0].style.color = "black";
+            }
+            for (var i = 1; i < lis.length; i++) {
+                if (contentli[i].getBoundingClientRect().top <= 185 && contentli[i].getBoundingClientRect().top >=
+                    -1015) {
+                    lis[i].style.backgroundColor = "yellowgreen";
+                    // lis[i].style.color = "white";
+
+                } else {
+                    lis[i].style.backgroundColor = "tomato";
+                }
+            }
+            // console.log(document.documentElement.scrollTop)
+        }
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+        }
+        list.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == "LI") {
+                var x;
+                x = getDocumentOffsetTop(contentli[target.index]);
+                // console.log(x)
+                y = document.documentElement.scrollTop;
+                var timerId = setInterval(function () {
+                    if (x > y) {
+                        y += 30;
+                        if (x > y) {
+                            document.documentElement.scrollTop = y;
+                        } else {
+                            document.documentElement.scrollTop = x;
+                            clearInterval(timerId)
+                        }
+                    } else {
+                        y -= 30;
+                        if (x < y) {
+                            document.documentElement.scrollTop = y;
+                        } else {
+                            document.documentElement.scrollTop = x;
+                            clearInterval(timerId)
+                        }
+                    }
+                }, 16.67)
+                console.log(x)
+            }
+        }
+        function getDocumentOffsetTop(dom){
+            var n=0;
+            while(dom.offsetParent){
+                n+= dom.offsetTop;  
+                n+=dom.clientTop;
+                n-=110;
+                dom=dom.offsetParent;
+            }            
+            return n;
+        }
+    </script>
+</body>
+
+</html>

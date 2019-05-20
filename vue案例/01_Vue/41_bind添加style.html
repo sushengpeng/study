@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div :style="{border: border, height: height + 'px'}"></div>
+
+    <div :style="active">文字</div>
+    <div :style="[active, active2]">文字</div>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        border: '1px solid #000',
+        height: 200, 
+        active: {
+          color: 'red',
+          background: 'blue'
+        }, 
+        active2: {
+          width: '100px',
+          height: '100px'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

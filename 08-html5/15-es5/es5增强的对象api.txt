@@ -1,0 +1,295 @@
+什么是对象
+
+在js中，对象就是属性的无序集合。
+
+1.对象的语法
+	创建对象的三种方式
+		1：必讲---new + 构造函数
+		2：必讲---对象直接量（创建对象最简单的方式就是使用对象直接量）
+		3：了解---原型（js中除了null外其他对象都和另一个对象相关联。“另一个”对象就是我们熟知的原型，每一个对象都从原型继承属性）
+		es5定义了一个Object.create()方法，它创建一个新对象，其中第一个参数就是对象的原型（就是指对象从哪里继承而来的），第二个参数是对象的属性的进一步描述。	
+		Object.create()是一个静态函数。直接调用即可，不必生成实例对象再调用。	
+		var o1= Object.create({x:1,y:2});   //o1继承了属性x和y
+		var o2= Object.create(null);    //o2不继承任何属性和方法，也就是说不包含基础方法，比如toString(),不能和“+”运算符一起正常工作
+		如果想创建一个普通的空对象可以
+		{} 或
+		new Object() 或者
+		var o3= Object.create(Object.prototype);  
+		这三种方式一样的
+		
+	属性和方法的区别
+	属性分为自有属性和继承属性
+
+
+2.对象的其他操作
+	通过.和[]查询
+	通过delete运算符删除属性
+	delete运算符不能删除继承属性，只能删除自有属性
+	在严格模式中，delete后跟随一个非法的操作数（没有var的变量），则会抱一个语法错误
+	delete x; //x未声明，会报错
+
+3.检测属性
+	js对象可以看做属性的集合
+	我们经常会检测集合中成员的所属关系---判断某个属性是否存在于某个对象中
+	1.使用in运算符
+		自有属性或者继承属性名   in  对象；
+		"toString" in o;  //toString是继承属性   true
+
+	2.使用hasOwnProperty()，只检测自有属性
+		var o={x:1};
+		o.hasOwnProperty('x');   //true   x是自有属性
+		o.hasOwnProperty('y');   //false  不存在属性y
+		o.hasOwnProperty('x');   //false  toString是继承属性
+
+	3.propertyIsEnumberable()，是自有属性，并且属性是可枚举的才返回true
+	4.可以使用!==判断一个属性是否是undefined
+		var o = {x:1};
+		o.x !== undefined;  //true 
+		o.y !== undefined;  //false
+		o.toString !== undefined;  //true
+	然后以下方式必须使用in才能判断属性是否存在：
+		var o = {x:undefined};
+		o.x !== undefined;   //false
+		o.y !== undefined;  //false
+		"x" in o;     //true
+		"y" in o;     //false
+		delete o.x;   
+		"x" in o;     //false
+	注意：上边代码中使用的是!== ,而不是!=;   !== 可以区分null和undefined
+
+4.枚举属性
+
+	除了检测对象的属性是否存在，我们还会经常遍历对象的属性。通常使用for/in循环遍历
+	for/in 循环可以遍历对象中所有可枚举的属性（包括自有属性和继承的属性），把属性名称赋值给循环变量。对象继承的内置方法不可枚举，但给对象添加的属性都是可枚举的。
+	有许多实用工具库给Object.prototype添加了新的方法和属性，这些方法和属性可以被所有对象继承并使用。es5之前，这些新添加的方法是不能定义为不可枚举的，因此他们都可以在for/in循环中枚举出来。为了避免这种情况，通常需要过滤for/in循环返回的属性，下面这两种方式是最常见的：
+	for(p in o){
+		if(!o.hasOwnProperty(p)) containue;    //跳过继承的属性
+	}
+	for(p in o){
+		if(typeof o[p] === "function")  containue;  //跳过方法
+	}
+
+	我们以后开发过程中会经常用到工具函数来操控对象的属性。
+	1.把p中的可枚举属性复制到o中，并返回o
+	2.如果o和p中含有同名属性，则覆盖o中的属性
+	funtion extend(o,p){
+		for(prop in p){
+			o[prop] = p[prop];
+		}
+		return o;
+	}
+
+	1.把p中的可枚举属性复制到o中，并返回o
+	2.如果o和p中含有同名属性，o中属性将不受影响
+		
+	funtion merge(o,p){
+		for(prop in p){
+			if(o.hasOwnProperty(prop))  continue;
+			o[prop] = p[prop];
+		}
+		return o;
+	}
+
+	如果o中的属性在p中没有同名属性，则从o中删除这个属性
+	返回o
+	funtion restrict(o,p){
+		for(prop in o){
+			if(!(prop in p))  delete o[prop]
+
+		}
+		return o;
+	}
+
+	如果o中的属性在p中存在同名属性，则从o中删除这个属性
+	返回o
+	funtion restrict(o,p){
+		for(prop in p){
+			delete o[prop];  
+
+		}
+		return o;
+	}
+
+	返回一个新对象，这个对象同时具有o和p的属性
+	如果o和p中有同名属性，使用p中的属性值
+	function union(o,p){
+		return extend(extend({},o),p);
+	}
+
+	返回一个新对象，这个对象拥有同时在o和p中出现的属性
+	很像求o和p中的交集，但p中的属性值被忽略
+	function intersection(o,p){
+		return restrict(extend({},o),p);
+	}
+
+
+
+
+
+
+
+除了for/in循环外，es5定义了两个可用于枚举属性名称的函数。
+Object.keys()  它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成
+Object.getOwnPropertyNames()  返回对象的所有自有属性的名称，而不是可枚举的属性。
+
+
+我们知道对象的属性是由名字、值和一组特性（attribute，可读，可写，可枚举，可设置）构成的。
+=====================
+属性存取器属性   es5中的语法
+定义存取器属性最简单的方式是使用对象直接量语法的一种扩展写法：
+	var o = {
+		//普通的属性属性
+		data_prop: value,
+		//存取器属性都是成对定义的函数
+		get accessor_prop(){ // 函数体 },
+		set accessor_prop(value){ // 函数体 }
+	}
+
+存取器属性定义为一个或两个和属性同名的函数。这个函数定义没有使用function关键字，而是使用get和set。
+js把这些getter和setter函数当做对象的方法来调用，因此getter 和setter 中的this指向了定义getter和setter函数的对象。
+
+和数据属性是一样的，存取器属性是可以继承的。
+getter 函数 表示存取属性的可读性
+setter函数  表示可写性
+
+当我们想要对用户设置的属性值进行限定的时候，用存取器属性比较合适，比如下例：
+我们在很多场景会用到存取器属性：
+	//产生自增的序列号
+	var serialnum = {
+		//这个数据属性包含下一个序列号
+		//$符号暗示这个属性是一个私有属性
+		$n:0,
+		get next(){ return this.$n++;},
+		set next(n) {
+			if(n>=this.$n) this.$n=n;
+			else throw "序列号的值不能比当前值小";
+		}
+	};
+	//比如对象可以有一个返回随机数的存取器属性
+	//返回的随机数在0-255之间，可以表示颜色
+	var random = {
+		get octet(){return Math.floor(Math.random()*256);}
+	}
+===================
+属性的特性
+	上面我们将存取器属性的getter和setter方法看做是属性的特性。
+	我们也可以把数据属性的值同样看做属性的特性。因此，一个属性包含属性名和4个特性。数据属性的4个特性分别是他的值（value）、可写性（writable）、可枚举性（ enumerable）和可配置性（configurable）。存取器属性不具有value和可写性，它的可写性由setter方法是否存在决定的。因此存取器属性的4个特性是读取（get）、写入（set）、可枚举性和可配置性。
+	为了实现属性的特性的查询和设置操作，es5定义了一个名为“属性描述符”的对象，这个对象的属性有value、writable、 enumerable和cconfigurable。
+	存取器属性的描述符对像则是用get和set属性代替value和writable，其中writable、enumerable和configurable都是布尔值，当然，get和set的值是函数。
+
+	=======获得属性描述符
+	通过调用Object.getOwnPropertyDescriptor()可以获得某个对象特定属性的属性描述符对象。
+	例如：Object.getOwnPropertyDescriptor(o,"x");  //o 对象 “x” 属性名
+	通过名字就可以看出Object.getOwnPropertyDescriptor()只能得到自有属性的描述符。想要获得继承属性的特性，需要遍历原型链。
+	=======设置属性的特性
+	Object.defineProperty()  不能修改继承属性，但是可以修改自有属性
+
+	例如：
+	var o={};
+	Object.definedProperty(o,"x",{
+				value:1,
+				writable:true,
+				enumerable:false,
+				configurable:true
+				};
+	//属性是存在的，但是不可枚举
+	o.x;    //1
+	Object.key(o);   // []
+	//现在对属性x做修改，让他变成只读的
+	Object.defineProperty(o,"x",{writable:false});
+
+	//试图更改这个属性的值
+	o.x = 2;   //操作失败但不报错，严格模式中报错
+	
+	o.x;   //1
+	//属性是可配置的，因此可以通过这种方式对他修改
+	Object.defineProperty(o,"x",{value:2});
+	o.x; //2
+	
+	//现在将x从数据属性改为存取属性
+	Object.defineProperty(o,"x",{get:function(){return 0;})
+	o.x   //0
+	============
+	Object.defineProperties(); 可以设置多个属性以及属性特性
+
+
+	下面是完整的规则，任何对Object.defineProperties()或Object.defineProperty()违反规则的使用都会抛出类型错误异常：
+	1.如果对象是不可扩展的，则可以编辑已有的自有属性，但不能给他添加新属性
+	2.如果属性是不可配置的，则不能修改他的可配置性和可枚举性
+	3.如果存取器属性是不可配置的，则不能修改其getter和setter方法，也不能将它转换成数据属性
+	4.如果数据属性是不可配置的，则不能将它转换成存取器属性
+	5.如果数据属性是不可配置的，则不能将它的可写性从false修改为true，但可以从true修改为false
+	6.如果数据属性是不可配置且不可写的，则不能修改它的值，然而可配置但不可写属性的值是可以修改的（实际上是先将它标记为可写的，然后修改他的值，最后转换为不可写的）
+
+	之前实现的extend()函数，这个函数把一个对象的属性复制到另一个对象中。这个函数只是简单的复制属性名和值，没有复制属性的特性，而且也没有复制存取器属性的getter和setter方法，只是将他们简单的转换为静态的数据属性。
+
+	//下面是复制属性的特性
+	//给Object.prototype添加一个不可枚举的extend()方法
+	//这个方法继承自调用它的对象，将作为参数传入的对象的属性一一复制
+	//除了值之外，也复制属性的所有特性，除非在目标对象中存在同名的属性
+	//参数对象的所有自有对象（包括不可枚举的属性）也会一一复制
+
+	Object.defineProperty(Object.prototype,"extend",  //定义Object.prototype.extend
+				{
+					writable:true,
+					enumerable:false,
+					configurable:true,
+					value:function(o){     //值就是这个函数
+						//得到所有的自有属性，包括不可枚举的属性
+						var names = Object.getOwnPropertyNames(o);
+						//遍历他们
+						for(var i=0;i<names.length;i++){
+							//如果属性已存在，则跳过
+							if(names[i] in this) continue;
+							//获得o中的属性描述符
+							var desc = Object.getOwnPropertyDescriptor(o,names[i]);
+							//用它给this创建一个属性
+							Object.defineProperty(this,names[i],desc);
+						}
+					}
+				}
+
+
+
+===================================================================================
+对象的三个属性
+1.原型属性
+对象的原型属性是用来继承属性的。
+	我们经常使用o.constructor.prototype来检测一个对象的原型
+
+要检测一个对象是否是另一个对象的原型（或处于原型链中），可以使用isPrototypeOf()方法。例如：
+	var p={x:1};		      //定义一个原型对象
+	var o = Object.create(p);     //使用这个原型创建一个对象
+	p.isPrototypeOf(o);           //true  o继承自p
+	Object.prototype.isPrototypeOf(o);  //true   p继承自Object.ptototype
+
+	isPrototypeOf实现的功能和instanceof非常类似。
+
+2.类属性
+对象的类属性是一个字符串，用以表示对象的类型信息。
+	es3和es5中都未提供设置这个属性的方法，并只有一种间接的方法可以查询它。默认的toString()方法（继承自Object.prototype）返回如下格式的字符串；
+	[object class]
+	因此要想获得对象的类，可以调用对象的toString(）方法，然后提取已返回字符串的第8个到倒数第二个之间的字符。不过很多对象继承的toString()方法都重写了，为了能调用正确的toString()版本，必须间接的调用Function.call方法；
+	function classof(o){
+		if(o===null) return "Null"；
+		if(o===undefined） return "Undefined";
+		return Object.prototype.toString.call(o).slice(8,-1);
+	}	
+
+3.可扩展性  （不可添加属性）
+	对象的可扩展性用以表示是否可以给对象添加新属性。所有内置对象和自定义对象都是显式可扩展的，宿主对象的可扩展性由js引擎定义。
+	es5定义了用来查询和设置对象可扩展性的函数。Object.isExtensible()来判断该对象是否是可扩展的。
+
+	使用Object.preventExtensions()  将待转换的对象作为参数传进去。
+	注意：一旦对象转换为不可扩展的，就无法再将其转换为可扩展的了。
+
+
+4.对象的密封性  （不可添加和删除属性）
+        指的是不能给对象添加新属性，也不能删除对象上的已有属性，不过已有可写属性依然可写。
+        Object.seal()和Object.preventExtensions()类似，除了能够将对象设置为不可扩展的，还可以将对象的所有自有属性设置为不可配置的。也就是说，不能给这个对象添加新属性，而且它已有的属性也不能删除或配置，不过他已有可写属性依然可以设置。对于那些已经封闭(sealed）起来的对象是不能解封的。可以使用Object.isSealed()来检测对象是否封闭。
+
+
+5.冻结对象   （不可添加、修改和删除属性）
+	对象不能够添加、修改和删除属性，但是存取器属性setter 不受影响
+	Object.freeze（）将更严格的锁定对象（冻结）。除了将对象设置为不可扩展的和将其属性设置为不可配置的之外，还可以将它自有的所有数据属性设置为只读的（如果对象的存取器属性具有setter方法，存取器属性将不受影响，仍可以通过给属性赋值调用他们）
+。使用Object.isFrozen()来检测对象是否冻结。

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*
+        浮动：float：left/right;
+        正常的文档流：自上而下，自左向右 
+        float脱离文档流；
+
+        清除浮动：
+        1.定高法
+        2.额外标签法：
+            在浮动元素的父元素的后面写一个<div> 样式 clear:both;
+        3.overflow：hidden;溢出隐藏
+                overflow：atuo/scroll
+                给浮动元素的父元素添加;
+        4.利用伪元素清除浮动 给父元素
+                .clearfix::after{
+                    /*content: ".";/*兼容火狐*/
+                    /*display: block;/*转化成块元素*/
+                    /*clear: both;/*清除两端浮动*/
+                   /* height: 0;/*清除高度 不影响布局*/
+                   /* visibility: hidden;/*占位但是不显示*/
+                /*}
+        */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            /* height: 50px;定高 */
+            /* overflow: hidden; */
+        }
+        ul li{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid red;
+            text-align: center;
+            float: left;
+        }
+        .box{
+            width: 100%;
+            height: 200px;
+            background-color: #ccc;
+        }
+        /* .clear{
+            clear: both;
+        } */
+        .clearfix::after{
+            content: ".";/*兼容火狐*/
+            display: block;/*转化成块元素*/
+            clear: both;/*清除两端浮动*/
+            height: 0;/*清除高度 不影响布局*/
+            visibility: hidden;/*占位但是不显示*/
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <div class="box"></div>
+</body>
+</html>

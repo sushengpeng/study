@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            padding:200px;
+        }
+            .lazy{
+                width:160px;
+                height: 150px;
+                display: block;
+            }
+        </style>
+</head>
+<body>
+     <!-- 首屏 -->
+     <img src="images/2018-12-25_小米_06.png" width="100%" height="1000" />
+     <!-- 滚动到位置才去加载 -->
+     <div><img src="images/loading.gif"  class="lazy" width="160" height="150" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+     <div><img src="images/loading.gif"  class="lazy" /></div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.lazyload.js"></script>
+    <script>
+        //得到每一板块相对于文档顶部的距离
+        var arr = [];
+        var wh = $(window).height();
+        $("div").each(function(){
+            arr.push($(this).offset().top-wh);
+        })
+        console.log(arr);
+        console.log($(window).height())
+        $(window).scroll(function(){
+            // console.log($(this).scrollTop())
+            // console.log(this)
+            for(var i=0;i<arr.length;i++){
+                // console.log($("div").eq(i).hasClass("loaded"))
+                !(function(){
+                    if($(this).scrollTop()>arr[i] && !$("div").eq(i).hasClass("loaded") ){
+                        $.ajax({
+                            url:"imglist.json",
+                            data:"id="+i,
+                            beforeSend:function(){
+                                $("div").eq(i).addClass("loaded");
+                            },
+                            success:function(data){
+                                //加载完毕后给当前板块一个标识，这样上下滚动的时候就不会重复发起ajax，确保每一板块只发起一次ajax
+                                $.each(data.booklist,function(index,value){
+                                    // $(".lazy").eq(index).data("original",value.bookImg);     //错误写法
+                                    $(".lazy").eq(index).attr("data-original",value.bookImg);   //必须标签上有data-original
+                                })
+                                $(".lazy").lazyload();
+                                
+                            }
+                        })
+                    }
+                })(i);
+                
+            }
+            // if($(this).scrollTop()>arr[0]){
+            //     $.ajax({
+            //         url:"imglist.json",
+            //         data:"id=1",
+            //         success:function(data){
+            //             $.each(data.booklist,function(index,value){
+            //                 // $(".lazy").eq(index).data("original",value.bookImg);     //错误写法
+            //                 $(".lazy").eq(index).attr("data-original",value.bookImg);   //必须标签上有data-original
+            //             })
+            //             $(".lazy").lazyload();
+            //         }
+            //     })
+            // }
+            // if($(this).scrollTop()>arr[1]){
+            //     $.ajax({
+            //         url:"imglist.json",
+            //         data:"id=2",
+            //         success:function(data){
+            //             $.each(data.booklist,function(index,value){
+            //                 // $(".lazy").eq(index).data("original",value.bookImg);     //错误写法
+            //                 $(".lazy").eq(index).attr("data-original",value.bookImg);   //必须标签上有data-original
+            //             })
+            //             $(".lazy").lazyload();
+            //         }
+            //     })
+
+            // }
+            // if($(this).scrollTop()>arr[3]){
+            //     $.ajax({
+            //         url:"imglist.json",
+            //         data:"id=3",
+            //         success:function(data){
+            //             $.each(data.booklist,function(index,value){
+            //                 // $(".lazy").eq(index).data("original",value.bookImg);     //错误写法
+            //                 $(".lazy").eq(index).attr("data-original",value.bookImg);   //必须标签上有data-original
+            //             })
+            //             $(".lazy").lazyload();
+            //         }
+            //     })
+
+            // }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="list"></div>
+    <script>
+        var list = document.getElementById("list");
+        list.addEventListener("touchstart",function(e){
+            e = e || window.event;
+            console.log( e.touches[0].clientX,e.touches[0].clientY,"start")
+            console.log( e.targetTouches[0].clientX,e.targetTouches[0].clientY,"start")
+            console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY,"start")
+        })
+        list.addEventListener("touchmove",function(e){
+            e = e || window.event;
+            console.log( e.touches[0].clientX,e.touches[0].clientY,"move")
+            console.log( e.targetTouches[0].clientX,e.targetTouches[0].clientY,"move")
+            console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY,"move")
+        })
+        list.addEventListener("touchend",function(e){
+            e = e || window.event;
+            
+            // console.log( e.touches[0].clientX,e.touches[0].clientY,"end") //当手指离开屏幕时，屏幕上的手指列表为0     // console.log( e.targetTouches[0].clientX,e.targetTouches[0].clientY,"end")//当手指离开屏幕时，当前目标元素上的手指列表为0 
+            console.log(e.changedTouches[0].clientX,e.changedTouches[0].clientY,"end");  //可以获取手指是从屏幕上的哪个位置离开的
+        })
+    </script>
+</body>
+</html>

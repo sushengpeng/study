@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    作用域插槽
+      可以将相关数据放在插槽上供组件的使用者使用
+
+      创建组件时。我们可以在slot上添加一些数据，在使用这个组件时，通过slot-scope我们可以获取到对应的值
+
+
+      创建组件
+        const com = {
+          teamplate: `
+            <div>
+              <slot key="value"></slot>
+            </div>
+          `
+        }
+
+        key value就会变成slot-scope对象中的属性和属性值
+
+      使用组件时
+        <com>
+          <span slot-scope="自定义名字如：obj"></span>
+
+          // 那么这个obj中就包含对应的key: value
+        </com>
+  --> 
+  <div id="app">
+    <com>
+      <div slot-scope="o">{{o}}</div>
+    </com>
+
+    <movie-list :movies="['电影1', '电影2', '电影3', '电影4']">
+      <!-- obj.movies -->
+      <template slot-scope="obj">
+        <li v-for="movie in obj.movies">
+          <h3>{{movie}}</h3>
+        </li>
+      </template>
+    </movie-list>
+
+    <movie-list :movies="['电影1', '电影2', '电影3', '电影4']">
+      <!-- obj.movies -->
+      <template slot-scope="{movies}">
+        <li v-for="movie in movies">
+          <h3>{{movie}}</h3>
+        </li>
+      </template>
+    </movie-list>
+    
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const com = {
+      template: `
+        <div>
+          <slot a=1 b="2"></slot>
+        </div>
+      `
+    }
+
+    const movieList = {
+      template: `
+        <ul>
+          <slot :movies="movies">
+            <li v-for="movie in movies">{{movie}}</li>        
+          </slot>
+        </ul>
+      `,
+      props: {
+        movies: Array
+      }
+    }
+
+    Vue.component('com', com)
+    Vue.component('movieList', movieList)
+
+    const app = new Vue({
+      el: '#app',
+    })
+  
+  </script>
+</body>
+</html>

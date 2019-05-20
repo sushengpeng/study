@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            padding: 50px;
+            margin: 100px
+        }
+    </style>
+</head>
+<body>
+    <div>
+        w3c标准盒子模型实际占有宽度：100px+1px+50px+200px+50px+1px+100px        
+        w3c标准盒子模型内容宽度：200px  我们设置的width
+        
+        
+
+        低版本IE，传统盒子模型：
+
+            实际宽度：margin*2 +width
+                    100px+width+100px
+            设置的宽度：左boder+左padding+内容区宽度+右padding+右border
+            内容区宽度=设置的宽度-border*2-padding*2
+                    =200px-1px*2-50px*2
+                    =98px
+    </div>
+</body>
+</html>

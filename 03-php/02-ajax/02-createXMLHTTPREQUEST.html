@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 要想实现局部刷新：
+        // 1.创建xhr对象
+        var xhr = new XMLHttpRequest();
+        console.log(xhr)
+        // var xmr=new ActiveXObject("Microsoft.XMLHTTP");
+        // 兼容：
+        // var xmr;
+        // if (window.XMLHttpRequest)
+        // {
+        //     //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        //     xmr=new XMLHttpRequest();
+        // }
+        // else
+        // {
+        //     // IE5， 浏览器执行代码
+        //     xmr=new ActiveXObject("Microsoft.XMLHTTP");
+        // }
+        
+        //2.打开与服务器的连接并发送请求
+        // 异步的ajax请求
+        // xhr.open("GET","data.php",true);   //第三个参数默认为true为异步，false为同步
+        // xhr.send();
+
+        // // console.log(xhr.responseText);
+
+        // xhr.onreadystatechange = function(){
+        //     console.log(xhr.readyState);
+        //     console.log(xhr.responseText);
+            
+        //     if(xhr.status==200 && xhr.readyState==4 ){
+        //         console.log(xhr.statusText)
+        //         var data = xhr.responseText;
+        //         var jsondata= JSON.parse(data);
+        //         console.log(typeof jsondata)
+        //         console.log(jsondata.name)
+        //     }
+        // }
+
+        // console.log("后续的其他代码");
+        //同步的ajax请求
+        // xhr.open("GET","data.php",false);
+        // xhr.send();
+        
+        // if(xhr.status==200 && xhr.readyState==4 ){
+        //         console.log(xhr.statusText)
+        //         var data = xhr.responseText;
+        //         var jsondata= JSON.parse(data);
+        //         console.log(typeof jsondata)
+        //         console.log(jsondata.name)
+        // }
+        // console.log("后续的其他代码");
+
+        //发起get请求
+        xhr.open("GET","data.php?uname=zs");
+        xhr.send();
+        
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            console.log(xhr.responseText);
+            
+            if(xhr.status==200 && xhr.readyState==4 ){
+                console.log(xhr.statusText)
+                var data = xhr.responseText;
+                var jsondata= JSON.parse(data);
+                console.log(typeof jsondata)
+                console.log(jsondata.name)
+            }
+        }
+    </script>
+</body>
+</html>

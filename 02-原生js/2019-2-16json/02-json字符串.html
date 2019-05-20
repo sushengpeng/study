@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--[if lte IE 7]>
+        <script src="json2.js"></script>
+    <![endif]-->
+    <script>
+        var personstr = '{"name":"Alice","age":8,"sex":"man"}';   //标准的json字符串格式
+        // var personstr = "{'name':'Alice','age':8,'sex':'man'}";     //使用JSON.parse()转换的时候会报错，eval（） 不会报错
+
+        //将json字符串转json对象
+
+        //eval()  ,两边一定要加上（）
+        console.log(eval("("+personstr+")"));
+
+        var strJSON = "{name:'json name'}";  //得到的JSON 字符串
+        var obj = eval( "(" + strJSON + ")" );  //转换后的JSON对象 
+        alert(obj.name);   //json name
+
+        //JSON.parse()
+        //比较安全，建议使用
+        //兼容到ie8及以上浏览器
+        console.log(JSON.parse(personstr));
+
+        //兼容到ie7使用json2.js
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    1组件需要注册才能使用
+      注册时需要给组件起名字(名字是自定义的)
+    2组件使用时就是一个标签
+      标签名就是第一步写的组件名
+
+    HTML是无法区分大小写的
+      因此 html中标签名要全小写
+      如果组件名是大写字母开头,直接全小写
+      如果组件名是驼峰或者帕斯卡命名方法,则写成-
+        firstComponent  ->  first-component
+        FirstComponent  ->  first-component
+
+    注册组件
+      1 全局注册
+        // 接下来的大部分案例中我们都会使用全局注册
+        Vue.component('自定义组件名', 组件配置对象)
+
+        Vue.component('组件名', {})
+
+        // 推荐使用
+        const 组件对象 = {}
+        Vue.component('组件名', 组件对象)
+      2 局部注册
+        // 引入vue-cli进行模块化开发时,我们会使用局部注册
+        局部注册需要在对应的组件中进行注册
+        const 组件对象 = {}
+        new Vue({
+          el: '',
+          components: {
+            自定义组件名: {},
+            自定义组件名: 组件对象
+          }
+        })
+   -->
+  <div id="app">
+    <com1></com1>
+    <DIV>djisaji</DIV>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    /* 
+      主板
+        硬盘
+        内存条
+        显卡
+        电源
+        cpu
+          cpu风扇
+    */
+    const com1 = {
+      template: `
+        <div>第一个组件</div>
+      `
+    }
+
+    // 注册组件
+    Vue.component('Com1', com1)
+    const app = new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+</html>

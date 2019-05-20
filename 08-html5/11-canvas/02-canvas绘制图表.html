@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <canvas id="can" width="1000" height="1000"></canvas>
+    <script>
+        var can = document.getElementById("can");
+        var context= can.getContext("2d");
+            context.beginPath();
+            context.arc(50, 50, 50, 0, 2*Math.PI , false);
+            context.closePath();
+            context.fillStyle = 'rgba(255,0,0,0.8)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,1)'
+            context.stroke();
+            //1/4圆弧
+            context.beginPath();
+            context.moveTo(250,250);  /*添加，为饼形，不加，为弧形*/
+            context.arc(250, 250, 250, 0, Math.PI , false);
+            context.closePath();
+            context.fillStyle = 'rgba(255,0,0,0.8)';
+            context.fill();
+            context.strokeStyle = 'rgba(255,0,0,1)'
+            context.stroke();
+
+    </script>
+</body>
+</html>

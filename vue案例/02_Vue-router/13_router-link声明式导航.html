@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    如果想要url中携带query参数
+      <router-link to="/路由?a=1&b=2&c=3">
+      如果对应的123是动态值num1 num2 num3
+      <router-link :to="'/路由?a=' + num1 + '&b=' + num2 + '&c=' + num3">
+      同等于
+      <router-link :to="{path: '/路由', query: {a: num1, b: num2, c: num3}}">
+
+    如果想要url中携带params参数
+      <router-link to="/路由/1">
+      <router-link to="/article/1">
+      <router-link :to="'/article/' + id">
+      <router-link :to="{name: 'com2', params: {id: 1}}">
+
+
+
+    
+   -->
+
+  <div id="app">
+    <!-- <router-link :to="'/?id=' + num + '&a=' + num">组件1</router-link>
+    <router-link :to="{path: '/', query: {id: num, a: num, b: num, c: num}}">组件1</router-link> -->
+    <router-link to="/" replace exact event="mouseenter">组件1</router-link>
+    <router-link :to="'/demo/' + num" replace>组件2</router-link>
+
+    <!-- <router-link :to="'demo/' + num" replace append>组件2</router-link> -->
+
+    <!-- <router-link :to="{name: 'com2', params: {id: num}}">组件2</router-link> -->
+
+
+    <router-view></router-view>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    const com1 = {
+      template: `
+        <div>组件1{{$route.query.id}}</div>
+      `
+    }
+
+    const com2 = {
+      template: `
+        <div>组件2 {{$route.params.id}}</div>
+      `
+    }
+  
+    const routes = [
+      {
+        path: '/',
+        component: com1
+      }, {
+        name: 'com2',
+        path: '/demo/:id',
+        component: com2
+      }
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+
+    const app = new Vue({
+      el: '#app',
+      router,
+      data: {
+        num: 10
+      }
+    })
+
+  </script>
+</body>
+</html>

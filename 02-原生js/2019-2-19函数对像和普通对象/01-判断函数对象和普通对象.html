@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(){};
+        var f2 = function(){};   //f2 = new Function("","");
+        var f3 = new Function("str","console.log(str)");
+        f1();
+        f2();
+        f3("str1");
+        console.log(f1,typeof f1);
+        console.log(f2,typeof f2);
+        console.dir(f3);  //
+        console.log(typeof f3)
+
+
+        var o3 = new f1();
+        console.log(o3)  //普通对象
+
+        var o1 = {};
+        var o2 =new Object();
+        console.log(o1,o2);
+
+        console.log(typeof Object);    //function
+        console.log(typeof Function);
+        console.log(typeof o1); 
+        console.log(typeof o2);
+        console.log(typeof o3)
+        console.log(typeof f1);
+        console.log(typeof f2); 
+        console.log(typeof f3); 
+
+
+        // 1.
+        // 普通对象 经过typeof运算得到的结果是object
+        // 函数对象 经过typeof运算得到的结果是function
+        // 2
+        // 任何对像都有__proto__属性
+        // 函数对象特有prototype属性
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .block{
+            height: 1000px;
+            border:solid 1px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+
+    </div>
+    <!-- 图书板块 -->
+    <h1>图书板块</h1>
+    <div class="book">
+        <ul>
+            {{foreach $data as $value}}
+            <li>
+                <p>书名：{{$value["bookname"]}}</p>
+                <p>作者：{{$value["author"]}}</p>
+                <p>价格：{{$value["price"]}}</p>
+                <p>封面：<img src='{{$value["picture"]}}' /></p>
+            </li>
+            {{/foreach}}
+        </ul>
+    </div>
+
+    <!-- 目前比较流行的前后端分离方式 -->
+    <!-- <script src="./js/public.js"></script>
+    <script>
+        ajax({
+            url:"01-connect-mysql.php",
+            success:function(data){
+                console.log(data);
+                var obj = JSON.parse(data);
+                console.log(obj)
+                var str = "";
+                for(var i=0;i<obj.length;i++){
+                    str+="书名："+obj[i].bookname+" 作者："+obj[i].author+"   价格："+obj[i].price+"<br />";
+                }
+
+                var book = document.querySelector(".book");
+                book.innerHTML = str;
+            }
+        })
+    </script> -->
+</body>
+</html>

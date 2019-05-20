@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 1270px;
+            height: 420px;
+            margin: 0 auto;
+            background-color: yellow;
+        }
+
+        div div {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: 10px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+    <script>
+        var outer = document.getElementsByTagName("div")[0];
+        outer.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if(target.parentNode.tagName=="BODY"){
+                console.log(1);
+                return false;
+            }else{
+                for(var i=0;i<target.parentNode.children.length;i++){
+                    target.parentNode.children[i].style.backgroundColor="tomato";
+                }
+                target.style.backgroundColor="red";
+            }
+        }
+    </script>
+</body>
+
+</html>

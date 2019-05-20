@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background: blue;
+      /* transition: opacity 4s; */
+    }
+    
+    .active {
+      opacity: 0;
+    }
+
+    .fade-enter {
+      opacity: 0;
+    }
+    .fade-enter-to {
+      opacity: 1;
+    }
+    .fade-enter-active {
+      transition: opacity 4s;
+    }
+
+    .fade-leave {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .fade-leave-to {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    .fade-leave-active {
+      transition: all 10s;
+    }
+
+
+  </style>
+</head>
+<body>
+  
+    <!-- Vue里想要有过渡效果
+      组件的显示隐藏
+      v-if v-else
+      component
+      router-view -->
+
+
+   
+  <div id="app">
+    <button @click="toggle">按钮</button>
+    
+    <div :class="['box', {'active': show}]"></div>
+
+
+     <button @click="toggle">按钮</button>
+    <transition name="fade">
+      <div class="box" v-show="show"></div>    
+    </transition>
+
+
+ 
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        show: false
+      },
+      methods: {
+        toggle () {
+          this.show = !this.show
+        }
+      }
+    })
+  
+  </script>
+</body>
+</html>

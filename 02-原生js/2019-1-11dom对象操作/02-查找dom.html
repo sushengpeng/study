@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <span id="span">span</span>
+    <ul>
+        <li class="list">list1</li>
+        <li class="list">list2</li>
+        <li class="list">list3</li>
+        <li class="list">list4</li>
+        <li class="list">list1</li>
+        <li class="list">list2</li>
+        <li class="list">list3</li>
+        <li class="list">list4</li>
+    </ul>
+    <ol>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ol>
+    <div class="box">box</div>
+
+    <form>
+        <input type="radio" name="sex" />男
+        <input type="radio" name="sex"  />女
+    </form>
+    <script>
+        //动态的
+        // 动态操作dom元素，得到结果会根据实际dom元素的个数发生变化
+        //=============================通过id查找到的只有一个，返回值dom元素 || null
+        // var sp = document.getElementById("span");
+        // console.log(sp);
+        // console.log(sp.innerHTML)
+
+        // sp= document.getElementById("spa");
+        // console.log(sp);     //null
+        // console.log(sp.innerHTML);   //报错
+
+
+        //===============================通过类名查找元素,返回值是集合，不是数组，不能调用数组上的方法
+        // ie5,6,7,8 有兼容
+        // var lists = document.getElementsByClassName("list");
+        // console.log(lists);
+
+        // console.log(typeof lists);    //object
+        // var arr=[1];
+        // console.log(typeof arr);      //object
+
+        // console.log(lists[1]);
+        // console.log(lists.splice(1,1))    //判断返回值不是数组
+
+
+        // var box = document.getElementsByClassName("box");
+        // console.log(box);
+
+        // [index] 可以访问集合中的元素
+        // length  返回长度
+        // console.log(box[0])
+        // console.log(box[0].innerHTML);
+
+        // console.log(lists[0].innerHTML);
+        // console.log(lists[1].innerHTML);
+        // console.log(lists[2].innerHTML);
+        // console.log(lists[3].innerHTML);
+
+        // for(var i=0;i<lists.length;i++){
+        //     console.log(lists[i].innerHTML)
+        // }
+
+        //===================================通过标签名查找元素,返回集合，集合中的元素个数可以有0-多个
+        // var lis=document.getElementsByTagName("li");
+        // console.log(lis);
+        // 建议这种方式
+        // var ol = document.getElementsByTagName("ol")[0];
+        // lis = ol.getElementsByTagName("li");
+        // console.log(lis);
+        //连写方式
+        // console.log( document.getElementsByTagName("ol")[0].getElementsByTagName("li"))
+
+        //===================================通过name属性查找HTML元素,name可以有多个，返回值是集合
+        //name属性一般是放在form表单内部
+        // var names = document.getElementsByName("sex");
+        // console.log(names);
+
+        
+
+        //静态的
+        // 动态操作dom元素，得到结果不变
+        //==================================querySelector(选择器)    
+        //返回值只有选择器选中的第一个dom元素
+        //兼容到ie8及以上浏览器
+        // var lis = document.querySelector("li");
+        // console.log(lis);
+        //======================================= querySelectorAll(选择器) 
+        // 返回选择器选中的所有的元素  
+        //兼容到ie8及以上浏览器
+        // lis = document.querySelectorAll("li");
+        // console.log(lis);
+
+        // lis = document.querySelectorAll("li,#span,.box,[name=sex]");
+        // console.log(lis);
+    </script>
+</body>
+</html>

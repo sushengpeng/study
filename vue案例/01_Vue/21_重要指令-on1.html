@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+    }
+  
+  </style>
+</head>
+<body>
+  <!-- 
+
+    <button v-on:click="handler">按钮</button>
+    <button v-on:click="handler()">按钮</button>
+
+    <button @click="handler">按钮</button>
+
+    // 只想让某些特定的按键触发我们的函数 添加修饰符
+    <button @keyup.键码="hadler">
+
+    methods: {
+      handler () {
+
+      }
+    }
+
+    ******.stop 阻止冒泡
+    .prevent 阻止浏览器默认行为
+    .capture 在捕获阶段触发事件
+    ****.self 只有e.target === 事件绑定的元素时才执行事件
+    ****.keycode 键盘事件使用 ,添加键码只响应设置按键
+    ****.native 
+    .once 事件只执行一次,触发后事件失效
+    .left 鼠标左键触发时执行
+    .right 鼠标右键触发时执行
+    .middle 鼠标中键触发时执行
+    .passive 
+
+
+    vue中事件可以获取事件对象
+    <标签 v-on:事件类型="handler($event)">   $event是实参,我们可以在methods中去通过形参获取这个值
+
+
+    给一个元素绑定多个事件
+    <标签 v-on="{事件类型1: handler1, 事件类型2: handler2}"></标签>
+
+    methods: {
+      handler(e) {
+        e就是$event
+      }
+    }
+
+    dom.addEventListener(type, handler, isCapture)
+    dom.addEventListener(type, handler, {
+      isCapture: false, 
+      passive: true
+    })
+
+   -->
+  <div id="app">
+    <button v-on:click="handler">按钮</button>
+    <button>按钮</button>
+    <div @mousedown.left="divHandler(1, $event)">
+      <span>4125</span>
+      <span>4125</span>
+      <span>4125</span>
+      <span>4125</span>
+      <span>4125</span>
+
+    </div>
+    <!-- <div @click="clickHandler" @mouseover="mouseOverHandler">jfidsjfaigjsaifjgidsafj</div> -->
+    <div 
+      v-on="{
+        click: clickHandler, 
+        mouseover: mouseOverHandler
+      }"
+    >
+      jfidsjfaigjsaifjgidsafj
+    </div>
+
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+
+      },
+      methods: {
+        // 所有的事件函数全部都应该写在methods里
+        // handler: function () {}
+        handler () {
+
+        },
+        divHandler (a, e) {
+          console.log(a, e)
+        },
+        clickHandler () {
+          console.log('点击了div')
+        },
+        mouseOverHandler(){
+          console.log('移入了div')
+        }
+      }
+    })
+    
+    /* document.body.onclick = function (e) {
+      // alert(1)
+      console.log(e.target)
+    } */
+  </script>
+</body>
+</html>

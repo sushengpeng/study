@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body id="cont">
+    <!-- head -->
+    <div id="box1" class="box">
+        文本1
+        <h1>11111</h1>
+    </div>
+    <div id="box2">
+        文本2
+    </div>
+
+    <script>
+        var box1 = document.getElementById("box1");
+
+        box1.onclick = function(){
+            alert("ok");
+        }
+
+        // var box  = box1.cloneNode();   //cloneNode()克隆的是标签以及标签上的属性
+        // var box  = box1.cloneNode(false);  //cloneNode(false)克隆的是标签以及标签上的属性，同上
+        var box  = box1.cloneNode(true);     //包含后代,不包含事件
+
+
+
+        var cont = document.getElementById("cont");
+        cont.appendChild(box);
+    </script>
+</body>
+
+</html>

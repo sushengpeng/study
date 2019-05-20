@@ -1,0 +1,72 @@
+1.DOM  (document object model)
+
+2.想要操作dom，必须得先找到他
+动态的
+document.getElementsByClassName("类名")   返回值为集合
+document.getElementById("Id名")      返回值dom对象
+document.getElementsByName("表单元素上的name")  返回值为集合
+document.getElementsByTagName("标签名")     返回值为集合
+
+静态的
+document.querySelector("选择器")     返回值选择器选中的第一个对象
+document.querySelectorAll("选择器"）  返回值为集合
+
+3.操作dom元素
+内容
+dom.innerHTML = "新的内容"
+
+dom.innerHTML
+
+dom.innerText
+
+dom.innerText="新的文本内容"
+
+
+样式
+
+设置行内样式，由于行内样式的优先级高，所以通过js设置的样式会生效覆盖css样式
+<div></div>
+div.style.width="200px";
+div.style.height="200px";
+
+如果想要得到行内样式，必须标签上有行内样式才能得到
+console.log(div.style.backgroundColor)       //打印空字符串
+
+得到最终样式
+chrome,ie9,firefox,safari
+window.getComputedStyle(dom对象,null||"before"||"after")["width"]
+window.getComputedStyle(dom对象,null||"before"||"after").width
+ie7,8
+dom对象.currentStyle["attr"]
+dom对象.currentStyle.attr
+
+function getStyle(dom,attr){
+            if(dom.currentStyle){
+                return dom.currentStyle[attr];
+            }else{
+               return window.getComputedStyle(dom,null)[attr];
+            }
+        }
+
+当想要操作多个样式的时候，可以事先定义好类名，通过操作类名来更改样式
+dom对象.className="类名"
+
+dom对象.className+=" 新类名"
+dom对象.className
+
+
+属性
+所有对象上通用的访问和设置属性的方式：
+obj.属性名
+
+obj.属性名="新值"
+
+dom对象上特有的操作属性的方式：
+
+dom对象.setAttribute("属性名“，”值“）   undefinde
+
+dom对象.getAttribute("属性名”）
+console.log(div.index)    //undefined
+console.log(div.getAttribute("index"));   //1
+
+总结：当想要获取或设置dom对象上自带的属性时用通用操作对象的方式，想要获取或设置自定义属性，使用dom对象上特有的属性操作方式。

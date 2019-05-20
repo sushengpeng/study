@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/jquery.js"></script>
+    <script>
+        // $.getJSON('city.json',function(data){
+        //     console.log(data);   //data是json类型的数据
+        //     // $.each(data,function(index,value){
+        //     //     $(".result").append(value.name+ ":" + value.age + "<br>");
+        //     // });
+        // });
+        // $.getJSON('2.php',function(data){
+        //     console.log(data);   //data是json类型的数据
+        //     // $.each(data,function(index,value){
+        //     //     $(".result").append(value.name+ ":" + value.age + "<br>");
+        //     // });
+        // });
+        // $.get('2.php',function(data){
+        //     console.log(data);   //data是json类型的数据
+        //     // $.each(data,function(index,value){
+        //     //     $(".result").append(value.name+ ":" + value.age + "<br>");
+        //     // });
+        // });
+
+
+        $.ajax({
+            url:"3.php",
+            dataType:"json",
+            success:function(data){
+                console.log(data);
+            }
+        })
+    </script>
+</body>
+</html>

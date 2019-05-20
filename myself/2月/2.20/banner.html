@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .bar {
+            width: 520px;
+            height: 280px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 200px;
+            background-color: aqua;
+            position: relative;
+        }
+
+        .list {
+            position: absolute;
+            width: 520px;
+            top: 0;
+            left: 0;
+
+        }
+
+        .list li {
+            list-style: none;
+            float: left;
+        }
+
+        ul li img {
+            width: 520px;
+            height: 280px;
+        }
+
+        .blot {
+            position: relative;
+            width: 120px;
+            height: 8px;
+            padding: 2px 0;
+            margin: 0 auto;
+            top: 260px;
+            border-radius: 8px;
+            background-color: rgba(250, 250, 250, .5);
+        }
+
+        .blot li {
+            list-style: none;
+            width: 8px;
+            height: 8px;
+            float: left;
+            margin: 0px 8px 0px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .blot .active {
+            background-color: orangered;
+        }
+
+        .btn {
+            height: 30px;
+            width: 520px;
+            position: absolute;
+            font-size: 0px;
+            top: 50%;
+            margin-top: -15px;
+            display: none;
+        }
+
+        .btn span {
+            display: block;
+            width: 20px;
+            height: 30px;
+            font-size: 30px;
+            line-height: 23px;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .btn .left {
+            float: left;
+        }
+
+        .btn .right {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <ul class="list">
+            <li><img src="./TB1fFPPGBLoK1RjSZFuXXXn0XXa-520-280.jpg_q90_.webp" alt=""></li>
+            <li><img src="./TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" alt=""></li>
+            <li><img src="./TB1XotJXQfb_uJkSnhJSuvdDVXa.jpg" alt=""></li>
+            <li><img src="./TB1XuoeGHvpK1RjSZFqSuwXUVXa.jpg_q90_.webp" alt=""></li>
+            <li><img src="./TB183NQapLM8KJjSZFBSutJHVXa.jpg" alt=""></li>
+        </ul>
+        <ul class="blot">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btn">
+            <span class="left">‹</span>
+            <span class="right">›</span>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(".list li").first().clone().appendTo(".list");
+        var w = $(".list").width();
+        $(".list").width("600%");
+        var blotindex = 0;
+        var num = 0;
+        var l = $(".list li").length;
+        var timmer;
+        var flag=true;
+
+        function move() {
+            //到达最后一张的时候
+            if (blotindex == l) {
+                blotindex = 1;
+                $(".list").css("left", 0);
+
+            }
+            //在第一张的时候
+            if (blotindex == -1) {
+                blotindex = l - 2;
+                $(".list").css("left", -w * (l - 1) + "px");
+            }
+            var left = -w * blotindex + "px";
+            $(".list").animate({
+                left: left
+            }, function () {
+                flag= true;
+            })
+            var i = blotindex;
+            if (i == l - 1) {
+                i = 0;
+            }
+            //改变下面的小按钮
+            $(".blot li").eq(i).addClass("active").siblings().removeClass("active");
+        }
+
+        function auto() {
+            timmer = setInterval(function () {
+                blotindex++;
+                move();
+            }, 2000)
+        }
+        auto();
+        $(".bar").hover(function () {
+            $(".btn").css("display", "block")
+            clearInterval(timmer)
+        }, function () {
+            $(".btn").css("display", "none")
+            auto();
+        })
+        $(".left").click(function () {
+            if (flag) {
+                flag = false;
+                blotindex--;
+                move();
+            }
+        })
+        $(".right").click(function () {
+            if (flag) {
+                flag = false;
+                blotindex++;
+                move();
+            }
+        })
+        $(".blot").on("click", "li", function () {
+            if(flag){
+                blotindex = $(this).index();
+                move();
+            }
+        })
+    </script>
+    <!-- <script src="./banner.js"></script> -->
+    <!-- <script>
+        var bar = document.getElementsByClassName("bar")[0];
+        var list = document.getElementsByClassName("list")[0];
+        var listlis = list.getElementsByTagName("li");
+        var blot = document.getElementsByClassName("blot")[0];
+        var blotlis = blot.getElementsByTagName("li");
+        var btn = document.getElementsByClassName("btn")[0];
+        var leftbtn = btn.getElementsByClassName("left")[0];
+        var rightbtn = btn.getElementsByClassName("right")[0];
+        var cloneli = listlis[0].cloneNode(true);
+        var timeId;
+        var num = 0;
+        var time = 0; //用来计时
+        var blotindex = 0;
+        //给每个li添加index
+        for (var i = 0; i < blotlis.length; i++) {
+            blotlis[i].index = i;
+        }
+        list.appendChild(cloneli);
+        timeId = setInterval('anmiatetion()', 16.67);
+        function anmiatetion() {
+            if (num > -2600) {
+                // list.style.transition="";
+                list.style.left = num + "px";
+                resetstyle();
+                if (num % 520 == 0) {
+                    if (time != 200) {
+                        time++;
+                    } else {
+                        num -= 26;
+                        time = 0;
+                        if (blotindex >= 4) {
+                            blotindex = 0;
+                        } else {
+                            blotindex++;
+                        }
+                    }
+                } else {
+                    num -= 26;
+                }
+            } else {
+                num = 0;
+            }
+        }
+        // 使用事件委托点击后相应的图片出现
+        blot.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == "LI") {
+                blotindex = target.index;
+                num = -520 * target.index;
+                list.style.left = num + "px";
+                list.style.transition="left 0.5s ease";
+                resetstyle();
+            }
+        }
+        bar.onmouseenter = function () {
+            clearInterval(timeId);
+            btn.style.display = "block";
+        }
+        bar.onmouseleave = function () {
+            btn.style.display = "none";
+            timeId = setInterval('anmiatetion()', 16.67);
+        }
+        leftbtn.onclick = function () {
+            if (blotindex == 0) {
+                blotindex = 4;
+            } else {
+                blotindex--;
+            }
+            num = -520 * blotindex;
+            list.style.left = num + "px";
+            list.style.transition="left 0.5s ease";
+            resetstyle();
+        }
+        rightbtn.onclick = function () {
+            if (blotindex == 4) {
+                blotindex = 0;
+            } else {
+                blotindex++;
+            }
+            num = -520 * blotindex;
+            list.style.left = num + "px";
+            list.style.transition="left 0.5s ease";
+            resetstyle();
+        }
+
+        function resetstyle() {
+            for (var i = 0; i < blotlis.length; i++) {
+                blotlis[i].className = "";
+            }
+            blotlis[blotindex].className = "active";
+        }
+    </script> -->
+</body>
+
+</html>

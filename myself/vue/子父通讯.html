@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <house></house>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.common.dev.js"></script>
+    <script>
+        const House = {
+            template: `
+            <div>
+            房子
+            <pot :water="water"></pot>
+            </div>
+            `,
+            data() {
+                return {
+                    water: '房子上漏得水',
+                }
+            }
+        }
+        const Pot = {
+            template: `
+            <div>盆里有{{water}}</div>
+            `,
+            props: ['water', 'money']
+        }
+        Vue.component('House', House)//名字必须一样
+        Vue.component('Pot', Pot)
+        const app = new Vue({
+            el: '#app',
+            data: {}
+        })
+    </script>
+</body>
+
+</html>

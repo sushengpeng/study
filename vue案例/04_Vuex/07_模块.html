@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vuex.js"></script>
+  <script>
+    /* 
+      每个模块都有独立的state mutations actions 以及getters甚至modules
+
+      模块会直接携带自己的state变成rootState中的一个属性
+
+      rootState this.$store.state.xxx
+      moduleState this.$store.state.模块名.xxx
+
+      对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象。
+
+      除了state会分模块划分外，其他getters mutation actions都会被存放在同一个对象中
+
+      我们可以给module添加namespaced: true
+
+      modules: {
+        moduleA: {
+          namespaced: true
+        }, 
+        moduleB: {
+          namespaced: true
+        }
+      }
+
+      getters上会添加模块名前缀 模块名/getter函数名
+      mutation 模块名/mutation名字
+      action 模块名/action名字
+
+      如果添加namespaced 
+      action中commit mutaion是不需要添加前缀的
+    */
+    const store = new Vuex.Store({
+      state: {
+        msg: '这是rootState的数据' // this.$store.state.msg
+      },
+      getters: {
+        getMsgLength (state) {
+          return state.msg.length
+        }
+      },
+      mutations: {
+        setMsg (state, msg) {
+          state.msg = msg
+        }
+      },
+      modules: {
+        moduleA: {
+          namespaced: true,
+          state: {
+            msg: "这是moduleA中的数据" // this.$store.state.moduleA.msg
+          },
+          getters: {
+            getMsg (state, getters, rootState) {
+              console.log(getters)
+              return rootState.msg
+            }
+          },
+          mutations: {
+            setMsg (state, msg) {
+              // 这个state就是局部的state
+              state.msg = msg
+            }
+          },
+          actions: {
+            getMsg ({commit}) {
+              // 在这里对全局的action进行提交
+              commit('setMsg', '新的数据', {root: true})
+            }
+          }
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: "#app",
+      store,
+      created () {
+        console.log(this.$store)
+        // console.log(this.$store.getters['moduleA/getMsg'])
+        // this.$store.commit('setMsg', '传递数据')
+        // console.log(this.$store)
+        this.$store.dispatch('moduleA/getMsg')
+        console.log(this.$store)
+
+
+      }
+    })
+  </script>
+</body>
+</html>

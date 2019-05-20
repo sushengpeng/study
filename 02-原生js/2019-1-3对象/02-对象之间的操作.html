@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //合并对象
+        var o1 = {
+            a:"a",
+            b:"b"
+        }
+
+        var o2 = {
+            c:"c",
+            d:"d"
+        }
+
+        
+        
+        //将o1合并到o2上
+        // for(var key in o1){
+        //     o2[key]=o1[key];
+        // }
+        // console.log(o2);  //{c: "c", d: "d", a: "a", b: "b"}
+        // //将o2合并到o1上
+        // for(var key in o2){
+        //     o1[key]=o2[key];
+        // }
+        // console.log(o1);  //{a:"a",b:"b",c:"c",d:"d"}
+
+        // 封装函数：
+        // function extend(o1,o2){
+        //     for(var key in o2){
+        //         o1[key] = o2[key];
+        //     }
+        //     return o1;
+        // }
+        // console.log(extend(o1,o2));
+        // console.log(extend(o2,o1));
+
+        var o1 = {
+            a:"a",
+            b:"b",
+            e:"e"
+        }
+
+        var o2 = {
+            c:"c",
+            d:"d",
+            e:"ee"
+        }
+
+        //将o1合并到o2上,重复的属性o1覆盖o2
+        for(var key in o1){
+            o2[key]=o1[key];
+        }
+        console.log(o2);
+        //将o2合并到o1上,重复的属性o2覆盖o1
+        // for(var key in o2){
+        //     o1[key]=o2[key];
+        // }
+        // console.log(o1);
+
+        // function extend(o1,o2){
+        //     for(var key in o2){
+        //         o1[key] = o2[key];
+        //     }
+        //     return o1;
+        // }
+        // // console.log(extend(o1,o2))
+        // console.log(extend(o2,o1))
+    </script>
+</body>
+</html>

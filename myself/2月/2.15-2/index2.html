@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            float:left;
+        }
+        #li0 {
+            background-color: green;
+        }
+        #li1{
+            background-color: yellow;
+        }
+        #li2{
+            background-color: red;
+        }
+        #li3{
+            background-color: blue;
+        }
+        ul li a{
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="li0"><a href="./index1.html?itemid=XXX&picture=XXX&other=XXX&num=XXX" class="one">绿色</a></li>
+        <li id="li1"><a href="./index1.html?id=1">黄色</a></li>
+        <li id="li2"><a href="./index1.html?id=2">红色</a></li>
+        <li id="li3"><a href="./index1.html?id=3">蓝色</a></li>
+    </ul>
+    <script>
+        var one=document.getElementsByClassName("one")[0];
+        one.onclick=function(){
+            console.log(one.getAttribute("href"))
+            console.log()
+        }
+    </script>
+</body>
+
+</html>

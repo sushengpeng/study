@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        /*
+            line-height的单位：
+                px 
+                1 2 1.5缩放因子   可以重新计算行高 90px
+                % em   不重新计算行高 18px (18px-60px)/2=-42px/2=-21px
+                
+        */
+
+        .father{
+            font-size: 12px;
+            line-height: 150%;
+            background: #ccc;
+            width: 300px;
+        }
+        .child{
+            font-size: 60px;
+        }
+
+        /* 行高： */
+        /* p{ */
+            /* width: 200px; */
+            /* font-size: 30px;
+            color: red;
+            line-height: 100px;
+            background: #ccc; */
+            /*行内间距（上下间距）+字体大小=行高*/
+        /* } */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="child">
+            我的font-size大小是60px。
+        </div>
+    </div>
+    <!-- <p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好</p> -->
+</body>
+</html>

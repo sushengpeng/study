@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <div>div1</div>
+        </li>
+        <li>
+            <div>div2</div>
+        </li>
+        <li id="item3">
+            <div>div3</div>
+        </li>
+        <li>
+            <div>div4</div>
+        </li>
+        <li>
+            <div>div5</div>
+        </li>
+        <li>
+            <div>div6</div>
+        </li>
+        <li>
+            <div>div7</div>
+        </li>
+        <li>
+            <div>div8</div>
+        </li>
+        <li>
+            <div>div9</div>
+        </li>
+        <li>
+            <div>div10</div>
+        </li>
+    </ul>
+    <div style="display:none">hidden</div>
+    <script src="../jquery.js" ></script>
+    <script>
+
+        //=============================层级
+        // 后代
+        console.log($("ul li"));
+        // $("ul li").css("border","solid 1px red");
+        // 子代
+        //相邻兄弟
+        // $("#item3+li").css("background","pink");
+        //兄弟选择器
+        // $("#item3~li").css("background","yellow");
+
+        //==============================过滤
+        // $("li:first").css("font-size","20px");
+
+        // $("li:not(#item3)").css("color","green");
+
+        // $("li:even").css("background","gray")  //奇数
+        // $("li:odd").css("background","pink")   //偶数
+
+        // $("li:eq(3)").css("border","solid 1px blue")
+
+        // $("li:gt(3)").css("border","solid 1px blue")    //大于索引3
+
+        //=================================可见性
+        // console.log($("div:hidden"))
+        // $("div:hidden").show();
+
+        //链式操作
+        // $("#item3").css("border","solid 1px red");
+        // $("#item3").append("<h2>这是二级标题</h2>");
+
+        $("#item3").css("border","solid 1px red").append("<h2>这是二级标题</h2>")
+    </script>
+</body>
+</html>

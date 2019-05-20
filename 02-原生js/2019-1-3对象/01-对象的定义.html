@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.常规方式（构造函数方式）
+        var obj = new Object();
+        obj.name="凤凰山";
+        obj.c = function(){
+            alert("H5");
+        }
+        
+
+        //2.字面量方式
+        // 经常使用的方式
+        var o = {
+            name:"凤凰山",
+            c:function(){
+                alert("H5");
+            }
+        }
+
+        // 对象上属性的访问：
+        // console.log(obj.name);
+        // console.log(o.name);
+
+        // 变量名：最好不要是name，top
+        // console.log(obj["name"]);   //凤凰山
+        // var box = "name";
+        // console.log(obj[box]);    //凤凰山
+
+        //对象上的方法
+        // obj.c();
+        // o.c();
+
+        //对象上属性的修改
+        obj.name="白云山";
+        console.log(obj.name);
+
+        o.name="new value";
+        console.log(o.name);
+
+        obj["name"]="凤凰山";
+        console.log(obj.name);
+        console.log(obj["name"])
+
+
+        //对象上属性的添加
+        obj.a="a";
+        obj["b"]="b";
+        console.log(obj.a);
+        console.log(obj.b);
+
+        //对象上属性的删除
+        delete obj.a;
+        console.log(obj.a);    //undefined
+
+        console.log(obj.d);     //undefined
+        delete obj["b"];
+        console.log(obj.b);     //undefined
+
+
+        //遍历对象
+        // for in 语句的语法
+        for(var key in obj){
+            console.log(key);     //对象中的属性名
+            console.log(obj[key])     //必须用【】方式访问属性值
+            // console.log(obj.key);  
+        }
+
+
+        //方法中传参数
+        obj.say = function(str){
+            alert(str+this.name);
+        }
+
+        obj.say("hello ");
+    </script>
+</body>
+</html>

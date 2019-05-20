@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link  -->
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float:right;
+        }
+        .wrap{
+            width:1226px;
+            margin: 0 auto;
+        }
+        .topNav{
+            background-color: black;
+            height: 40px;
+        }
+        .topNav .left{
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            color:#fff;
+            background-color: blue;
+        }
+        .topNav .left li{
+            float: left;
+        }
+        .topNav .left li .sep{
+            margin: 0 9px;
+        }
+        .topNav .right{
+            position: relative;
+            height: 40px;
+            float:right;
+            line-height: 40px;
+            color:#fff;
+            font-size: 12px;
+            background-color: blueviolet;
+        }
+        .topNav .right .shoppingCar{
+            display: none;
+            position: absolute;
+            right:0;
+            top:40px;
+            width:200px;
+            height: 80px;
+            background-color: yellow;
+            z-index: 1;
+        }
+        .topNav .right span:hover+.shoppingCar{
+            display: block;
+        }
+
+        .outer{
+            position: relative;
+        }
+        .mainMenu{
+            height: 100px;
+            background-color: pink;
+        }
+        .mainMenu .left{
+            width:50px;
+            height: 50px;
+            margin-top: 25px;
+            background: orange;
+        }
+        .mainMenu .middle{
+            margin-left: 180px;
+        }
+        .mainMenu .middle li{
+            float: left;
+            /* margin: 0 10px; 使用margin会造成鼠标hover时下面的div闪的情况*/ 
+            padding:0 10px;
+            line-height: 100px;
+        }
+        .mainMenu .middle li .productList{
+            position: absolute;
+            left:0;
+            top:100px;
+            right:0;
+            display: none;
+            background-color: red;
+        }
+        .mainMenu .middle li:hover .productList{
+            display: block;
+        }
+
+        .mainMenu .right input{
+            margin-top: 25px;
+            width:240px;
+            height: 50px;
+            outline: none;
+            border:solid 1px #ccc;
+        }
+        .mainMenu .right input[type=button]{
+            width:50px;
+            height: 52px;
+            border:solid 1px #ccc;
+            background-color: #fff;
+        }
+        .mainMenu .right input[type=text]:focus{
+            border:solid 1px orangered;
+        }
+        .mainMenu .right input[type=text]:focus+input{
+            border:solid 1px orangered;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部菜单 -->
+    <div class="topNav">
+        <div class="wrap">
+            <ul class="left">
+                <li>menu 1<span class="sep">|</span></li>
+                <li>menu 2<span class="sep">|</span></li>
+                <li>menu 3<span class="sep">|</span></li>
+                <li>menu 4<span class="sep">|</span></li>
+                <li>menu 5<span class="sep">|</span></li>
+                <li>menu 6<span class="sep">|</span></li>
+                <li>menu 7</li>
+            </ul>
+            <div class="right">
+                <a>登陆</a>
+                <a>注册</a>
+                <a>消息通知</a>
+                <span>购物车</span>
+                <div class="shoppingCar">
+                    购物车中空空如也！
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主菜单 -->
+    <div class="outer">
+        <div class="mainMenu wrap">
+            <div class="left fl">
+            </div>
+            <ul class="middle fl">
+                <li>menu1
+                    <div class="productList">
+                        <div class="wrap">
+                            1
+                        </div>
+                    </div>
+                </li>
+                <li>menu2
+                    <div class="productList">2</div>
+                </li>
+                <li>menu3
+                    <div class="productList">3</div>
+                </li>
+                <li>menu4
+                    <div class="productList">4</div>
+                </li>
+                <li>menu5
+                    <div class="productList">5</div>
+                </li>
+                <li>menu6
+                    <div class="productList">6</div>
+                </li>
+                <li>menu7
+                    <div class="productList">7</div>
+                </li>
+                <li>menu8
+                    <div class="productList">8</div>
+                </li>
+            </ul>
+            <div class="right fr">
+                <input type="text" /><!-- 
+                 --><input type="button" value="搜索"/>
+            </div>
+        </div>
+    </div>
+    <!-- 水平垂直都居中 -->
+    
+</body>
+</html>

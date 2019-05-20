@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width:100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById("box")
+        // 不管鼠标状态如何，都返回 0（比如onclick）
+        // box.onclick = function(e){
+        //     e = e || window.event;
+        //     console.log(e.button);   //0
+        // }
+        box.onmousedown = function(e){
+            e = e || window.event;
+            console.log(e.button);
+        }
+        // document.oncontextmenu = function(e){
+        //     //这种方式阻止浏览器的默认行为通常写在最上面，这种方式对dom0，dom2级事件均有效
+        //     e = e || window.event;
+        //     if(e.preventDefault){
+        //         e.preventDefault();
+        //     }else{
+        //         e.returnValue = false;
+        //     }
+        //     // console.log(1);
+        //     //  console.log(1);
+        //      console.log(e.button);
+
+        //     // 阻止浏览器的默认行为写在最后一行，这种方式对dom0级事件有效
+        //     return false;
+           
+        // }
+
+        // 对于event.button获取的鼠标键值，仅仅对于鼠标onmousedown, onmouseup相关的事件才起作用，对于onclick 不起作用
+    </script>
+</body>
+</html>

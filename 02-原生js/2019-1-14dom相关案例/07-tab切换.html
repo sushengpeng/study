@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .tab-list li{
+            display: inline-block;
+        }
+        .tab-list .tab-active{
+            color:orange;
+        }
+        .tab-container{
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            background-color:pink;
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul class="tab-list">
+            <li class="tab-active" index="0">tab1</li>
+            <li index="1">tab2</li>
+            <li index="2">tab3</li>
+            <li index="3">tab4</li>
+        </ul>
+        <div class="tab-container active" >1
+            <br>
+            11
+        </div>
+        <div class="tab-container">2</div>
+        <div class="tab-container">3
+            <br/>
+            33
+        </div>
+        <div class="tab-container">4</div>
+    </div>
+    <script>
+        var lis = document.getElementsByClassName("tab-list")[0].getElementsByTagName("li");
+        console.log(lis);
+        var divs = document.getElementsByClassName("tab-container");
+        console.log(divs)
+        //解法一：
+        // function tabs(i){
+        //     lis[i].onclick = function(){
+        //         for(var j=0;j<lis.length;j++){
+        //             lis[j].className = "";
+        //         }
+        //         this.className = "tab-active";
+        //         // console.log(i);    //4
+
+        //         for(var k=0;k<divs.length;k++){
+        //             divs[k].className="tab-container"
+        //         }
+
+        //         divs[i].className="tab-container active";
+        //     }
+        // }
+        // for(var i=0;i<lis.length;i++){
+        //     tabs(i);
+        // }
+        // 解法二：
+        for(var i=0;i<lis.length;i++ ){
+            lis[i].onclick = function(){
+                for(var j=0;j<lis.length;j++){
+                    lis[j].className = "";
+                }
+                this.className = "tab-active";
+                // console.log(i);    //4
+                // 点击li标签，找到是第几个
+                for(var k=0;k<divs.length;k++){
+                    divs[k].className="tab-container"
+                }
+                var n = this.getAttribute("index");
+                divs[n].className="tab-container active";
+            }
+        }
+    </script>
+</body>
+</html>

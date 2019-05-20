@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- location -->
+    <script>
+        // https://item.taobao.com/item.htm?spm=a219r.lm843.14.59.6d675f6exMJtH3&id=555652305822&ns=1&abbucket=5#detail
+        location.href="https://item.taobao.com/item.htm?spm=a219r.lm843.14.59.6d675f6exMJtH3&id=555652305822&ns=1&abbucket=5#detail";
+        //常用的属性
+        console.log(location.href)
+        console.log(location.protocol);  //协议   https:
+        console.log(location.host);      //item.taobao.com
+        console.log(location.port);       //端口号
+        console.log(location.pathname);   //   /item.htm
+        console.log(location.search);     //   ?spm=a219r.lm843.14.59.6d675f6exMJtH3&id=555652305822&ns=1&abbucket=5
+        console.log(location.hash);       //跳转到页面中的某一部分    #detail
+
+        //方法
+        location.assign("http://www.baidu.com");  //跳转到百度   会在历史记录中生成一条历史记录
+        location.replace("http://www.baidu.com");  //跳转到百度，并替换当前url在历史记录中的记录
+
+        location.reload();  //重载页面
+    </script>
+</body>
+</html>

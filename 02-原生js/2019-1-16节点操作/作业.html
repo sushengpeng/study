@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="text" value="1111" /><input type="button" id="submit" value="提交" />
+    <ul class="list">
+        <!-- <li>sdfdf<a href="###" onclick="del">删除</a></li> -->
+
+    </ul>
+    <script>
+        var submit = document.getElementById("submit");
+        var text = document.getElementById("text");
+        var ul = document.getElementsByClassName("list")[0];
+        submit.onclick = function(){
+            var str = text.value;
+            var li = document.createElement("li");
+            li.innerHTML = str;
+            // <li>sdfdf</li>
+            var a = document.createElement("a");
+            a.href="###";
+            a.innerHTML = "删除";
+            a.onclick = function(){
+                console.log(this);
+                console.log(this.parentNode)
+                // 目标是删除 this.parentNode   找到的li标签
+                ul.removeChild(this.parentNode);
+            }
+
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
+    </script>
+</body>
+</html>

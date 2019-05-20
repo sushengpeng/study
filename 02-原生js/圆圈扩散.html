@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            border-radius: 50%;
+        }
+        .inner{
+            width:10px;
+            height: 10px;
+            background-color:#00cede;
+            margin-top: 100px;
+            margin-left:auto;
+            margin-right:auto;
+            position: relative;
+            border: 1px solid rgba(0, 205, 236, 0.37);
+        }
+        .inner div{
+            position: absolute;
+            border:solid 1px rgba(0, 205, 236, 1);
+            left:4px;
+            top:4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="inner">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <div class="inner">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <div class="inner">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <!-- <div class="inner">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div> -->
+    <script src="../public.js"></script>
+    <script>
+        var inner = document.querySelectorAll(".inner");
+        
+
+        function move(obj){
+                if(obj.innerW ==0){
+                    obj.style.opacity=1;
+                }
+                if(obj.innerW<0){
+                    obj.style.opacity =0 ;
+                }
+                obj.innerW+=2;
+                obj.style.width =obj.style.height = obj.innerW+"px";
+                obj.style.left =obj.style.top = 4 - obj.innerW/2+"px";
+                if(obj.innerW>=50){
+                    obj.style.opacity = obj.style.opacity-0.04;
+                    // box1.style.opacity-=0.04;
+                }
+                if(obj.innerW>=100){
+                    obj.innerW=0;
+                }
+        }
+        for(var i=0;i<inner.length;i++){
+            var box1  = inner[i].querySelector(".box1");
+                box1.innerW = 0;
+                var box2  = inner[i].querySelector(".box2");
+                box2.innerW = -30;
+                var box3  = inner[i].querySelector(".box3");
+                box3.innerW = -60;
+                
+                setInterval(move,50,box1);  //不能写成setInterval("move(box1)",50)
+                
+                setInterval(move,50,box2);   //这种写法有兼容
+                
+                setInterval(move,50,box3);
+                    
+        }
+        
+    </script>
+</body>
+</html>

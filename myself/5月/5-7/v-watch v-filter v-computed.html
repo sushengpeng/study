@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <first-component>
+
+        </first-component>
+        {{bookname | getName}} 
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('first-component', {
+            template: `
+            <div>
+            这是我的第一个组件
+            <second-component></second-component>
+            </div>
+            `
+        });
+        Vue.component('second-component', {
+            template: `
+            <div>
+            这是我的第二个组件
+                  
+            </div>
+            `
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                a: 1,
+                bookname:'三国演义',
+                stus: [{
+                        name: '张三',
+                        sex: '男'
+                    },
+                    {
+                        name: '李四',
+                        sex: '男'
+                    },
+                    {
+                        name: '王五',
+                        sex: '女'
+                    },
+                    {
+                        name: '赵六',
+                        sex: '女'
+                    },
+                    {
+                        name: '小明',
+                        sex: '男'
+                    }
+                ]
+            },
+            computed: {
+                // 仅读取
+                aDouble: function () {
+                    return this.a * 2
+                },
+                // 读取和设置
+                aPlus: {
+                    get: function () {
+                        return this.a + 1
+                    },
+                    set: function (v) {
+                        this.a = v - 1
+                    }
+                }
+            },
+            watch: {
+                a: function (newa, oldb) {
+                    console.log(newa, oldb)
+                }
+            },
+            filters: {
+                getName(value){
+                    return "《"+value+"》";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

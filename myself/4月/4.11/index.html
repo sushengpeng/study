@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="top">
+        <canvas id="myCanvas"></canvas>
+        <p>消息</p>
+    </div>
+
+    <div id="wrapper">
+        <div class="content">
+            <div class="pullUp">
+                <img src="./img/down.png" width="20rem">
+                <span>下拉刷新...</span>
+            </div>
+            <ul>
+                <li data-init="1" data-top=true>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/1.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="2" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/2.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="3" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/3.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="4" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/4.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="5" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/5.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="6" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/6.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="7" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/7.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="8" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/8.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+                <li data-init="9" data-top=false>
+                    <div class="msg">
+                        <div class="head" style="background-image: url('./img/9.jpg')"></div>
+                    </div>
+                    <p class="stick">置顶</p>
+                    <p class="del">删除</p>
+                </li>
+            </ul>
+            <div class="pullDown">
+                <img src="./img/down.png" width="20rem">
+                <span>加载更多</span>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="js/zepto.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/fx.js"></script>
+    <script src="js/iscroll-probe.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        function resize() {
+            var html = document.documentElement;
+            var w = html.getBoundingClientRect().width;
+            w = w > 750 ? 750 : w;
+            // console.log(w)
+            var fontsize = w / (750 / 16);
+            // console.log(fontsize)
+            html.style.fontSize = fontsize + "px";
+        }
+        resize();
+        window.onresize = function () {
+            resize();
+
+        }
+        var myScroll = new IScroll('#wrapper', {
+
+            // 开启滚轮控制功能
+            // mouseWheel: true,
+
+            //true时，右侧显示滚动条， false: 不显示
+            // scrollbars: true
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 在input中输入学生姓名以及性别, 点击按钮添加, 看一下其改变的状态 -->
+    <input type="text" v-model="stu.name">
+    <input type="text" v-model="stu.sex">
+    <button @click="add">添加</button>
+    <h1>所有学生</h1>
+    <ul>
+      <li v-for="(stu, index) in stus" :key="index">{{stu.name}} - {{stu.sex}}</li>
+    </ul>
+    <hr>
+    <h1>所有男生</h1>
+    <ul>
+      <li v-for="(stu, index) in boys" :key="index">{{stu.name}} - {{stu.sex}}</li>
+    </ul>
+    <hr>
+    <h2>所有女生</h2>
+    <ul>
+      <li v-for="(stu, index) in girls" :key="index">{{stu.name}} - {{stu.sex}}</li>
+    </ul>
+    <hr>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: "#app",
+      data: {
+        stu: {
+          name: '',
+          sex: ''
+        },
+        stus: [
+          {
+            name: '张三',
+            sex: '男'
+          }, {
+            name: '李四',
+            sex: '男'
+          }, {
+            name: '王五',
+            sex: '女'
+          }, {
+            name: '赵六',
+            sex: '女'
+          }, {
+            name: '小明',
+            sex: '男'
+          }
+        ]
+      },
+      computed: {
+        boys () {
+          /* const boys = []
+          for (var i = 0; i < this.stus; i++) {
+            if (this.stus[i].sex === "男") {
+              boys.push(this.stus[i].sex)
+            }
+          }
+          return boys */
+          return this.stus.filter(stu => stu.sex === '男')
+        },
+        girls () {
+          return this.stus.filter(stu => stu.sex === '女')
+        }
+      }, 
+      methods: {
+        add () {
+          this.stus.push(Object.assign({}, this.stu))
+        }
+      }
+    })
+  
+  
+  </script>
+</body>
+</html>

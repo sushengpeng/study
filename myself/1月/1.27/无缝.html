@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul {
+            width: 1000px;
+            position: absolute;
+            /* overflow: hidden; */
+        }
+
+        ul li {
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: paleturquoise;
+            /* position: relative; */
+        }
+
+        ul li:nth-child(2) {
+            background-color: palegreen;
+        }
+
+        ul li:nth-child(3) {
+            background-color: palevioletred;
+        }
+
+        ul li:nth-child(4) {
+            background-color: papayawhip;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var lis = document.getElementsByTagName("li");
+        var ul = document.getElementsByTagName("ul")[0];
+        var clone=lis[0].cloneNode(true);
+        var timerId;
+        var num = 0;
+        ul.appendChild(clone);
+        timerId = setInterval(function () {
+            ul.style.left = num + "px";
+            if (num <= -800) {
+                num=0;
+                ul.style.left = num + "px";
+            } else {
+                num--;
+            }
+        }, 16.67)
+        
+    </script>
+</body>
+
+</html>

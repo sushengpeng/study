@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .match {
+        width: 388px;
+        height: 535px;
+        border: 1px solid #e9e9e9;
+        overflow: hidden;
+        position: relative;
+        margin: 200px auto;
+    }
+
+    .list {
+        width: 388px;
+        overflow: hidden;
+
+    }
+
+    .session {
+        height: 49px;
+    }
+
+    .session li {
+        float: left;
+        font-size: 16px;
+        width: 75px;
+        height: 16px;
+        line-height: 16px;
+        text-align: center;
+        font-weight: 700;
+        margin: 16px 0;
+        padding: 0 20px;
+        border-right: 1px solid #eee;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .active {
+        color: #408ed6;
+    }
+
+    .team li {
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 18px 0 7px;
+    }
+
+    .team li p {
+        /* align-items:stretch; */
+        display: block;
+        width: 64px;
+        text-align: center;
+        color: #999;
+        font-size: 14px;
+    }
+
+    .team li p span {
+        display: inline-block;
+        width: 24px;
+        height: 20px;
+        line-height: 20px;
+        background-color: #f15b5b;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <div class="match">
+            <div class="list">
+                <ul class="session">
+                    <li v-for='(value,index) in session' :class='{active:num==index}' @click='change(index)'>{{value}}
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <ul class="team">
+                    <li>
+                        <p>排名</p>
+                        <p>球队</p>
+                        <p>胜</p>
+                        <p>负</p>
+                        <p>胜率</p>
+                    </li>
+                    <li v-for='(value,index) in teams[num]'>
+                        <p><span>{{index+1}}</span></p>
+                        <p>{{value.name}}</p>
+                        <p>{{value.win}}</p>
+                        <p>{{value.lose}}</p>
+                        <p>{{value.rate}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                session: ['NBA', 'CBA', '英超', '欧冠', '西甲'],
+                num: 0,
+                teams: [
+                [
+                    {
+                        name: '骑士',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '开拓者',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '爵士',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '雷霆',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '马刺',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    }
+                ],
+                [
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '掘金',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    }
+                ],
+                [
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '快船',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    }
+                ],
+                [
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '湖人',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    }
+                ],
+                [
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    },
+                    {
+                        name: '火箭',
+                        win: 57,
+                        lose: 25,
+                        rate: '69%'
+                    }
+                ],
+                ]
+    
+            },
+            methods: {
+                change(i) {
+                    this.num = i;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

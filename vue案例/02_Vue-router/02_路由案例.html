@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 去渲染路由组件的容器 -->
+    <router-view></router-view>
+    <span>内容1</span>
+    <span>内容2</span>
+  </div>
+
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    /* 
+      路由是需要配置的
+
+      组件配置对象 可以用在两个地方
+      const com = {
+        template: ``
+      }
+
+      在注册组件时使用
+      作为路由组件使用（不需要注册）
+
+
+      当我们访问 / 
+        程序会找到routes 然后匹配到 / 的配置并且找到对应的路由组件Index，然后将其渲染到router-view上
+
+      当我们访问/list时
+        程序会找到routes 然后匹配到 /list 的配置并且找到对应的路由组件List，然后将其渲染到router-view中（会替换其他已渲染的内容）
+
+    */
+
+    // 首页
+    const Index = {
+      template: `
+        <div>
+          这是首页
+          <a href="#/list">list</a>
+        </div>
+      `
+    }
+
+    const List = {
+      template: `
+        <div>这是列表页</div>
+      `
+    }
+
+    // 创建路由配置
+    const routes = [
+      // 每一个路由配置都是一个对象
+      {
+        path: '/',
+        // component后直接写组件配置对象的变量名
+        // component: {}
+        component: Index
+      }, 
+      {
+        path: '/list',
+        component: List
+      }
+    ]
+
+    // 创建VueRouter对象将routes放入配置中
+    const router = new VueRouter({
+      // routes: routes
+      routes
+    })
+
+    // 将Router放入 new Vue配置中
+    const app = new Vue({
+      el: "#app",
+      // router: router
+      router
+    })
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .redBall{
+            width:50px;
+            height: 50px;
+            color:#fff;
+            text-align: center;
+            line-height: 50px;
+            background-color: red;
+            border-radius:50%;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>红球：</dt>
+        <dd class="redBall"></dd>
+        <dd class="redBall"></dd>
+        <dd class="redBall"></dd>
+        <dd class="redBall"></dd>
+        <dd class="redBall"></dd>
+        <dd class="redBall"></dd>
+    </dl>
+    <script>
+        //红球：1-33       6
+        //蓝球：1-16       1
+        //蓝球和红球可以重复
+
+        // 求1-33之间的随机数
+        // Math.floor(Math.random()*33+1)
+        // 求1-16之间的随机数
+        // Math.floor(Math.random()*16+1)
+
+        var redBall=[],blueBall=Math.floor(Math.random()*16+1);
+
+
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 6
+        while(redBall.length<6){
+            var num =Math.floor(Math.random()*33+1);
+            if(redBall.indexOf(num)==-1){
+                redBall.push(num);
+            }
+        }
+
+        redBall.sort(function(a,b){
+            return a-b;
+        })
+        console.log(redBall);
+
+        var redBalls = document.getElementsByClassName("redBall");
+        for(var i=0;i<redBall.length;i++){
+            redBalls[i].innerHTML = redBall[i];
+        }
+    </script>
+</body>
+</html>

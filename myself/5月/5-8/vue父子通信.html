@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <list :lists="student"></list>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        // <li v-for='value in lists'>{{value}}</li>
+        const list = {
+            template:`
+                <ul>              
+                <item  v-for='(value,index) in lists' :name=value :key='index'></item>
+                </ul>
+            `,
+            props:['lists']
+        }
+        const item = {
+            template:`
+                <li>
+                {{name}}
+                </li>
+            `,
+            props:['name']
+        }
+        Vue.component('list',list)
+        Vue.component('item',item)
+        new Vue({
+            el: "#app",
+            data: {
+                student:['张三','李四']
+            }
+        })
+    </script>
+</body>
+
+</html>

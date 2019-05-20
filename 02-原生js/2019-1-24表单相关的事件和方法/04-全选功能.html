@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="box">
+            <label>全选：<input type="checkbox"  id="qx" ></label><br>
+            <div id="checkbox2">
+                <label>苹果：<input type="checkbox" name="fruit" id="apple" value="apple"></label><br>
+                <label>梨：<input type="checkbox" name="fruit" id="pear" value="pear" ></label><br>
+                <label>香蕉：<input type="checkbox" name="fruit" value="banana"></label><br>
+            </div>
+        </div>
+        <script>
+            var qx = document.getElementById("qx");
+            var apple = document.getElementById("apple");
+            var fruits =document.querySelectorAll("input[name=fruit]");
+            qx.onclick = function(){
+                for(var i=0;i<fruits.length;i++){
+                    fruits[i].checked = this.checked;
+                }
+            }
+            var cb2 = document.getElementById("checkbox2");
+            cb2.onclick = function(e){
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                if(target.tagName=="INPUT"){
+                    var num = 0;
+                    //得到了选中的数量
+                    for(var i=0;i<fruits.length;i++){
+                        if(fruits[i].checked){
+                            num++
+                        }
+                    }
+                    
+                    if(num==fruits.length){
+                        //说明二级checkbox全部被选中
+                        qx.checked=true;
+                    }else{
+                        //说明二级checkbox 未全部被选中
+                        qx.checked=false;
+                    }
+                }
+            }
+        </script>
+</body>
+</html>

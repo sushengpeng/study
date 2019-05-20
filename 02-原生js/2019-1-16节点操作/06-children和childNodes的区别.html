@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body id="test">
+    <!-- 这里是注释 -->
+    <div>
+        文本1
+    </div>
+
+    <div id="box2">
+        文本2
+    </div>
+
+    <script>
+        // var arr = new Array();
+        // var divs = document.getElementsByTagName("div");
+        // console.log(arr instanceof Array);   //true
+        // console.log(divs instanceof Array);   //false
+
+
+        var oDiv=document.getElementById("test");
+        console.log(oDiv.children[0] instanceof Node);        //true
+        console.log(oDiv.children[0] instanceof Element);    //true
+
+        console.log(oDiv.childNodes[1] instanceof Node);    //true
+        console.log(oDiv.childNodes[1] instanceof Element);    //false
+
+        console.log(oDiv.childNodes[0].children)       //undefined
+        console.log(oDiv.childNodes[0].childNodes);    //NodeList []
+
+        console.log(typeof oDiv.childNodes[0].children);    //undefined
+        console.log(typeof oDiv.childNodes[0].childNodes);    //object
+    
+
+        // 总结：
+        // 1.element是元素，元素是节点的一种
+        // 2.children属性是元素节点上特有的属性，childNodes是任何节点上都有的属性
+
+
+        //实例对象  instanceof   构造函数对象 
+        //返回值为true 或着  false 
+
+        
+    </script>
+
+</body>
+
+</html>

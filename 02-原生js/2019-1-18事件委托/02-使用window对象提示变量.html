@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //window 对象是浏览器提供的顶层对象
+
+        function fun1(h){
+            window[h] = function(){
+                console.log(111);
+            }
+            // var t = 123;
+            // console.log(window)
+            // window.t = 123;
+            // window["t"] = 123;
+        }  
+        function fun2(h){
+            // var t = 123;
+            console.log(window[h])
+            // window.t = 123;
+            // window["t"] = 123;
+        } 
+        // var top  window.top
+        function handler(){
+            console.log(222)
+        }
+        
+        fun1(handler);
+        fun2(handler);
+        // console.log(t);
+        // console.log(window)
+        // console.log(window[123])
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a id="a" href="###">click me</a>
+    </div>
+    <script>
+        var a = document.getElementById("a");
+        // a.onclick = function(){
+        //     console.log(this);  //a
+        // }
+
+        // a.addEventListener("click",function(){
+        //     console.log(this);   //a
+        // })
+
+        // a.attachEvent("onclick",function(){
+        //     console.log(this);   //window
+        // })
+
+
+        //this的指向可以被改变
+        // function fun(){
+        //     console.log(this);   //window
+        // }
+        // // window.fun();
+        // // call方法可以改变this的指向
+        // fun.call(a)   //this指向a
+
+        // 总结：
+        // 1.在函数调用中，谁调用这个函数，this就指向谁
+        // 2.在事件处理函数中this指向注册事件的dom对象
+
+        //再次封装addEvent函数
+        function addEvent(dom,eventType,handler){
+            if(dom.attachEvent){
+                dom.attachEvent("on"+eventType,function(){
+                    handler.call(dom);
+                })
+            }else{
+                dom.addEventListener(eventType,handler)
+            }
+        }
+
+        function fun(){
+            console.log(1);
+            console.log(this);
+            console.log(this.parentNode.innerHTML);
+        }
+        addEvent(a,"click",fun);
+    </script>
+</body>
+</html>

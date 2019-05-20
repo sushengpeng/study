@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 获取浏览器窗口的宽高 -->
+    <script>
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    </script>
+    <!-- window 对象上的方法 -->
+    <button id="close" >关闭</button>
+    <script>
+        // open  容易被当做广告拦截
+        // window.open("http://www.baidu.com","_blank","width=100px,height=100px,top=50px,left=50px")
+
+        // var clo = document.getElementById("close");
+        // clo.onclick = function(){
+        //     window.close();
+        // }
+
+        // alert() 通常用于调试
+        // window.alert("message");
+
+        // console.log(window.confirm("Are you sure?"));   //返回值为true false
+
+        // console.log(window.prompt("What's your name?", "Default"));   //返回值为输入的内容
+
+
+    </script>
+    <button style="position:fixed;left:0;top:0" id="scroll">滚动50px</button>
+    <div style="height: 2000px"></div>
+    <script>
+        var scroll = document.getElementById("scroll");
+        scroll.onclick = function(){
+            // window.scrollBy(0,50);   //相对于当前位置偏移了多少像素
+            window.scrollTo(0,50);    //滚动到目标位置
+        }
+        
+    </script>
+</body>
+</html>

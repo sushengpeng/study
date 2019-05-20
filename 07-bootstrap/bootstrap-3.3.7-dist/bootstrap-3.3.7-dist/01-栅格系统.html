@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        .left{
+            border:solid 1px red;
+        }
+        .right{
+            background-color: pink;
+        }
+        .row div{
+            background-color: #eee;
+            border:solid 1px #aaa;
+        }
+    </style>
+</head>
+<body>
+    <!-- col-xs-num   col-sm-num col-md-num col-lg-num -->
+    <!-- <div class="container">
+        <div class="row">
+            <div class="left col-lg-9 col-md-8 col-sm-6 col-xs-12">left</div>
+            <div class="right col-lg-3 col-md-4 col-sm-6 col-xs-12">right</div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid">
+            <div class="row">
+                    <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+                    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                  </div>
+                  
+                  <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+                  <div class="row">
+                    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                    <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+                  </div>
+                  
+                  <!-- Columns are always 50% wide, on mobile and desktop -->
+                  <div class="row">
+                    <div class="col-xs-6">.col-xs-6</div>
+                    <div class="col-xs-6">.col-xs-6</div>
+                  </div>
+    </div>
+</body>
+</html>

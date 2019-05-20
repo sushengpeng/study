@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正方体</title>
+    <style>
+        .outer {
+            perspective: 1000px;
+        }
+
+        .inner {
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform-origin: 100px 100px 0;
+            margin: 300px auto;
+            position: relative;
+            /* transform: rotate3d(0,0,0,50deg); */
+            transition: all 1s;
+        }
+
+        .bottom,.left,.right,.front,.back,.top {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .bottom {
+            background-color: rosybrown;
+        }
+
+        .left {
+            background-color: yellowgreen;
+            transform: rotateY(90deg);
+            transform-origin: 0 0;
+        }
+
+        .right {
+            background-color: orangered;
+            transform: rotateY(-90deg);
+            transform-origin: 200px 0;
+        }
+
+        .front {
+            background-color: greenyellow;
+            transform: rotateX(90deg);
+            transform-origin: 200px 200px;
+        }
+
+        .back {
+            background-color: sandybrown;
+            transform: rotateZ(90deg) translateZ(-200px);
+            transform-origin: 100px 100px;
+        }
+
+        .top {
+            background-color: indianred;
+            transform: rotateX(-90deg);
+            transform-origin: 0 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="bottom"></div>
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="front"></div>
+            <div class="back"></div>
+            <div class="top"></div>
+        </div>
+    </div>
+    <button>点击</button>
+    <script>
+        var but = document.getElementsByTagName("button")[0];
+        var inner = document.getElementsByClassName("inner")[0];
+        but.onclick = function () {
+            var x, y, z, angle;
+            function getrandom() {
+                return Math.floor(Math.random() * 200 - 100)
+            }
+            x = getrandom();
+            y = getrandom();
+            z = getrandom();
+            angle = getrandom() + "deg";
+            inner.style.transform = "rotate3d(" + x + "," + y + "," + z + "," + angle + ")";
+        }
+    </script>
+</body>
+
+</html>

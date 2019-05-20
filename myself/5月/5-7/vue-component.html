@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <first-component></first-component>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            components: {
+                'first-component': {
+                    template: `
+                    <div>
+                    这是我的第一个组件
+                    <second-component></second-component>
+                    </div>`,
+                    components:{
+                        'second-component':{
+                            template:`
+                            <div>
+                            这是我的第二个组件  
+                            </div>
+                            `
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

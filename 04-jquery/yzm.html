@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://login.yiguo.com/verifycode?_t=636880645075405832"  id="img">
+    <script>
+        var img = document.getElementById("img");
+        img.onclick=function(){
+            this.src="https://login.yiguo.com/verifycode?_t="+Math.random()*10000000;
+        }
+    </script>
+</body>
+</html>

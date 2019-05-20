@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            width: 50px;
+            height: 50px;
+            border: 1px solid red;
+            list-style: none;
+            float: left;
+            margin: 0 10px
+        }
+
+        p {
+            background-color: gold;
+            line-height: 80px;
+            text-align: center;
+            display: none
+        }
+
+        ul {
+            overflow: hidden
+        }
+
+        .active {
+            display: block
+        }
+
+       
+        .box1 .ed{
+            background-color: red;
+        }
+        .box2 .ed{
+            background-color: green;
+        }
+        .box3 .ed{
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <ul>
+            <li class="ed"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="b1">
+            <p class="active">1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+    </div>
+    <div class="box2">
+        <ul>
+            <li class="ed"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="b2">
+            <p class="active">1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+    </div>
+    <div class="box3">
+        <ul>
+            <li class="ed"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="b3">
+            <p class="active">1</p>
+            <p>2</p>
+            <p>3</p>
+            <p>4</p>
+            <p>5</p>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script src="js/tab.js"></script>
+    <script>
+        $(".box1").tab({tabClass:"ed",conts:"p"});
+        $(".box2").tab({tabClass:"ed",conts:"p",effect:"fade"});
+        $(".box3").tab({tabClass:"ed",conts:"p",eventType:"mouseover",effect:"slide"});
+    </script>
+</body>
+
+</html>

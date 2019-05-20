@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            margin-left:200px ;
+            /* position: relative; */
+        }
+        li{
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid red;
+            float: left;
+            position: relative;
+        }
+        ul li div{
+            width: 500px;
+            height: 300px;
+            background-color: #ccc;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            display: none;
+        }
+        ul li:hover .list{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>手机
+            <div class="list">手机这里面的详细型号</div>
+        </li>
+        <li>电视
+            <div class="list">电视这里面的详细型号</div>
+        </li>
+        <li>电脑
+            <div class="list">电脑这里面的详细型号</div>
+        </li>
+        <li>家电
+            <div class="list">家电这里面的详细型号</div>
+        </li>
+        <li>百货
+            <div class="list">百货这里面的详细型号</div>
+        </li>
+    </ul>
+</body>
+
+</html>

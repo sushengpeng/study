@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+dd:hover{
+    background-color:#FF6700;
+}
+dd:hover .cover{
+    display: block;
+}
+.cover{
+    height: 440px;
+    width:250px;
+    background-color:olivedrab;
+    position: absolute;
+    top:0px;
+    left: 250px;
+    display: none;
+}
+dl{
+    padding-top: 10px;
+    position: relative;
+}
+dd{
+    color:#AFAFAF;
+    font-size: 15px;
+    text-indent:1em;
+    padding: 12px;
+    line-height: ;
+}
+.left{
+    width:250px;
+    height:440px;
+    float: left;
+    background-color:#606060;
+}
+.b1{
+    float:right;
+    font-size: 15px;
+    text-indent: 1em;
+    padding-right:20px;
+}

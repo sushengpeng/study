@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+                position: absolute;
+                left:80px;
+                top:80px;
+                margin: 20px;
+                width:100px;
+                height: 100px;
+                overflow: scroll;
+                background-color: pink;
+                padding:10px;
+                border-left:solid 5px red;
+                border-top:solid 15px red;
+                border-right:solid 10px red;
+                border-bottom:solid 20px red;
+            }
+    </style>
+</head>
+<body>
+    <div id="box">水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度水电费水电费水电费水电费收到发生大幅度</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="goTop">gotop</div>
+    <script>
+        var box =document.getElementById("box")
+        //scrollWidth scrollHeigth  滚动宽度和高度
+        console.log(box.scrollWidth)   //103
+        console.log(box.scrollHeight)   //419   得到的是内容的滚动高度
+
+        //scrollTop和scrollLeft(可读写)
+
+        // 读：
+        console.log(box.scrollTop)
+        console.log(box.scrollLeft)
+
+        // box.onscroll=function(){
+        //     console.log(this.scrollTop)
+        // }
+
+        window.onscroll = function(){
+            // console.log( document.body.scrollTop,"body")
+            // console.log(document.documentElement.scrollTop,"documentElement")
+
+            var st =  document.documentElement.scrollTop || 
+                    window.pageYOffset || document.body.scrollTop;
+            console.log(st);
+        }
+
+        // 写：
+        var goTop = document.getElementById("goTop");
+        goTop.onclick = function(){
+            var timmer = setInterval(function(){
+                var st =  document.documentElement.scrollTop || 
+                    window.pageYOffset || document.body.scrollTop;
+                document.documentElement.scrollTop = document.body.scrollTop = window.pageYOffset = st- st/5
+                if(document.documentElement.scrollTop<=0){
+                    clearInterval(timmer)
+                }
+            },20)
+            
+        }
+
+        
+    </script>
+</body>
+</html>

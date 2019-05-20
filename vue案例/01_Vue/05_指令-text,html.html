@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    v-text v-html
+    innerText innerHTML
+
+    双大括号插值会直接将标签给正常输出成文本
+
+    不管是双大括号还是指令,
+    {{}}  v-指令=""
+    都是一个简单的javascript执行环境, 我们可以直接在这两个地方写简单的javascript表达式
+
+    指令中想要写字符串
+    v-指令名="'字符串'" 不能写成 v-指令名="字符串"
+   -->
+  <div id="app">
+    {{msg}}
+    <br>
+    {{msg2}}
+
+    <br>
+    {{msg.split('').reverse().join('')}}
+    <br>
+    <span v-text="msg"></span>
+    <span v-text="msg2"></span>
+    <span v-html="msg2"></span>
+
+    <br>
+    <span v-text="msg + msg2"></span>
+    <br>
+
+    {{msg === '你好' ? "正确" : "错误"}}
+
+    {{typeof 1}}
+    {{typeof "1"}}
+    <br>
+
+    <span v-text="'显示在这个span中'"></span>
+  </div>
+  <script src="vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: '你好',
+        msg2: '<em>你好</em>'
+      }
+    })
+  </script>
+</body>
+</html>

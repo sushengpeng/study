@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 0 auto;
+        }
+
+        .selectAll {
+            width: 1400px;
+            background-color: white;
+            overflow: hidden;
+        }
+        .main{
+            background-color: #EEF3FA;
+        }
+        ul {
+            margin-top: 20px;
+        }
+
+        li {
+            list-style: none;
+            width: 1200px;
+            height: 160px;
+            margin: 0 auto;
+            margin-top: 10px;
+            background-color: #FFF8E1;
+        }
+        div label{
+            margin-left: 100px;
+        }
+        div ul li label{
+            margin-left: 0px;
+            position: relative;
+            top: 32px;
+            left: 0px;
+        }
+        div ul li label input{
+            position: relative;
+            top: -44px;
+            left:0px;
+        }
+        .selectAll div{
+            margin-top:10px;
+        }
+        .first{
+            float:left;
+            margin-top: 15px;
+        }
+        .dir{
+            float: left;
+            margin-top:0px;
+            margin-left:100px;
+        }
+        .dir li{
+            width: 100px;
+            height: 50px;
+            float:left;
+            margin-top:0px;
+            line-height: 50px;
+            text-align: center;
+        }
+        .shop1{
+            clear: both;
+        }
+        .unitprice{
+            margin-left: 300px;
+        }
+        .long{
+            margin-left: 85px;
+        }
+        .unitprice{
+            margin-left: 300px;
+        }
+        .selectAll div .dir{
+            margin-left:145px;
+            margin-top:-80px;
+        }
+        .selectAll div .long{
+            /* margin-top:-90px; */
+        }
+        .selectAll .dir li div{
+            font-size: 30px;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            background-color: white;
+        }
+        .sub{
+            display: block;
+            width: 30px;
+            text-align: center;
+            float:left;
+        }
+        .plus{
+            display: block;
+            width: 30px;
+            text-align: center;
+            float:right;
+        }
+        .shopnumber{
+            display: block;
+            width: 58px;
+            height: 40px;
+            float: left;
+            border: 1px solid #ccc;
+        }
+        .show{
+            width: 1200px;
+            height:50px;
+            margin: 0 auto;
+            background-color: #ccc;
+            border: 0.1px solid transparent;
+        }
+        .show label{
+            display: block;
+            margin-left:0px;
+            margin-top:15px;
+            float:left;
+        }
+        .show p{
+            line-height: 50px;
+            float:left;
+        }
+        .show .p1{
+            margin-left:550px;
+        }
+        .show .p2{
+            margin-left:200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="selectAll">
+            <label class="first"><input type="checkbox" name="all" id="selectAllCommodity">全选</label>
+            <ul class="dir">
+                <li class="information">商品信息</li>
+                <li class="unitprice long">单价</li>
+                <li class="number long">数量</li>
+                <li class="price long">价格</li>
+                <li class="handle long">操作</li>
+            </ul>
+
+            <div class="shop1">
+                <label><input type="checkbox" name="shop" id="selectAllShop1" class="shops">店铺：ruishuai翔实专卖</label>
+                <ul class="list1">
+                    <li>
+                        <label><input type="checkbox" name="shop1" id="selectAllShop1-1" class="shops">
+                            <img src="./img_03.jpg" alt="" width="100px" height="100px">
+                        </label>
+                        <ul class="dir">
+                            <li class="information">凯撒大帝</li>
+                            <li class="unitprice long"><span>¥</span><span>4880.00</span></li>
+                            <li class="number long">
+                                <div><span class="sub">-</span><span class="shopnumber"></span></span><span class="plus">+</span></div>
+                            </li>
+                            <li class="price long">
+                                <!-- <span>¥</span> -->
+                                <span class="theprice"></span>
+                            </li>
+                            <li class="handle long">
+                                <p class="delete">删除</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><label><input type="checkbox" name="shop1" id="selectAllShop1-2" class="shops">
+                            <img src="./img_03.jpg" alt="" width="100px" height="100px">
+                        </label>
+                        <ul class="dir">
+                            <li class="information">凯撒大帝</li>
+                            <li class="unitprice long"><span>¥</span><span>4880.00</span></li>
+                            <li class="number long">
+                                <div><span class="sub">-</span><span class="shopnumber"></span>
+                                    </span><span class="plus">+</span></div>
+                            </li>
+                            <li class="price long">
+                                <!-- <span>¥</span> -->
+                                <span class="theprice"></span>
+                            </li>
+                            <li class="handle long">
+                                <p class="delete">删除</p>
+                            </li>
+
+            </div>
+            <div class="shop2">
+                <label><input type="checkbox" name="shop" id="selectAllShop2" class="shops">店铺：内洛电器-进口按钮</label>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" name="shop2" id="selectAllShop2-1" class="shops">
+                            <img src="./img_03.jpg" alt="" width="100px" height="100px">
+                        </label>
+                        <ul class="dir">
+                            <li class="information">pvc阻燃</li>
+                            <li class="unitprice long"><span>¥</span><span>16.40</span></li>
+                            <li class="number long">
+                                <div><span class="sub">-</span><span class="shopnumber"></span></span><span class="plus">+</span></div>
+                            </li>
+                            <li class="price long">
+                                <!-- <span>¥</span> -->
+                                <span class="theprice"></span>
+                            </li>
+                            <li class="handle long">
+                                <p class="delete">删除</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="shop3">
+                <label><input type="checkbox" name="shop" id="selectAllShop3" class="shops">店铺：tiger虎牌官方旗舰</label>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" name="shop3" id="selectAllShop3-1" class="shops">
+                            <img src="./img_03.jpg" alt="" width="100px" height="100px">
+                        </label>
+                        <ul class="dir">
+                            <li class="information">tiger虎牌儿童保温杯</li>
+                            <li class="unitprice long"><span>¥</span><span>428</span></li>
+                            <li class="number long">
+                                <div><span class="sub">-</span><span class="shopnumber"></span></span><span class="plus">+</span></div>
+                            </li>
+                            <li class="price long">
+                                <!-- <span>¥</span> -->
+                                <span class="theprice"></span>
+                            </li>
+                            <li class="handle long">
+                                <p class="delete">删除</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="shop4">
+                <label><input type="checkbox" name="shop" id="selectAllShop4" class="shops">店铺：tiger海外旗舰店</label>
+                <ul>
+                    <li>
+                        <label><input type="checkbox" name="shop4" id="selectAllShop4-1" class="shops">
+                            <img src="./img_03.jpg" alt="" width="100px" height="100px">
+                        </label>
+                        <ul class="dir">
+                            <li class="information">tiger虎牌儿童保温杯</li>
+                            <li class="unitprice long"><span>¥</span><span>409</span></li>
+                            <li class="number long">
+                                <div><span class="sub">-</span><span class="shopnumber"></span></span><span class="plus">+</span></div>
+                            </li>
+                            <li class="price long">
+                                <!-- <span>¥</span> -->
+                                <span class="theprice"></span>
+                            </li>
+                            <li class="handle long">
+                                <p class="delete">删除</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="show">
+            <label><input type="checkbox"></input>全选</label>
+            <p class="p1">已选商品<span class="param"></span>件</p>
+            <p class="p2">合计（不含运费和进口税）：<span class="sum"></span></p>
+        </div>
+    </div>
+    <script>
+        var selectAllCommodity = document.getElementById("selectAllCommodity");
+        var selectAllShop1 = document.getElementById("selectAllShop1");
+        var selectAllShop2 = document.getElementById("selectAllShop2");
+        var selectAllShop3 = document.getElementById("selectAllShop3");
+        var selectAllShop4 = document.getElementById("selectAllShop4");
+        var shop = document.querySelectorAll("input[name=shop]");
+        var shop1 = document.querySelectorAll("input[name=shop1]");
+        var shop2 = document.querySelectorAll("input[name=shop2]");
+        var shop3 = document.querySelectorAll("input[name=shop3]");
+        var shop4 = document.querySelectorAll("input[name=shop4]");
+        var list1 = document.getElementsByClassName("list1")[0];
+        var selectAll = document.getElementsByClassName("selectAll")[0];
+        var shops = document.getElementsByClassName("shops");
+        selectAllCommodity.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target.tagName)
+            if (target.tagName == "INPUT") {
+                for (var i = 0; i < shops.length; i++) {
+                    shops[i].checked = target.checked;
+                }
+            }
+        }
+        selectAllShop1.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target.tagName)
+            if (target.tagName == "INPUT") {
+                for (var i = 0; i < shop1.length; i++) {
+                    shop1[i].checked = target.checked;
+                }
+            }
+            check();
+        }
+        selectAllShop2.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target.tagName)
+            if (target.tagName == "INPUT") {
+                for (var i = 0; i < shop2.length; i++) {
+                    shop2[i].checked = target.checked;
+                }
+            }
+            check();
+        }
+        selectAllShop3.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target.tagName)
+            if (target.tagName == "INPUT") {
+                for (var i = 0; i < shop3.length; i++) {
+                    shop3[i].checked = target.checked;
+                }
+            }
+            check();
+        }
+        selectAllShop4.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target.tagName)
+            if (target.tagName == "INPUT") {
+                for (var i = 0; i < shop4.length; i++) {
+                    shop4[i].checked = target.checked;
+                }
+            }
+            check();
+        }
+
+        function check() {
+            var a = 0;
+            for (var j = 0; j < shop.length; j++) {
+                if (shop[j].checked) {
+                    a++;
+                }
+                if (a == shop.length) {
+                    selectAllCommodity.checked = true;
+                } else {
+                    selectAllCommodity.checked = false;
+                    console.log(a)
+                }
+            }
+        }
+
+        for (var j = 0; j < shop1.length; j++) {
+            shop1[j].parentNode.onclick = function (e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                if (target.tagName == "INPUT") {
+                    var num = 0;
+                    for (var i = 0; i < shop1.length; i++) {
+                        if (shop1[i].checked) {
+                            num++;
+                            console.log(num);
+                        }
+                    }
+                    if (num == shop1.length) {
+                        selectAllShop1.checked = true;
+                    } else {
+                        selectAllShop1.checked = false;
+                    }
+                }
+                check();
+            }
+        }
+        shop2[0].parentNode.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == "INPUT") {
+                var num = 0;
+                for (var i = 0; i < shop2.length; i++) {
+                    if (shop2[i].checked) {
+                        num++;
+                    }
+                }
+                if (num == shop2.length) {
+                    selectAllShop2.checked = true;
+                } else {
+                    selectAllShop2.checked = false;
+                }
+            }
+            check();
+        }
+        shop3[0].parentNode.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == "INPUT") {
+                var num = 0;
+                for (var i = 0; i < shop3.length; i++) {
+                    if (shop3[i].checked) {
+                        num++;
+                    }
+                }
+                if (num == shop3.length) {
+                    selectAllShop3.checked = true;
+                } else {
+                    selectAllShop3.checked = false;
+                }
+            }
+            check();
+        }
+        shop4[0].parentNode.onclick = function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.tagName == "INPUT") {
+                var num = 0;
+                for (var i = 0; i < shop3.length; i++) {
+                    if (shop4[i].checked) {
+                        num++;
+                    }
+                }
+                if (num == shop4.length) {
+                    selectAllShop4.checked = true;
+                } else {
+                    selectAllShop4.checked = false;
+                }
+
+            }
+            check();
+        }
+    </script>
+    <script>
+        var number = document.getElementsByClassName("shopnumber");
+        var sub = document.getElementsByClassName("sub");
+        var plus = document.getElementsByClassName("plus");
+        var unitprice = document.getElementsByClassName("unitprice");
+        var theprice = document.getElementsByClassName("theprice");
+        var shopnumber = document.getElementsByClassName("shopnumber");
+        var param = document.getElementsByClassName("param")[0];
+        var sum = document.getElementsByClassName("sum")[0];
+        var price = document.getElementsByClassName("price");
+        var sum1 = 0; //总价格
+        var sumnumber = 0 //总个数
+        var arr = new Array();
+        //初始商品数量为1
+        for (var i = 0; i < number.length; i++) {
+            number[i].innerHTML = 1;
+
+        }
+        //初始商品价格为单价
+        for (var i = 0; i < unitprice.length - 1; i++) {
+            theprice[i].innerHTML = unitprice[i + 1].innerHTML;
+        }
+
+        for (var k = 0; k < number.length; k++) {
+            // console.log(sub[k].parentNode.children[1].innerHTML)
+            sub[k].parentNode.onclick = function (e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                var a = target.parentNode.children[1].innerHTML;
+                var b;
+                var price = target.parentNode.parentNode.parentNode.children[3].children[0].children[1]; //价格
+                var number = target.parentNode.parentNode.parentNode.children[1].children[1]; //数量
+                number = parseFloat(number.innerHTML)
+                if (target.className == "sub") {
+                    if (a == 0) {
+                        a = 0;
+                    } else {
+                        a--;
+                    }
+                    target.parentNode.children[1].innerHTML = a;
+                    b=toDecimal2(a * number);
+                    price.innerHTML = b;
+                    smprice();
+                } else if (target.className == "plus") {
+                    a++;
+                    target.parentNode.children[1].innerHTML = a;
+                    b=toDecimal2(a * number);
+                    price.innerHTML = b;
+                    smprice();
+                }
+                
+                sm(shopnumber);
+            }
+            // sm(shopnumber);
+            // console.log(theprice[2].innerHTML)
+        }
+        //遍历得到总的数量
+
+        function sm(dom) {
+            sumnumber = 0;
+            for (var i = 0; i < dom.length; i++) {
+                sumnumber = sumnumber + parseFloat(dom[i].innerHTML);
+            }
+            param.innerHTML = sumnumber;
+        }
+
+        function smprice() {
+            sum1 = 0;
+            for (var i = 0; i < theprice.length; i++) {
+                // console.log(typeof (parseFloat(theprice[i].children[1].innerHTML)));
+                // console.log((theprice[i].children[1].innerHTML))
+                sum1 = sum1 + parseFloat(theprice[i].children[1].innerHTML);
+                console.log(i)
+            }
+            sum.innerHTML = "¥" + sum1;
+        }
+        function toDecimal2(x) {
+            var f = parseFloat(x);
+            if (isNaN(f)) {
+                return "";
+            }
+            var f = Math.round(x * 100) / 100;
+            var s = f.toString();
+            var rs = s.indexOf('.');
+            if (rs < 0) {
+                rs = s.length;
+                s += '.';
+            }
+            while (s.length <= rs + 2) {
+                s += '0';
+            }
+            return s;
+        }
+    </script>
+</body>
+
+</html>

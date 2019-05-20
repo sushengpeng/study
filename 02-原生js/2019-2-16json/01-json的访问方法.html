@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {"name":"Alice","age":8,"sex":"man"};
+        console.log('person----' + person);   //person----[object Object]
+        console.log('person.prototype----' + person.prototype); //undefined
+        console.log('person.construtor----' + person.construtor); //undefined
+        console.log('person.name----' + person.name);   //Alice
+        console.log('person[name]----' + person[name]);  //undefined
+        console.log('person["name"]----' + person["name"]);//Alice
+
+        console.log("1---------------------");
+        for (var key in person){
+            console.log(person.key);  //3个undefined
+        }
+
+        //正确的遍历方式
+        for (var key in person){
+            console.log(person[key]);  
+        }
+    </script>
+</body>
+</html>

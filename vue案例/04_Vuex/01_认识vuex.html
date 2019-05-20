@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{$store.state.msg}}
+    <br>
+    {{msg}}
+    <hr>
+    <button @click="changeMsg">按钮</button>
+    
+  </div>
+  <script src="vue.js"></script>
+  <script src="vuex.js"></script>
+  <script>
+    /* 
+      state用于保存组件数据
+      mutation用于修改state数据（只能用mutation修改）（同步修改）
+      action用于获取数据（包括后台数据）（异步获取数据的操作）
+      
+      页面上的相关数据进行dispatch操作
+    
+    
+    */
+    // 创建store
+    const store = new Vuex.Store({
+      state: {
+        msg: '这是VuexState中的数据'
+      },
+      mutations: {
+        setMsg (state, msg) {
+          state.msg = msg
+        }
+      },
+      actions: {
+        getMsg ({commit}, msg) {
+          console.log(msg)
+          // 将msg提交给mutataion
+          commit('setMsg', msg)
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: "#app",
+      store,
+      // 想要使用state，就在组件中使用computed
+      computed: {
+        msg () {
+          return this.$store.state.msg
+        }
+      },
+      methods: {
+        changeMsg () {
+          // 提交mutation commit
+          // this.$store.commit('setMsg')
+
+          // 分发action
+          this.$store.dispatch('getMsg', '点击按钮后发送的信息')
+        }
+      },
+      data: {
+        
+      }
+    })
+  
+  </script>
+</body>
+</html>

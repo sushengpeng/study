@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+
+        .wrapper {
+            width: 983px;
+            margin: 0 auto;
+            background-color: #e3e3e3;
+        }
+
+        .input {
+            width: 100%;
+            background-color: #fff;
+            height: 200px;
+        }
+
+        textarea {
+            resize: none;
+            font-size: 16px;
+            margin: 0 auto;
+        }
+
+        button {
+            width: 100px;
+            height: 40px;
+            line-height: 30px;
+            text-align: center;
+            background-color: green;
+            border: none;
+            font-size: 16px;
+            color: #fff;
+            letter-spacing: 4px;
+            float: right;
+            margin: 20px 2px 0 0;
+        }
+
+        .content {
+            background-color: #fff;
+            margin-top: 15px;
+        }
+        .content li{
+            box-sizing: border-box;
+            padding:10px 60px 10px 30px;
+            margin-top:10px;
+            position: relative;
+        }
+        img {
+            float: left;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left:0px;
+            top:10px;
+        }
+
+        .reply_content {
+            float: left;
+            margin-left: 12px;
+        }
+
+        .reply_content p {
+            word-break: break-all;
+            font-size: 15px;
+            line-height: 1.7em;
+            overflow: auto;
+        }
+
+        .cell {
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .clearfix::after {
+            content: '.';
+            display: block;
+            clear: both;
+            height: 0;
+            zoom: 1;
+            visibility: hidden;
+        }
+        .praise{
+            width: 12.85px;
+            height: 15px;
+            background-image: url(praise.png);
+            background-size: 100% 100%;
+            position: absolute;
+            top:15px;
+            right:40px;
+            cursor: pointer;
+        }
+        .num{
+            position: absolute;
+            top:12px;
+            right:10px;
+            font-size: 15px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="wrapper">
+            <div class="input">
+                <textarea name="" id="" cols="120" rows="7" v-model='content' placeholder="输入评论内容"></textarea>
+                <button @click='add(content)'>提交</button>
+            </div>
+
+            <div class="content">
+                <ul>
+                    <li v-for='(value,index) in comments' class="clearfix cell">
+                        <img :src="value.imgurl" alt="img">
+                        <div class="reply_content">
+                            <p>{{value.content}}</p>
+                            <p class="praise" @click='addNum(index)'></p>
+                            <span class="num">{{value.num}}</span>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+
+            data: {
+                content: null,
+                comments: [{
+                    imgurl: 'img1.jpg',
+                    content: '从未996，最惨的时候是17年在兔展大小周，我基本上都是准时上下班的。18年更是从未加过班，我的原则就是加班时间效率约等于0',
+                    num: 0,
+                }, {
+                    imgurl: 'img2.png',
+                    content: '非常不错，觉得Node12是继引入async await后又一个重要的更新',
+                    num: 0,
+                }, {
+                    imgurl: 'img3.png',
+                    content: '就最终目标（活到 2106 年）而言，感觉 9 不 9 都没啥区别，哈哈',
+                    num: 100,
+                }, ],
+            },
+            methods: {
+                add(con) {
+                    this.comments.push({
+                        imgurl: 'img3.png',
+                        content: con,
+                        num: 0
+                    })
+                },
+                addNum(index){
+                    ++this.comments[index].num
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

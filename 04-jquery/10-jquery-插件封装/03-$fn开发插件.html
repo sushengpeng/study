@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li><a href="http://www.webo.com/liuwayong">我的微博</a></li>
+        <li><a href="http://http://www.cnblogs.com/Wayou/">我的博客</a></li>
+        <li><a href="http://wayouliu.duapp.com/">我的小站</a></li>
+    </ul>
+
+    <ol>
+            <li><a href="http://www.webo.com/liuwayong">我的微博</a></li>
+            <li><a href="http://http://www.cnblogs.com/Wayou/">我的博客</a></li>
+            <li><a href="http://wayouliu.duapp.com/">我的小站</a></li>
+        </ol>
+
+    <dl>
+            <dd><a href="http://www.webo.com/liuwayong">我的微博</a></dd>
+            <dd><a href="http://http://www.cnblogs.com/Wayou/">我的博客</a></dd>
+            <dd><a href="http://wayouliu.duapp.com/">我的小站</a></dd>
+        </dl>
+    <p>这是p标签不是a标签，我不会受影响</p>
+            
+    <script src="../jquery.js"></script>
+    <script src="js/jquery.myplugin.js"></script>
+    <script>
+        // $("ul a").myPlugin({color:"green"}).css("font-size","20px");   //green
+
+        // $("ol a").myPlugin();   //red
+
+
+        $.fn.myPlugin.default={
+            color:"green"
+        }
+        $("ol a").myPlugin();
+
+        $("ul a").myPlugin({color:"pink"});
+
+        $("dl a").myPlugin();
+
+        // 封装插件步骤：
+        // 1.给插件起名，放到单独的一个js文件中
+        // 2.想要插件灵活，让用户可以随意定制，需要给插件设置默认值(放在插件的名字命名空间上)
+        // 3.将默认参数和用户传入的参数合并到一个空对象上，从而形成最终的配置项
+        // 4.写插件内部的功能
+        // 5.必须使用return 让插件形成链式调用
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="imgs/1.jpg" width="500px" style="opacity:1" />
+    <!-- <a id="show">显示</a>
+    <a id="hide">隐藏</a> -->
+    <a id="toggle">隐藏</a>
+    <script>
+        var img = document.getElementsByTagName("img")[0];
+        // var show = document.getElementById("show");
+        // var hide = document.getElementById("hide");
+        // show.onclick = function(){
+        //     var timerId=setInterval(function(){
+        //         // img.style.opacity 得到的是 字符串，字符串和数字相加，会得到字符串，所以要把img.style.opacity转浮点数
+        //         img.style.opacity=parseFloat(img.style.opacity)+0.08;
+        //         // 除非（目标-起始值）/步长能除尽的情况下，条件才写成==，否则的话除不尽，需要写成>=目标值
+        //         if(img.style.opacity>=1){
+        //             //当最后一次的值不等于目标值的时候，要让属性赋值为目标值
+        //             img.style.opacity =1;
+        //             //到达目标之后就清定时器
+        //             clearInterval(timerId);
+        //         }
+        //     },16.67)
+        // }
+        // hide.onclick = function(){
+        //     var timerId=setInterval(function(){
+        //         // img.style.opacity 得到的是 字符串，字符串和数字相加，会得到字符串，所以要把img.style.opacity转浮点数
+        //         img.style.opacity=parseFloat(img.style.opacity)-0.08;
+        //         // 除非（目标-起始值）/步长能除尽的情况下，条件才写成==，否则的话除不尽，需要写成>=目标值
+        //         if(img.style.opacity<=0){
+        //             //当最后一次的值不等于目标值的时候，要让属性赋值为目标值
+        //             img.style.opacity =0;
+        //             //到达目标之后就清定时器
+        //             clearInterval(timerId);
+        //         }
+        //     },16.67)
+        // }
+        var toggle = document.getElementById("toggle");
+        toggle.onclick = function(){
+            // console.log(this.innerHTML);
+            // console.log(toggle.innerHTML);
+            if(this.innerHTML=="隐藏"){
+                var timerId=setInterval(function(){
+                    // img.style.opacity 得到的是 字符串，字符串和数字相加，会得到字符串，所以要把img.style.opacity转浮点数
+                    img.style.opacity=parseFloat(img.style.opacity)-0.01;
+                    // 除非（目标-起始值）/步长能除尽的情况下，条件才写成==，否则的话除不尽，需要写成>=目标值
+                    if(img.style.opacity<=0){
+                        //当最后一次的值不等于目标值的时候，要让属性赋值为目标值
+                        img.style.opacity =0;
+                        toggle.innerHTML="显示";
+                        //到达目标之后就清定时器
+                        clearInterval(timerId);
+                    }
+                },16.67)
+            }else{
+                var timerId=setInterval(function(){
+                    // img.style.opacity 得到的是 字符串，字符串和数字相加，会得到字符串，所以要把img.style.opacity转浮点数
+                    img.style.opacity=parseFloat(img.style.opacity)+0.01;
+                    // 除非（目标-起始值）/步长能除尽的情况下，条件才写成==，否则的话除不尽，需要写成>=目标值
+                    if(img.style.opacity>=1){
+                        //当最后一次的值不等于目标值的时候，要让属性赋值为目标值
+                        img.style.opacity =1;
+                        toggle.innerHTML="隐藏";
+                        //到达目标之后就清定时器
+                        clearInterval(timerId);
+                    }
+                },16.67)
+            }
+        }
+    </script>
+</body>
+</html>

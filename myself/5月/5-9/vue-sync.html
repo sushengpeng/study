@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <parent></parent>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    
+    const child = {
+        template:`  
+        <div class='child'>
+            {{message}}
+            <button @click='start'>按钮</button>
+        </div>
+        `,
+        props:{
+            message:{
+                type:String
+            }
+        },
+        methods:{
+            change(){
+                this.$emit('update:message','这是子组件中传来的数据')
+                // console.log(1)
+            },
+            start : async function () {
+                // 在这里使用起来就像同步代码那样直观
+                console.log('start');
+                await sleep(3000);
+                console.log('end');
+            }
+        }
+    }
+    const parent = {
+        template:
+        `     
+        <div class='parent'>
+            <child :message.sync='msg'></child>
+        </div>
+        `,
+        data(){
+            return {
+                msg:'这是父元素中的数据'
+            }
+        },
+        methods:{
+
+        }
+
+    }
+    Vue.component('parent',parent)
+    Vue.component('child',child)
+    
+
+    const app = new Vue({
+        el:'#app'
+    })
+    
+    </script>
+</body>
+</html>

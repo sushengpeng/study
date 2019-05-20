@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top:300px;
+            width:200px;
+            height: 200px;
+            background-color: pink;
+            position: relative;
+            overflow: hidden;
+        }
+        span{
+            position: absolute;
+            width:200px;
+            height: 200px;
+            top:-100%;
+            background-color: rgba(0,0,0,0.3)
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    <script>
+        var div = document.getElementsByTagName("div")[0];
+        var span = document.getElementsByTagName("span")[0];
+        function getStyle(dom,attr){
+            if(dom.currentStyle){
+                return dom.currentStyle[attr];
+            }else{
+               return window.getComputedStyle(dom,null)[attr];
+            }
+        }
+        var timmerId;
+        // span.style.top="-100%";
+        div.onmouseenter =function(){
+            // span.style.top="0";
+            // 想让span的top值从当前top值到0
+            clearInterval(timmerId);
+            timmerId = setInterval(function(){
+                // console.log(span.style.top);   //第一次打印出空字符串
+                // console.log(getStyle(span,"top"));   //得到的单位都是px
+                span.style.top = parseInt(getStyle(span,"top")) + 1+"px";    //-100%
+                // if(span.style.top)
+                console.log(parseInt(span.style.top)>=0)
+                if(parseInt(span.style.top)>=0){
+                    clearInterval(timmerId);
+                }
+            },16.67);
+
+
+        }
+        div.onmouseleave =function(){
+            // 想让span的top值从当前top值到-200px
+            clearInterval(timmerId);
+            timmerId = setInterval(function(){
+                // console.log(span.style.top);   //第一次打印出空字符串
+                // console.log(getStyle(span,"top"));   //得到的单位都是px
+                span.style.top = parseInt(getStyle(span,"top")) - 1+"px";    //-100%
+                // if(span.style.top)
+                console.log(parseInt(span.style.top)<= -200)
+                if(parseInt(span.style.top)<= -200){
+                    clearInterval(timmerId);
+                }
+            },16.67);
+        }
+    </script>
+</body>
+</html>

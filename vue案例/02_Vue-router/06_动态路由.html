@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    当不同的路由使用的是同一个组件时（有相同规律的路由）
+    /channel/1
+    /channel/2
+    /channel/3
+    /channel/4
+    /channel/5
+    /channel/6
+
+    /channel/channel_id
+
+    /article/1026
+
+    /article/article_id
+
+   -->
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script src="./vue.js"></script>
+  <script src="./vue-router.js"></script>
+  <script>
+    
+    const Channel = {
+      template: `
+        <div>
+          列表
+          {{$route.params.id}}
+        </div>
+      `,
+      created () {
+        console.log(this.$route.params.id)
+      }
+    }
+
+    const routes = [
+      {
+        path: '/channel/:id',
+        component: Channel
+      }, 
+      /* {
+        path: '/channel/2',
+        component: Channel
+      }, {
+        path: '/channel/3',
+        component: Channel
+      }, {
+        path: '/channel/4',
+        component: Channel
+      }, {
+        path: '/channel/5',
+        component: Channel
+      }, {
+        path: '/channel/6',
+        component: Channel
+      } */
+    ]
+
+    const router = new VueRouter({
+      routes
+    })
+  
+    const app = new Vue({
+      el: "#app",
+      router
+    })
+    
+  </script>
+</body>
+</html>

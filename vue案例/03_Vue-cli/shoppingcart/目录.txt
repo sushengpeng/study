@@ -1,0 +1,25 @@
+cart
+  state 
+    items: Array // 保存购物车中商品数据
+    checkoutStatus: null // 结算状态
+  getters 
+    cartProducts // 通过items得到完整的数据
+  actions
+    checkout // 结算
+    addProductToCart // 将商品添加到购物车
+  mutations
+    pushPrductToCart // 如果购物车没有该商品，则新增
+    incrementItemQuantity // 如果购物车有该商品，则数量+1
+    setCartItems // 设置购物车商品
+    setCheckoutStatus // 设置结算状态
+
+products
+  state
+    all: Array // 所有商品信息
+  actions
+    getAllProducts // 从后台获取所有商品的数据
+  mutations 
+    setProducts // 设置数据给products
+    decrementProductInventory // 设置商品数量-1
+
+  

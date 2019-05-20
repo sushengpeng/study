@@ -1,0 +1,10 @@
+CACHE MANIFEST
+#version 1.4
+CACHE:
+    image/1.jpg
+    image/2.jpg
+    test.css
+NETWORK:
+    *
+FALLBACK:
+    /   /404.html

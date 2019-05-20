@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    span{
+        color:red
+    }
+    .active{
+        color:blue;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @keyup='show'>点击</button>
+        <input v-model.number.lazy='msg'>
+        {{typeof msg}}
+        <ul>
+            <li v-for="(value,index) in lists" @click='hide(index)' :class="{active:num==index}">
+                {{value.name}} 
+                <span v-show='value.statue'>✔</span>
+                <span v-show='!value.statue'>✘</span>
+            </li>
+        </ul>
+        <ul>
+            <li v-for='(con,index) in content' v-show='num==index'>{{con}}</li>
+        </ul>
+        <!-- <input type="text" v-model='value'>
+        <button @click='add(value)'>添加</button> -->
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    var app=new Vue({
+        el:'#app',
+        data:{
+            msg:'这是一个内容',
+            num:0,
+            lists:[
+                {
+                    name:'列表一',
+                    statue:false
+                },
+                {
+                    name:'列表二',
+                    statue:true
+                },
+                {
+                    name:'列表三',
+                    statue:true
+                },
+                {
+                    name:'列表四',
+                    statue:true
+                }
+            ], 
+            content:['内容一','内容二','内容三','内容四']
+               
+        }, 
+       
+        methods:{
+            show(){
+                this.msg=!this.msg
+            },
+            hide(index){
+                this.lists[index].statue=!this.lists[index].statue;
+                this.num=index;
+            },
+            add(value){
+                this.lists.push({name:value,statue:true})
+            }
+        }
+    })
+    </script>
+</body>
+</html>

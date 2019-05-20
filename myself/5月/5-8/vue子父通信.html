@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child :massage='msg' @child-msg='getData'></child>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+    const child = {
+        template:`
+        <div>
+            {{massage}}
+            <button @click='change'>按钮</button>
+        </div>`,
+        props:['massage'],
+        methods: {
+            change(){
+                this.$emit('child-msg','这是子组件中传的数据')
+            }
+        }
+
+    }
+    Vue.component('child',child)
+    const app = new Vue({
+        el: '#app',
+        data: {
+            msg:'这是父组件中的数据'
+        },
+        methods: {
+            getData(data){
+                this.msg =data
+            }
+        }
+    })
+    
+    </script>
+</body>
+</html>

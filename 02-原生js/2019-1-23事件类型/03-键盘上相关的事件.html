@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <!-- onkeydown	键盘按键被按下
+        onkeypress	键盘按键被按下并松开
+        onkeyup	键盘按键被松开 -->
+        <!-- event.keyCode  可以获取键盘内码 -->
+        <!-- 这种事件类型通常用在表单想要输入内容的时候 -->
+        <form action="1.php" id="form">
+            <input type="text" id="uname"  maxlength="5" />
+            <input type="text" id="uname"  maxlength="5" />
+            <input type="text" id="uname"  maxlength="5" />
+            <!-- <textarea id="textarea"></textarea> -->
+            <!-- <input type="submit"> -->
+        </form>
+        <script>
+            var uname = document.getElementById("uname");
+            var form = document.getElementById("form");
+            uname.onkeydown = function(e){
+                console.log("down")
+                console.log(this.value.length)
+
+                e = e || window.event;
+                // e.keyCode  
+                // 当按回车键的时候提交表单,这也是表单中输入框的默认行为
+                // if(e.keyCode == 13){
+                //     form.submit();
+                // }
+                // 当按ctrl+回车键的时候提交表单
+                // console.log(e)
+                if(e.ctrlKey && e.keyCode == 13){
+                    form.submit();
+                }
+            }
+            // //将键盘输入的字符写入输入框
+            // uname.onkeypress = function(){
+            //     console.log("press")
+            //     console.log(this.value.length)
+            //     if(this.value.length>=5){
+            //         // this.value = this.value.substring(0,4);
+            //         return false;
+            //     }
+            // }
+            // uname.onkeyup = function(){
+            //     console.log("up")
+            //     console.log(this.value.length)   //得到的是最新的输入的字符长度
+            //     // if(this.value.length>=5){
+            //     //     this.value = this.value.substring(0,5);
+            //     // }
+            // }
+            // h5中新的事件类型
+            // uname.oninput = function(){
+            //     console.log("input")
+            //     console.log(this.value.length)
+            //     if(this.value.length>=5){
+            //         this.value = this.value.substring(0,5);
+            //     }
+            // }
+            // h5 中有个新的属性maxlength
+        </script>
+</body>
+</html>

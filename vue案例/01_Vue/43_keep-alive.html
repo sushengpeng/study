@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    include = "组件name, 组件name"  
+      如果名字是对应的组件名则缓存
+    exclude = "组件name, 组件name"
+      如果名字是对应的组件名则不缓存
+
+      组件名可以使用正则表达式
+
+
+   -->
+  <div id="app">
+    <com1>内容</com1>
+    <keep-alive exclude="com1">
+      <component :is="componentName"></component>
+    </keep-alive>
+  </div>
+  <script src="./vue.js"></script>
+  <script>
+    const com1 = {
+      name: 'com1',
+      template: `
+        <div>第一个组件</div>
+      `,
+      destroyed () {
+        console.log('组件1被销毁')
+      }, 
+      created () {
+        console.log('组件1被创建')
+      }, 
+      deactivated () {
+        console.log('组件1被缓存')
+      },
+      activated () {
+        console.log('组件1缓存被使用')
+      }
+    }
+
+    const com2 = {
+      name: 'com2',
+      template: `
+        <div>第二个组件</div>
+      `,
+      destroyed () {
+        console.log('组件2被销毁')
+      }
+    }
+
+    Vue.component('Com1', com1) 
+    Vue.component('Com2', com2) 
+
+
+    const app = new Vue({
+      el: "#app",
+      data: {
+        componentName: 'com1'
+      }
+    })
+  
+  </script>
+</body>
+</html>

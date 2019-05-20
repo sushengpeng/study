@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style: none;
+        }
+        .banner{
+            width:800px;
+            height: 500px;
+            border:solid 1px red;
+            position: relative;
+            margin: 0 auto;
+        }
+        .banner .imgs img{
+            width:800px;
+            height: 500px;
+            display:none;
+        }
+        .banner .imgs img.active{
+            display: block;
+        }
+        .banner .btns{
+            position: absolute;
+            bottom: 30px;
+            left:50%;
+            margin-left:-70px;
+        }
+        .btns li{
+            float: left;
+            width:15px;
+            height: 15px;
+            margin:0 10px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        .btns li.active{
+            background-color: orange;
+        }
+        .arrow .left,.arrow .right{
+            width:50px;
+            height: 50px;
+            position:absolute;
+            top:50%;
+            margin-top: -25px;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+            background-color: rgba(0,0,0,0.3)
+        }
+        .arrow .left{
+            left:0;
+        }
+        .arrow .right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="imgs">
+            <img src="imgs/1.png" class="active" />
+            <img src="imgs/2.jpg" width="800" height="500" />
+            <img src="imgs/3.jpg" width="800" height="500" />
+            <img src="imgs/4.jpg" width="800" height="500" />
+        </div>
+        <ul class="btns">
+            <li index="0" class="active"></li>
+            <li index="1"></li>
+            <li index="2"></li>
+            <li index="3"></li>
+        </ul>
+        <div class="arrow">
+            <span class="left">&lt;</span>
+            <span class="right">&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        // banner中索引是关键
+        var index = 0;
+        var btns = document.getElementsByClassName("btns")[0];
+        var imgs = document.getElementsByTagName("img");
+        var lis = document.getElementsByTagName("li");
+        var left = document.getElementsByClassName("left")[0];
+        var right = document.getElementsByClassName("right")[0];
+        var banner = document.getElementsByClassName("banner")[0];
+        var timmerId;
+
+        //让对应索引的图片显示，让其他图片隐藏，用来切换图片
+        function change(index){
+            for(var i=0;i<imgs.length;i++){
+                imgs[i].className="";
+                lis[i].className="";
+            }
+            lis[index].className = "active";
+            imgs[index].className="active";
+            // 渐显
+            imgs[index].style.opacity = 0;
+            var id = setInterval(function(){
+                imgs[index].style.opacity = parseFloat(imgs[index].style.opacity)+0.05;
+                if(imgs[index].style.opacity>=1){
+                    clearInterval(id)
+                }
+            },20)
+        }
+
+
+        //事件委托
+        btns.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            if(target.tagName=="LI"){
+                var n = target.getAttribute("index");
+                index = n;
+                // for(var i=0;i<imgs.length;i++){
+                //     imgs[i].className="";
+                //     lis[i].className="";
+                // }
+                // lis[index].className = "active";   //target = lis[index]
+                // imgs[index].className="active";    //imgs[target.getAttribute("index")]
+                change(index)
+            }
+        }
+
+        right.onclick = function(){
+            index++;
+            console.log(index);
+            if(index==4){
+                index=0;
+            }
+            //所有的图片和按钮样式恢复原样
+            change(index)
+        }
+        left.onclick = function(){
+            index--;
+            console.log(index);
+            if(index==-1){
+                index=3;
+            }
+            //所有的图片和按钮样式恢复原样
+            change(index)
+        }
+
+        
+
+        function auto(){
+            timmerId=setInterval(function(){
+                index++;
+                if(index==4){
+                    index=0;
+                }
+                change(index);
+            },2000);
+        }
+        auto();
+        banner.onmouseover = function(){
+            clearInterval(timmerId);
+        }
+        banner.onmouseout = function(){
+            auto();
+        }
+    </script>
+</body>
+</html>

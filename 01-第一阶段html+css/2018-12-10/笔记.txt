@@ -1,0 +1,44 @@
+新建文件
+
+vs中，浏览器快捷打开Alt+B （插件支持的情况下）
+
+注释用法：<!-- 注释 -->
+
+
+
+<!-- 声明 -->
+<!DOCTYPE html>
+
+根标签
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 注释-->
+
+</body>
+</html>
+
+
+
+UTF-8 中文字符集 GB2312
+
+文件尽量不出现中文字符
+
+绝对路径：
+    1.以盘符开头的都是绝对路径;
+    2.https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2310514390,3580363630&fm=27&gp=0.jpg
+
+相对路径：
+    以现在文件为起点，(..)表示上层目录，../image/1.png
+
+
+    code > html > img.html
+    code > image > 1.png
+
+    123 > html > son > 1.html
+    123 > image > 1.png
