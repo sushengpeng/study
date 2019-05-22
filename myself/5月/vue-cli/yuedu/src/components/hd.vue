@@ -112,8 +112,10 @@ export default {
   padding: 0 20px;
   line-height: 30px;
   font-size: 14px;
-
   color: #707070;
+}
+.menu a:hover{
+  color:#ee5044
 }
 .menu .cur {
   color: #f30;
