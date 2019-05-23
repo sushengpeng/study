@@ -4,7 +4,6 @@ import Home from './views/Home.vue'
 import Topic from './views/Topic.vue'
 
 Vue.use(Router)
-
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -12,7 +11,18 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      children:[
+        
+      ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
     },
     {
       path: '/about',
@@ -30,6 +40,6 @@ export default new Router({
       path:'/topic/:id',
       name:'topic',
       component: Topic
-    }
+    } 
   ]
 })

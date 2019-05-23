@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <topbar></topbar>
-    <v_main v-cloak></v_main> 
+    <v_main v-cloak></v_main>
   </div>
 </template>
 

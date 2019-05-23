@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+  
+</head>
+<body>
+  <!-- 
+    导航守卫优先于生命周期钩子函数执行
+   -->
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script>
+  const page1 = {
+    template: `
+      <div class="page1">这是page1</div>
+    `,
+    beforeRouteEnter(to,from,next){
+      console.log('page1的beforeRouteEnter被调用')
+      next()
+    },
+    beforeRouteUpdate(to,from,next){
+      console.log('page1的beforeRouteUpdate被调用')
+      next()
+    },
+    beforeRouteLeave(to,from,next){
+      console.log('page1的beforeRouteLeave被调用')
+      next()
+    },
+    beforeCreate() {
+      console.log('page1的beforeCreate被调用')
+    },
+    created() {
+      console.log('page1的created被调用')
+    },
+    beforeMount() {
+      console.log('page1的beforeMount被调用')      
+    },
+    mounted() {
+      console.log('page1的Mounted被调用')  
+    },
+    beforeUpdate() {
+      console.log('page1的beforeUpdate被调用')  
+    },
+    updated() {
+      console.log('page1的updated被调用')  
+    },
+    beforeDestroy() {
+      console.log('page1的beforeDestroy被调用')  
+    },
+    destroyed() {
+      console.log('page1的destroyed被调用')  
+    }
+  }
+  const page2 = {
+    template: `
+      <div class="page2">这是page2</div>
+    `,
+    beforeRouteEnter(to,from,next){
+      console.log('page2的beforeRouteEnter被调用')
+      next()
+    },
+    beforeRouteUpdate(to,from,next){
+      console.log('page2的beforeRouteUpdate被调用')
+      next()
+    },
+    beforeRouteLeave(to,from,next){
+      console.log('page2的beforeRouteLeave被调用')
+      next()
+    },
+    beforeCreate() {
+      console.log('page2的beforeCreate被调用')
+    },
+    created() {
+      console.log('page2的created被调用')
+    },
+    beforeMount() {
+      console.log('page2的beforeMount被调用')      
+    },
+    mounted() {
+      console.log('page2的Mounted被调用')  
+    },
+    beforeUpdate() {
+      console.log('page2的beforeUpdate被调用')  
+    },
+    updated() {
+      console.log('page2的updated被调用')  
+    },
+    beforeDestroy() {
+      console.log('page2的beforeDestroy被调用')  
+    },
+    destroyed() {
+      console.log('page2的destroyed被调用')  
+    }
+  }
+  const routes = [
+    {
+      path: '/page1',
+      component: page1,
+      beforeEnter(to,from,next){
+        console.log('page1的beforeEnter被调用')
+        next()
+      }
+    },
+    {
+      path: '/page2',
+      component: page2,
+      beforeEnter(to,from,next){
+        console.log('page2的beforeEnter被调用')
+        next()
+      }
+    }
+  ]
+  const router = new VueRouter({
+    routes
+  })
+  router.beforeEach((to,from,next)=> {
+    console.log('beforeEach被调用')
+    next()
+  })
+  router.afterEach((to,from)=> {
+    console.log('afterEach被调用')
+  })
+  router.beforeResolve((to,from,next)=> {
+    console.log('beforeResolve被调用')
+    next()
+  })
+  new Vue({
+    el: '#app',
+    data: {
+
+    },
+    router
+  })
+  </script>
+</body>
+</html>
