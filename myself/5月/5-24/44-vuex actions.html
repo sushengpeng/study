@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="vue.js"></script>
+  <script src="vuex.js"></script>
+  <script src="axios.min.js"></script>
+</head>
+<body>
+  <!-- 
+    actions 进一步操作数据（比如获取数据）,是异步的
+    
+    action通过store.dispatch进行触发
+
+    我们需要action通过调用mutation，然后去改变state
+    action中一个参数context相当与store
+   -->
+  <div id="app">
+    <p v-for="list in $store.state.list">{{list.title}}</p>
+    <!-- {{$store.state.list}} -->
+  </div>
+  <script>
+  const store = new Vuex.Store({
+    state: {
+      list: []
+    },
+    mutations: {
+      changeTxt(state, payload){
+        state.list = payload
+      }
+    },
+    actions: {
+      getDate(context) {
+        axios.get('https://cnodejs.org/api/v1/topics', {
+          params: {
+            limit: 10,
+            page: 1
+          }
+        }).then((res)=> {
+          context.commit('changeTxt', res.data.data)
+        }).catch((error)=> {
+          console.log(error)
+        })
+      }
+    }
+  })
+  new Vue({
+    el: '#app',
+    store,
+    created() {
+      store.dispatch('getDate')
+    }
+  })
+  </script>
+</body>
+</html>

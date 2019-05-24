@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <script src="https://cdn.bootcss.com/vuex/3.1.0/vuex.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click='changeMsg'>按钮</button>
+        <!-- {{$store.state.msg}} -->
+        <p v-for='list in $store.state.list'>{{list.title}}</p>
+        <!-- {{$store.state.list}} -->
+    </div>
+    <script> 
+    const store = new Vuex.Store({
+        state:{
+            msg:'1111',
+            list:[]
+        },
+        mutations:{
+            change(state,message){
+                state.msg = message
+            },
+            setList(state,list){
+                state.list = list
+            }
+        },
+        actions:{
+            getList(context){
+                axios.get('https://cnodejs.org/api/v1/topics').then(res=>{
+                    context.commit('setList',res.data.data)
+                })
+            }
+        }
+    })
+    const app = new Vue({
+        el:'#app',
+        store,
+        methods:{
+            changeMsg(){
+               store.commit('change',22222)
+            }  
+        },
+        created(){
+            this.$store.dispatch('getList')
+        }
+    })
+    </script>
+</body>
+</html>
