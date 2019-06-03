@@ -8,14 +8,14 @@
 </head>
 <body>
   <div id="app">
-    <!-- {{$store.state.movies}}
+    <!-- {{$store.state.movies}} -->
 
-    {{$store.getters.watchedMovies}} -->
+    <!-- {{$store.getters.watchedMovies}} -->
     {{watchedMovies}}
     <br>
-    {{stus}}
+    <!-- {{stus}} -->
     <br>
-    {{$store.getters.boys18}}
+    <!-- {{$store.getters.boys18}} -->
   </div>  
   <script src="./vue.js"></script>
   <script src="./vuex.js"></script>
@@ -82,12 +82,12 @@
           // 怎么样在getter中获取到state，getter函数中有一个参数，这个参数就是对应的vuex的state
           return state.movies.filter(movie => movie.status)
         },
-        /* age18 (state) {
+        age18 (state) {
           return state.stus.filter(stu => stu.age === 18)
         },
         age20 (state) {
           return state.stus.filter(stu => stu.age === 20)
-        }, */
+        },
         // stusByAge: state => age => state.stus.filter(stu => stu.age === age)
         stusByAge (state) {
           return age => {
