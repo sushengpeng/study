@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [1, 2, 3]
+        const arr2 = [2, 3, 4]
+        const arr1 = [...arr, ...arr2]
+        console.log(arr1)
+        function sum() {
+            console.log(arguments);
+            const arr = [...arguments]
+            console.log(arr.reduce((total, currentValue) => {
+                return total + currentValue
+            }))
+        }
+        sum(...arr1)
+        console.log(Math.max(...arr))
+        arr.push(...arr2)
+        console.log(arr)
+        const a1 = [1, 2];
+        const a2 = a1.concat()
+        a2[0] = 2;
+        console.log(a2)
+        console.log(a1) // [1, 2]
+        const [...a3]=a1
+        a1[1]=3
+        console.log(a1,a3)
+        const [first, ...rest] = [1, 2, 3, 4, 5];
+        console.log(first)
+        console.log(rest)
+        console.log([...'x\uD83D\uDE80y'])
+        //array.from 将两类对象转化为数组
+        //类似数组的对象（array-like object）和可遍历（iterable）的对象（包括 ES6 新增的数据结构 Set 和 Map）
+        const a4=Array.from([1, , 2, , 3], (n) => n || 0)
+        console.log(a4)
+        //array.of 将一组值转化为数组
+        const a5=Array.of(1, 2) // [1, 2]
+        console.log(a5)
+        const a6 = [1, 2, 3, 4, 5].copyWithin(0, 2, 4)
+        console.log(a6)
+    </script>
+</body>
+
+</html>
