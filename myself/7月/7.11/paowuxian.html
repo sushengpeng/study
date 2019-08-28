@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .bound{
+        width: 100px;
+        height: 100px;
+        background: #000;
+        border-radius: 50%;  
+        position: fixed;
+        top: 100px;
+        left:100px;
+    }
+    @keyframes move{
+        0%{
+            transform: translate3d(0px,0px,0);
+        }
+        10%{
+            transform: translate3d(20px,-25px,0);
+        }
+        20%{
+            transform: translate3d(40px,-40px,0);
+        }
+        30%{
+            transform: translate3d(60px,-50px,0);
+        }
+        40%{
+            transform: translate3d(80px,-40px,0);
+        }
+        50%{
+            transform: translate3d(100px,-25px,0);
+        }
+        60%{
+            transform: translate3d(120px,0px,0);
+        }
+        70%{
+            transform: translate3d(140px,35px,0);
+        }
+        80%{
+            transform: translate3d(160px,70px,0);
+        }
+        90%{
+            transform: translate3d(180px,120px,0);
+        }
+        100%{
+            transform: translate3d(200px,200px,0);
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="bound"></div>
+    <script>
+    var bound = document.getElementsByClassName('bound')[0]
+    bound.onclick = function(){
+        this.style.animation= 'move 0.5s linear forwards'; 
+    }
+    </script>
+</body>
+</html>
