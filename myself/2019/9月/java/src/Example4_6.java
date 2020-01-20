@@ -3,7 +3,7 @@ class Computer{
         return a>b?a:b;
     }
 }
-public class computer {
+public class Example4_6 {
     public static void main(String args[]) {
         double max = Computer.max(44,55);
         System.out.println(max);
