@@ -1,8 +1,7 @@
 const commen = require('../db/commen')
-// const Excel = require('../public/file/hu_xia wa_20171128_1431.csv')
 const fs = require('fs');
 var csv = require('csv');
-// const excelfile = "score.xlsx";
+const path = require('path')
 const get_fileist = async (req, res, next) => {
     try {
         // const fileist = await commen.articles_select_rand()
@@ -22,20 +21,54 @@ const read_file = async (req, res, next) => {
             data = data.toString()
             rows = data.split("\r\n");
             for (var i = 0; i < rows.length; i++) {
-                // console.log(rows[i].length)
-                if (rows[i].length > 1000) {
-                    table.push(rows[i].split(",").replace(''));
-                }
+                console.log(rows[i].length)
+                table.push(rows[i])
+                // if (rows[i].length > 1000) {
+                //     table.push(rows[i].split(",").replace(''));
+                // }
             }
             res.send(table)
         })
     } catch{ }
 }
 const upload_file = async (req, res, next) => {
-    
+    console.log(req.files[0].path)
+    const newname = req.files[0].path + path.parse(req.files[0].originalname).ext
+    fs.rename(req.files[0].path, newname, function (err) {
+        // try {
+        //     const file = await commen.test()
+        // } catch (error) {
+        // }
+        if (err) {
+            res.send('上传失败')
+        } else {
+            res.send(req.files)
+        }
+    })
 }
+const create_file = async (req, res, next) => {
+    for (let i = 0; i < 10; i++) {
+        let obj = {
+            path: `./dist/${i}`,
+            filename: i
+        }
+        fs.mkdir(obj.path, { recursive: true }, (err) => {
+            commen.fileCeated(obj)
+            // console.log(result)
+            if (err) throw err;
+            console.log(`${i}文件已生成`)
+        })
+    }
+    res.send('生成文件成功')
+}
+const login = async (req, res, next) => {
+    console.log(req,res)
+}
+
 module.exports = {
     get_fileist,
     read_file,
-    upload_file
+    upload_file,
+    create_file,
+    login
 }
