@@ -1,6 +1,6 @@
 const path = require('path')
 
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 // console.log(merge({a: 1}, {b: 2} ))
 
@@ -25,7 +25,8 @@ const baseConfig = {
             }
           }
         ]
-      }, {
+      }, 
+      {
         test: /\.(eot|svg|ttf|woff2?)/,
         use: [
           {
@@ -38,7 +39,19 @@ const baseConfig = {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'url-loader',
+          },{
+            loader: 'css-loader',
+          },{
+            loader: 'less-loader',
+          }
+        ]
+      },
     ]
   },
   plugins: [
