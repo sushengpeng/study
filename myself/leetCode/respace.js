@@ -18,15 +18,52 @@
  * 用文章中的数据与字典匹配，匹配到之后将字符串切掉
  * 若字符串之前的字符串无法匹配，如timher只能匹配到her，匹配到her之后将tim塞入数组中
  */
+let dictionary =  ["looked"]
+let sentence = "lookedlooked"
 var respace = function (dictionary, sentence) {
-    let length = sentence.length
-    let resultList = []
-    for (let i = 0; i < length; i++) {
-        let str = sentence.slice(0, j)
-        if (dictionary.includes(str)) {
-            resultList.push(str)
-            sentence = sentence.slice(j)
-            respace(dictionary, sentence)
+    if (sentence.length == 0) return 0;
+    let dp = new Array(sentence.length).fill(0);
+    for (let i = 1; i <= sentence.length; i++) {
+        dp[i] = dp[i - 1] + 1;
+        // 上面表示，如果没有匹配那么dp[i]相比于dp[i-1]直接多1
+        // 接着讨论如果新加一个字符，组成了一个词的情况
+        for (let j = 0; j < dictionary.length; j++) {
+            let word = dictionary[j].length;
+            if (dictionary[j] == sentence.substring(i - word, i) && word <= i) {
+                dp[i] = Math.min(dp[i], dp[i - word]);
+            }
         }
     }
+    return dp[sentence.length]
+    // let resultList = []
+    // let str = sentence
+    // let cloneSentence = sentence
+    // let leftLetterLength = 0
+    // let getSentence = (dictionary, str) => {
+    //     let length = str.length
+    //     for (let i = 1; i <= length; i++) {
+    //         let letter = str.slice(0, i)
+    //         if(str==="") break;
+    //         if (dictionary.includes(letter)) {
+    //             if (leftLetterLength > 0 && cloneSentence.length !== length) resultList.push(cloneSentence.slice(0, leftLetterLength))
+    //             resultList.push(letter)
+    //             cloneSentence = cloneSentence.slice(leftLetterLength + i)
+    //             leftLetterLength = 0
+    //             str = str.slice(i)
+    //             if (!str) {
+    //                 break
+    //             } else {
+    //                 getSentence(dictionary, str)
+    //             }
+    //             break;
+    //         }
+    //         if (i === length && str!=="") {
+    //             leftLetterLength++;
+    //             getSentence(dictionary, str.slice(1))
+    //         }
+    //     }
+    // }
+    // getSentence(dictionary, cloneSentence)
+    // return resultList.length
 };
+console.log(respace(dictionary, sentence))

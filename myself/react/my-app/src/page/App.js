@@ -1,8 +1,6 @@
 import React from 'react';
-import logo from '../svg/logo.svg';
-import '../css/App.css';
-import MyReactComponent from '../compontents/demo'
-import DemoInput from '../compontents/demoInput'
+import logo from '../assets/logo.svg';
+import '../style/App.css';
 function App() {
   return (
     <div className="App">
@@ -11,7 +9,6 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <MyReactComponent name='su'></MyReactComponent>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -20,7 +17,6 @@ function App() {
         >
           Learn React
         </a>
-        <DemoInput />
       </header>
     </div>
   );
