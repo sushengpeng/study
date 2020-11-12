@@ -7,9 +7,7 @@ const get_shop_list = async (req, res, next) => {
     const shopList = await getList.shop_list(page, number, sort)
     res.send(new Result(shopList).success())
   } catch (error) {
-    res.send({
-      statusCode: 40001
-    })
+    res.send(new Result("", { statusCode: "000001" }).fail())
     throw error
   }
 }

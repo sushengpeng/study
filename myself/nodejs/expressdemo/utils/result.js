@@ -1,26 +1,26 @@
 const index = require("../config/index")
+const Msg = require("./Msg")
+/**
+ * @author flygg123
+ * @param {any} data 
+ * @param {Object} options 
+ */
 class Result {
-  constructor(data, msg = "操作成功", options = {}) {
+  constructor(data, options = {}) {
+    this.statusCode = options.statusCode || "000000"
+    this.options = options
     this.data = {
-      msg: msg,
-      statusCode: "000000"
+      data: data,
+      msg: new Msg().getMsg(this.statusCode),
     }
-    if (arguments.length === 1) {
-      this.data.data = data
-    } else if (arguments.length === 2) {
-      this.data = {
-        ...this.data,
-        data:data,
-        ...options
-      }
-    }
+
   }
-  success(){
-    this.data.statusCode = index.success_status_code
+  success() {
+    this.data.statusCode = this.statusCode || index.success_status_code
     return this.data
   }
-  fail(){
-    this.data.statusCode = index.fail_status_code
+  fail() {
+    this.data.statusCode = this.statusCode || index.fail_status_code
     return this.data
   }
 }
