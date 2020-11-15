@@ -100,31 +100,41 @@ module.exports = function (proxy, allowedHost) {
       index: paths.publicUrlOrPath,
     },
     public: allowedHost,
-    // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
-    proxy,
-    before(app, server) {
-      // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
-      // middlewares before `redirectServedPath` otherwise will not have any effect
-      // This lets us fetch source contents from webpack for the error overlay
-      app.use(evalSourceMapMiddleware(server));
-      // This lets us open files from the runtime error overlay.
-      app.use(errorOverlayMiddleware());
+    proxyTable: {
 
-      if (fs.existsSync(paths.proxySetup)) {
-        // This registers user provided middleware for proxy reasons
-        require(paths.proxySetup)(app);
-      }
-    },
-    after(app) {
-      // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
-      app.use(redirectServedPath(paths.publicUrlOrPath));
+      '/': {
+        target: 'http://localhost:3000/', //由于本地8080被占用，运行时端口是8081；（设置调用接口域名和端口号别忘了加http）
+        changeOrigin: true,  // 是否跨域
+        pathRewrite: {
+          '^/': 'http://api.maiduoshop.com/'     //这里理解成用‘/api’代替target里面的地址，组件中我们调接口时直接用/api代替
+          // 比如我要调用'http://0.0:300/user/add'，直接写‘/api/user/add’即可 代理后地址栏显示/
+        }
+      },
+      // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
+      proxy,
+      before(app, server) {
+        // Keep `evalSourceMapMiddleware` and `errorOverlayMiddleware`
+        // middlewares before `redirectServedPath` otherwise will not have any effect
+        // This lets us fetch source contents from webpack for the error overlay
+        app.use(evalSourceMapMiddleware(server));
+        // This lets us open files from the runtime error overlay.
+        app.use(errorOverlayMiddleware());
 
-      // This service worker file is effectively a 'no-op' that will reset any
-      // previous service worker registered for the same host:port combination.
-      // We do this in development to avoid hitting the production cache if
-      // it used the same host and port.
-      // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
-      app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
-    },
+        if (fs.existsSync(paths.proxySetup)) {
+          // This registers user provided middleware for proxy reasons
+          require(paths.proxySetup)(app);
+        }
+      },
+      after(app) {
+        // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
+        app.use(redirectServedPath(paths.publicUrlOrPath));
+
+        // This service worker file is effectively a 'no-op' that will reset any
+        // previous service worker registered for the same host:port combination.
+        // We do this in development to avoid hitting the production cache if
+        // it used the same host and port.
+        // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
+        app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
+      },
+    };
   };
-};
