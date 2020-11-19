@@ -27,11 +27,12 @@ var http = require('http');
 const options = {
   hostname: 'api.maiduoshop.com',
   path: 'index/you-like-products',
-  method: 'POST'
+  method: 'GET'
 };
-console.log(http)
-http.request(options,(res,error)=>{
+// console.log(http)
+let req = http.request(options,(res,error)=>{
   console.log(res)
   console.log(error)
 })
+console.log(req)
 
