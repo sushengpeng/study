@@ -367,14 +367,13 @@ module.exports = function (webpackEnv) {
           test: /\.(js|jsx)$/,
           enforce: 'pre',
           use: [
-            {
-              options: {
-                formatter: eslintFormatter,
-                eslintPath: require.resolve('eslint'),
-
-              },
-              loader: require.resolve('eslint-loader'),
-            },
+            // {
+            //   options: {
+            //     formatter: eslintFormatter,
+            //     eslintPath: require.resolve('eslint'),
+            //   },
+            //   loader: require.resolve('eslint-loader'),
+            // },
           ],
           include: paths.appSrc,
         },
