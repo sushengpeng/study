@@ -1,20 +1,14 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-    <button @click="confirm">按钮</button>
+  <div class="outer">
+    <div class="content">
+
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import axios from "axios";
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
 export default class Home extends Vue {
   private msg: string = "sdiafjla";
   private created() {
@@ -37,3 +31,20 @@ export default class Home extends Vue {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.outer {
+  background: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .content {
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .content::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>

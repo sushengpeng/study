@@ -10,7 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "baseUrl": ".",
     "types": [
       "webpack-env",
@@ -18,8 +18,9 @@
       "chai"
     ],
     "paths": {
-      "@/*": ["src/*"],
-      "pages/*": ["src/pages/*"]
+      "@/*": [
+        "src/*"
+      ]
     },
     "lib": [
       "esnext",
