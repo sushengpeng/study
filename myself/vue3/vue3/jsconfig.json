@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "es6",
     "baseUrl": "./",
     "paths": {
       "@/*": [
@@ -8,9 +8,5 @@
       ],
     }
   },
-  "exclude": [
-    "node_modules",
-    "public",
-    "server"
-  ]
+  "exclude": ["node_modules","public","server"]
 }
