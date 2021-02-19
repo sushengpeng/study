@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+<<<<<<< HEAD
 import { Swiper, Pagination, Autoplay } from 'swiper'
 // Install modules
 import 'swiper/swiper.less'
 import 'swiper/components/pagination/pagination.less'
 import 'swiper/components/navigation/navigation.less'
 Swiper.use([Pagination, Autoplay])
+=======
+>>>>>>> parent of a48c995... 文件上传
 
 export default class ImageBanner extends Component {
-  constructor(props) {
+  constructor(props){
     super(props)
+<<<<<<< HEAD
     // console.log(this.props)
   }
   static propTypes = {
@@ -49,6 +53,13 @@ export default class ImageBanner extends Component {
           {this.props.children}
         </div>
         <div className="swiper-pagination"></div>
+=======
+  }
+  render() {
+    return (
+      <div className="banner-outer">
+        banner
+>>>>>>> parent of a48c995... 文件上传
       </div>
     )
   }

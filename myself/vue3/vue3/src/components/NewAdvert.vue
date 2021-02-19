@@ -12,11 +12,11 @@ import { getNewList } from "@/api/index"
 export default {
   setup() {
     let state = reactive({
-      advertList: {},
-      userActiveList: []
+      advertList:{}
     })
     getNewList().then(res => {
       state.advertList = res.data
+      console.log(state)
     })
     return {
       state
@@ -26,9 +26,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.new_advert {
-  .new_advert_top {
-    img {
+.new_advert{
+  .new_advert_top{
+    img{
       width: 100%;
     }
   }

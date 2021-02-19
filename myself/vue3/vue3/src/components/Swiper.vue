@@ -5,30 +5,19 @@
         <img :src="item.banner_img" alt="">
       </van-swipe-item>
     </van-swipe>
-    <van-swipe vertical class="userActive" :autoplay="2000" :loop="true">
-      <van-swipe-item v-for="(item,index) in state.userActiveList" :key="index" class="userItem">
-        <img :src="item.wx_headimg" alt="">
-        <span>{{item.wx_nickname.slice(0,4)}}</span>
-      </van-swipe-item>
-    </van-swipe>
   </div>
 </template>
 
 <script>
-import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue';
-import { getBanner, getUserActive } from '@/api/index'
+import { computed, onMounted, reactive, ref } from 'vue';
+import { getBanner } from '@/api/index'
 import { Swipe, SwipeItem } from 'vant';
 export default {
   setup() {
     let state = reactive({
       topBanner: [],
       nowIndex: null,
-      backgound_img: "",
-      userActiveList: []
-    })
-    getUserActive().then(res => {
-      state.userActiveList = res.data
-      console.log(state)
+      backgound_img: ""
     })
     getBannerList()
     async function getBannerList() {
@@ -38,16 +27,10 @@ export default {
       state.nowIndex = 0
       state.backgound_img = state.topBanner[state.nowIndex].banner_backimg
     }
-    let dom = document.getElementsByClassName('van-swipe__track')[1]
-    watch(()=>dom, (val, oldval) => {
-      console.log(val, oldval)
-    })
-    nextTick(()=>{
-      console.log(1111)
-    })
     function bannerChange(index) {
       state.nowIndex = index
       state.backgound_img = state.topBanner[state.nowIndex].banner_backimg
+      console.log(state.banner_backimg)
     }
     return {
       state,
@@ -64,9 +47,8 @@ export default {
 <style lang="less" scoped>
 .topBanner {
   height: 340px;
-  background-size: 100% 100% !important;
+  background-size: 100% 100%!important;
   overflow: hidden;
-  position: relative;
 }
 .van-swipe {
   overflow: initial;
@@ -79,33 +61,6 @@ export default {
     position: relative;
     box-shadow: 0px 1px 1px #999;
     top: 80px;
-  }
-}
-.userActive {
-  height: 50px;
-  width: 200px;
-  overflow: hidden;
-  border-radius: 50px;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 80px;
-  left: 30px;
-  .van-swipe-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      top: 0;
-    }
-    span {
-      flex: 1;
-      margin-left: 20px;
-      color: #fff;
-      font-size: 24px;
-    }
   }
 }
 </style>
