@@ -1,51 +1,55 @@
 import React, { Component } from 'react'
-import { getIndexBanner } from 'api/index'
-import { Carousel, WingBlank } from 'antd-mobile';
+import { Swiper, Pagination, Autoplay } from 'swiper'
+// Install modules
+import 'swiper/swiper.less'
+import 'swiper/components/pagination/pagination.less'
+import 'swiper/components/navigation/navigation.less'
+Swiper.use([Pagination, Autoplay])
+
 export default class ImageBanner extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
-    this.state = {
-      bannerList:[]
-    }
+    // console.log(this.props)
   }
-  componentDidMount() {
-    getIndexBanner().then(res => {
-      this.setState({
-        bannerList: res.data.data
-      })
-      console.log(this.state)
+  static propTypes = {
+  }
+  static defaultProps = {
+    loop: true,
+  }
+  componentDidUpdate() {
+    new Swiper('.'+this.props.className, {
+      loop: this.props.loop, // 循环模式选项
+      // 如果需要分页器
+      autoplay: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      centeredSlides: true,
+      observer: true, //修改swiper自己或子元素时，自动初始化swiper
+      observeParents: true, //修改swiper的父元素时，自动初始化swiper
+      spaceBetween: 1,
     })
+    // console.log(mySwiper)
   }
   render() {
     return (
-      <WingBlank>
-        <Carousel
-          autoplay={false}
-          infinite
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => console.log('slide to', index)}
-        >
-          {this.state.bannerList.map(val=> (
-            <a
-              key={val}
-              href={val}
-              style={{ display: 'inline-block', width: '100%' }}
-            >
-              <img
-                src={val.banner_img}
-                alt={val}
-                style={{ width: '100%', verticalAlign: 'top' }}
-                onLoad={() => {
-                  // fire window resize event to change height
-                  window.dispatchEvent(new Event('resize'));
-                  // this.setState({ imgHeight: 'auto' });
-                }}
-              />
-            </a>
-          ))}
-        </Carousel>
-      </WingBlank>
+      <div className={'swiper-container ' + this.props.className}>
+        <div className="swiper-wrapper">
+          {/* {
+            this.props.bannerList.map((val, index) => (
+              <div className="swiper-slide" key={index} style={{ background: `url(${val.banner_backimg}) no-repeat`, backgroundSize: '100% 100%' }}>
+                <img
+                  className='banner_img'
+                  src={val.banner_img}
+                  alt={val.banner_title}
+                />
+              </div>
+            ))
+          } */}
+          {this.props.children}
+        </div>
+        <div className="swiper-pagination"></div>
+      </div>
     )
   }
 }

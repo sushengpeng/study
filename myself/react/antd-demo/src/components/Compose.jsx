@@ -12,5 +12,8 @@ export default class Compose extends Component {
     }
 }
 Compose.propTypes = {
-    title:PropTypes.string
+    title: PropTypes.string
+}
+Compose.defaultTypes = {
+    title: '标题'
 }
