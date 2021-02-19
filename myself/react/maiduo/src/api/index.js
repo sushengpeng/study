@@ -4,9 +4,13 @@ import request from '../utils/request'
 export function getIndexBanner(params){
   return request("/index/get-banners",params,"post")
 }
-//获取秒杀
+//获取秒杀产品
 export function getSecondKillProduct(params){
   return request("/second-kill/get-second-kill-product",params,"post")
+}
+//获取秒杀时间
+export function getSecondKillTime(params){
+  return request("/second-kill/get-second-kill-time",params,"post")
 }
 /**获取用户列表 */
 export function getUserActive(params) {

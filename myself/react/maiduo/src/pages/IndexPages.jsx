@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getIconList, getIndexBanner, getNewList, getNewsAndTuan } from 'api/index'
+import { getIconList, getIndexBanner, getNewList, getNewsAndTuan, getSecondKillProduct,getSecondKillTime } from 'api/index'
 import { Icon } from 'antd-mobile';
 import "@/styles/index.less"
 import ImageBanner from "../components/ImageBanner"
@@ -23,10 +23,10 @@ class TopTip extends Component {
       this.topTipRef.current.className += ' topShow'
     }, 2000)
     this.setState({
-      timmerOut:timmerOut
+      timmerOut: timmerOut
     })
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     clearTimeout(this.state.timmerOut)
   }
   render() {
@@ -191,10 +191,29 @@ class CenterBanner extends Component {
 class List extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      productList: []
+    }
+  }
+  async componentDidMount() {
+    let params = {
+      activity_id: '5078'
+    }
+    await getSecondKillTime().then(res=>{
+      console.log(res)
+    })
+    await getSecondKillProduct(params).then(res => {
+      console.log(res)
+      this.setState({
+        productList: res.data
+      })
+    })
   }
   render() {
     return (
-      <div></div>
+      <div className='listContent'>
+
+      </div>
     )
   }
 }
