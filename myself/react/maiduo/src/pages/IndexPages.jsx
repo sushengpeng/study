@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-<<<<<<< HEAD
 import { getIconList, getIndexBanner, getNewList, getNewsAndTuan } from 'api/index'
 import { Icon } from 'antd-mobile';
 import "@/styles/index.less"
@@ -200,10 +199,6 @@ class List extends Component {
   }
 }
 //主体
-=======
-import { getIndexBanner } from 'api/index'
-import ImageBanner from "@/components/ImageBanner"
->>>>>>> parent of a48c995... 文件上传
 class main extends Component {
   constructor(props) {
     super(props)
@@ -218,19 +213,14 @@ class main extends Component {
   }
   render() {
     return (
-<<<<<<< HEAD
       <div className="content">
         <TopTip />
         <BannerImg />
         <ItemList />
         <CenterBanner />
         <List />
-=======
-      <div className="outer">
-        <ImageBanner data="this.state.bannerList"></ImageBanner>
->>>>>>> parent of a48c995... 文件上传
       </div>
     )
   }
 }
-export default 
+export default main

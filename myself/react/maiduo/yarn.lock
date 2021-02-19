@@ -2369,6 +2369,9 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
     color-convert "^2.0.1"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 antd-mobile@^2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/antd-mobile/-/antd-mobile-2.3.4.tgz#8f584707b30343d102f3ca10fdaf677e2a5d1cc8"
@@ -2531,6 +2534,9 @@ array-includes@^3.1.1:
     is-string "^1.0.5"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 array-tree-filter@2.1.x, array-tree-filter@^2.1.0, array-tree-filter@~2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/array-tree-filter/-/array-tree-filter-2.1.0.tgz#873ac00fec83749f255ac8dd083814b4f6329190"
@@ -2750,6 +2756,9 @@ babel-plugin-dynamic-import-node@^2.3.3:
     object.assign "^4.1.0"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 babel-plugin-import@^1.13.1:
   version "1.13.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-import/-/babel-plugin-import-1.13.3.tgz#9dbbba7d1ac72bd412917a830d445e00941d26d7"
@@ -3423,6 +3432,9 @@ class-utils@^0.3.5:
     static-extend "^0.1.1"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 classnames@2.x, classnames@^2.2.0, classnames@^2.2.1, classnames@^2.2.3, classnames@^2.2.4, classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
@@ -4395,6 +4407,9 @@ dom-accessibility-api@^0.5.4:
   integrity sha512-TvrjBckDy2c6v6RLxPv5QXOnU+SmF9nBII5621Ve5fu6Z/BDrENurBEvlC1f44lKEUVqOpK4w9E5Idc5/EgkLQ==
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 dom-align@1.x, dom-align@^1.7.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/dom-align/-/dom-align-1.12.0.tgz#56fb7156df0b91099830364d2d48f88963f5a29c"
@@ -7504,8 +7519,12 @@ loglevel@^1.6.8:
 <<<<<<< HEAD
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
 =======
+<<<<<<< HEAD
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
+=======
 loose-envify@^1.1.0, loose-envify@^1.4.0:
 >>>>>>> parent of a48c995... 文件上传
+>>>>>>> master
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -9692,6 +9711,9 @@ raw-body@2.4.0:
     unpipe "1.0.0"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 rc-align@^2.4.0:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/rc-align/-/rc-align-2.4.5.tgz#c941a586f59d1017f23a428f0b468663fb7102ab"
@@ -11152,6 +11174,9 @@ shallow-clone@^3.0.0:
     kind-of "^6.0.2"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 shallowequal@^1.0.1, shallowequal@^1.0.2, shallowequal@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
@@ -12433,6 +12458,9 @@ walker@^1.0.7, walker@~1.0.5:
     makeerror "1.0.x"
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> master
 warning@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
