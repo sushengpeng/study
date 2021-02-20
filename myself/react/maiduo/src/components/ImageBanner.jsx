@@ -7,29 +7,38 @@ import 'swiper/components/navigation/navigation.less'
 Swiper.use([Pagination, Autoplay])
 
 export default class ImageBanner extends Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     // console.log(this.props)
+    this.state = {
+      number: Math.floor(Math.random() * 10000)
+    }
   }
   static propTypes = {
   }
   static defaultProps = {
     loop: true,
+    needPagination: true,
+    autoplay: true,
+    slidesPerView: 1,
+    initialSlide: 0
   }
   componentDidUpdate() {
-    new Swiper('.'+this.props.className, {
+    new Swiper('.' + this.props.className, {
       loop: this.props.loop, // 循环模式选项
       // 如果需要分页器
-      autoplay: true,
+      autoplay: this.props.autoplay,
       pagination: {
-        el: '.swiper-pagination',
+        el: this.props.needPagination ? `.swiper-pagination_${this.state.number}` : "",
       },
-      centeredSlides: true,
+      centeredSlides: this.props.slidesPerView==1,
       observer: true, //修改swiper自己或子元素时，自动初始化swiper
       observeParents: true, //修改swiper的父元素时，自动初始化swiper
       spaceBetween: 1,
+      slidesPerView: this.props.slidesPerView,
+      initialSlide: this.props.initialSlide
     })
-    // console.log(mySwiper)
+    // console.log(`.swiper-pagination_${this.state.number}`)
   }
   render() {
     return (
@@ -48,7 +57,7 @@ export default class ImageBanner extends Component {
           } */}
           {this.props.children}
         </div>
-        <div className="swiper-pagination"></div>
+        <div className={`swiper-pagination_${this.state.number} swiper-pagination`} ></div>
       </div>
     )
   }

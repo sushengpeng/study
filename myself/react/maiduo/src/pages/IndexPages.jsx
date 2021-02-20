@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { getIconList, getIndexBanner, getNewList, getNewsAndTuan, getSecondKillProduct,getSecondKillTime } from 'api/index'
+import { getIconList, getIndexBanner, getNewList, getNewsAndTuan, getSecondKillProduct, getSecondKillTime } from 'api/index'
 import { Icon } from 'antd-mobile';
+import { getImg } from "@/utils/tools"
 import "@/styles/index.less"
 import ImageBanner from "../components/ImageBanner"
 const chunk = require('lodash/chunk')
@@ -192,27 +193,66 @@ class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      productList: []
+      killProductList: [],
+      killTime: [],
+      activeIndex: 1
     }
   }
   async componentDidMount() {
     let params = {
       activity_id: '5078'
     }
-    await getSecondKillTime().then(res=>{
-      console.log(res)
+    await getSecondKillTime().then(res => {
+      for (let i = 0; i < res.data.data.length; i++) {
+        if (res.data.data[i].active === 1) {
+          this.setState({
+            activeIndex: i
+          })
+          break;
+        }
+      }
+      this.setState({
+        killTime: res.data.data
+      })
     })
     await getSecondKillProduct(params).then(res => {
-      console.log(res)
+
       this.setState({
-        productList: res.data
+        killProductList: res.data
       })
+
+    })
+  }
+  activeChange(index) {
+    this.setState({
+      activeIndex: index
     })
   }
   render() {
     return (
-      <div className='listContent'>
-
+      <div className='killContent'>
+        <div className="topTitle">
+          <img src={getImg("/src/images/home/clock.png")} alt="" />
+          <span>热卖爆款 · 特价秒杀</span>
+        </div>
+        <ImageBanner className='timeLine'
+          loop={false}
+          needPagination={false}
+          autoplay={false}
+          slidesPerView={5}
+          initialSlide={this.state.activeIndex - 2}
+        >
+          {
+            this.state.killTime.map((item, index) => {
+              return (
+                <div className={`swiper-slide timeLineItem ${this.state.activeIndex === index ? 'active' : ''}`} key={index} onClick={this.activeChange.bind(this, index)}>
+                  <p className="time">{item.time}</p>
+                  <p className="text">{item.text}</p>
+                </div>
+              )
+            })
+          }
+        </ImageBanner>
       </div>
     )
   }
