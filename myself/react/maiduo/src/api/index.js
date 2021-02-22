@@ -28,6 +28,10 @@ export function getNewList(params) {
 export function getNewsAndTuan(params) {
   return request("/index/get-news-and-tuan", params, "post")
 }
+//为你推荐
+export function getGuessYouLike(params) {
+  return request("index/guess-you-like", params, "post")
+}
 //获取底部tab
 export function footer(params) {
   return request("/common/footer.html", {}, "get")

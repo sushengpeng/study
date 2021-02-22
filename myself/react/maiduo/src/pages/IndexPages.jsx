@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { getIconList, getIndexBanner, getNewList, getNewsAndTuan, getSecondKillProduct, getSecondKillTime } from 'api/index'
+import { getIconList, getIndexBanner, getNewList, getNewsAndTuan, getSecondKillProduct, getSecondKillTime, getGuessYouLike } from 'api/index'
 import { Icon } from 'antd-mobile';
 import { getImg } from "@/utils/tools"
 import "@/styles/index.less"
 import ImageBanner from "../components/ImageBanner"
+import ProductItem from "../components/ProductItem"
 const chunk = require('lodash/chunk')
 //头部banner
 class TopTip extends Component {
@@ -121,7 +122,8 @@ class CenterBanner extends Component {
     super(props)
     this.state = {
       imgList: [],
-      pingTuanData: {}
+      pingTuanData: {},
+      backgroundColor: ""
     }
   }
   componentDidMount() {
@@ -130,7 +132,11 @@ class CenterBanner extends Component {
       let imgList = []
       for (let key in res.data) {
         if (res.data[key].length > 0 && Array.isArray(res.data[key])) {
-          imgList.push(...imgList, ...res.data[key])
+          imgList.push(res.data[key])
+        } else {
+          this.setState({
+            backgroundColor: res.data[key]
+          })
         }
       }
       this.setState({
@@ -147,16 +153,35 @@ class CenterBanner extends Component {
   render() {
     return (
       <div className="CenterBanner">
-        {
-          this.state.imgList.map((item, index) => {
-            return (
-              <div className="img_item" key={index}>
-                <img src={item.banner_img} alt="" />
-                {/* <span>{item.img_width}</span> */}
-              </div>
-            )
-          })
-        }
+        <div className="CenterBanner_top">
+          {
+            this.state.imgList.slice(0, 1).map(item => {
+              return (
+                <img src={item[0].banner_img} alt="" />
+              )
+            })
+          }
+        </div>
+        <div className="CenterBanner_content" style={{ background: this.state.backgroundColor }}>
+          {
+            this.state.imgList.slice(1).map((item, index) => {
+              return (
+                <div className="img_item" key={index} >
+                  {
+                    Array.isArray(item) ? item.map((img) => {
+                      return (
+                        <div className="img">
+                          <img src={img.banner_img} alt="" />
+                        </div>
+                      )
+                    }) : ""
+                  }
+                </div>
+              )
+            })
+          }
+        </div>
+
         <div className="pingtuan_product"
           style={{ background: `url(${this.state.pingTuanData?.newpinbackground?.banner_img}) no-repeat` }}>
           <ImageBanner className='pingtuan_banner' loop={false}>
@@ -195,16 +220,18 @@ class List extends Component {
     this.state = {
       killProductList: [],
       killTime: [],
-      activeIndex: 1
+      activeIndex: 1,
+      page: 1,//为你推荐
+      likeTitle: '',//为你推荐标题
+      likeList: [],
     }
   }
   async componentDidMount() {
-    let params = {
-      activity_id: '5078'
-    }
+    let params = {}
     await getSecondKillTime().then(res => {
       for (let i = 0; i < res.data.data.length; i++) {
         if (res.data.data[i].active === 1) {
+          params.activity_id = res.data.data[i].activity_id
           this.setState({
             activeIndex: i
           })
@@ -216,11 +243,15 @@ class List extends Component {
       })
     })
     await getSecondKillProduct(params).then(res => {
-
       this.setState({
         killProductList: res.data
       })
-
+    })
+    await getGuessYouLike({ page: this.state.page }).then(res => {
+      this.setState({
+        likeList: res.data.products,
+        likeTitle: res.data.title
+      })
     })
   }
   activeChange(index) {
@@ -253,6 +284,30 @@ class List extends Component {
             })
           }
         </ImageBanner>
+        <div className="killList">
+          {
+            this.state.killProductList.map((item, index) => {
+              return (
+                <ProductItem item={item} key={index}></ProductItem>
+              )
+            })
+          }
+        </div>
+        <div className="likeList">
+          <div className="title">
+            <i>
+              <img src={getImg('src/images/home/tuijian.png')} alt=""/>
+            </i>
+            <span>麦朵商城·为你推荐</span>
+          </div>
+          {
+            this.state.likeList.map((item, index) => {
+              return (
+                <ProductItem item={item} key={index} showTab={false}></ProductItem>
+              )
+            })
+          }
+        </div>
       </div>
     )
   }
