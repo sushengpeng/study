@@ -6,6 +6,7 @@ import Discovery from "@/pages/Discovery"
 import Buycar from "@/pages/Buycar"
 import Mine from "@/pages/Mine"
 import Tab from '@/components/Tab'
+import Test from "@/pages/TestComponent"
 
 export default class route extends Component {
   render() {
@@ -17,6 +18,7 @@ export default class route extends Component {
           <Route path='/discovery' component={Discovery} />
           <Route path='/buycar' component={Buycar} />
           <Route path='/mine' component={Mine} />
+          <Route path='/test' component={Test} />
           <Redirect from='' to="/index" />
         </Switch>
         {/* <Switch>
