@@ -29,13 +29,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0-nullsafety.1"
-  chinese_words:
-    dependency: "direct main"
-    description:
-      name: chinese_words
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.0.1"
   clock:
     dependency: transitive
     description:
@@ -56,7 +49,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.1.3"
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
