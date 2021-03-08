@@ -39,6 +39,9 @@ public class Basic1 {
         System.out.println(i);
         //doSome(a);
         intDemo();
+        charDemo();
+        byteDemo();
+        shortDemo();
     }
 
     public static void doSome(String str) {
@@ -49,6 +52,7 @@ public class Basic1 {
         System.out.println(a);
         System.out.println(c);
         System.out.println(b);
+        System.out.println("’lskkfdjsl‘");
         System.out.println("\"helloWorld\"");
         //中 对应的unicode编码
         char d = '\u4e2d';
@@ -81,5 +85,35 @@ public class Basic1 {
         long e = 2147483648L;
         int f = (int) e;
         System.out.println(f);
+    }
+
+    public static void charDemo() {
+        char a = 98;
+        char b = 65535;
+        // char c = 65536;
+        //b
+        System.out.println(a);
+        //未知符号
+        System.out.println(b);
+        // System.out.println(c); //报错 从int转换到char可能会有损失 超出最大值的范围
+    }
+
+    public static void byteDemo() {
+        byte a = (byte) 150;
+        /*
+        byte a = -1;
+        对应的原码是10000001
+        对应的二进制反码是（符号位不变，其他位取反）11111110
+        对应的二进制补码是（反码+1）11111111
+        计算机存储的永远是补码
+        byte 150 输出的是-106
+         */
+        System.out.println(a);
+    }
+
+    public static void shortDemo(){
+        char a = 'a';
+        byte b = 1;
+        System.out.println(a + b);
     }
 }
