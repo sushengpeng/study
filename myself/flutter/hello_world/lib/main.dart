@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'TestImage.dart';
+import 'NewsPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -87,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             FlatButton(
-              child: Text("open new route111"),
+              child: Text("open new route"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
@@ -101,7 +103,16 @@ class _MyHomePageState extends State<MyHomePage> {
               textColor: Colors.amberAccent,
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ImageTest();
+                  return TestImage();
+                }));
+              },
+            ),
+            RaisedButton(
+              child: Text("新闻页面"),
+              textColor: Colors.amberAccent,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NewsPage();
                 }));
               },
             )
@@ -127,28 +138,6 @@ class NewRoute extends StatelessWidget {
       ),
       body: Center(
         child: Text("This is new route"),
-      ),
-    );
-  }
-}
-//image测试
-class ImageTest extends StatelessWidget{
-  @override
-  Widget build(BuildContext context){
-    // Scaffold是一个路由页的骨架，我们使用它可以很容易地拼装出一个完整的页面。
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("图片测试"),
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            Image(
-              image: AssetImage("images/icon_cxyc.png"),
-              width: 100,
-            )
-          ],
-        )
       ),
     );
   }

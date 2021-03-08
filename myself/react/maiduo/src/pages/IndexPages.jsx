@@ -184,7 +184,7 @@ class CenterBanner extends Component {
 
         <div className="pingtuan_product"
           style={{ background: `url(${this.state.pingTuanData?.newpinbackground?.banner_img}) no-repeat` }}>
-          <ImageBanner className='pingtuan_banner' loop={false}>
+          <ImageBanner className='pingtuan_banner' loop={false} needPagination={false}>
             {
               // console.log(chunk(this.state.pingTuanData?.pingtuan_products, 3))
               chunk(this.state.pingTuanData?.pingtuan_products, 3).map((item, index) => {
@@ -319,11 +319,6 @@ class main extends Component {
     this.state = {}
   }
   componentDidMount() {
-    getIndexBanner().then(res => {
-      this.setState({
-        bannerList: res.data
-      })
-    })
   }
   render() {
     return (

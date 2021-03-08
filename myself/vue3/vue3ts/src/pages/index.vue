@@ -18,9 +18,7 @@ export default class index extends Vue {
   plus = computed(() => this.obj + 1);
   created() {
     this.obj++;
-    // console.log(this);
     console.log(++this.num);
-    // console.log(this.plus);
     this.getData();
   }
   private confirm() {
