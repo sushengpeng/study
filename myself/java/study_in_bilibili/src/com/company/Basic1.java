@@ -1,5 +1,7 @@
 package com.company;
 
+import java.math.BigDecimal;
+
 /**
  * @author flygg123
  * 1、标识符命名的规则
@@ -42,6 +44,8 @@ public class Basic1 {
         charDemo();
         byteDemo();
         shortDemo();
+        longDemo();
+        floatDemo();
     }
 
     public static void doSome(String str) {
@@ -85,6 +89,8 @@ public class Basic1 {
         long e = 2147483648L;
         int f = (int) e;
         System.out.println(f);
+        int g = 10 / 3;
+        System.out.println(g);
     }
 
     public static void charDemo() {
@@ -111,9 +117,52 @@ public class Basic1 {
         System.out.println(a);
     }
 
-    public static void shortDemo(){
+    public static void shortDemo() {
         char a = 'a';
         byte b = 1;
         System.out.println(a + b);
     }
+
+    public static void longDemo() {
+        long a = 100L;
+        int b = 5;
+        short c = 5;
+        char d = 'a';
+        System.out.println(a + b + c + d);
+        long e = a + b + c + d;
+        //报错 e是long类型 多种数据类型做运算的时候 结果对应为其中容量最大的数据类型 byte char short除外，他们会先转化为int
+        //int f = a+b+c+d;
+        /*
+        long类型占用8个字节
+        float类型占用4个字节
+        任意一个浮点型数据比整数型数据大
+         */
+    }
+
+    public static void floatDemo() {
+        /*
+        java规定任何浮点型数据一开始都会当做double类型来处理
+        如果想当做float类型处理的话
+            第一种方式是在字面量后面加上F/f
+            第二种方式是使用强制类型转换
+            1.0是double类型
+            1.0F是float类型
+         */
+        float a = (float) 3.1415926;
+        float b = 3.1415926F;
+        System.out.println(a);
+        System.out.println(b);
+        BigDecimal e = new BigDecimal("3.1416546516464564");
+        System.out.println(e);
+    }
+    /*
+    类型转换时需要注意哪些规则
+    1、八种基本数据类型中，出boolean类型不能转换，剩下七种之间都可以进行转换
+    2、如果整数型字面量没有超出byte,short,char的取值范围，可以直接将其复制给byte,shore,short
+    3、小容量向大容量转换成为自动类型转换，容量从小到大的排序为
+    byte<short(char)<int<long<float<double，其中short和char都占用两个字节，但是char可以表示更大的正整数；
+    4、大容量转化成小容量成为强制类型转换，编写时必须添加“强制类型转换符”，但运行时会出现精度损失；
+    5、byte、short、char类型混合运算时，先各自转化成int类型再做运算
+    6、多种数据类型混合计算，各自先转化成容量最大的那个一种再做运算；
+     */
 }
