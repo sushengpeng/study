@@ -11,7 +11,7 @@ export default class Tab extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props)
+    // console.log(this.props)
   }
   tabChange(index) {
     this.setState({
@@ -53,18 +53,18 @@ export default class Tab extends Component {
     ]
     if (this.state.show) {
       return (
-        <div div className='nav' >
+        <div className='nav'>
           {
             navList.map((item, index) => {
               return (
                 <NavLink key={index} activeClassName="nav-item_active" className="nav-item" to={item.route} onClick={this.tabChange.bind(this, index)}>
-                  <img src={getImg(this.state.activeIndex!==index?item.img:item.active_img)} alt="" className='nav-img' />
+                  <img src={getImg(this.state.activeIndex !== index ? item.img : item.active_img)} alt="" className='nav-img' />
                   <span className='nav-text'>{item.text}</span>
                 </NavLink>
               )
             })
           }
-        </div >
+        </div>
       )
     } else {
       return ""
