@@ -88,7 +88,7 @@
           context.beginPath();
           context.arc(p.x, p.y, p.size, 0, Math.PI * 2, false);
           context.closePath();
-          context.fillStyle = 'hsla(' + p.hue + ', 100%, ' + p.brightness + '%, ' + p.alpha + ')';
+          context.fillStyle = `hsla(${p.hue}, 100%, ${p.brightness}%, ${p.alpha})`;
           context.fill();
         }
       }
