@@ -21,7 +21,7 @@ export default class ImageLazy extends Component {
         alt=""
         data-src={this.props.src}
         style={{ width: width, height: height }}
-        className={this.props.className ? (this.props.className + ' ') : "" + 'lazyImage'}
+        className={this.props.className ? (this.props.className + ' lazyImage') : "" + 'lazyImage'}
       />
     )
   }
