@@ -7,7 +7,7 @@ http.get(url, function (res) {
     // 获取页面数据
     res.on('data', function (data) {
         html += data;
-        // console.log(html)
+        console.log(html)
     });
     // 数据获取结束
     res.on('end', function () {

@@ -227,6 +227,8 @@ class List extends Component {
     }
   }
   async componentDidMount() {
+    this.scrollView()
+    window.addEventListener('scroll', this.scrollView, false)
     let params = {}
     await getSecondKillTime().then(res => {
       for (let i = 0; i < res.data.data.length; i++) {
@@ -257,6 +259,31 @@ class List extends Component {
   activeChange(index) {
     this.setState({
       activeIndex: index
+    })
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.scrollView, false)
+  }
+  scrollView() {
+    let lazyImages = [...document.getElementsByClassName("lazyImage")]
+    var observer = new IntersectionObserver(
+      function (changes) {
+        changes.forEach((change, index) => {
+          var container = change.target;
+          // console.log(change.intersectionRatio)
+          if (change.intersectionRatio > 0) {
+            container.setAttribute("src", container.getAttribute("data-src"))
+            container.removeAttribute("data-src")
+            container.className = container.className.replace(/lazyImage/, '').trim()
+          }
+          // var content = container.querySelector('template').content;
+          // container.appendChild(content);
+          observer.unobserve(container);
+        });
+      }
+    );
+    lazyImages.forEach(function (item) {
+      observer.observe(item);
     })
   }
   render() {
@@ -296,7 +323,7 @@ class List extends Component {
         <div className="likeList">
           <div className="title">
             <i>
-              <img src={getImg('src/images/home/tuijian.png')} alt=""/>
+              <img src={getImg('src/images/home/tuijian.png')} alt="" />
             </i>
             <span>麦朵商城·为你推荐</span>
           </div>
