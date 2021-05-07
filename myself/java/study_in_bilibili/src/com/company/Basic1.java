@@ -124,7 +124,7 @@ public class Basic1 {
     }
 
     public static void longDemo() {
-        long a = 100L;
+        long a = 100L; 
         int b = 5;
         short c = 5;
         char d = 'a';
