@@ -3,7 +3,7 @@ const fs = require('fs')
 const inquirer = require('inquirer')
 let path = "D:\\jzBank\\"
 const params = []
-const operatingEnv = ["uat", "Sit", "Xhx", "Czq"]
+const operatingEnv = ["Uat", "Sit", "Xhx", "Czq"]
 const cprocess = require('child_process')
 //选择测试生产环境
 let chooseProject = () => {
@@ -98,7 +98,7 @@ let getCmd = () => {
   //npm run devSingleXhx bankLife Xhx
   //npm run dev uat
   //npm run devXhx
-  let cmd = `cd ${path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${params[2] === 'uat' ? '' : params[2]}${params[1] === 'all' ? '' : (" " + params[3])}`
+  let cmd = `cd ${path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${params[2]}${params[1] === 'all' ? '' : (" " + params[3])}`
   let dev = cprocess.exec(cmd, { detached: true, maxBuffer: 10 * 1024 * 1024 }, function (error, stdout, stderr) {
     if (error) console.log(error)
   })
