@@ -1,62 +1,46 @@
 #!C:\PROGRA~1\nodejs\node.exe
 const fs = require('fs')
 const inquirer = require('inquirer')
-let path = "D:\\jzBank\\"
+const path = "D:\\jzBank\\pwxvue"
+const prodPath = "D:\\jzBank\\pwxvueProd"
 const params = []
 const operatingEnv = ["uat", "Sit", "Xhx", "Czq"]
 const cprocess = require('child_process')
-//选择测试生产环境
-let chooseProject = () => {
-  inquirer.prompt([
-    {
-      type: 'list',
-      name: 'project',
-      message: '选择运行项目',
-      choices: ["pwxvue", "pwxvueProd"]
-    }
-  ]).then(res => {
-    path = path + res.project
-    chooseEnv()
-  })
-}
-let chooseEnv = (flag) => {
-  inquirer.prompt([
-    {
-      type: 'list',
-      name: 'env',
-      message: '进行开发还是进行打包',
-      choices: ["dev", "build"]
-    }
-  ]).then(res => {
-    pushParams(res.env)
-    if (res.env === 'dev') {
-      inquirer.prompt([
-        {
-          type: 'list',
-          name: 'operationMode',
-          message: '运行整个项目还是运行单个项目',
-          choices: ["single", "all"]
-        }
-      ]).then(res1 => {
-        pushParams(res1.operationMode)
-        getModules()
-      })
-    } else {
-      inquirer.prompt([
-        {
-          type: 'list',
-          name: 'operationMode',
-          message: '打包整个项目还是运行单个项目',
-          choices: ["single", "all"]
-        }
-      ]).then(res1 => {
-        pushParams(res1.operationMode)
-        getModules()
-      })
-    }
-  })
-}
-
+inquirer.prompt([
+  {
+    type: 'list',
+    name: 'env',
+    message: '进行开发还是进行打包',
+    choices: ["dev", "build", "prod"]
+  }
+]).then(res => {
+  pushParams(res.env)
+  if (res.env === 'dev') {
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'operationMode',
+        message: '运行整个项目还是运行单个项目',
+        choices: ["single", "all"]
+      }
+    ]).then(res1 => {
+      pushParams(res1.operationMode)
+      getModules()
+    })
+  } else {
+    inquirer.prompt([
+      {
+        type: 'list',
+        name: 'operationMode',
+        message: '打包整个项目还是运行单个项目',
+        choices: ["single", "all"]
+      }
+    ]).then(res1 => {
+      pushParams(res1.operationMode)
+      getModules()
+    })
+  }
+})
 let getModules = () => {
   inquirer.prompt([
     {
@@ -68,7 +52,7 @@ let getModules = () => {
   ]).then(res1 => {
     pushParams(res1.selectEnv)
     if (params[1] !== "all") {
-      fs.readdir((path) + '\\src\\modules', (error, filelist) => {
+      fs.readdir((params[0]!=='prod'?path:prodPath) + '\\src\\modules', (error, filelist) => {
         inquirer.prompt([
           {
             type: 'list',
@@ -86,7 +70,6 @@ let getModules = () => {
       getCmd()
     }
   })
-
 }
 let pushParams = (val) => {
   params.push(val)
@@ -98,7 +81,10 @@ let getCmd = () => {
   //npm run devSingleXhx bankLife Xhx
   //npm run dev uat
   //npm run devXhx
-  let cmd = `cd ${path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${params[2] === 'uat' ? '' : params[2]}${params[1] === 'all' ? '' : (" " + params[3])}`
+  let _path = params[0]!=='prod'?path:prodPath 
+  let cmd = `cd ${_path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${params[2] === 'uat' ? '' : params[2]}${params[1] === 'all' ? '' : (" " + params[3])}`
+  console.log(cmd)
+  
   let dev = cprocess.exec(cmd, { detached: true, maxBuffer: 10 * 1024 * 1024 }, function (error, stdout, stderr) {
     if (error) console.log(error)
   })
@@ -112,5 +98,5 @@ let getCmd = () => {
   //   console.log(`stdout: ${stdout}`);
   //   console.error(`stderr: ${stderr}`);
   // })
+
 }
-chooseProject()

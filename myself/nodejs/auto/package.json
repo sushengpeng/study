@@ -1,15 +1,19 @@
 {
   "name": "auto",
   "version": "1.0.0",
-  "description": "run project",
+  "description": "",
   "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "inquirer": "^8.0.0"
+  },
   "scripts": {
-    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "flygg123",
-  "license": "ISC",
-  "dependencies": {
-    "node": "^16.0.0"
-  }
+  "bin": {
+    "mycli": "src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
