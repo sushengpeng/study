@@ -11,6 +11,7 @@ router.get('/index', comment_controllers.get_fileist)
       .post('/fileUpload', comment_controllers.upload_file)
       .get('/createFile',comment_controllers.create_file)
       .get('/login',comment_controllers.login)
+      .get('/testLogger',comment_controllers.testLogger)
 
 
 

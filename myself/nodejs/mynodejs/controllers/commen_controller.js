@@ -2,6 +2,8 @@ const commen = require('../db/commen')
 const fs = require('fs');
 var csv = require('csv');
 const path = require('path')
+const https = require('https')
+const getLogger = require('../logs/log')
 const get_fileist = async (req, res, next) => {
     try {
         // const fileist = await commen.articles_select_rand()
@@ -29,7 +31,7 @@ const read_file = async (req, res, next) => {
             }
             res.send(table)
         })
-    } catch{ }
+    } catch { }
 }
 const upload_file = async (req, res, next) => {
     console.log(req.files[0].path)
@@ -62,7 +64,33 @@ const create_file = async (req, res, next) => {
     res.send('生成文件成功')
 }
 const login = async (req, res, next) => {
-    console.log(req,res)
+    console.log(req, res)
+}
+const testLogger = async (req, res, next) => {
+
+    // const options = {
+    //     hostname: 'cnodejs.org',
+    //     path: '/api/v1/topics',
+    //     method: 'GET'
+    // };
+
+    // const request = https.request(options, (res) => {
+    //     console.log('状态码:', res.statusCode);
+    //     console.log('请求头:', res.headers);
+
+    //     res.on('data', (d) => {
+    //         process.stdout.write(d);
+    //     });
+    // });
+
+    // request.on('error', (e) => {
+    //     console.error(e);
+    // });
+    // request.end();
+    // getLogger('去打印日志')
+    // res.getLogger('1111')
+    console.log(11111)
+    res.send('去打印日志')
 }
 
 module.exports = {
@@ -70,5 +98,6 @@ module.exports = {
     read_file,
     upload_file,
     create_file,
-    login
+    login,
+    testLogger
 }
