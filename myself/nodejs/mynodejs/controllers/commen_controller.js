@@ -4,7 +4,8 @@ const https = require('https')
 const querystring = require('querystring')
 var csv = require('csv');
 const path = require('path')
-const log4js  = require('../logs/log').getLogger("info");
+const https = require('https')
+const getLogger = require('../logs/log')
 const get_fileist = async (req, res, next) => {
     try {
         // const fileist = await commen.articles_select_rand()
@@ -67,6 +68,7 @@ const create_file = async (req, res, next) => {
 const login = async (req, res, next) => {
     console.log(req, res)
 }
+<<<<<<< HEAD
 const testPost = async (req, res, next) => {
     
     setInterval(() => {
@@ -94,6 +96,33 @@ const testPost = async (req, res, next) => {
         req.write(postData + "\n");
         req.end();
     }, 10000)
+=======
+const testLogger = async (req, res, next) => {
+
+    // const options = {
+    //     hostname: 'cnodejs.org',
+    //     path: '/api/v1/topics',
+    //     method: 'GET'
+    // };
+
+    // const request = https.request(options, (res) => {
+    //     console.log('状态码:', res.statusCode);
+    //     console.log('请求头:', res.headers);
+
+    //     res.on('data', (d) => {
+    //         process.stdout.write(d);
+    //     });
+    // });
+
+    // request.on('error', (e) => {
+    //     console.error(e);
+    // });
+    // request.end();
+    // getLogger('去打印日志')
+    // res.getLogger('1111')
+    console.log(11111)
+    res.send('去打印日志')
+>>>>>>> 9dbeedf8f6a65aa53f86156304f3e84f0c7c8041
 }
 
 module.exports = {
@@ -102,5 +131,9 @@ module.exports = {
     upload_file,
     create_file,
     login,
+<<<<<<< HEAD
     testPost
+=======
+    testLogger
+>>>>>>> 9dbeedf8f6a65aa53f86156304f3e84f0c7c8041
 }
