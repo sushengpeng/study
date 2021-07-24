@@ -4,7 +4,7 @@ const inquirer = require('inquirer')
 let path = "D:\\jzBank\\"
 const params = []
 let project = ""
-const operatingEnv = ["Uat", "Sit", "Xhx", "Czq","Nuat1","Nuat2"]
+const operatingEnv = ["Uat", "Sit", "Xhx", "Czq","Nuat1"]
 const cprocess = require('child_process')
 //选择测试生产环境
 let chooseProject = () => {

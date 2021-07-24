@@ -9,7 +9,7 @@ const routes = [
     path: '/index',
     name: 'Index',
     component: () => import(/* webpackChunkName: "index" */ '../views/Index.vue')
-  }
+  },
 ]
 
 const router = createRouter({

@@ -5,8 +5,13 @@ import 'reset.css';
 import 'swiper/swiper-bundle.min.js'
 import Route from '@/router/route'
 import '@/styles/reset.less'
+import store from '@/reducers'
+import { Provider } from 'react-redux';
+// console.log(store.getState())
 ReactDOM.render(
-  <Route />,
+  <Provider store={store}>
+    <Route />
+  </Provider>,
   document.getElementById('root')
 );
 

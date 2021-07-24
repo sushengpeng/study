@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
-
-export default class Classify extends Component {
+import MyButton from "@/components/MyButton.jsx"
+import "@/styles/classify.less"
+class Classify extends Component {
+  constructor(props,context) {
+    super(props,context);
+  }
+  buttonClick() {
+    // const { store } = this.context;
+    console.log(this)
+  }
+  componentDidMount() {
+  }
   render() {
     return (
-      <div>
-        classify
+      <div className='outer'>
+        <div className="btn">
+          <MyButton buttonText='下一步' buttonClick={this.buttonClick.bind(this)}></MyButton>
+        </div>
       </div>
     )
   }
 }
+Classify.contextType = MyContext

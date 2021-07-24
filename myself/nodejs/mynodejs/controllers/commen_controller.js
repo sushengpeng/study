@@ -1,7 +1,10 @@
 const commen = require('../db/commen')
 const fs = require('fs');
+const https = require('https')
+const querystring = require('querystring')
 var csv = require('csv');
 const path = require('path')
+const log4js  = require('../logs/log').getLogger("info");
 const get_fileist = async (req, res, next) => {
     try {
         // const fileist = await commen.articles_select_rand()
@@ -29,7 +32,7 @@ const read_file = async (req, res, next) => {
             }
             res.send(table)
         })
-    } catch{ }
+    } catch { }
 }
 const upload_file = async (req, res, next) => {
     console.log(req.files[0].path)
@@ -62,7 +65,35 @@ const create_file = async (req, res, next) => {
     res.send('生成文件成功')
 }
 const login = async (req, res, next) => {
-    console.log(req,res)
+    console.log(req, res)
+}
+const testPost = async (req, res, next) => {
+    
+    setInterval(() => {
+        let postData = querystring.stringify({ Data: "SqXR2ZDdG1jGbAnSiQg/ntC21oHNNq53RmXmS0yP1UtF7wf3yBpSNiYr2PbkYjmWeLr/0rbYj4eQMLCJpppj1kiGqtpD4jBEFFyo2hlWWw/+K0dHer87sISd2CUNSe14xIcaii0hy5EIDIH+wQF+pXOGuUOEVJta407jM5Ko/ViT7gET9LWGPbY2E04AR5ZUmKItHlInVA9s+3b5izJ0ezMmHm0NFstTOnA/+aEg2UEZaq0Befs7hF/Wxk/xl2tzUNHqbq3BTDu/bWacaKNIWIbl3QoIR+MS7FKZ2Hgc5qKmiIL/XNKygKe/Vts6rMJoDygVcgVJdPPbDlXK7SKvLg==", "SignData": "fLXhGTaRXkdo1NCd/SCaBTZ09r5aKtAdXEOU7rbXN3LYgS1HYBKLCdSpHzInLdrh+AKEIStwItsfYddmkhQsqixzD+3ne14Dj5+JUS9qo0i7coRqwXaqtYD59FLqoaB4TFBhuBivw2JX/Xq6lWIKxnV5dcnglRJeQCVcWBW8zJaROhwMt7XsCK9/LGsryaurdkD6tHjPe30FUo6sHV01oD27mIHN1Ggo7VJ33gkYpahzpcN5wZShNcbjHnnKw5dilfKlmlU8qDiDGrKUILC3M3rFRgjyWWM/YWcA2dPIz8KtS6i36oATFB6MDa1AcJTnZYHbilvCxu3rgTWw7pICJQ==" })
+        const options = {
+            hostname: 'wxbank.jzctb.com',
+            path: '/gateway/BindAcNoStateInfoQry.do',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Content-Length': Buffer.byteLength(postData)
+            }
+        };
+        const req = https.request(options, (res) => {
+
+            res.setEncoding('utf8');
+            res.on('data', function (chunk) {
+                log4js.info(chunk)
+            });
+        });
+
+        req.on('error', (e) => {
+            // console.error(`请求遇到问题: ${e.message}`);
+        });
+        req.write(postData + "\n");
+        req.end();
+    }, 10000)
 }
 
 module.exports = {
@@ -70,5 +101,6 @@ module.exports = {
     read_file,
     upload_file,
     create_file,
-    login
+    login,
+    testPost
 }
