@@ -4,9 +4,9 @@ import { getImg } from "@/utils/tools"
 import "@/styles/ProductItem.less"
 import ImageLazy from "./ImageLazy"
 export default class ProductItem extends Component {
-  constructor(props) {
-    super(props)
-  }
+  // constructor(props) {
+  //   super(props)
+  // }
   static propTypes = {
     item: PropTypes.object.isRequired
   }

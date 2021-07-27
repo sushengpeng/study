@@ -66,6 +66,7 @@ class BannerImg extends Component {
   }
   render() {
     return (
+      // eslint-disable-next-line
       <div className="BannerImg" style={{ background: `url(${this.state.backgroundImg}) no-repeat` }, { backgroundSize: '100% 100%' }}>
         <ImageBanner bannerChange={this.bannerChange.bind(this)} className='image_banner'>
           {
@@ -155,9 +156,9 @@ class CenterBanner extends Component {
       <div className="CenterBanner">
         <div className="CenterBanner_top">
           {
-            this.state.imgList.slice(0, 1).map(item => {
+            this.state.imgList.slice(0, 1).map((item, index) => {
               return (
-                <img src={item[0].banner_img} alt="" />
+                <img src={item[0].banner_img} alt="" key={index} />
               )
             })
           }
@@ -231,6 +232,9 @@ class List extends Component {
     window.addEventListener('scroll', this.scrollView, false)
     let params = {}
     await getSecondKillTime().then(res => {
+      this.setState({
+        killTime: res.data.data
+      })
       for (let i = 0; i < res.data.data.length; i++) {
         if (res.data.data[i].active === 1) {
           params.activity_id = res.data.data[i].activity_id
@@ -240,14 +244,7 @@ class List extends Component {
           break;
         }
       }
-      this.setState({
-        killTime: res.data.data
-      })
-    })
-    await getSecondKillProduct(params).then(res => {
-      this.setState({
-        killProductList: res.data
-      })
+      this.getKillTime(params)
     })
     await getGuessYouLike({ page: this.state.page }).then(res => {
       this.setState({
@@ -256,9 +253,21 @@ class List extends Component {
       })
     })
   }
-  activeChange(index) {
+  activeChange(item, index) {
+    // console.log(item)
     this.setState({
       activeIndex: index
+    })
+    this.getKillTime(item.activity_id)
+  }
+  getKillTime(id) {
+    let params = {
+      activity_id: id
+    }
+    getSecondKillProduct(params).then(res => {
+      this.setState({
+        killProductList: res.data
+      })
     })
   }
   componentWillUnmount() {
@@ -303,7 +312,7 @@ class List extends Component {
           {
             this.state.killTime.map((item, index) => {
               return (
-                <div className={`swiper-slide timeLineItem ${this.state.activeIndex === index ? 'active' : ''}`} key={index} onClick={this.activeChange.bind(this, index)}>
+                <div className={`swiper-slide timeLineItem ${this.state.activeIndex === index ? 'active' : ''}`} key={index} onClick={this.activeChange.bind(this, item, index)}>
                   <p className="time">{item.time}</p>
                   <p className="text">{item.text}</p>
                 </div>

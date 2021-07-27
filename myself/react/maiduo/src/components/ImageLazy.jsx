@@ -13,6 +13,9 @@ export default class ImageLazy extends Component {
       height: "auto"
     }
   }
+  componentWillReceiveProps (){
+    this.forceUpdate()
+  }
   render() {
     const { width, height } = this.props.style
     return (
@@ -21,7 +24,7 @@ export default class ImageLazy extends Component {
         alt=""
         data-src={this.props.src}
         style={{ width: width, height: height }}
-        className={this.props.className ? (this.props.className + ' lazyImage') : "" + 'lazyImage'}
+        className={this.props.className ? (this.props.className + ' lazyImage') :'lazyImage'}
       />
     )
   }

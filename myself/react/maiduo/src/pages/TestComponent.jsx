@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 // const TestComponent = () => {
 //   const [number, setNumber] = useState(0)
