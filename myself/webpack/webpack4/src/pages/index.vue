@@ -1,7 +1,7 @@
 <template>
   <div class="outer">
     <div class="content">
-111
+      <img src="@/assets/img/img_renlian.png"/> 
     </div>
   </div>
 </template>
