@@ -1,0 +1,311 @@
+{
+  "keys": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+  "middleware": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+  "mysql": {
+    "client": {
+      "host": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+      "port": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+      "user": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+      "password": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+      "database": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js"
+    },
+    "app": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+    "agent": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+    "default": {
+      "database": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-mysql\\config\\config.default.js",
+      "connectionLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-mysql\\config\\config.default.js"
+    }
+  },
+  "security": {
+    "csrf": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\config\\config.default.js",
+      "type": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "refererWhiteList": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+    "xframe": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "ipExceptionList": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "session": {
+    "maxAge": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-session\\config\\config.default.js",
+    "logValue": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "allowArrayField": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js",
+      "disable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideIgnore": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "view": {
+    "root": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "cookies": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "maxIpsCount": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "private": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "egg": {
+      "declarations": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "dependencies": {
+      "egg": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "egg-mysql": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "module-alias": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "start": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "stop": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "dev": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "debug": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "test": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "cov": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "lint": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "ci": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "autod": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "repository": {
+      "type": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "url": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "_moduleAliases": {
+      "root": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "@": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "baseDir": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "textLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "onerror": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "logger": {
+    "dir": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "level": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\github\\study\\myself\\nodejs\\project-manager\\node_modules\\egg\\config\\config.default.js"
+}

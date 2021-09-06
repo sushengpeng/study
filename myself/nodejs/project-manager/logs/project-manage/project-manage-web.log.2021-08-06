@@ -1,0 +1,93 @@
+2021-08-06 12:02:35,976 INFO 6704 [-/::1/-/9ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 12:03:37,216 INFO 16692 [-/::1/-/7ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 12:03:50,746 INFO 16692 [-/::1/-/2ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 12:08:03,958 INFO 12104 [-/::1/-/185833ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 12:08:05,202 INFO 12104 [-/::1/-/1221ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 12:09:16,513 ERROR 18132 [-/::1/-/17937ms POST /login] nodejs.TypeError: Cannot read property 'body' of undefined
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:12:47)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 18132
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 12:09:37,610 ERROR 18132 [-/::1/-/6ms POST /login] nodejs.TypeError: Cannot read property 'body' of undefined
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:12:47)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 18132
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 13:52:53,210 INFO 13892 [-/::1/-/6192665ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 16:47:58,248 INFO 22448 [-/::1/-/111680ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 17:37:44,885 INFO 20520 [-/::1/-/36ms POST /login] [controller.user] 打印参数 {
+  status: 404,
+  message: 'Not Found',
+  header: [Object: null prototype] {},
+  body: undefined
+}
+2021-08-06 17:40:55,048 ERROR 6896 [-/::1/-/37ms POST /login] nodejs.ReferenceError: Id is not defined
+    at UserService.getUserInfo (D:\github\study\myself\nodejs\project-manager\app\service\user.js:26:80)
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:13:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 6896
+hostname: LIGEI4R94BUMNPC
+

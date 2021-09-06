@@ -1,0 +1,201 @@
+2021-08-03 22:45:45,892 INFO 13824 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 20654112ms at 2021-08-04 04:30:00.004
+2021-08-03 22:45:45,893 INFO 13824 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 4454108ms at 2021-08-04 00:00:00.000
+2021-08-03 22:45:45,893 INFO 13824 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 4455107ms at 2021-08-04 00:00:01.000
+2021-08-03 22:45:45,597 INFO 13740 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 22:45:45,597 INFO 13740 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 22:45:45,597 INFO 13740 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 22:46:51,161 INFO 13780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 22:46:51,161 INFO 13780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 22:46:51,161 INFO 13780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 22:59:58,168 INFO 4104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 22:59:58,168 INFO 4104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 22:59:58,168 INFO 4104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:00:14,058 INFO 3896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:00:14,058 INFO 3896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:00:14,058 INFO 3896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:02:23,794 INFO 12532 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:02:23,794 INFO 12532 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:02:23,794 INFO 12532 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:02:27,359 INFO 14280 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:02:27,359 INFO 14280 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:02:27,359 INFO 14280 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:04:35,645 INFO 6400 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:04:35,645 INFO 6400 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:04:35,645 INFO 6400 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:05:25,746 INFO 4476 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 19474259ms at 2021-08-04 04:30:00.005
+2021-08-03 23:05:25,746 INFO 4476 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 3274254ms at 2021-08-04 00:00:00.000
+2021-08-03 23:05:25,746 INFO 4476 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 3275254ms at 2021-08-04 00:00:01.000
+2021-08-03 23:05:25,313 INFO 572 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:05:25,313 INFO 572 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:05:25,313 INFO 572 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:07:04,692 INFO 14616 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:07:04,692 INFO 14616 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:07:04,692 INFO 14616 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:07:08,781 INFO 15128 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:07:08,781 INFO 15128 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:07:08,781 INFO 15128 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:08:48,029 INFO 1956 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:08:48,029 INFO 1956 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:08:48,029 INFO 1956 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:09:03,936 INFO 13152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:09:03,936 INFO 13152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:09:03,936 INFO 13152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:11:55,617 INFO 13456 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:11:55,617 INFO 13456 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:11:55,617 INFO 13456 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:15:09,394 INFO 14884 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:15:09,394 INFO 14884 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:15:09,394 INFO 14884 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:16:59,093 INFO 15140 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:16:59,093 INFO 15140 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:16:59,093 INFO 15140 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:18:26,446 INFO 14696 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:18:26,446 INFO 14696 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:18:26,446 INFO 14696 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:19:42,233 INFO 13608 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 18617771ms at 2021-08-04 04:30:00.004
+2021-08-03 23:19:42,234 INFO 13608 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 2417767ms at 2021-08-04 00:00:00.001
+2021-08-03 23:19:42,234 INFO 13608 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 2418766ms at 2021-08-04 00:00:01.000
+2021-08-03 23:19:41,781 INFO 7448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:19:41,781 INFO 7448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:19:41,781 INFO 7448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:23:14,170 INFO 12676 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:23:14,170 INFO 12676 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:23:14,170 INFO 12676 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:23:38,255 INFO 13080 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:23:38,255 INFO 13080 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:23:38,255 INFO 13080 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:26:27,954 INFO 12444 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:26:27,954 INFO 12444 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:26:27,954 INFO 12444 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:29:26,180 INFO 15028 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:29:26,180 INFO 15028 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:29:26,180 INFO 15028 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:30:05,956 INFO 4032 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:30:05,956 INFO 4032 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:30:05,956 INFO 4032 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:30:49,061 INFO 13668 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:30:49,061 INFO 13668 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:30:49,061 INFO 13668 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:32:47,471 INFO 13756 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:32:47,471 INFO 13756 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:32:47,471 INFO 13756 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:33:22,570 INFO 12040 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:33:22,570 INFO 12040 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:33:22,570 INFO 12040 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:33:58,253 INFO 11748 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:33:58,253 INFO 11748 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:33:58,253 INFO 11748 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:41:45,616 INFO 11992 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:41:45,617 INFO 11992 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:41:45,617 INFO 11992 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:42:07,154 INFO 14880 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:42:07,155 INFO 14880 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:42:07,155 INFO 14880 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:42:20,679 INFO 6272 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:42:20,679 INFO 6272 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:42:20,679 INFO 6272 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:43:14,676 INFO 13652 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:43:14,676 INFO 13652 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:43:14,676 INFO 13652 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-03 23:43:30,432 INFO 10692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-03 23:43:30,432 INFO 10692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-03 23:43:30,432 INFO 10692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:42:16,834 INFO 3996 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 60463174ms at 2021-08-07 04:30:00.008
+2021-08-06 11:42:16,835 INFO 3996 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 44263166ms at 2021-08-07 00:00:00.001
+2021-08-06 11:42:16,836 INFO 3996 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 44264165ms at 2021-08-07 00:00:01.001
+2021-08-06 11:42:16,328 INFO 11112 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:42:16,328 INFO 11112 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:42:16,328 INFO 11112 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:50:39,816 INFO 13420 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 59960189ms at 2021-08-07 04:30:00.004
+2021-08-06 11:50:39,816 INFO 13420 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 43760184ms at 2021-08-07 00:00:00.000
+2021-08-06 11:50:39,817 INFO 13420 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 43761184ms at 2021-08-07 00:00:01.001
+2021-08-06 11:50:39,354 INFO 2340 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:50:39,354 INFO 2340 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:50:39,354 INFO 2340 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:51:50,884 INFO 18416 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:51:50,884 INFO 18416 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:51:50,884 INFO 18416 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:51:54,790 INFO 1864 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:51:54,790 INFO 1864 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:51:54,790 INFO 1864 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:54:39,449 INFO 18152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:54:39,449 INFO 18152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:54:39,449 INFO 18152 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:57:18,849 INFO 14996 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:57:18,849 INFO 14996 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:57:18,849 INFO 14996 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 11:59:36,540 INFO 2640 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 11:59:36,540 INFO 2640 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 11:59:36,540 INFO 2640 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:00:24,989 INFO 13108 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:00:24,989 INFO 13108 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:00:24,989 INFO 13108 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:02:23,104 INFO 6704 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:02:23,104 INFO 6704 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:02:23,104 INFO 6704 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:03:36,358 INFO 16692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:03:36,358 INFO 16692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:03:36,358 INFO 16692 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:04:34,495 INFO 2760 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 59125510ms at 2021-08-07 04:30:00.005
+2021-08-06 12:04:34,495 INFO 2760 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 42925505ms at 2021-08-07 00:00:00.000
+2021-08-06 12:04:34,496 INFO 2760 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 42926504ms at 2021-08-07 00:00:01.000
+2021-08-06 12:04:33,958 INFO 12104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:04:33,958 INFO 12104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:04:33,958 INFO 12104 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:08:52,618 INFO 18132 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:08:52,618 INFO 18132 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:08:52,618 INFO 18132 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 12:09:39,300 INFO 13892 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 12:09:39,300 INFO 13892 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 12:09:39,300 INFO 13892 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 13:56:47,189 INFO 8632 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 13:56:47,189 INFO 8632 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 13:56:47,189 INFO 8632 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 13:56:47,814 INFO 15780 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 52392190ms at 2021-08-07 04:30:00.004
+2021-08-06 13:56:47,815 INFO 15780 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 36192186ms at 2021-08-07 00:00:00.001
+2021-08-06 13:56:47,815 INFO 15780 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 36193185ms at 2021-08-07 00:00:01.000
+2021-08-06 14:24:13,000 INFO 5620 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 14:24:13,000 INFO 5620 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 14:24:13,000 INFO 5620 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 14:24:13,567 INFO 2616 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js next time will execute after 50746437ms at 2021-08-07 04:30:00.004
+2021-08-06 14:24:13,568 INFO 2616 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 34546432ms at 2021-08-07 00:00:00.000
+2021-08-06 14:24:13,569 INFO 2616 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 34547432ms at 2021-08-07 00:00:01.001
+2021-08-06 16:36:33,834 INFO 22448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 16:36:33,834 INFO 22448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 16:36:33,834 INFO 22448 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 16:48:05,729 INFO 9780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 16:48:05,729 INFO 9780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 16:48:05,729 INFO 9780 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:37:40,550 INFO 20520 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:37:40,550 INFO 20520 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:37:40,550 INFO 20520 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:38:36,424 INFO 15664 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:38:36,424 INFO 15664 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:38:36,424 INFO 15664 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:40:37,197 INFO 21424 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:40:37,197 INFO 21424 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:40:37,197 INFO 21424 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:40:44,092 INFO 6896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:40:44,093 INFO 6896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:40:44,093 INFO 6896 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:46:59,812 INFO 23468 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:46:59,812 INFO 23468 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:46:59,812 INFO 23468 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:47:55,442 INFO 8384 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:47:55,442 INFO 8384 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:47:55,442 INFO 8384 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:49:20,856 INFO 1020 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:49:20,856 INFO 1020 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:49:20,856 INFO 1020 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 17:49:54,241 INFO 19844 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 17:49:54,241 INFO 19844 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 17:49:54,241 INFO 19844 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-06 18:00:46,873 INFO 2500 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-multipart\app\schedule\clean_tmpdir.js
+2021-08-06 18:00:46,873 INFO 2500 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js
+2021-08-06 18:00:46,873 INFO 2500 [egg-schedule]: register schedule D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2021-08-07 00:00:00,152 INFO 2500 [Job#16282656001412669347312848001] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js executing by app
+2021-08-07 00:00:00,164 INFO 2500 [Job#16282656001412669347312848001] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js execute succeed, used 10ms. 
+2021-08-07 00:00:00,151 INFO 2616 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\clean_log.js next time will execute after 86399856ms at 2021-08-08 00:00:00.007
+2021-08-07 00:00:01,137 INFO 2500 [Job#16282656011362669357263517001] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js executing by app
+2021-08-07 00:00:01,155 INFO 2500 [Job#16282656011362669357263517001] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js execute succeed, used 18ms. 
+2021-08-07 00:00:01,140 INFO 2616 [Timer] D:\github\study\myself\nodejs\project-manager\node_modules\egg-logrotator\app\schedule\rotate_by_file.js next time will execute after 86399864ms at 2021-08-08 00:00:01.004
