@@ -7,10 +7,8 @@ export default class MyButton extends Component {
     console.log(props)
   }
   static defaultProps = {
-    buttonText: PropTypes.string.isRequired
-  }
-  buttonClick(status) {
-    console.log(status)
+    buttonText: PropTypes.string.isRequired,
+    buttonClick: PropTypes.func.isRequired,
   }
   render() {
     return (

@@ -39,7 +39,6 @@ class TopTip extends Component {
     )
   }
 }
-
 class BannerImg extends Component {
   constructor(props) {
     super(props)
