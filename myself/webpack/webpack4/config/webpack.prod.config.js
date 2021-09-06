@@ -1,12 +1,13 @@
 const path = require("path")
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const { VueLoaderPlugin } = require("vue-loader")
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: path.join(__dirname, '../src/index.js'),
   output: {
-    filename: 'bundle.js',
-    path: path.join(__dirname, 'dist')
+    filename: '[name].bundle.js',
+    path: path.join(__dirname, '../dist')
   },
   resolve: {
     extensions: [".js", ".vue", ".css"],
@@ -16,6 +17,7 @@ module.exports = {
     }
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new htmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -26,6 +28,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: [
+          path.resolve(__dirname, "node-modules")
+        ],
+        loader: "babel-loader"
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
@@ -33,10 +42,6 @@ module.exports = {
         test: /\.less$/,
         use: ['style-loader', 'css-loader', 'less-loader'],
       },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      }
     ]
   }
 }
