@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env webpack-dev-server --progress --config config/webpack.dev.config.js",
+    "dev": "cross-env ENV=dev PROD_ENV=dev webpack-dev-server --progress --config config/webpack.dev.config.js",
     "build": "cross-env webpack --progress --config config/webpack.prod.config.js"
   },
   "author": "",
@@ -32,6 +32,7 @@
     "url-loader": "^4.1.1"
   },
   "dependencies": {
-    "reset.css": "^2.0.2"
+    "reset.css": "^2.0.2",
+    "webpack-merge": "^5.8.0"
   }
 }
