@@ -1,0 +1,455 @@
+2021-08-03 23:02:26,283 ERROR 12532 [-/::1/-/12ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 12532
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:04:29,369 ERROR 14280 [-/::1/-/8ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 14280
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:04:49,297 ERROR 6400 [-/::1/-/7ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 6400
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:05:47,704 ERROR 572 [-/::1/-/7ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 572
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:07:41,977 ERROR 15128 [-/::1/-/7ms GET /test] nodejs.TypeError: Cannot read property 'getTest' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 15128
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:08:46,821 ERROR 15128 [-/::1/-/1ms GET /test] nodejs.TypeError: Cannot read property 'getTest' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 15128
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:09:13,288 ERROR 13152 [-/::1/-/17ms GET /test] nodejs.TypeError: Cannot read property 'getTest' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 13152
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:11:57,633 ERROR 13456 [-/::1/-/16ms GET /test] nodejs.TypeError: Cannot read property 'getTest' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 13456
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:15:10,176 ERROR 14884 [-/::1/-/17ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 14884
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:20:07,715 ERROR 7448 [-/::1/-/3ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 7448
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:22:28,069 ERROR 7448 [-/::1/-/1ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:12:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 7448
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:23:29,795 ERROR 12676 [-/::1/-/7ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 12676
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:23:37,292 ERROR 12676 [-/::1/-/2ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 12676
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:23:44,832 ERROR 13080 [-/::1/-/17ms GET /test] nodejs.TypeError: Cannot read property 'find' of undefined
+    at HomeController.test (D:\github\study\myself\nodejs\project-manager\app\controller\home.js:13:41)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 13080
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:28:02,909 ERROR 12444 [-/::1/-/8ms GET /user/1234] nodejs.TypeError: Cannot read property 'find' of undefined
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 12444
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:28:52,900 ERROR 12444 [-/::1/-/1ms GET /user/1234] nodejs.TypeError: Cannot read property 'find' of undefined
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 12444
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:29:31,199 ERROR 15028 [-/::1/-/8ms GET /user/1234] nodejs.TypeError: Cannot read property 'query' of undefined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:12:36)
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 15028
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:30:11,452 ERROR 4032 [-/::1/-/8ms GET /user/1] nodejs.TypeError: Cannot read property 'query' of undefined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:12:36)
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 4032
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:31:02,134 ERROR 13668 [-/::1/-/8ms GET /user/1] nodejs.TypeError: Cannot read property 'query' of undefined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:12:36)
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 13668
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:32:51,762 ERROR 13756 [-/::1/-/8ms GET /user/1] nodejs.TypeError: Cannot read property 'query' of undefined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:12:39)
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 13756
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:33:30,461 ERROR 12040 [-/::1/-/8ms GET /user/1] nodejs.TypeError: Cannot read property 'query' of undefined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:12:39)
+    at UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 12040
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:41:49,936 ERROR 11992 [-/::1/-/12ms GET /user/1] nodejs.ReferenceError: uid is not defined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:15:43)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:22)
+    at async D:\github\study\myself\nodejs\project-manager\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\github\study\myself\nodejs\project-manager\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\github\study\myself\nodejs\project-manager\node_modules\koa-bodyparser\index.js:95:5)
+
+pid: 11992
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:42:05,861 ERROR 11992 [-/::1/-/4ms GET /user/1] nodejs.ReferenceError: uid is not defined
+    at UserService.find (D:\github\study\myself\nodejs\project-manager\app\service\user.js:15:43)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async UserController.info (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:7:22)
+    at async D:\github\study\myself\nodejs\project-manager\node_modules\egg-development\app\middleware\egg_loader_trace.js:9:50
+    at async xframe (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\xframe.js:7:5)
+    at async xssProtection (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\xssProtection.js:7:5)
+    at async nosniff (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\nosniff.js:8:5)
+    at async noopen (D:\github\study\myself\nodejs\project-manager\node_modules\egg-security\lib\middlewares\noopen.js:8:5)
+    at async session (D:\github\study\myself\nodejs\project-manager\node_modules\koa-session\index.js:41:7)
+    at async bodyParser (D:\github\study\myself\nodejs\project-manager\node_modules\koa-bodyparser\index.js:95:5)
+
+pid: 11992
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:42:25,378 ERROR 6272 [-/undefined/-/3098ms GET /user/1] nodejs.RequestError: getaddrinfo ENOTFOUND photoserver, GET http://photoserver/uid=1 -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":0,"errorSocketCount":1,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"photoserver:80:":2},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+errno: -3008
+code: "ENOTFOUND"
+syscall: "getaddrinfo"
+hostname: "photoserver"
+name: "RequestError"
+data: undefined
+path: "/uid=1"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":3081,"keepAliveSocket":false,"requestUrls":["http://photoserver/uid=1"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+headerSent: true
+pid: 6272
+hostname: LIGEI4R94BUMNPC
+
+2021-08-03 23:42:26,616 ERROR 6272 [-/::1/-/2302ms GET /user/1] nodejs.RequestError: getaddrinfo ENOTFOUND photoserver, GET http://photoserver/uid=1 -1 (connected: false, keepalive socket: false, agent status: {"createSocketCount":2,"createSocketErrorCount":0,"closeSocketCount":1,"errorSocketCount":2,"timeoutSocketCount":0,"requestCount":0,"freeSockets":{},"sockets":{"photoserver:80:":1},"requests":{}}, socketHandledRequests: 1, socketHandledResponses: 0)
+headers: {}
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:67:26)
+errno: -3008
+code: "ENOTFOUND"
+syscall: "getaddrinfo"
+hostname: "photoserver"
+name: "RequestError"
+data: undefined
+path: "/uid=1"
+status: -1
+headers: {}
+res: {"status":-1,"statusCode":-1,"statusMessage":null,"headers":{},"size":0,"aborted":false,"rt":2299,"keepAliveSocket":false,"requestUrls":["http://photoserver/uid=1"],"timing":null,"remoteAddress":"","remotePort":"","socketHandledRequests":1,"socketHandledResponses":0}
+pid: 6272
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 12:06:09,794 ERROR 2760 nodejs.ClusterClientNoResponseError: client no response in 75309ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\github\study\myself\nodejs\project-manager\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:554:17)
+    at processTimers (internal/timers.js:497:7)
+name: "ClusterClientNoResponseError"
+pid: 2760
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 12:09:16,510 ERROR 18132 [-/::1/-/17937ms POST /login] nodejs.TypeError: Cannot read property 'body' of undefined
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:12:47)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 18132
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 12:09:37,606 ERROR 18132 [-/::1/-/6ms POST /login] nodejs.TypeError: Cannot read property 'body' of undefined
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:12:47)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:36:12
+
+pid: 18132
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 12:10:49,919 ERROR 2760 nodejs.ClusterClientNoResponseError: client no response in 70093ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\github\study\myself\nodejs\project-manager\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:554:17)
+    at processTimers (internal/timers.js:497:7)
+name: "ClusterClientNoResponseError"
+pid: 2760
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 16:47:12,597 ERROR 2616 nodejs.ClusterClientNoResponseError: client no response in 77973ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\github\study\myself\nodejs\project-manager\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:554:17)
+    at processTimers (internal/timers.js:497:7)
+name: "ClusterClientNoResponseError"
+pid: 2616
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 17:40:55,045 ERROR 6896 [-/::1/-/37ms POST /login] nodejs.ReferenceError: Id is not defined
+    at UserService.getUserInfo (D:\github\study\myself\nodejs\project-manager\app\service\user.js:26:80)
+    at UserController.login (D:\github\study\myself\nodejs\project-manager\app\controller\user.js:13:45)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\utils\index.js:44:21)
+    at Object.classControllerMiddleware (D:\github\study\myself\nodejs\project-manager\node_modules\egg-core\lib\loader\mixin\controller.js:87:20)
+    at Object.callFn (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\utils.js:12:21)
+    at wrappedController (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\egg_router.js:322:18)
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+    at next (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:45:18)
+    at D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\lib\router.js:186:18
+    at dispatch (D:\github\study\myself\nodejs\project-manager\node_modules\@eggjs\router\node_modules\koa-compose\index.js:44:32)
+
+pid: 6896
+hostname: LIGEI4R94BUMNPC
+
+2021-08-06 17:49:14,104 ERROR 2616 nodejs.ClusterClientNoResponseError: client no response in 65608ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\github\study\myself\nodejs\project-manager\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:554:17)
+    at processTimers (internal/timers.js:497:7)
+name: "ClusterClientNoResponseError"
+pid: 2616
+hostname: LIGEI4R94BUMNPC
+

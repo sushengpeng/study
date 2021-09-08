@@ -1,0 +1,21 @@
+2021-08-07 00:00:01,163 INFO 2616 [egg-logrotator] agent logger reload: got log-reload message
+2021-08-09 09:28:34,193 INFO 15464 [egg:logger] init all loggers with options: {"dir":"D:\\github\\study\\myself\\nodejs\\project-manager\\logs\\project-manage","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"project-manage-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2021-08-09 09:28:34,209 INFO 15464 [egg:core] dump config after load, 7ms
+2021-08-09 09:28:34,333 INFO 15464 [egg-watcher] Start watching: ["D:\\github\\study\\myself\\nodejs\\project-manager\\app","D:\\github\\study\\myself\\nodejs\\project-manager\\config","D:\\github\\study\\myself\\nodejs\\project-manager\\mocks","D:\\github\\study\\myself\\nodejs\\project-manager\\mocks_proxy","D:\\github\\study\\myself\\nodejs\\project-manager\\app.js"]
+2021-08-09 09:28:34,333 INFO 15464 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\app"
+2021-08-09 09:28:34,333 INFO 15464 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\config"
+2021-08-09 09:28:34,334 INFO 15464 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\mocks"
+2021-08-09 09:28:34,334 INFO 15464 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\mocks_proxy"
+2021-08-09 09:28:34,334 INFO 15464 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\app.js"
+2021-08-09 09:28:34,337 INFO 15464 [egg-watcher:agent] watcher start success
+2021-08-09 09:28:34,376 INFO 15464 [egg:core] dump config after ready, 9ms
+2021-08-09 09:33:54,285 INFO 16064 [egg:logger] init all loggers with options: {"dir":"D:\\github\\study\\myself\\nodejs\\project-manager\\logs\\project-manage","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"project-manage-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"agent"}
+2021-08-09 09:33:54,297 INFO 16064 [egg:core] dump config after load, 6ms
+2021-08-09 09:33:54,416 INFO 16064 [egg-watcher] Start watching: ["D:\\github\\study\\myself\\nodejs\\project-manager\\app","D:\\github\\study\\myself\\nodejs\\project-manager\\config","D:\\github\\study\\myself\\nodejs\\project-manager\\mocks","D:\\github\\study\\myself\\nodejs\\project-manager\\mocks_proxy","D:\\github\\study\\myself\\nodejs\\project-manager\\app.js"]
+2021-08-09 09:33:54,416 INFO 16064 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\app"
+2021-08-09 09:33:54,417 INFO 16064 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\config"
+2021-08-09 09:33:54,417 INFO 16064 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\mocks"
+2021-08-09 09:33:54,418 INFO 16064 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\mocks_proxy"
+2021-08-09 09:33:54,419 INFO 16064 [egg-watcher] Start watching: "D:\\github\\study\\myself\\nodejs\\project-manager\\app.js"
+2021-08-09 09:33:54,421 INFO 16064 [egg-watcher:agent] watcher start success
+2021-08-09 09:33:54,443 INFO 16064 [egg:core] dump config after ready, 9ms

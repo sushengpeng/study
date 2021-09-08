@@ -1,0 +1,15 @@
+2021-08-07 00:00:01,161 INFO 2500 [egg-logrotator] app logger reload: got log-reload message
+2021-08-09 09:33:58,171 INFO 13404 [egg:logger] init all loggers with options: {"dir":"D:\\github\\study\\myself\\nodejs\\project-manager\\logs\\project-manage","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"project-manage-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2021-08-09 09:33:58,230 INFO 13404 [egg-multipart] stream mode enable
+2021-08-09 09:33:58,231 INFO 13404 [egg-mysql] connecting root@localhost:3306/project_manage
+2021-08-09 09:33:58,646 INFO 13404 [egg-security] use methodnoallow middleware
+2021-08-09 09:33:58,648 INFO 13404 [egg-security] use noopen middleware
+2021-08-09 09:33:58,650 INFO 13404 [egg-security] use nosniff middleware
+2021-08-09 09:33:58,651 INFO 13404 [egg-security] use xssProtection middleware
+2021-08-09 09:33:58,653 INFO 13404 [egg-security] use xframe middleware
+2021-08-09 09:33:58,654 INFO 13404 [egg-security] use dta middleware
+2021-08-09 09:33:58,654 INFO 13404 [egg-security] compose 6 middlewares into one security middleware
+2021-08-09 09:33:58,672 INFO 13404 [egg:core] dump config after load, 8ms
+2021-08-09 09:33:58,703 INFO 13404 [egg-watcher:application] watcher start success
+2021-08-09 09:33:58,734 INFO 13404 [egg-mysql] instance[0] status OK, rds currentTime: Mon Aug 09 2021 09:33:58 GMT+0800 (中国标准时间)
+2021-08-09 09:33:58,746 INFO 13404 [egg:core] dump config after ready, 9ms
