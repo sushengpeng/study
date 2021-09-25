@@ -15,7 +15,8 @@ class Classify extends Component {
     return (
       <div className='outer'>
         <div className="btn">
-          <MyButton buttonText='下一步' buttonClick={this.buttonClick.bind(this)}></MyButton>
+          <MyButton class="test" round buttonClick={this.buttonClick.bind(this)}>下一步</MyButton>
+          <MyButton class="marginLeft20">取消</MyButton>
         </div>
       </div>
     )
