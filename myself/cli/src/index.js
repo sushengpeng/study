@@ -1,11 +1,13 @@
 #!C:\PROGRA~1\nodejs\node.exe
 const fs = require('fs')
-const inquirer = require('inquirer')
-let path = "D:\\jzBank\\"
-const params = []
-let project = ""
-const operatingEnv = ["Uat", "Sit", "Xhx", "Czq","Nuat1","Nuat2"]
 const cprocess = require('child_process')
+const inquirer = require('inquirer')
+const utils = require('./utils')
+const operatingEnv = ["Uat", "Sit", "Xhx", "Czq", "Nuat1", "Nuat2"]
+const params = []
+let path = "D:\\jzBank\\"
+let project = ""
+let history_cli_list = utils.get().list.map(item => item.cli);
 //选择测试生产环境
 let chooseProject = () => {
   inquirer.prompt([
@@ -13,12 +15,16 @@ let chooseProject = () => {
       type: 'list',
       name: 'project',
       message: '选择运行项目',
-      choices: ["pwxvue", "pwxvueProd"]
+      choices: ["history", "pwxvue", "pwxvueProd"]
     }
   ]).then(res => {
     path = path + res.project
     project = res.project
-    chooseEnv()
+    if (project === "history") {
+      selectHistory()
+    } else {
+      chooseEnv()
+    }
   })
 }
 let chooseEnv = (flag) => {
@@ -93,15 +99,15 @@ let getModules = () => {
 let pushParams = (val) => {
   params.push(val)
 }
-let getCmd = () => {
+let getCmd = (val) => {
   //npm run buildSingleXhx bankLife xhx
   //npm run buildSingle bankLife uat
   //npm run build uat
   //npm run devSingleXhx bankLife Xhx
   //npm run dev uat
   //npm run devXhx
-  let cmd = `cd ${path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${project =='pwxvue'?params[2]:''}${params[1] === 'all' ? '' : (" " + params[3])}`
-  console.log(cmd)
+  let cmd = val || `cd ${path} && D: && npm run ${params[0]}${params[1] === 'all' ? '' : 'Single'}${project == 'pwxvue' ? params[2] : ''}${params[1] === 'all' ? '' : (" " + params[3])}`
+  if(!history_cli_list.includes(cmd)) utils.set(cmd)
   let dev = cprocess.exec(cmd, { detached: true, maxBuffer: 10 * 1024 * 1024 }, function (error, stdout, stderr) {
     if (error) console.log(error)
   })
@@ -115,5 +121,17 @@ let getCmd = () => {
   //   console.log(`stdout: ${stdout}`);
   //   console.error(`stderr: ${stderr}`);
   // })
+}
+let selectHistory = () => {
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'history',
+      message: '选择历史运行项目',
+      choices: history_cli_list
+    }
+  ]).then(res => {
+    getCmd(res.history)
+  })
 }
 chooseProject()

@@ -17,9 +17,14 @@
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "apidoc": "^0.29.0",
     "csv": "^5.3.1",
     "exceljs": "^3.8.0",
     "multer": "^1.4.2",
     "nodemon": "^2.0.2"
+  },
+  "apidoc": {
+    "title": "接口文档",
+    "url": "http://localhost:3000"
   }
 }

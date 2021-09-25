@@ -30,9 +30,11 @@
       0, 0, 0, //顶点1坐标
       50, 0, 0, //顶点2坐标
       0, 100, 0, //顶点3坐标
-      0, 0, 10, //顶点4坐标
+
+      0, 0, 0, //顶点4坐标
       0, 0, 100, //顶点5坐标
-      50, 0, 10, //顶点6坐标
+      50, 0, 0, //顶点6坐标
+
       10, -10, 10, //顶点4坐标
       0, 200, 100, //顶点5坐标
       50, 0, 10, //顶点6坐标
@@ -82,7 +84,13 @@
     renderer.setClearColor(0xb9d3ff, 1); //设置背景颜色
     document.body.appendChild(renderer.domElement); //body元素中插入canvas对象
     //执行渲染操作   指定场景、相机作为参数
-    renderer.render(scene, camera);
+    function render() {
+      renderer.render(scene, camera);//执行渲染操作
+      // mesh.rotateY(0.01);//每次绕y轴旋转0.01弧度
+      requestAnimationFrame(render);//请求再次执行渲染函数render
+    }
+    render()
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);//创建控件对象
   </script>
 </body>
 

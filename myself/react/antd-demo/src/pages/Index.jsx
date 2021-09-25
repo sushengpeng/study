@@ -7,7 +7,8 @@ export default class Index extends Component {
       navList: [
         { text: '首页', route: "/" },
         { text: '其他', route: "/other" },
-        { text: '关于', route: "/about" }
+        { text: '评论', route: "/comment" },
+        { text: '关于', route: "/about" },
       ],
       active: 0
     }

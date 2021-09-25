@@ -4,7 +4,6 @@ const https = require('https')
 const querystring = require('querystring')
 var csv = require('csv');
 const path = require('path')
-const https = require('https')
 const getLogger = require('../logs/log')
 const get_fileist = async (req, res, next) => {
     try {
@@ -65,12 +64,56 @@ const create_file = async (req, res, next) => {
     }
     res.send('生成文件成功')
 }
+/** 
+* @api {POST} http://127.0.0.1:8000/login/ 登录操作
+* @apiVersion 0.0.1
+* @apiName login
+* @apiGroup User
+* @apiDescription 这里可以描述一下这个函数的具体操作
+* @apiParam {String} name 姓名
+* @apiParam {String} password 密码
+* @apiSuccess {Object} status 状态码
+* @apiSuccess {Object} msg 简略描述
+* @apiSuccessExample Response-Success:
+*     HTTP 1.1/ 200K
+*     {
+*         'status': 0,
+*         'msg': 'success'
+*     }
+* @apiErrorExample Response-Fail:
+*     HTTP 1.1/ 404K
+*     {
+*         'status': 0,
+*         'msg': 'Fail'
+*     }
+*/
 const login = async (req, res, next) => {
     console.log(req, res)
 }
-<<<<<<< HEAD
+/** 
+* @api {GET} http://localhost:3000/testPost/ 测试
+* @apiVersion 0.0.1
+* @apiName testPost
+* @apiGroup User
+* @apiDescription 测试
+* @apiParam {String} name 姓名
+* @apiSuccess {Object} status 状态码
+* @apiSuccess {Object} msg 简略描述
+* @apiSuccessExample Response-Success:
+*     HTTP 1.1/ 200K
+*     {
+*         'status': 0,
+*         'msg': 'success'
+*     }
+* @apiErrorExample Response-Fail:
+*     HTTP 1.1/ 404K
+*     {
+*         'status': 0,
+*         'msg': 'Fail'
+*     }
+*/
 const testPost = async (req, res, next) => {
-    
+
     setInterval(() => {
         let postData = querystring.stringify({ Data: "SqXR2ZDdG1jGbAnSiQg/ntC21oHNNq53RmXmS0yP1UtF7wf3yBpSNiYr2PbkYjmWeLr/0rbYj4eQMLCJpppj1kiGqtpD4jBEFFyo2hlWWw/+K0dHer87sISd2CUNSe14xIcaii0hy5EIDIH+wQF+pXOGuUOEVJta407jM5Ko/ViT7gET9LWGPbY2E04AR5ZUmKItHlInVA9s+3b5izJ0ezMmHm0NFstTOnA/+aEg2UEZaq0Befs7hF/Wxk/xl2tzUNHqbq3BTDu/bWacaKNIWIbl3QoIR+MS7FKZ2Hgc5qKmiIL/XNKygKe/Vts6rMJoDygVcgVJdPPbDlXK7SKvLg==", "SignData": "fLXhGTaRXkdo1NCd/SCaBTZ09r5aKtAdXEOU7rbXN3LYgS1HYBKLCdSpHzInLdrh+AKEIStwItsfYddmkhQsqixzD+3ne14Dj5+JUS9qo0i7coRqwXaqtYD59FLqoaB4TFBhuBivw2JX/Xq6lWIKxnV5dcnglRJeQCVcWBW8zJaROhwMt7XsCK9/LGsryaurdkD6tHjPe30FUo6sHV01oD27mIHN1Ggo7VJ33gkYpahzpcN5wZShNcbjHnnKw5dilfKlmlU8qDiDGrKUILC3M3rFRgjyWWM/YWcA2dPIz8KtS6i36oATFB6MDa1AcJTnZYHbilvCxu3rgTWw7pICJQ==" })
         const options = {
@@ -96,7 +139,7 @@ const testPost = async (req, res, next) => {
         req.write(postData + "\n");
         req.end();
     }, 10000)
-=======
+}
 const testLogger = async (req, res, next) => {
 
     // const options = {
@@ -122,7 +165,6 @@ const testLogger = async (req, res, next) => {
     // res.getLogger('1111')
     console.log(11111)
     res.send('去打印日志')
->>>>>>> 9dbeedf8f6a65aa53f86156304f3e84f0c7c8041
 }
 
 module.exports = {
@@ -131,9 +173,6 @@ module.exports = {
     upload_file,
     create_file,
     login,
-<<<<<<< HEAD
-    testPost
-=======
+    testPost,
     testLogger
->>>>>>> 9dbeedf8f6a65aa53f86156304f3e84f0c7c8041
 }

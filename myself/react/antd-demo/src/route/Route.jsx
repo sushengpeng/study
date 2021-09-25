@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Index from "./pages/Index"
 import About from "./pages/About"
 import Other from "./pages/Other"
+import Comment from "./pages/Comment"
 import getComponent from '../Component/common/getComponent';
 ReactDOM.render(
   <BrowserRouter>
@@ -12,6 +13,7 @@ ReactDOM.render(
     <Switch>
       <Route path="/other" component={Other} />
       <Route path="/about" component={About} />
+      <Route path="/comment" component={Comment} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
