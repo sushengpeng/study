@@ -1,0 +1,25 @@
+.loading{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 99999999;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  .loadingImg{
+    width: 100px;
+    animation: rotate 3s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+}
+@keyframes rotate{
+  from{transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}

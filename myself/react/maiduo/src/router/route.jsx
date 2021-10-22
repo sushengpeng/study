@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import React, { Component } from 'react'
-import IndexPages from "@/pages/IndexPages"
-import Classify from "@/pages/Classify"
-import Discovery from "@/pages/Discovery"
-import Buycar from "@/pages/Buycar"
-import Mine from "@/pages/Mine"
-import Tab from '@/components/Tab'
-import Test from "@/pages/TestComponent"
+import asyncComponent from '../components/asyncComponent'
+const IndexPages = asyncComponent(() => import("@/pages/IndexPages"))
+const Classify = asyncComponent(() => import("@/pages/Classify"))
+const Discovery = asyncComponent(() => import("@/pages/Discovery"))
+const Buycar = asyncComponent(() => import("@/pages/Buycar"))
+const Mine = asyncComponent(() => import("@/pages/Mine"))
+const Tab = asyncComponent(() => import('@/components/Tab'))
+const Test = asyncComponent(() => import("@/pages/TestComponent"))
 
 export default class route extends Component {
   render() {

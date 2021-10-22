@@ -7,7 +7,7 @@ module.exports = {
     open: false,
     proxy: {
       '/': {
-        target: 'https://wxtest.jzctb.com/',   //测试环境uat
+        target: '',   //测试环境uat
         changeOrigin: true
       },
     },
