@@ -1,6 +1,9 @@
 const path = require("path")
+const config = require("../config")
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require("vue-loader")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const vueLoaderConfig = require('./vue-loader.conf')
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, '../src/index.js'),
@@ -22,7 +25,15 @@ module.exports = {
       minify: true,
       inject: true
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../static'),
+          to: config.dev.assetsSubDirectory,
+        }
+      ]
+    })
   ],
   module: {
     rules: [
@@ -35,7 +46,8 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.less|\.css$/,

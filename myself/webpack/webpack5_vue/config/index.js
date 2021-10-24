@@ -21,15 +21,17 @@ let serverObj = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, //number 每number秒检查变动 https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: false,  
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
-
+    process: true, //在浏览器中以百分比显示编译进度。
+    //'log' | 'info' | 'warn' | 'error' | 'none' | 'verbose'
+    //允许在浏览器中设置日志级别，例如在重载之前，在一个错误之前或者 热模块替换 启用时。
+    logging: "none",
     /**
      * Source Maps
      */
@@ -88,14 +90,10 @@ if (process.env.NODE_ENV === 'development') {
   } else if (process.env.DEV_ENV === 'test') {
     serverObj.dev.env = require('./dev.test.env')
     serverObj.dev.proxyTable = require('./dev.test.proxy')
-  } else {
+  } else if (process.env.DEV_ENV === 'mock') {
     console.log("-----------------------------使用mock数据-----------------------------")
     serverObj.dev.env = require('./dev.mock.env')
     serverObj.dev.proxyTable = require('./dev.proxy')
   }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  serverObj.build.env = (process.env.DEV_ENV === 'test' ? require('./prod.test.env') : require('./prod.env'))
 }
 module.exports = serverObj
