@@ -5,11 +5,13 @@ import 'reset.css';
 import 'swiper/swiper-bundle.min.js'
 import Route from '@/router/route'
 import '@/styles/reset.less'
-import store from '@/reducers'
+import store from '@/redux/store'
 import { Provider } from 'react-redux';
 // console.log(store.getState())
+import Loading from "@/components/Loading"
 ReactDOM.render(
   <Provider store={store}>
+    <Loading />
     <Route />
   </Provider>,
   document.getElementById('root')
