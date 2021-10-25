@@ -17,24 +17,20 @@ export default {
     Bar
   },
   created() {
+    console.log(111)
   },
 };
 </script>
 
 <style lang="less" scoped>
+html,
+body,
 #app {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 #app {
   display: flex;
-  flex-direction: row;
-  background: #0f123f;
-}
-.leftBar {
-  height: 100%;
-}
-.content {
-  height: 100%;
+  flex-direction: column;
 }
 </style>

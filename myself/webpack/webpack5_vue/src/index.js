@@ -1,22 +1,21 @@
-
-/*eslint-disable*/
 import Vue from 'vue'
-import App from './App'
 import Vuex from 'vuex'
-import store from './store'
-import router from './router'
+import App from './App.vue'
+import router from "./router"
+import store from "./store"
 import "reset.css"
-// import 'element-ui/lib/theme-chalk/index.css'
-// import ElementUI from 'element-ui';
-// Vue.use(ElementUI);
-Vue.use(Vuex)
+if (process.env.MOCK) {    // 判断是否为mock模式
+  console.log(112221)
+  require('./mock/index.js')
+}
+
 Vue.config.productionTip = false
 Vue.config.devtools = true;
-
+Vue.use(Vuex)
 new Vue({
   el: '#app',
-  router,
   store,
+  router,
   components: { App },
   template: '<App/>'
 })
