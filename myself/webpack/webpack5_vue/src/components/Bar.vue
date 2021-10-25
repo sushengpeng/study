@@ -1,9 +1,6 @@
 <template>
-  <div class="leftBar">
-    <div class="logo"></div>
-    <div class="barList">
-      div.mainMenu
-    </div>
+  <div class="bar">
+    111
   </div>
 </template>
 
@@ -19,12 +16,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.leftBar {
-  min-width: 200px;
-  height: 100%;
-  background: white;
-}
-.barList {
-  color: @fontColor;
+.bar {
+  width: 100%;
 }
 </style>

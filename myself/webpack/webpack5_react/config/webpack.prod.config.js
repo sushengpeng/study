@@ -1,6 +1,14 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const webpackbar = require("webpackbar")
 const path = require("path")
+<<<<<<< HEAD:myself/webpack/webpack5_vue/build/webpack.base.js
+const config = require("../config")
+const htmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require("vue-loader")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const vueLoaderConfig = require('./vue-loader.conf')
+=======
+>>>>>>> e6e01d9eb3dd1b194b475df00da35b948a70f3c2:myself/webpack/webpack5_react/config/webpack.prod.config.js
 module.exports = {
   mode: 'production',
   entry: "./src/index.jsx",
@@ -15,6 +23,38 @@ module.exports = {
   resolve: {
     extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx']
   },
+<<<<<<< HEAD:myself/webpack/webpack5_vue/build/webpack.base.js
+  plugins: [
+    new htmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      minify: true,
+      inject: true
+    }),
+    new VueLoaderPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '../static'),
+          to: config.dev.assetsSubDirectory,
+        }
+      ]
+    })
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [
+          path.resolve(__dirname, "node-modules")
+        ],
+        loader: "babel-loader",
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: vueLoaderConfig
+=======
   module: {
     rules: [
       {
@@ -35,6 +75,7 @@ module.exports = {
             cacheDirectory: true
           }
         }
+>>>>>>> e6e01d9eb3dd1b194b475df00da35b948a70f3c2:myself/webpack/webpack5_react/config/webpack.prod.config.js
       },
       {
         test: /\.less|\.css$/,
