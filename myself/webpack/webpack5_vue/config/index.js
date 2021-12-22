@@ -20,6 +20,7 @@ let serverObj = {
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
+    proxyTable: require("./dev.proxy"),
     poll: false, //number 每number秒检查变动 https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and

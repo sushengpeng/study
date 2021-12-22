@@ -25,26 +25,13 @@
     var scene = new THREE.Scene();
     var axisHelper = new THREE.AxisHelper(250);
     scene.add(axisHelper);
-    var geometry = new THREE.BufferGeometry(); //创建一个Buffer类型几何体对象
-    //类型数组创建顶点数据
-    var vertices = new Float32Array([
-      0, 0, 0, //顶点1坐标
-      50, 0, 0, //顶点2坐标
-      0, 100, 0, //顶点3坐标
+    var geometry = new THREE.BoxGeometry(200, 100, 100); //创建一个立方体几何对象Geometry
+    console.log(geometry);
+    console.log('几何体顶点位置数据', geometry.vertices);
+    console.log('三角行面数据', geometry.faces);
 
-      0, 0, 0, //顶点4坐标
-      0, 0, 100, //顶点5坐标
-      50, 0, 0, //顶点6坐标
 
-      10, 0, 0, //顶点4坐标
-      0, 0, 100, //顶点5坐标
-      0, 100, 0, //顶点6坐标
-    ]);
-    // 创建属性缓冲区对象
-    var attribue = new THREE.BufferAttribute(vertices, 3); //3个为一组，表示一个顶点的xyz坐标
-    // 设置几何体attributes属性的位置属性
-    geometry.attributes.position = attribue;
-    // 三角面(网格)渲染模式
+    // (网格)渲染模式
     var material = new THREE.MeshBasicMaterial({
       color: 0xedf750, //三角面颜色
       side: THREE.DoubleSide //两面可见
