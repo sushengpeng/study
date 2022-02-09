@@ -17,5 +17,6 @@ var GenericNumber = /** @class */ (function () {
 }());
 var myGenericNumber = new GenericNumber();
 myGenericNumber.zeroValue = 0;
+console.log(222);
 myGenericNumber.add = function (x, y) { return x + y; };
 console.log(myGenericNumber.add(10, 11));
