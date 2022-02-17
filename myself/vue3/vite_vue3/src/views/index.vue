@@ -1,17 +1,19 @@
 <template>
   <div class="outer">
     <div class="content">
-      <span>{{a}}</span>
+      <span class="text">{{data.a}}</span>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { log } from "console";
-import { defineComponent, onMounted } from "vue";
+import { defineComponent, onMounted, reactive } from "vue";
 import { getProduct } from "../api/index";
 export default defineComponent({
   setup() {
-    let a: number = 111;
+    let data = reactive({
+      a: 111,
+      list: [],
+    });
     onMounted(() => {
       let params = {
         page: 1,
@@ -19,11 +21,18 @@ export default defineComponent({
       };
       getProduct(params).then((res) => {
         console.log(res);
+        data.list = res.data.list.data;
       });
     });
     return {
-      a,
+      data,
     };
   },
 });
 </script>
+<style lang="less" scoped>
+.text {
+  font-size: 20px;
+  color: red;
+}
+</style>

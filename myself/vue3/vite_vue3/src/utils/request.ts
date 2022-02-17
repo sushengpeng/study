@@ -15,7 +15,7 @@ axios.interceptors.request.use(
 )
 axios.interceptors.response.use(
   response => {
-    return Promise.resolve(response.data)
+    return Promise.resolve(response)
   },
   error => {
     return Promise.reject(error)
@@ -42,11 +42,7 @@ export async function fetch(requestParams: RequestParams) {
   return axios(sendData)
     .then(res => {
       const data: any = res.data
-      if (res.status == 200) {
-        return data
-      } else {
-        return Promise.reject(data)
-      }
+      return Promise.resolve(data)
     })
     .catch(async err => {
       // await errorAction(err, sendData, options)
