@@ -20,6 +20,7 @@
   <script>
     /**
      * 创建场景对象Scene
+     * 坐标轴
      */
     var scene = new THREE.Scene();
     var axisHelper = new THREE.AxisHelper(250);
@@ -35,9 +36,9 @@
       0, 0, 100, //顶点5坐标
       50, 0, 0, //顶点6坐标
 
-      10, -10, 10, //顶点4坐标
-      0, 200, 100, //顶点5坐标
-      50, 0, 10, //顶点6坐标
+      10, 0, 0, //顶点4坐标
+      0, 0, 100, //顶点5坐标
+      0, 100, 0, //顶点6坐标
     ]);
     // 创建属性缓冲区对象
     var attribue = new THREE.BufferAttribute(vertices, 3); //3个为一组，表示一个顶点的xyz坐标
@@ -45,11 +46,12 @@
     geometry.attributes.position = attribue;
     // 三角面(网格)渲染模式
     var material = new THREE.MeshBasicMaterial({
-      color: 0x0000ff, //三角面颜色
+      color: 0xedf750, //三角面颜色
       side: THREE.DoubleSide //两面可见
     }); //材质对象
     var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
     scene.add(mesh); //网格模型添加到场景中
+
     /**
      * 光源设置
      */
@@ -81,7 +83,7 @@
      */
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(width, height);//设置渲染区域尺寸
-    renderer.setClearColor(0xb9d3ff, 1); //设置背景颜色
+    renderer.setClearColor(0xffffff, 1); //设置背景颜色
     document.body.appendChild(renderer.domElement); //body元素中插入canvas对象
     //执行渲染操作   指定场景、相机作为参数
     function render() {

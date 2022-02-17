@@ -4,6 +4,12 @@ import App from './App.vue'
 import router from "./router"
 import store from "./store"
 import "reset.css"
+// const componentList = require.context("./pages", false, /\.vue/)
+// componentList.keys().forEach(filename => {
+//   console.log(filename);
+//   const reqCom = componentList(filename)
+//   console.log(reqCom.default.routerData);
+// });
 if (process.env.MOCK) {    // 判断是否为mock模式
   console.log(112221)
   require('./mock/index.js')

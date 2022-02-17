@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>第一个three.js文件_WebGL三维场景</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      /* 隐藏body窗口区域滚动条 */
+    }
+  </style>
+  <!--引入three.js三维引擎-->
+  <script src="./static/three.js"></script>
+  <script src="./static/OrbitControls.js"></script>
+</head>
+
+<body>
+  <script>
+    /**
+     * 创建场景对象Scene
+     * 坐标轴
+     */
+    var scene = new THREE.Scene();
+    // var axisHelper = new THREE.AxisHelper(250);
+    // scene.add(axisHelper);
+    var geometry = new THREE.BoxGeometry(100, 100, 100); //创建一个立方体几何对象Geometry
+    geometry.faces.pop();
+    geometry.faces.pop();
+    geometry.faces.pop();
+    geometry.faces.pop();
+    geometry.faces.shift();
+    // 遍历几何体的face属性
+    geometry.faces.forEach(face => {
+      // 设置三角面face三个顶点的颜色
+      face.vertexColors = [
+        new THREE.Color(0xffff00),
+        new THREE.Color(0xff00ff),
+        new THREE.Color(0x00ffff),
+      ]
+    });
+    // 几何体xyz方向分别缩放0.5,1.5,2倍
+    geometry.scale(0.5, 1.5, 2);
+    // var material = new THREE.MeshBasicMaterial({
+    //   // color: 0x0000ff,
+    //   vertexColors: THREE.FaceColors,
+    //   // wireframe:true,//线框模式渲染
+    // }); //材质对象Material
+    var material = new THREE.MeshBasicMaterial({
+      vertexColors: THREE.FaceColors,
+      side: THREE.DoubleSide, //两面可见
+    });
+    var mesh = new THREE.Mesh(geometry, material); //点模型对象
+    // 网格模型xyz方向分别缩放0.5,1.5,2倍
+    mesh.scale.set(0.5, 1.5, 2)
+    scene.add(mesh); //点对象添加到场景
+    /**
+     * 相机设置
+     */
+    var width = window.innerWidth; //窗口宽度
+    var height = window.innerHeight; //窗口高度
+    var k = width / height; //窗口宽高比
+    var s = 200; //三维场景显示范围控制系数，系数越大，显示的范围越大
+    //创建相机对象
+    var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
+    camera.position.set(200, 300, 200); //设置相机位置
+    camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
+    /**
+     * 创建渲染器对象
+     */
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(width, height);//设置渲染区域尺寸
+    renderer.setClearColor(0xffffff, 1); //设置背景颜色
+    document.body.appendChild(renderer.domElement); //body元素中插入canvas对象
+    //执行渲染操作   指定场景、相机作为参数
+    function render() {
+      renderer.render(scene, camera);//执行渲染操作
+      // mesh.rotateY(0.01);//每次绕y轴旋转0.01弧度
+      requestAnimationFrame(render);//请求再次执行渲染函数render
+    }
+    render()
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);//创建控件对象
+  </script>
+</body>
+
+</html>
