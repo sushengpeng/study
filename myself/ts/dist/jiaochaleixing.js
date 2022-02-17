@@ -2,6 +2,6 @@
 function getSmallPet() {
     // ...
 }
-var pet = getSmallPet();
+let pet = getSmallPet();
 pet.layEggs(); // okay
 pet.swim(); // errors

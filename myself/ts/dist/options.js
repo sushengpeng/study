@@ -1,6 +1,6 @@
 "use strict";
 function createSquare(config) {
-    var newSquare = { color: "white", area: 100 };
+    let newSquare = { color: "white", area: 100 };
     if (config.color) {
         newSquare.color = config.color;
     }
@@ -9,5 +9,5 @@ function createSquare(config) {
     }
     return newSquare;
 }
-var mySquare = createSquare({ color: "black" });
+let mySquare = createSquare({ color: "black" });
 console.log(mySquare);

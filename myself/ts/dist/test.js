@@ -1,9 +1,9 @@
 "use strict";
 var message = "helloworld";
-var flag = true;
-var arrNumber = [1, 2, 3];
-var arrString = ['1', '2', '3'];
-var arrBoolean = [false, true];
+let flag = true;
+let arrNumber = [1, 2, 3];
+let arrString = ['1', '2', '3'];
+let arrBoolean = [false, true];
 //枚举
 var Direction;
 (function (Direction) {
@@ -12,7 +12,7 @@ var Direction;
     Direction[Direction["EAST"] = 2] = "EAST";
     Direction[Direction["WEST"] = 3] = "WEST";
 })(Direction || (Direction = {}));
-var dir = Direction.SOUTH;
+let dir = Direction.SOUTH;
 var Enum;
 (function (Enum) {
     Enum["A"] = "0";
@@ -22,12 +22,12 @@ var Enum;
     Enum["E"] = "4";
     Enum["F"] = "5";
 })(Enum || (Enum = {}));
-var letter = Enum.F;
-var notSure = 666;
-var value;
-var value1 = value;
-var arrList = ['2', 2];
-var err = function (message) {
+let letter = Enum.F;
+let notSure = 666;
+let value;
+let value1 = value;
+let arrList = ['2', 2];
+const err = (message) => {
     throw new Error(message);
 };
 var CarTransmission;
@@ -35,4 +35,4 @@ var CarTransmission;
     CarTransmission[CarTransmission["Automatic"] = 200] = "Automatic";
     CarTransmission[CarTransmission["Manual"] = 300] = "Manual";
 })(CarTransmission || (CarTransmission = {}));
-console.log(Vehicle);
+// console.log(Vehicle)

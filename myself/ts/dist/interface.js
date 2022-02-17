@@ -1,5 +1,5 @@
 "use strict";
-var params1 = {
+let params1 = {
     name: "111"
 };
 function getString(params) {

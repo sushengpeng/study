@@ -47,4 +47,4 @@ interface Truck {
   capacity: number; // in tons
 }
 type Vehicle = Motorcycle;
-console.log(Vehicle)
+// console.log(Vehicle)
