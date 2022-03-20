@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-
+import { userStore1 } from '../store'
+const useStore = userStore1()
+console.log(useStore)
+console.log(useStore.$state.count)
 defineProps<{ msg: string }>()
 
 const count = ref(0)

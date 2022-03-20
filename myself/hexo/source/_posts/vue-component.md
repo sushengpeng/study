@@ -1,9 +1,10 @@
 ---
-title: vue-component
+title: vue 组件间传值
 date: 2019-05-09 22:47:17
-tags: 
+categories: 
+        - [vue,vue_component_sendMsg]
 ---
->子父之间传值传值
+### 子父之间传值传值
 * 在子组件标签中用一个自定义的数据名来接收父组件中的数据
 ```javascript
 <child :message='msg'></child>
@@ -27,11 +28,13 @@ props: {
 }
 ```
 
+* 在vue中使用
 ```html
     <div id="app">
         <parent></parent>
     </div>
 ```
+* 子组件定义
 ```javascript
 const child = {
         template:`
@@ -58,7 +61,7 @@ const child = {
 
 ```
 ---
-> 子组件中向父组件中传值
+### 子组件中向父组件中传值
 * 首先在父组件模板中找到子组件标签，绑定自定义事件@自定义的事件名='子组件中需要原生事件触发的方法'
 ```javascript
     const parent = {

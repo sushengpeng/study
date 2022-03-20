@@ -1,10 +1,11 @@
 ---
 title: vue
 date: 2019-05-07 22:11:07
-tags:
+categories: 
+           - [vue,vue-base]
 ---
 
-###主要学习的是vue中组建components的创建和使用
+### 主要学习的是vue中组建components的创建和使用
 
 ----------
 * 1、全局注册

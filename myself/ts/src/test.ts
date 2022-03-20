@@ -5,26 +5,26 @@ let arrString: Array<string> = ['1', '2', '3']
 let arrBoolean: Array<boolean> = [false, true]
 //枚举
 enum Direction {
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST,
+  NORTH,
+  SOUTH,
+  EAST,
+  WEST,
 }
 let dir: Direction = Direction.SOUTH;
 enum Enum {
-    A = "0",
-    B = "1",
-    C = "2",
-    D = "3",
-    E = "4",
-    F = "5",
+  A = "0",
+  B = "1",
+  C = "2",
+  D = "3",
+  E = "4",
+  F = "5",
 }
 let letter: Enum = Enum.F
 let notSure: any = 666;
-let value:unknown;
-let value1:any = value
-let arrList:[string,number] =['2',2]
-const err =(message: string): never =>{
+let value: unknown;
+let value1: any = value
+let arrList: [string, number] = ['2', 2]
+const err = (message: string): never => {
   throw new Error(message);
 }
 enum CarTransmission {
@@ -48,3 +48,5 @@ interface Truck {
 }
 type Vehicle = Motorcycle;
 // console.log(Vehicle)
+let a: number = -1
+console.log(a / 2)

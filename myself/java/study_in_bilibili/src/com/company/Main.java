@@ -15,6 +15,8 @@ public class Main {
 
     public static void main(String[] args) {//表示公开一个静态的主方法
         // write your code here
+        int i = -1;
+        System.out.println(i/2);
         System.out.println("java的第一个程序");
 
     }

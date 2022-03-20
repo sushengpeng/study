@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="power" wx:key="title" wx:for="{{toolList}}">
+    <view class="power_info" data-item="{{item}}" bindtap="skipToOther">
+      <view class="power_info_text">
+        <view class="power_info_text_title">{{item.name}}</view>
+      </view>
+      <image class="power_info_more" src="../../images/arrow.svg"></image>
+      <!-- <image wx:if="{{power.showItem}}" class="power_info_less" src="../../images/arrow.svg"></image> -->
+    </view>
+  </view>
+</view>

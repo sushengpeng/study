@@ -1,0 +1,7 @@
+<!--pages/rollCall/index.wxml-->
+<view class="container">
+  <view class="circle">
+    <text class="text" style="color: {{color}}">{{number}}</text>
+  </view>
+  <view class="button" bindtap="start">{{!timmer?'开始点名':'结束'}}</view>
+</view>

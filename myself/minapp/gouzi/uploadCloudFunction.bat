@@ -1,0 +1,1 @@
+"F:\Program Files (x86)\微信web开发者工具\cli.bat" cloud functions deploy --e nanxi-s10k7 --n quickstartFunctions --r --project "G:\study\myself\minapp\gouzi" --report_first && "F:\Program Files (x86)\微信web开发者工具\cli.bat" cloud functions deploy --e test-ofbkx --n quickstartFunctions --r --project "G:\study\myself\minapp\gouzi" --report

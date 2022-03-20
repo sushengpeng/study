@@ -1,7 +1,9 @@
 ---
-title: summarize_html
+title: html相关总结
 date: 2019-05-28 11:04:23
-tags:
+author: flygg123
+categories: 
+           - [html]
 ---
 # 总结html中的问题
 > *1*、 页面导入样式时，使用link和@import有什么区别

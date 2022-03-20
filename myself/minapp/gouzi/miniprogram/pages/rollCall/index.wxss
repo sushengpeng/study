@@ -1,0 +1,26 @@
+/* pages/rollCall/index.wxss */
+.circle{
+  width: 700rpx;
+  height: 700rpx;
+  border-radius: 50%;
+  background-color: #e9c62b;
+  margin-top: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text{
+  font-size: 500rpx;
+  font-weight: bold;
+}
+.button {
+  width: 400rpx;
+  text-align: center;
+  margin: 150rpx auto 0 auto;
+  height: 120rpx;
+  color: white;
+  border-radius: 5px;
+  line-height: 120rpx;
+  font-size: 50rpx;
+  background-color: #07c160;
+}

@@ -1,7 +1,7 @@
 ---
-title: summarize-js
+title: js 基础知识
 date: 2019-05-29 13:35:09
-tags:
+tags: js
 ---
 
 > 1、js中六种原始值类型
