@@ -3,7 +3,7 @@ title: 二进制计算
 date: 2022-02-26 19:54:50
 author: flygg123
 categories: 
-           - [algorithm,Binary]
+           - [algorithm]
 ---
 
 # 问题：给定一个数组，其中有两种数出现了奇数次，其余的数出现了偶数次，怎么得到奇数次的数

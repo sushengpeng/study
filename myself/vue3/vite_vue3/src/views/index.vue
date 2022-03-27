@@ -1,7 +1,7 @@
 <template>
   <div class="outer">
     <div class="content">
-      <span class="text">{{data.a}}</span>
+      <span class="text">{{ data.a }}</span>
     </div>
   </div>
 </template>
