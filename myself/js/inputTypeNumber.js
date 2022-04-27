@@ -1,6 +1,6 @@
 let list = ['1', '-1', '-1.', '-1.a', '-1..','1111aaa','111.aaa.','-.1','-0.2']
 // let list = ['-1.']
-function inputTypeNumber(val) {
+function inputTypeNumber(val,hasDot) {
   console.log('初始：', val);
   let isCut = false
   let value
@@ -13,6 +13,13 @@ function inputTypeNumber(val) {
   if (val.indexOf('-') === 0) {
     isCut = true
     val = val.slice(1)
+  }
+  if(hasDot){
+    let singleArr = val.split("")
+    let list = singleArr.filter(item=>regSingle.test(item))
+    value = list.join("")
+    console.log('处理后：', value, '\n')
+    return value
   }
   //正则校验是否是数字
   if (/^([1-9]\d*\.?\d*$)|(0\.[0-9]*$)/.test(val)) {
