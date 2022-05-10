@@ -1,0 +1,36 @@
+.dialogOuter {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+}
+.Transition-enter {
+  opacity: 0;
+  transform: scale(0.6)
+}
+
+.Transition-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 1s;
+}
+
+.Transition-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Transition-exit-active {
+  opacity: 0;
+  transform: scale(.6);
+  transition: all 1s
+}
+.helloBox{
+  width: 500px;
+  height: 500px;
+  background: #fff;
+}

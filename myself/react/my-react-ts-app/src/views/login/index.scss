@@ -1,0 +1,42 @@
+.login {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #f2f3f5;
+  overflow: hidden;
+
+  .login-content {
+    display: flex;
+    height: 500px;
+    margin-top: 200px;
+
+    .login-content-left {
+      width: 550px;
+      margin-right: 20px;
+      border-radius: 6px;
+      background: #fff;
+      padding: 50px 56px 60px;
+
+      .tab {
+        font-size: 20px;
+        color: $color-grey;
+        cursor: pointer;
+      }
+
+      .tab-active {
+        font-size: 24px;
+        color: #323233;
+        font-weight: 500;
+      }
+    }
+
+    .login-content-right {
+      display: flex;
+      align-items: center;
+      width: 320px;
+      border-radius: 6px;
+      background: #fff;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.body {
+  padding: 15px; /*no*/
+
+  .content {
+    width: 100%; /*no*/
+    height: 700px; /*no*/
+    padding: 40px 20px; /*no*/
+    background: #fff;
+
+    .content-head {
+      display: flex;
+      align-items: flex-start;
+      padding: 20px 30px; /*no*/
+      margin-top: 15px;
+      background: #f7f8fa;
+    }
+  }
+}

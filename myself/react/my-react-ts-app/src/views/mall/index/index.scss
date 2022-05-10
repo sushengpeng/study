@@ -1,0 +1,59 @@
+.main {
+  display: flex;
+  height: 100vh; /*no*/
+  background: #f7f8fa;
+
+  .main-body {
+    flex: 1;
+
+    .main-body-content {
+      position: relative;
+      height: calc(100% - 60px); /*no*/
+      margin-top: 4px;
+      overflow: hidden;
+    }
+  }
+}
+
+.main-menu {
+  width: 120px; /*no*/
+  height: 100%;
+  padding-top: 16px; /*no*/
+  border-right: 1px solid #ebedf0; /*no*/
+  // background: #22242f;
+  background: #fff;
+
+  .main-meau-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 14px; /*no*/
+    padding: 11px 20px;
+    color: #7d7e80;
+    cursor: pointer;
+
+    i {
+      margin-right: 5px;
+      font-size: 18px; /*no*/
+      color: #7d7e80;
+    }
+  }
+
+  .active {
+    position: relative;
+    color: $color-theme !important;
+
+    &::after {
+      position: absolute;
+      right: 10px; /*no*/
+      content: "";
+      width: 4px; /*no*/
+      height: 21px; /*no*/
+      border-radius: 3px; /*no*/
+      background: $color-theme;
+    }
+    i {
+      color: $color-theme !important;
+    }
+  }
+}
