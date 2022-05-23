@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-04-27 21:04:21
- * @LastEditTime: 2022-05-09 09:40:04
+ * @LastEditTime: 2022-05-17 14:44:49
  * @LastEditors: Please set LastEditors
  * @Description:
  */
@@ -39,6 +39,7 @@ const Managet = lazy(() => import("@/views/managet"));
 const MallIndex = lazy(() => import("@/views/mall/index"));
 const MallManage = lazy(() => import("@/views/mall/manage"));
 const MallGoods = lazy(() => import("@/views/mall/goods"));
+const PageBuild = lazy(() => import("@/views/mall/pageBuild"));
 const layoutRouteList: IRoute[] = [
   {
     path: "/login",
@@ -74,6 +75,13 @@ const layoutRouteList: IRoute[] = [
         component: MallGoods,
         meta: {
           title: '商品',
+        },
+      },
+      {
+        path: "/mall/page-build",
+        component: PageBuild,
+        meta: {
+          title: '页面配置',
         },
       },
     ]

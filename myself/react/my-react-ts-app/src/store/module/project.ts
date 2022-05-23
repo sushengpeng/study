@@ -3,7 +3,7 @@ import { IAction } from '../types';
 export interface Project {
     project: ProjectProp
     fixedPages: Array<object>     // 静态页面集合
-    curPage: string               // 当前页面
+    curPage: PageItem               // 当前页面
     curComponent: string          // 当前物料
     dragComponent: string         // 拖拽物料
     dragStatus: boolean           // 拖拽入页面状态
@@ -19,10 +19,10 @@ export interface ProjectProp {
     userId?: string
 }
 export interface PageItem {
-    id: string
-    name: string
-    home: boolean
-    component: object[]
+    id?: string
+    name?: string
+    home?: boolean
+    componentList?: object[]
 }
 export interface ComponentInfo {
 
@@ -30,7 +30,7 @@ export interface ComponentInfo {
 const defaultProject: Project = {
     project: {},
     fixedPages: [],
-    curPage: "",
+    curPage: {},
     curComponent: "",
     dragComponent: "",
     dragStatus: false
@@ -38,6 +38,14 @@ const defaultProject: Project = {
 export const setProject: (project: ProjectProp) => IAction<ProjectProp> = (project: ProjectProp) => ({
     type: 'SET_PROJECT',
     payload: project,
+});
+export const setCurPage: (page: ProjectProp) => IAction<ProjectProp> = (page: ProjectProp) => ({
+    type: 'SET_CURPAGE',
+    payload: page,
+});
+export const setHomePage: (page: ProjectProp) => IAction<ProjectProp> = (page: ProjectProp) => ({
+    type: 'SET_HOMEPAGE',
+    payload: page,
 });
 const projectReducer: Reducer<Project, IAction<any>> = (
     state = defaultProject,
@@ -47,6 +55,21 @@ const projectReducer: Reducer<Project, IAction<any>> = (
     switch (type) {
         case 'SET_PROJECT':
             state.project = { ...payload }
+            return { ...state };
+        case 'SET_CURPAGE':
+            state.curPage = { ...payload }
+            return { ...state };
+        case 'SET_HOMEPAGE':
+            // state.project.pages =
+            let { pages } = state.project
+            pages?.map((page: PageItem) => {
+                if (page.id === payload.id) {
+                    page.home = true
+                } else {
+                    page.home = false
+                }
+                return page
+            })
             return { ...state };
         default:
             return state;

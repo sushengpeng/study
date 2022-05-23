@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Button } from "antd"
 const Index = () => {
     const back = () => { }
@@ -16,7 +16,7 @@ const Index = () => {
         width: '100%',
         padding: '0 20px',
         background: '#fff',
-        borderBottom:' 1px solid #ebedf0',
+        borderBottom: ' 1px solid #ebedf0',
     }
     const marginLeft10 = {
         marginLeft: '10px'
@@ -38,4 +38,4 @@ const Index = () => {
     )
 }
 
-export default Index
+export default memo(Index)

@@ -1,0 +1,30 @@
+.wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 176px; /*no*/
+  overflow: hidden;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px; /*no*/
+  margin-bottom: 8px; /*no*/
+  padding: 10px 0; /*no*/
+  font-size: 12px; /*no*/
+  color: #666;
+
+  i {
+    font-size: 29px; /*no*/
+    // margin-top: 5px; /*no*/
+    // margin-bottom: 10px; /*no*/
+  }
+
+  &:hover {
+    color: #fff;
+    background: $color-theme;
+  }
+}

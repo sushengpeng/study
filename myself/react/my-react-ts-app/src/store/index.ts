@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-05 08:48:11
- * @LastEditTime: 2022-05-08 19:28:26
+ * @LastEditTime: 2022-05-16 15:18:42
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -14,9 +14,11 @@ import storage from 'redux-persist/lib/storage';
 import { IStoreState, IAction } from "./types";
 import userReducer from "./module/user";
 import projectReducer from "./module/project";
+import widegtReducer from "./module/widget";
 const reducers: Reducer<IStoreState, IAction<any>> = combineReducers<IStoreState>({
     user: userReducer,
-    project: projectReducer
+    project: projectReducer,
+    widget: widegtReducer
 });
 const persistConfig = {
     key: 'root',

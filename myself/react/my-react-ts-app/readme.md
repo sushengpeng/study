@@ -1,7 +1,7 @@
 <!--
  * @Autor: flygg123
  * @Date: 2022-04-27 20:21:42
- * @LastEditTime: 2022-05-08 20:03:03
+ * @LastEditTime: 2022-05-20 09:33:00
  * @LastEditors: Please set LastEditors
  * @Description: 
 -->
@@ -14,3 +14,17 @@
 - `useEffect` 是官方推荐拿来代替 `componentDidMount`/`componentDidUpdate`/`componentWillUnmount` 这三个生命周期函数的，但是它们并不是完全等价的，`useEffect` 是在浏览器渲染结束之后才执行的，而这三个生命周期函数是在浏览器渲染之前同步执行的，React 还有一个官方的 `hook` 是完美等价于这三个生命周期函数的，叫 `useLayoutEffect`
 - `react-router-dom` 的v6 版本中若嵌套路由中需要默认展示的时候，首先需要在根路由中使用 `OutLet`（类似于vue中的`router-view`） ,其位置为子路由展示的位置，在router中需要配置`index`
 - `redux-persist` 在触发`reducer`的时候返回需要使用`{ ...state }`的形式返回，否则新导入的数据无法持续化缓存到`storage`中
+- `useImperativeHandle` 正常情况下 ref 是不能挂在到函数组件上的，因为函数组件没有实例，但是 useImperativeHandle 为我们提供了一个类似实例的东西。它帮助我们通过 useImperativeHandle 的第 2 个参数，所返回的对象的内容挂载到 父组件的 ref.current 上
+- `useStore` 
+  ```javascript
+    const user = useStore().getState().user
+  ```
+- `useSelector` 
+  ```javascript
+    const user = userSelector((state)=>state.user)
+  ```
+- `useDispatch` 
+  ```javascript
+    const dispatch = useDispatch()
+    dispatch(setUser(data))
+  ```

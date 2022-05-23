@@ -31,7 +31,6 @@ const CustomLink = ({ children, to, ...props }: CustomerLinkProps) => {
     );
 }
 const MallIndex = (props: Project) => {
-    console.log(props)
     return (
         <div className="main">
             <ul className="main-menu">
