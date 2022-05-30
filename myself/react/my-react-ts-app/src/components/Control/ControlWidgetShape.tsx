@@ -1,14 +1,14 @@
+/*
+ * @Autor: flygg123
+ * @Date: 2022-05-15 20:59:15
+ * @LastEditTime: 2022-05-30 14:03:22
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+ */
 import { useContext, useEffect } from "react"
 import { SlotProps } from "../Global/ConfigCtn"
 import { DeleteFilled } from "@ant-design/icons"
 import "./styles/ControlWidgetShape.scss"
-/*
- * @Autor: flygg123
- * @Date: 2022-05-15 20:59:15
- * @LastEditTime: 2022-05-20 09:03:14
- * @LastEditors: Please set LastEditors
- * @Description: 
- */
 interface ControlWidgetShapeProps extends SlotProps {
     data: any
 }

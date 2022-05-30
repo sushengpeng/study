@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-15 20:58:58
- * @LastEditTime: 2022-05-20 17:11:43
+ * @LastEditTime: 2022-05-30 16:13:30
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -17,8 +17,9 @@ function ControlConfig() {
     const widget = useSelector((state: IStoreState) => state.widget)
     const [curSchema, setCurSchema] = useState<any>({})
     useEffect(() => {
+        // debugger
+        console.log('ctx.currWidget',ctx.currWidget)
         setCurSchema(widget.fields[ctx.currWidget.component])
-        console.log(curSchema)
     }, [ctx])
     return (
         <div className="Config">

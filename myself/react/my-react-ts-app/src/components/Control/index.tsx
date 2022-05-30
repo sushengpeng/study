@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-13 14:54:33
- * @LastEditTime: 2022-05-19 17:27:56
+ * @LastEditTime: 2022-05-30 17:17:34
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -16,12 +16,14 @@ export const contextBox = createContext<any>({})
 function Control(props: any) {
     let [currWidget, setCurrWidget] = useState<any>({})
     let [dragWidget, setDragWidget] = useState<any>({})
-    useEffect(()=>{
-        console.log(currWidget)
-    },[currWidget])
+    let [h5Iframe, setH5Iframe] = useState<any>({})
+    let [dragStatus, setDragStatus] = useState<boolean>(false)
+    useEffect(() => {
+        console.log('currWidget', currWidget)
+    }, [currWidget])
     return (
         <div className="control">
-            <contextBox.Provider value={{ currWidget, setCurrWidget, dragWidget, setDragWidget }}>
+            <contextBox.Provider value={{ currWidget, setCurrWidget, dragWidget, setDragWidget, h5Iframe, setH5Iframe, dragStatus, setDragStatus }}>
                 <ControlWidgets />
                 <ControlPanel />
                 <ControlConfig />

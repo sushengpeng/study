@@ -1,0 +1,11 @@
+.wrap {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 25px; /*no*/
+}
+.wrap-label {
+  font-size: 14px; /*no*/
+  line-height: 32px; /*no*/
+}

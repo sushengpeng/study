@@ -1,0 +1,18 @@
+.colorContent {
+  position: relative;
+  justify-content: flex-end;
+  align-items: end;
+  cursor: pointer;
+}
+.colorBox {
+  width: 60px;
+  height: 32px;
+  border-radius: 3px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 0px 0px 1px inset;
+}
+.colorPick {
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  z-index: 10;
+}

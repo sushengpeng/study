@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-20 10:39:20
- * @LastEditTime: 2022-05-20 13:55:01
+ * @LastEditTime: 2022-05-26 20:13:02
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -9,19 +9,36 @@ import { Input } from 'antd';
 import ConfigItem from "@/components/Global/ConfigItem"
 import { Slider, InputNumber } from 'antd'
 import { useState } from 'react';
-interface SchemaNumberProps {
-    label: string
-    value: number | string
+import { SchemaObjectProps } from '../SchemaObject';
+import { useDispatch } from 'react-redux';
+import { setComponentItem } from '@/store/module/project';
+import defaultData from "./initializing"
+export interface SchemaNumberProps extends SchemaObjectProps {
+    id: string
+    _key: string
+    value?: string
 }
 function index(props: SchemaNumberProps) {
-    const [inputValue, setInputValue] = useState<number>(0)
+    const dispatch = useDispatch()
+    const sliderChange = (val: number) => {
+        dispatch(setComponentItem({ id: props.id, key: props._key, data: val }))
+    }
     return (
-        <ConfigItem label={props.label}>
-            <Slider min={0} max={100} value={inputValue}></Slider>
-            <InputNumber min={1}
-                max={20}
-                style={{ margin: '0 16px' }}
-                value={inputValue}></InputNumber>
+        <ConfigItem label={props.schema.label}>
+            <Slider
+                min={defaultData.options.min}
+                max={defaultData.options.max}
+                value={Number(props.value || 0)}
+                onChange={sliderChange}
+                style={{ width: '130px' }}
+            ></Slider>
+            <InputNumber
+                min={defaultData.options.min}
+                max={defaultData.options.max}
+                style={{ marginLeft: '16px' }}
+                value={Number(props.value || 0)}
+                onChange={sliderChange}
+            ></InputNumber>
         </ConfigItem>
     )
 }

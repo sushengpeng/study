@@ -1,28 +1,33 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { IStoreState } from '@/store/types'
 import { connect } from 'react-redux'
 import PhoneCtn from '../Global/PhoneCtn'
 import global from "@/config/global";
 import "./styles/ControlPanel.scss"
-import { Project } from '@/store/module/project';
+import { Project, setComponentItem, setItem } from '@/store/module/project';
 import ControlWidgetShape from './ControlWidgetShape';
 import { useContext } from 'react';
 import { contextBox } from "./index";
-interface contextInterface {
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { throttle } from 'lodash';
+export interface contextInterface {
 	curWidget: any
 	dragWidget: any
 	setCurrWidget: any
 	setDragWidget: any
+	setH5Iframe: any
 }
-function ControlPanel(props: Project) {
-	const { curPage } = props
+function ControlPanel() {
+	const project = useSelector((state: IStoreState) => state.project)
+	let { curPage } = project
 	const iframe = useRef(null)
+	const dispatch = useDispatch()
 	const [iframeUrl] = useState<string>(`${global.viewUrl}pages/build/build?operate=build`)
 	const [widgetInfoList, setWidgetInfoList] = useState<object[]>([])
 	const [iframeHeight, setIframeHeight] = useState<string>("")
-	const [dragstatus] = useState<boolean>(false)
 	const ctx = useContext(contextBox)
-	// console.log('ctx', ctx)
+	let { dragStatus } = ctx
 	useEffect(() => {
 		init()
 		getMessage()
@@ -30,6 +35,22 @@ function ControlPanel(props: Project) {
 	useEffect(() => {
 		getMessage()
 	}, [curPage.componentList])
+	useEffect(() => {
+		if (!ctx.dragStatus) {
+			console.log('拖入结束')
+			// @ts-ignore
+			iframe.current.contentWindow.postMessage(
+				{
+					even: "drop",
+					params: ctx.dragWidget,
+				},
+				"*"
+			);
+		}
+	}, [ctx.dragStatus])
+	useLayoutEffect(() => {
+		ctx.setH5Iframe(iframe)
+	})
 	// window.curPage = curPage
 	// window.widgetInfoList = widgetInfoList
 	// window.iframeHeight = iframeHeight
@@ -47,20 +68,28 @@ function ControlPanel(props: Project) {
 		setIframeHeight(params.reduce((a: any, b: any) => a + b.height, 0))
 	}
 	const setList = (params: any) => {
-		// @ts-ignore
-		iframe.current.contentWindow.postMessage(
-			{
-				even: "list",
-				params: props.curPage.componentList,
-			},
-			"*"
-		);
+		let { list } = params;
+		// setCurrWidget(list)
+		dispatch(setItem((draft: Project) => {
+			draft.curPage.componentList = list
+		}))
 	}
 	const setCurrWidget = (params: any) => {
 		let { id } = params;
-		ctx.setCurrWidget(props.curPage.componentList.find(
-			(item) => id == item.id
-		))
+		// 将旧的值保存到redux中
+		// let oldItem = ctx.currWidget
+		// const dispatch = useDispatch()
+		// dispatch(setItem((draft: Project) => {
+		// 	draft.curPage.componentList?.map((item:any)=>{
+		// 		if(item.id === oldItem.id){
+		// 			item = oldItem
+		// 		}
+		// 	})
+		// }))
+		let newItem = curPage.componentList?.find(
+			(item: any) => id == item.id
+		)
+		ctx.setCurrWidget(newItem)
 	}
 	const getMessageHandle = (e: any) => {
 		let { type, params } = e.data;
@@ -96,8 +125,38 @@ function ControlPanel(props: Project) {
 			"*"
 		);
 	}
-	const layerMove = () => {
+	const layerMove = (e: any) => {
+		console.log(e.target.getAttribute("type"));
+		throttle(layerMoveFun, 1)(e)
+	}
+	const layerMoveFun = (e: any) => {
+		e.stopPropagation()
+		console.log("物料拖拽移动,控制waiting移动");
+		// console.log(e)
+		if (!ctx.dragStatus) return;
+		debugger
+		let type = e.target.getAttribute("type");
+		let params = {
+			type: "page",
+		};
 
+		if (type == "widget") {
+			let [y, h] = [e.offsetY, e.target.offsetHeight];
+			params = {
+				id: e.target.getAttribute("id"),
+				type: "widget",
+				direction: y < h / 2,
+			};
+		}
+		// console.log('h5Iframe', ctx.h5Iframe)
+		// @ts-ignore
+		iframe.current.contentWindow.postMessage(
+			{
+				even: "move",
+				params,
+			},
+			"*"
+		);
 	}
 	// // 设置选中物料
 	// setCurrWidget(params) {
@@ -116,7 +175,7 @@ function ControlPanel(props: Project) {
 						frameBorder="no"
 						style={{
 							height: iframeHeight + 'px',
-							pointerEvents: dragstatus ? 'none' : 'auto',
+							pointerEvents: dragStatus ? 'none' : 'auto',
 						}}
 						src={iframeUrl}
 						onLoad={init}
@@ -126,8 +185,9 @@ function ControlPanel(props: Project) {
 						className="page-layer"
 						style={{
 							height: iframeHeight + 'px',
-							zIndex: dragstatus ? '20' : '1',
+							zIndex: dragStatus ? '20' : '1',
 						}}
+						type="page"
 						onDragOver={layerMove}>
 						{
 							widgetInfoList.map((item: any, index: number) => {
@@ -135,6 +195,7 @@ function ControlPanel(props: Project) {
 									<div
 										className="page-layer-widget"
 										id={item.id}
+										type="widget"
 										style={{ height: item.height + 'px' }}
 									></div>
 								</ControlWidgetShape>
@@ -147,8 +208,4 @@ function ControlPanel(props: Project) {
 	)
 }
 
-export default connect((state: IStoreState) => {
-	return {
-		curPage: state.project.curPage
-	}
-})(ControlPanel)
+export default ControlPanel

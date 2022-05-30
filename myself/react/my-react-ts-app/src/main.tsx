@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-04-27 20:13:19
- * @LastEditTime: 2022-05-08 18:28:30
+ * @LastEditTime: 2022-05-27 11:28:32
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -14,10 +14,14 @@ import store from './store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { persistor } from "@/store/index"
+import zhCN from 'antd/lib/locale/zh_CN';
+import { ConfigProvider } from 'antd';
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <App />
-    </PersistGate>
-  </Provider>
+  <ConfigProvider locale={zhCN}>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
+  </ConfigProvider>
 )

@@ -66,8 +66,7 @@ const MallManage = (props: Project) => {
 const ManageTable = (props: any) => {
   let { pages } = props
   pages = pages.map((item: any, index: number) => {
-    item.key = index
-    return item
+    return { key: index, ...item }
   })
   const titleStyle = {
     display: 'flex',

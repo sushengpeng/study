@@ -1,0 +1,28 @@
+.selectItem {
+  width: 60px; /*no*/
+  height: 32px; /*no*/
+  line-height: 30px; /*no*/
+  border: 1px solid #dcdee0; /*no*/
+  border-radius: 0;
+  border-color: #ebedf0;
+  font-size: 12px; /*no*/
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  &:hover {
+    color: #155bd4;
+    border-color: #155bd4;
+    background-color: #e0edff;
+  }
+}
+.selectItemActive {
+  color: #155bd4;
+  border-color: #155bd4;
+  background-color: #e0edff;
+}
+.itemValue {
+  flex: 1;
+  line-height: 32px;
+  min-width: 60px;
+}

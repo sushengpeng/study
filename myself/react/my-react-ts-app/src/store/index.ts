@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-05 08:48:11
- * @LastEditTime: 2022-05-16 15:18:42
+ * @LastEditTime: 2022-05-25 14:33:29
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -28,9 +28,9 @@ const persistConfig = {
 const myPersistReducer = persistReducer(persistConfig, reducers)
 const middleware: Middleware[] = [reduxThunk];
 
-if (process.env.NODE_ENV === "development") {
-    middleware.push(reduxLogger);
-}
+// if (process.env.NODE_ENV === "development") {
+//     middleware.push(reduxLogger);
+// }
 function createMyStore() {
     /* eslint-disable no-underscore-dangle */
     const store = window.__REDUX_DEVTOOLS_EXTENSION__
