@@ -1,11 +1,11 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-27 10:56:07
- * @LastEditTime: 2022-05-27 11:01:21
- * @LastEditors: 
+ * @LastEditTime: 2022-06-05 11:47:11
+ * @LastEditors: Please set LastEditors
  * @Description: 
  */
-import React from 'react'
+import React, { createRef, useRef } from 'react'
 import { SchemaObjectProps } from '../SchemaObject'
 import { setComponentItem } from '@/store/module/project'
 import { useDispatch } from 'react-redux'
@@ -18,14 +18,16 @@ export interface SchemaStringProps extends SchemaObjectProps {
 }
 function SchemaStringIndex(props: SchemaStringProps) {
     const dispatch = useDispatch()
-    const inputChange = (item: any) => {
-        console.log(props)
-        dispatch(setComponentItem({ id: props.id, key: props._key, data: item.value }))
+    const input = useRef(null)
+    const inputChange = (e: any) => {
+        let dom : any = input.current
+        dispatch(setComponentItem({ id: props.id, key: props._key, data: dom.input.value }))
     }
     return (
         <ConfigItem label={props.schema.label}>
             <Input
-                value={props.value}
+                ref={input}
+                defaultValue={props.value}
                 onChange={inputChange}
             ></Input>
         </ConfigItem >

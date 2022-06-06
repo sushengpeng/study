@@ -1,13 +1,24 @@
-import React, { memo } from 'react'
+/*
+ * @Autor: flygg123
+ * @Date: 2022-05-09 10:32:06
+ * @LastEditTime: 2022-05-31 10:32:16
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+ */
+import React, { memo, useState } from 'react'
 import { Button } from "antd"
+import SaveDialog from './SaveDialog'
 const Index = () => {
+    const [showDialog, setShowDialog] = useState<boolean>(false)
     const back = () => { }
     const toSchema = () => { }
     const viewQr = () => { }
     const baopenSaveck = () => { }
     const show = () => { }
     const onLogout = () => { }
-    const openSave = () => { }
+    const openSave = () => {
+        setShowDialog(true)
+    }
     const topBarStyle = {
         display: 'flex',
         alignItems: 'center',
@@ -19,7 +30,13 @@ const Index = () => {
         borderBottom: ' 1px solid #ebedf0',
     }
     const marginLeft10 = {
-        marginLeft: '10px'
+        marginLeft: '10px',
+    }
+    const btnColor = {
+        marginLeft: '10px',
+        background: '#155bd4',
+        borderColor: '#155bd4',
+        color: '#fff'
     }
     return (
         <div>
@@ -34,6 +51,7 @@ const Index = () => {
                     <Button onClick={onLogout} style={marginLeft10}> 退出</Button>
                 </div>
             </div>
+            <SaveDialog showDialog={showDialog} setShowDialog={setShowDialog} />
         </div>
     )
 }

@@ -31,10 +31,10 @@ function ControlPanel() {
 	useEffect(() => {
 		init()
 		getMessage()
-	}, [])
-	useEffect(() => {
-		getMessage()
 	}, [curPage.componentList])
+	// useEffect(() => {
+	// 	getMessage()
+	// }, [curPage.componentList])
 	useEffect(() => {
 		if (!ctx.dragStatus) {
 			console.log('拖入结束')
@@ -126,7 +126,6 @@ function ControlPanel() {
 		);
 	}
 	const layerMove = (e: any) => {
-		console.log(e.target.getAttribute("type"));
 		throttle(layerMoveFun, 1)(e)
 	}
 	const layerMoveFun = (e: any) => {
@@ -134,7 +133,6 @@ function ControlPanel() {
 		console.log("物料拖拽移动,控制waiting移动");
 		// console.log(e)
 		if (!ctx.dragStatus) return;
-		debugger
 		let type = e.target.getAttribute("type");
 		let params = {
 			type: "page",
@@ -207,5 +205,9 @@ function ControlPanel() {
 		</div >
 	)
 }
-
+declare module 'react' {
+    interface HTMLAttributes<T> {
+        type?: string
+    }
+}
 export default ControlPanel

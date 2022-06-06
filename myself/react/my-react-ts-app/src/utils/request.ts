@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-04-27 20:39:14
- * @LastEditTime: 2022-05-06 10:27:46
+ * @LastEditTime: 2022-06-01 14:26:13
  * @LastEditors: Please set LastEditors
  * @Description:
  */
@@ -29,7 +29,7 @@ axios.defaults.headers.common = {
 
 // 指定请求地址
 
-axios.defaults.baseURL = "api";
+axios.defaults.baseURL = `${location.origin}/api`;
 
 // 添加请求拦截器
 axios.interceptors.request.use(
@@ -54,7 +54,7 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (response: AxiosResponse<ResponseData<any>>) => {
     if (response.data.status == "10000") {
-      return Promise.resolve(response.data);
+      return response.data;
     } else if (response.data.status == "10002") {
       window.location.href = `${window.location.origin
         }/login?redirectURL=${encodeURIComponent(window.location.href)}`;

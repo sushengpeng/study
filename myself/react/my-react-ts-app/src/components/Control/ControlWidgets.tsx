@@ -1,13 +1,13 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-05-15 20:57:53
- * @LastEditTime: 2022-05-30 16:47:42
+ * @LastEditTime: 2022-06-01 17:25:08
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
 import { IStoreState } from '@/store/types'
 import { getRandomCode } from '@/utils/utils'
-import { useContext } from 'react'
+import { useContext, useEffect, useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { cloneDeep } from 'lodash'
 import { contextBox } from '.'
@@ -16,6 +16,7 @@ function ControlWidgets(props: any) {
   const { initializing } = useSelector((state: IStoreState) => state.widget)
   // console.log(initializing)
   const ctx = useContext(contextBox)
+  const { curPage } = useSelector((state: IStoreState) => state.project)
   const dragStart = (e: any) => {
     let widgetName = e.target.dataset.component
     let cmp = cloneDeep(initializing[widgetName])
@@ -23,8 +24,16 @@ function ControlWidgets(props: any) {
     ctx.setDragWidget(cmp)
     ctx.setDragStatus(true)
   }
+  useEffect(() => {
+    if (!ctx.dragStatus && ctx.dragWidget) {
+      ctx.setCurrWidget(ctx.dragWidget)
+      ctx.setDragWidget(null)
+    }
+  }, [curPage.componentList])
   const dragEnd = () => {
     ctx.setDragStatus(false)
+    // console.log(ctx.dragWidget)
+    // ctx.setCurrWidget(ctx.dragWidget)
   }
   return (
     <div className="wrap">
