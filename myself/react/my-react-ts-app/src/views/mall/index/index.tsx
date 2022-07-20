@@ -1,5 +1,12 @@
-import React, { PureComponent } from 'react'
-import { Outlet, Link, LinkProps, useResolvedPath, useMatch } from 'react-router-dom'
+/*
+ * @Autor: flygg123
+ * @Date: 2022-05-07 16:18:24
+ * @LastEditTime: 2022-06-23 10:13:05
+ * @LastEditors: Please set LastEditors
+ * @Description: 
+ */
+import React, { PureComponent, useEffect } from 'react'
+import { Outlet, Link, LinkProps, useResolvedPath, useMatch, useNavigate } from 'react-router-dom'
 import { meauList } from '@/config/project'
 import "./index.scss"
 import { connect } from 'react-redux'
@@ -12,16 +19,9 @@ export interface CustomerLinkProps extends LinkProps {
 }
 const CustomLink = ({ children, to, ...props }: CustomerLinkProps) => {
     let resolved = useResolvedPath(to);
-    let match = useMatch({ path: resolved.pathname, end: true });
-
+    let match = useMatch({ path: resolved.pathname, end: false });
+    // console.log(match)
     return (
-        // <Link
-        //     style={{ textDecoration: match ? "underline" : "none" }}
-        //     to={to}
-        //     {...props}
-        // >
-        //     {children}
-        // </Link>
         <Link to={to} >
             <li className={`main-meau-item ${match ? 'active' : ''}`}>
                 <i className={props.icon} />
@@ -31,6 +31,10 @@ const CustomLink = ({ children, to, ...props }: CustomerLinkProps) => {
     );
 }
 const MallIndex = (props: Project) => {
+    const navigateTo = useNavigate()
+    useEffect(()=>{
+        navigateTo("/mall/index")
+    },[])
     return (
         <div className="main">
             <ul className="main-menu">

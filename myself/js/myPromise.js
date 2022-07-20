@@ -1,69 +1,159 @@
 // 先定义三个常量表示状态
-const PENDING = 'pending';
-const FULFILLED = 'fulfilled';
-const REJECTED = 'rejected';
-
-// 新建 MyPromise 类
-class MyPromise {
-  constructor() {
-    // executor 是一个执行器，进入会立即执行
-    // 并传入resolve和reject方法
-    this.resolve()
-    this.reject()
-  }
-
-  // 储存状态的变量，初始值是 pending
-  status = PENDING;
-
-  // resolve和reject为什么要用箭头函数？
-  // 如果直接调用的话，普通函数this指向的是window或者undefined
-  // 用箭头函数就可以让this指向当前实例对象
-  // 成功之后的值
-  value = null;
-  // 失败之后的原因
-  reason = null;
-
-  // 更改成功后的状态
-  resolve = (value) => {
-    // 只有状态是等待，才执行状态修改
-    if (this.status === PENDING) {
-      // 状态修改为成功
-      this.status = FULFILLED;
-      // 保存成功之后的值
-      this.value = value;
+const PENDING = "pending";
+const FULFILLED = "fulfilled";
+const REJECTED = "rejected";
+class Promise1 {
+  constructor(excutorCallBack) {
+    this.status = "pending";
+    this.value = undefined;
+    this.fulfillAry = [];
+    this.rejectedAry = [];
+    //=>执行Excutor
+    let resolveFn = (result) => {
+      if (this.status !== "pending") return;
+      let timer = setTimeout(() => {
+        this.status = "fulfilled";
+        this.value = result;
+        this.fulfillAry.forEach((item) => item(this.value));
+      }, 0);
+    };
+    let rejectFn = (reason) => {
+      if (this.status !== "pending") return;
+      let timer = setTimeout(() => {
+        this.status = "rejected";
+        this.value = reason;
+        this.rejectedAry.forEach((item) => item(this.value));
+      });
+    };
+    try {
+      excutorCallBack(resolveFn, rejectFn);
+    } catch (err) {
+      //=>有异常信息按照rejected状态处理
+      rejectFn(err);
     }
   }
-
-  // 更改失败后的状态
-  reject = (reason) => {
-    // 只有状态是等待，才执行状态修改
-    if (this.status === PENDING) {
-      // 状态成功为失败
-      this.status = REJECTED;
-      // 保存失败后的原因
-      this.reason = reason;
-    }
+  then(fulfilledCallBack, rejectedCallBack) {
+    typeof fulfilledCallBack !== "function"
+      ? (fulfilledCallBack = (result) => result)
+      : null;
+    typeof rejectedCallBack !== "function"
+      ? (rejectedCallBack = (reason) => {
+          throw new Error(reason instanceof Error ? reason.message : reason);
+        })
+      : null;
+    return new Promise1((resolve, reject) => {
+      this.fulfillAry.push(() => {
+        try {
+          let x = fulfilledCallBack(this.value);
+          x instanceof Promise ? x.then(resolve, reject) : resolve(x);
+        } catch (err) {
+          reject(err);
+        }
+      });
+      this.rejectedAry.push(() => {
+        try {
+          let x = rejectedCallBack(this.value);
+          x instanceof Promise ? x.then(resolve, reject) : resolve(x);
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
   }
-
-  then(onFulfilled) {
-    // 判断状态
-    if (this.status === FULFILLED) {
-      // 调用成功回调，并且把值返回
-      onFulfilled(this.value);
-    }
+  catch(rejectedCallBack) {
+    return this.then(null, rejectedCallBack);
   }
-  
-  catch(onRejected) {
-    if (this.status === REJECTED) {
-      // 调用失败回调，并且把原因返回
-      onRejected(this.reason);
-    }
+  static all(promiseAry = []) {
+    let index = 0,
+      result = [];
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < promiseAry.length; i++) {
+        promiseAry[i].then((val) => {
+          index++;
+          result[i] = val;
+          if (index === promiseAry.length) {
+            resolve(result);
+          }
+        }, reject);
+      }
+    });
+  }
+  static race(promiseAry) {
+    return new Promise((resolve, reject) => {
+      if (promiseAry.length === 0) {
+        return;
+      }
+      for (let i = 0; i < promiseAry.length; i++) {
+        promiseAry[i].then((val) => {
+          resolve(val);
+          return;
+        }, reject);
+      }
+    });
+  }
+  static resolve(value) {
+    if (value instanceof Promise1) return value;
+    return new Promise1((resolve) => resolve(value));
+  }
+  static reject(value) {
+    return new Promise1((resolve, reject) => reject(value));
   }
 }
 
-let promise = new MyPromise()
-promise.then(() => {
-  console.log(1111);
-}).catch(() => {
-  console.log(222);
-})
+// 新建 MyPromise 类
+class MyPromise {
+  constructor(excutorCallBack) {
+    this.value = null;
+    this.status = PENDING;
+    this.fulfillAry = [];
+    this.rejectedAry = [];
+    let resolveFn = (result) => {
+      if (this.status !== "pending") return;
+      let timer = setTimeout(() => {
+        this.status = "fulfilled";
+        this.value = result;
+        this.fulfillAry.forEach((item) => item(this.value));
+      }, 0);
+    };
+    let rejectFn = (reason) => {
+      if (this.status !== "pending") return;
+      let timer = setTimeout(() => {
+        this.status = "rejected";
+        this.value = reason;
+        this.rejectedAry.forEach((item) => item(this.value));
+      });
+    };
+    try {
+      excutorCallBack(resolveFn, rejectFn);
+    } catch (error) {
+      rejectFn(error);
+    }
+  }
+  then(fulfilledCallBack, rejectedCallBack) {
+    typeof fulfilledCallBack !== "function"
+      ? (fulfilledCallBack = (result) => result)
+      : null;
+    return MyPromise();
+  }
+  catch(onRejected) {
+    console.log(2222);
+  }
+  static resolve(value) {
+    if (value instanceof MyPromise) return value;
+    return new MyPromise((resolve) => resolve(value));
+  }
+  static reject(value) {
+    return new MyPromise((resolve, reject) => reject(value));
+  }
+}
+
+// new Promise((resolve, reject) => {
+//   resolve(111);
+// }).then((res) => {
+//   console.log(res);
+// });
+new Promise1((resolve, reject) => {
+  resolve(222);
+}).then((res) => {
+  console.log(res);
+});

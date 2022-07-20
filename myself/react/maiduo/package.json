@@ -174,5 +174,5 @@
     "axios": "^0.21.0",
     "babel-plugin-import": "^1.13.1"
   },
-  "proxy": "http://api.maiduoshop.com/"
+  "proxy": "https://mobile.jzctb.com"
 }

@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-04-27 21:04:21
- * @LastEditTime: 2022-05-17 14:44:49
+ * @LastEditTime: 2022-06-23 10:21:17
  * @LastEditors: Please set LastEditors
  * @Description:
  */
@@ -34,13 +34,24 @@ export interface IRoute extends IRouteBase {
  * 所有系统内部存在的页面路由都要在此地申明引入，而菜单栏的控制是支持异步请求控制的
  */
 import React, { lazy } from "react";
+const Redirect = lazy(() => import("@/views/redirect/index"));
 const Login = lazy(() => import("@/views/login/index"));
 const Managet = lazy(() => import("@/views/managet"));
 const MallIndex = lazy(() => import("@/views/mall/index"));
 const MallManage = lazy(() => import("@/views/mall/manage"));
 const MallGoods = lazy(() => import("@/views/mall/goods"));
+const MallGoodsManager = lazy(() => import("@/views/mall/goods/goodsManager"));
+const MallGroupManager = lazy(() => import("@/views/mall/goods/groupsManager"));
+const MallGoodsEdit = lazy(() => import("@/views/mall/goods/goodsEdit"));
 const PageBuild = lazy(() => import("@/views/mall/pageBuild"));
 const layoutRouteList: IRoute[] = [
+  {
+    path: "/",
+    component: Redirect,
+    meta: {
+      title: ""
+    }
+  },
   {
     path: "/login",
     component: Login,
@@ -64,11 +75,11 @@ const layoutRouteList: IRoute[] = [
     component: MallIndex,
     children: [
       {
+        path: '/mall/index',
         component: MallManage,
         meta: {
           title: '页面',
         },
-        isIndex: true
       },
       {
         path: "/mall/goods",
@@ -76,6 +87,29 @@ const layoutRouteList: IRoute[] = [
         meta: {
           title: '商品',
         },
+        children: [
+          {
+            path: "/mall/goods/goods-manager",
+            component: MallGoodsManager,
+            meta: {
+              title: '全部商品'
+            },
+          },
+          {
+            path: "/mall/goods/group-manager",
+            component: MallGroupManager,
+            meta: {
+              title: '全部分类'
+            }
+          },
+          {
+            path: "/mall/goods/edit",
+            component: MallGoodsEdit,
+            meta: {
+              title: '商品编辑'
+            }
+          },
+        ]
       },
       {
         path: "/mall/page-build",

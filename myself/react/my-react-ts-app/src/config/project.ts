@@ -3,7 +3,7 @@
  * @Autor: WangYuan
  * @Date: 2021-08-31 19:57:35
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-05-13 14:51:56
+ * @LastEditTime: 2022-06-23 10:12:10
  */
 
 // 固定页面集合
@@ -137,7 +137,7 @@ export const meauList = [
   {
     name: "页面",
     icon: "iconfont icon-huodongzujian-20",
-    path: "/mall",
+    path: "/mall/index",
   },
   {
     name: "商品",
