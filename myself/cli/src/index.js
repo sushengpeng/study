@@ -28,16 +28,18 @@ let chooseProject = () => {
         type: "list",
         name: "project",
         message: "选择运行项目",
-        choices: ["history", "pwxvue", "pwxvueProd", "创建模板"],
+        choices: ["history", "pwxvue", "pwxvueProd", "createMoules", "serve"],
       },
     ])
     .then((res) => {
-      path = path + res.project;
+      // path = path + res.project;
       project = res.project;
       if (project === "history") {
         selectHistory();
       } else if (project === "创建模板") {
         runCopy()
+      } else if (project === "serve") {
+        runServer();
       } else {
         chooseEnv();
       }
@@ -169,5 +171,19 @@ let selectHistory = () => {
       getCmd(res.history);
     });
 };
+let server = (cmd) => {
+  let dev = cprocess.exec(cmd,
+    { detached: true, maxBuffer: 10 * 1024 * 1024 },
+    function (error, stdout, stderr) {
+      if (error) console.log(error);
+    }
+  );
+  dev.stdout.pipe(process.stdout);
+  dev.stderr.pipe(process.stderr);
+}
+let runServer = () => {
+  const cmd = `npm run server`
+  server(cmd)
+}
 chooseProject();
 // utils.copy("./modules/template", "./modules/template1");
