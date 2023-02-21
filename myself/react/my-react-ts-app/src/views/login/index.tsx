@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-04-27 21:01:01
- * @LastEditTime: 2022-05-05 15:50:08
+ * @LastEditTime: 2022-11-09 19:09:31
  * @LastEditors: Please set LastEditors
  * @Description:
  */
@@ -37,7 +37,8 @@ const IndexForm = (props: LoginFormProps) => {
         login(params)
             .then((res: any) => {
                 message.success("登录成功");
-                props.setUserInfo(res.data)
+                debugger
+                props.setUserInfo(res)
                 navigateTo("/managet");
             })
             .catch((err: any) => {

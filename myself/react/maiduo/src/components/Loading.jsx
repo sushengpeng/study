@@ -16,7 +16,7 @@ class Loading  extends Component {
     let { loading } = this.props
     return (
       <div className='loading' style={{"display":loading?"none":"block"}}>
-        <img src={loaingImg.default} className="loadingImg" />
+        <img src={loaingImg} className="loadingImg" />
       </div>
     )
   }
