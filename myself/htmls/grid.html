@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    /* [class^=”feb”]
+    选择class 属性值以 “feb” 开头的所有元素
+    [class$=”feb”]
+    选择class属性值以 “feb” 结尾的所有元素
+    [class*=”feb”]
+    选择 class属性值中包含子串 “feb” 的所有元素 */
+    [class^="item"] {
+        background-color: green;
+    }
+
+    .gird_Box {
+        width: 100vw;
+        height: 500px;
+        display: grid;
+        /* display: grid指定一个容器采用网格布局 */
+        /* display: inline-grid 将容器元素设置成行内元素 */
+        /* grid-template-columns 规定每一列的宽度 */
+        /* grid-template-rows 规定每一行的高度 第几个就是第几行 */
+        /* repeat() （重复使用几次 参数） */
+        /* auto-fill关键字表示自动填充。 */
+        /* 2fr后者是前者的几倍。 */
+        /* auto关键字表示由浏览器自己决定长度。 */
+        grid-template-columns: repeat(4, 200px);
+        /* grid-template-rows: 200px 1fr 2fr; */
+        /* grid-row-gap属性设置行与行的间隔（行间距）
+        grid-column-gap属性设置列与列的间隔（列间距）
+        grid-gap属性是grid-column-gap和grid-row-gap的合并简写形式 */
+        grid-gap: 20px;
+        /* 设置顺序 */
+        /* grid-auto-flow: column; */
+    }
+
+    .item1 {
+        grid-column-start: span 2;
+        background-color: skyblue;
+    }
+
+    .item2 {
+        background-color: pink;
+    }
+</style>
+</head>
+
+<body>
+    <div class="gird_Box">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+        <div class="item4">item4</div>
+        <div class="item5">item5</div>
+    </div>
+</body>
+
+</html>

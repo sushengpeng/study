@@ -6,6 +6,8 @@ import { ResultEnum } from '@/config/enums/httpEnum'
 import { getToken, getLang } from '@/utils/auth'
 import { ElMessage } from 'element-plus'
 import router from '@/router'
+require
+
 // import { useUserStore } from '@/store'
 const axiosCanceler = new AxiosCanceler()
 const config = {

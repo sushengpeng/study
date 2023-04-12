@@ -50,7 +50,7 @@ public class Test3 {
         Stream<String> concatList = Stream.concat(stringList1.stream(), stringList2.stream());
         concatList.map(s -> {
             return new Performer(s.split(",")[0], Integer.parseInt(s.split(",")[1]));
-        }).toList()
+        }).toList();
         // List<Performer> performerList = new ArrayList<>();
         // concatList.forEach(item -> {
         //     String[] arr3 = item.split(",");

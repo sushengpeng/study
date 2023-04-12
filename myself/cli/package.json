@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node src/index.js",
-    "server": "node server/index.js"
+    "server": "cd ../nodejs/next && npm run start"
   },
   "bin": {
     "mycli": "src/index.js"

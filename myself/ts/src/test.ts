@@ -50,3 +50,23 @@ type Vehicle = Motorcycle;
 // console.log(Vehicle)
 let a: number = -1
 console.log(a / 2)
+
+type Factory<T> = T | number | string;
+type Stringify<T> = {
+  [K in keyof T]: string;
+};
+interface IFoo {
+  prop1: string;
+  prop2: number;
+  prop3: boolean;
+  prop4: () => void;
+}
+type PartialIFoo = Stringify<IFoo>;
+type IsEqual<T> = T extends true ? 1 : 2;
+type A = IsEqual<true>; // 1
+interface Test2 {
+  prop: A
+}
+function universalAdd<T extends number | bigint | string>(x: T, y: T) {
+  return x + (y as any);
+}

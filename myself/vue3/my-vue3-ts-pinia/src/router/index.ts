@@ -1,18 +1,28 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-06-24 09:15:04
- * @LastEditTime: 2022-07-19 14:43:06
+ * @LastEditTime: 2023-04-12 15:48:51
  * @LastEditors: Please set LastEditors
  * @Description:
  */
 // import { markRaw } from "vue";
 import { markRaw } from "vue";
 import * as VueRouter from "vue-router";
+import { Router } from 'vue-router'
 import NProgress from "@/config/nprogress";
+import { changeTitle } from '@/utils/changeLanguage'
 const layout = () => import("@/components/layout.vue")
-// 2. 定义一些路由
-// 每个路由都需要映射到一个组件。
-// 我们后面再讨论嵌套路由。
+declare module 'vue-router' {
+  interface RouteMeta {
+    title: string, // 标题
+    requireAuth?: boolean, // 是否验证登录
+    breadcrumb?: boolean // 是否在面包屑中展示
+    tagsView?: boolean // 是否在tagsView中显示
+    isShow?: boolean // 是否在左侧Menu菜单中显示
+    icon?: string // 菜单中显示的标题
+    sort?: number // 路由在菜单中显示的顺序
+  }
+}
 const routes = [
   {
     path: "/",
@@ -23,9 +33,27 @@ const routes = [
         name: "about",
         component: markRaw(import("@/views/about.vue")),
       },
+      {
+        path: "/index",
+        name: "index",
+        component: markRaw(import("@/views/index.vue")),
+      },
     ],
   },
-
+  {
+    path: "/login",
+    component: markRaw(import("@/views/login.vue")),
+    meta: {
+      title: "common.title",
+    }
+  },
+  {
+    path: "/excel",
+    component: markRaw(import("@/views/excel.vue")),
+    meta: {
+      title: "excel"
+    }
+  }
 ];
 
 // 3. 创建路由实例并传递 `routes` 配置
@@ -40,8 +68,9 @@ router.beforeEach((to, form, next) => {
   NProgress.start();
   next();
 });
-router.afterEach((to) => {
+router.afterEach(to => {
   NProgress.done();
+  changeTitle(to.meta.title)
 });
 
 export default router;

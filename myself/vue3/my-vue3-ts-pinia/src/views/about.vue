@@ -10,7 +10,7 @@
   <div class="outer"></div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
+import { defineComponent, reactive, h } from 'vue';
 export default defineComponent({
   name: 'about',
   setup() {

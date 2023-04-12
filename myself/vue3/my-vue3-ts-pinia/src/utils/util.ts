@@ -110,7 +110,8 @@ export function filterEnum(callValue: any, enumData: any[] = [], type?: string):
  * @return {String} 格式化后的值
  * */
 export function formatRouterTitle(title: string): string {
-    if(title.includes('.')) {
+    debugger
+    if (title.includes('.')) {
         return i18n.global.t(title)
     }
     return title

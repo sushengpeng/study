@@ -1,12 +1,14 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 const Index = () => import("../views/index.vue")
 const Test = () => import("../views/test.vue")
-const SetQrCode = () => import("../views/SetQrCode.vue")
+// const SetQrCode = () => import("../views/SetQrCode.vue")
+const TestEmit = () => import("../views/testEmit.vue")
 const routes = [
   { path: '/', redirect: "/test" },
   { path: '/index', component: Index },
   { path: '/test', component: Test },
-  { path: '/setQrCode', component: SetQrCode },
+  // { path: '/setQrCode', component: SetQrCode },
+  { path: '/testEmit', component: TestEmit },
 ]
 
 const router = createRouter({

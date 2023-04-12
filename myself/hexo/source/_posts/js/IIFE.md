@@ -45,5 +45,35 @@ new function () { console.log(8) }();
 8
 ```
 
+### call、apply、bind
+```javascript
+Function.prototype.myCall = function(target,...args){
+  target = target || window
+  const symbolKey = Symbol()
+  target[symbolKey] = this
+  const res = target[symbolKey](...args) // args本身是rest参数，搭配的变量是一个数组，数组解构后就可以一个个传入函数中
+  delete target[symbolKey] // 执行完借用的函数后，删除掉，留着过年吗？
+  return res
+}
+Function.prototype.myApply = function(target,args){ // 区别就是这里第二个参数直接就是个数组
+  target = target || window
+  const symbolKey = Symbol()
+  target[symbolKey] = this
+  const res = target[symbolKey](...args) // args本身是个数组，所以我们需要解构后一个个传入函数中
+  delete target[symbolKey] // 执行完借用的函数后，删除掉，留着过年吗？
+  return res
+}
+Function.prototype.myBind = function (target,...outArgs) {
+  target = target || {} // 处理边界条件
+  const symbolKey = Symbol()
+  target[symbolKey] = this
+  return function (...innerArgs) { // 返回一个函数
+    const res = target[symbolKey](...outArgs, ...innerArgs) // outArgs和innerArgs都是一个数组，解构后传入函数
+    // delete target[symbolKey] 这里千万不能销毁绑定的函数，否则第二次调用的时候，就会出现问题。
+    return res
+  } 
+}
+```
+
 
 

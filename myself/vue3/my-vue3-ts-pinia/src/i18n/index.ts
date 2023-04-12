@@ -8,7 +8,7 @@ type moduleType = Record<string, {
     [key: string]: any;
 }>
 // 加载 lang 文件夹下的国际化
-const loadLang = (module:moduleType) => {
+const loadLang = (module: moduleType) => {
     const messages = {}
     for (const item of Object.values(module)) {
         Object.assign(messages, item.default)
@@ -19,7 +19,6 @@ const messages = {
     'zh-cn': { ...loadLang(zh_cn) },
     'en': { ...loadLang(en) },
 }
-
 // 注册i8n实例并引入语言文件
 const i18n = createI18n({
     fallbackLocale: 'zh-cn',
@@ -28,4 +27,5 @@ const i18n = createI18n({
     locale: getLang() || getBrowserLang(),
     messages
 })
+console.log(i18n)
 export default i18n

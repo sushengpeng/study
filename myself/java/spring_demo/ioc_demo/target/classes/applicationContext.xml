@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://120.46.223.219:3306/"/>
+        <property name="username" value="sushengpeng"/>
+        <property name="password" value="577452275Su"/>
+    </bean>
+    <bean class="com.ioc.dao.impl.BookDaoImpl" id="bookDao"/>
+    <bean class="com.ioc.service.impl.BookServiceImpl" id="bookService" scope="prototype" init-method="init"
+          destroy-method="destroy">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+    <bean id="UserDaoFactory" class="com.ioc.factory.UserDaoFactory"/>
+    <bean id="UserDao" factory-bean="UserDaoFactory" factory-method="getUserDao"/>
+    <bean id="BookDaoImpl" class="com.ioc.dao.impl.BookDaoImpl">
+        <constructor-arg name="bookServiceImpl" ref="bookService"/>
+    </bean>
+    <bean id="GatherServiceImpl" class="com.ioc.service.impl.GatherServiceImpl">
+        <property name="array">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+        <property name="list">
+            <list>
+                <value>adaf</value>
+                <value>adfaf</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>a</value>
+                <value>b</value>
+                <value>c</value>
+                <value>c</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="a"/>
+                <entry key="2" value="b"/>
+                <entry key="3" value="c"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="111"/>
+            </props>
+        </property>
+    </bean>
+</beans>

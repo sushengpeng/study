@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-06-24 09:11:28
- * @LastEditTime: 2022-07-18 09:17:18
+ * @LastEditTime: 2022-08-26 10:06:50
  * @LastEditors: Please set LastEditors
  * @Description: 
  */
@@ -11,17 +11,23 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { resolve } from "path"
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: resolve(__dirname, "./src") }],
   },
+  css: {
+    preprocessorOptions:
+      { scss: { additionalData: '@use "@/styles/element/index.scss" as *;' } }
+  },
   plugins: [
     vue(),
+    DefineOptions(),
     createSvgIconsPlugin({
       // 指定需要缓存的图标文件夹
-      iconDirs: [resolve(__dirname, './src/assets/icons')],
+      iconDirs: [resolve(process.cwd(), './src/assets/svg')],
       // 指定symbolId格式
       symbolId: 'icon-[dir]-[name]',
     }),

@@ -13,7 +13,7 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "lib": [
-      "esnext",
+      "ES2015",
       "dom"
     ],
     "skipLibCheck": true,
@@ -23,7 +23,8 @@
       ]
     },
     "types": [
-      "element-plus/global"
+      "element-plus/global",
+      "unplugin-vue-define-options"
     ]
   },
   "include": [
