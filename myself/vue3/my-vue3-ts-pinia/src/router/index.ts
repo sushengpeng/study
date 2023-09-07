@@ -1,7 +1,7 @@
 /*
  * @Autor: flygg123
  * @Date: 2022-06-24 09:15:04
- * @LastEditTime: 2023-04-12 15:48:51
+ * @LastEditTime: 2023-09-07 09:09:56
  * @LastEditors: Please set LastEditors
  * @Description:
  */
@@ -44,7 +44,7 @@ const routes = [
     path: "/login",
     component: markRaw(import("@/views/login.vue")),
     meta: {
-      title: "common.title",
+      title: "common.login",
     }
   },
   {
@@ -53,7 +53,14 @@ const routes = [
     meta: {
       title: "excel"
     }
-  }
+  },
+  {
+    path: "/graph",
+    component: markRaw(import("@/views/graph.vue")),
+    meta: {
+      title: "graph"
+    }
+  },
 ];
 
 // 3. 创建路由实例并传递 `routes` 配置

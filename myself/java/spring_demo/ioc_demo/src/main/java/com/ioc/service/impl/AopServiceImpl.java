@@ -24,4 +24,9 @@ public class AopServiceImpl implements AopService {
     public void test4() {
         System.out.println("test4");
     }
+
+    @Override
+    public void test5(int a, int b, int c) {
+        System.out.println(a + "" + b + "" + c);
+    }
 }

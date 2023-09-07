@@ -18,7 +18,7 @@ public class AppMybatis {
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
         AccountDao accountDao = sqlSession.getMapper(AccountDao.class);
-        Account account = new Account(null,"test7","test7");
+        Account account = new Account(null,"test8","test9");
         accountDao.addUser(account);
         List<Account> all = accountDao.findAll();
         System.out.println(all);

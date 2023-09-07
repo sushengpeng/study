@@ -1,6 +1,9 @@
 package com.company.thread;
 
-public class threadDemo2 {
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
+public class threadDemo3 {
     /**
      * 1、继承Thread类的方式进行实现
      * 2、实现Runnable接口的方式进行实现
@@ -12,13 +15,13 @@ public class threadDemo2 {
      * 2.重写run方法
      * 3。创建子类的对象，并启动线程
      */
-    public static void main(String[] args) {
-        MyThread2 mt = new MyThread2();
-        Thread t1 = new Thread(mt);
-        t1.setName("t1");
-        Thread t2 = new Thread(mt);
-        t2.setName("t2");
-        t1.start();
-        t2.start();
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        MyThread3 myCallback = new MyThread3();
+        FutureTask<String> future = new FutureTask<String>(myCallback);
+        Thread myThread = new Thread(future);
+        myThread.setName("myThread");
+        myThread.start();
+        String result = future.get();
+        System.out.println(result);
     }
 }

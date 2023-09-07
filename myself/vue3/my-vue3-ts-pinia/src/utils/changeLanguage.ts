@@ -15,7 +15,6 @@ import router from '@/router'
 
 // 动态设置浏览器title
 export function changeTitle(title: string) {
-    debugger
     document.title = `${formatRouterTitle(title)} | ${TITLE}`
 }
 // v-md-editor 编辑器语言

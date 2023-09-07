@@ -27,5 +27,4 @@ const i18n = createI18n({
     locale: getLang() || getBrowserLang(),
     messages
 })
-console.log(i18n)
 export default i18n

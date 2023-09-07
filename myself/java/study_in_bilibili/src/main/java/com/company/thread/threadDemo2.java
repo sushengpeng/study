@@ -1,6 +1,6 @@
 package com.company.thread;
 
-public class threadDemo1 {
+public class threadDemo2 {
     /**
      * 1、继承Thread类的方式进行实现
      * 2、实现Runnable接口的方式进行实现
@@ -13,11 +13,13 @@ public class threadDemo1 {
      * 3。创建子类的对象，并启动线程
      */
     public static void main(String[] args) {
-        MyThread myThread1 = new MyThread();
-        MyThread myThread2 = new MyThread();
-        myThread1.setName("myThread1");
-        myThread2.setName("myThread2");
-        myThread1.start();
-        myThread2.start();
+        MyThread2 mt = new MyThread2();
+        Thread t1 = new Thread(mt);
+        t1.setName("t1");
+        Thread t2 = new Thread(mt);
+        t2.setName("t2");
+        t1.start();
+        t2.start();
+        System.out.println(t1.getPriority());
     }
 }

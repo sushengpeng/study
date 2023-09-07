@@ -17,7 +17,7 @@ const utils = require("./utils");
 const operatingEnv = ["Uat", "Sit", "Xhx", "Czq", "Nuat1", "Nuat2"];
 const runCopy = require("./copy");
 const params = [];
-let path = "D:\\jzBank\\";
+let path = "D:\\github\\package";
 let project = "";
 let history_cli_list = utils.get().list.map((item) => item.cli);
 //选择测试生产环境

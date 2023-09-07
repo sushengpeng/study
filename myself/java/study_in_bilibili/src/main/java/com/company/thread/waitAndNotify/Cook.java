@@ -1,2 +1,37 @@
-package com.company.thread.waitAndNotify;public class Cook {
+package com.company.thread.waitAndNotify;
+
+public class Cook extends Thread {
+    @Override
+    public void run() {
+        /**
+         * 1.  循环
+         * 2. 同步代码块
+         * 3. 判断共享数据是否到了末尾(到了末尾)判断共享数据是否到了末尾(没有到末尾，执行核心逻辑)
+         * 4. 判断共享数据是否到了末尾(没有到末尾，执行核心逻辑)
+         */
+        while (true) {
+            synchronized (Desk.lock) {
+                if (Desk.count == 0) {
+                    break;
+                } else {
+                    // 判断桌子上是否有食物
+                    // 如果有，就等待
+                    if (Desk.foodFlag == 1) {
+                        try {
+                            Desk.lock.wait();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    } else {
+                        // 如果没有，就制作食物
+                        System.out.println("厨师正在制作第" + (Desk.countTotal - Desk.count + 1) + "份食物");
+                        // 修改桌子上的食物状态
+                        Desk.foodFlag = 1;
+                        // 侥幸等待的消费者开吃
+                        Desk.lock.notifyAll();
+                    }
+                }
+            }
+        }
+    }
 }

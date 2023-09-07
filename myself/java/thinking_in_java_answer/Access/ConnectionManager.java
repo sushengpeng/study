@@ -5,7 +5,7 @@
 * programmer must not be able to explicitly create Connection objects, but can
 * only get them via a static method in ConnectionManager. When ConnectionManager
 * runs out of objects, it returns a null reference. Test the classes in main(). */
-package access;
+package Access;
 
 class Connection {
 	private static int count = 0;
