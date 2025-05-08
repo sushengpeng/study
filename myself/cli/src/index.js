@@ -133,6 +133,11 @@ let getCmd = (val) => {
   //npm run devSingleXhx bankLife Xhx
   //npm run dev uat
   //npm run devXhx
+// npm config get registry // 查看当前npm源
+// npm login // 登录npm
+// npm publish // 发布npm包
+// npm publish --access=public // 发布公共的npm包
+// npm version patch // 更新当前包版本 v0.0.1 -> v0.0.2
   let cmd =
     val ||
     `cd ${path} && D: && npm run ${params[0]}${params[1] === "all" ? "" : "Single"

@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive } from "vue";
 import { getProduct } from "../api/index";
+import Decimal from "decimal.js";
 export default defineComponent({
   setup() {
     let data = reactive({
@@ -15,6 +16,7 @@ export default defineComponent({
       list: [],
     });
     onMounted(() => {
+      window.Decimal = Decimal;
       let params = {
         page: 1,
         _ajax: 1,
